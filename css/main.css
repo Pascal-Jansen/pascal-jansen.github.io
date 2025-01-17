@@ -1,0 +1,497 @@
+/* ========== GLOBAL STYLES ========== */
+  body {
+    background: #faf9f9;
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+  }
+  
+  a {
+    color: #0083bb !important;
+    text-decoration: underline;
+    target: "_blank";
+  }
+  
+  a:focus {
+    color: #fff !important;
+    text-decoration: none !important;
+  }
+  
+  /* ========== HEADER AND NAVIGATION ========== */
+  header {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: 100px; /* Desktop height */
+    z-index: 99;
+    background-color: rgba(249, 249, 249, 0.6);
+    font-size: 22pt;
+    color: #000000;
+  }
+  
+  header .logo {
+    display: table-cell;
+    margin: 45px 100px 0 0;
+  }
+  
+  header nav {
+    margin-top: 40px;
+    display: table-cell;
+  }
+  
+  header nav li {
+    float: left;
+    margin-left: 40px;
+  }
+  
+  header nav li:first-child {
+    margin: 0;
+  }
+  
+  header nav li a {
+    color: #000000 !important;
+    font-size: 20px;
+    transition: all 0.2s linear;
+    text-decoration: none;
+  }
+  
+  header nav li a:hover,
+  header nav li a:focus {
+    text-decoration: none;
+    color: #b83000 !important;
+  }
+
+  
+  /* Download link icon */
+  a.paper::before {
+    content: '';
+    display: inline-block;
+    width: 16px;  /* Adjust size as needed */
+    height: 16px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 6px;
+    vertical-align: middle;
+    background-image: url('../images/paper-icon.png');
+  }
+  
+  /* External link icon */
+  a.video::before {
+    content: '';
+    display: inline-block;
+    width: 16px;  /* Adjust size as needed */
+    height: 16px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 6px;
+    vertical-align: middle;
+    background-image: url('../images/video-icon.png');
+  }
+  
+  /* Email link icon */
+  a.acm::before {
+    content: '';
+    display: inline-block;
+    width: 16px;  /* Adjust size as needed */
+    height: 16px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 6px;
+    vertical-align: middle;
+    background-image: url('../images/acm-dl-icon.jpeg');
+  }
+
+    /* award icon */
+    .award::before {
+        content: '';
+        display: inline-block;
+        width: 16px;  /* Adjust size as needed */
+        height: 16px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin-right: 6px;
+        vertical-align: middle;
+        background-image: url('../images/Honorable_Mention_Badge.jpg');
+    }
+  
+  
+/* ========== BANNER FADE/SLIDE (HEADHESIVE) ========== */
+  .banner {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+    z-index: 999; 
+  }
+  
+  .banner--clone {
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+  }
+  
+  .banner--stick {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  
+  .banner--unstick {
+    /* Optional */
+  }
+  
+  /* ========== BIO SECTION ========== */
+  .bio {
+    display: block;
+    position: relative;
+    width: 100%;
+    background: url('../test/images/photos/background.jpg') no-repeat center center;
+    background-size: cover;
+    color: #000000;
+    text-align: left !important;
+  }
+  
+  .bio span {
+    display: inline-block;
+  }
+  
+  .panel {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-color: rgba(250, 249, 249, 0);
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+  
+  /* Caption container: let bootstrap columns handle layout */
+  .bio .caption {
+    position: relative;
+    margin-top: 10px;
+    z-index: 1;
+    color: #000;
+  }
+  
+  .bio .caption h1 {
+    font-size: 60px;
+    font-weight: normal;
+    word-break: break-word;
+    width: auto;
+    margin-bottom: 20px;
+  }
+  
+  .bio .caption ul {
+    display: block;
+    top: 50%;
+    margin-bottom: 20px;
+  }
+  
+  .bio .caption li {
+    float: left;
+    margin-right: 50px;
+    font-size: 16px;
+  }
+  
+  .bio .caption p {
+    font-size: 16px;
+    line-height: 30px;
+    margin: 15px 0 35px 0;
+  }
+  
+  .bio .void {
+    height: 150px; /* Possibly remove if unneeded */
+  }
+  
+  .bio .agenda {
+    font-size: 15px;
+    margin-bottom: 100px;
+  }
+  
+  .bio .agenda h2 {
+    font-size: 25px;
+    font-weight: normal;
+    word-break: break-word;
+    margin-top: 10px;
+  }
+  
+  .bio .agenda p {
+    text-align: justify;
+    margin-bottom: 20px;
+  }
+
+    .bio .bio-link-list-wide {
+    display: block;
+    }
+    .bio .bio-link-list-narrow {
+        display: none;
+    }
+  
+  /* ========== PUBLICATION SECTION ========== */
+  .publication {
+    padding: 0 0 60px 0; /* Some bottom padding */
+    color: #000000;
+  }
+  
+  .publication .row {
+    padding-bottom: 70px; /* Adjust for spacing between rows */
+  }
+  
+  .publication img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .publication h1 {
+    font-size: 25px;
+    font-weight: normal;
+    word-break: break-word;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .publication h2 {
+    margin-top: 0;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 22px;
+    word-break: break-word;
+  }
+  
+  .publication p {
+    text-align: justify;
+  }
+  
+  .publication a {
+    margin-right: 0px;
+    line-height: 16px;
+  }
+  
+  /* ========== RESPONSIVE / MEDIA QUERIES ========== */
+  
+  /* Larger tablets down to mobile */
+  @media (max-width: 1199px) {
+    /* Keep original layout for large screens, but allow auto-height if needed */
+    .bio {
+      min-height: 500px; /* Reduced from 600px for slightly smaller screens */
+    }
+    .bio .agenda {
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 991px) {
+    header {
+      height: 80px; /* Slightly reduce the header height for smaller desktops/tablets */
+    }
+    .header .logo {
+      margin: 20px 40px 0 0;
+    }
+  
+    /* Adjust .bio spacing */
+    .bio {
+      min-height: 400px;
+    }
+  
+    .bio .caption h1 {
+      font-size: 40px;
+    }
+  
+    .bio .caption p {
+      font-size: 14px;
+    }
+
+    .bio .agenda {
+        margin-bottom: 20px;
+      }
+  
+    .publication {
+      padding: 60px 0;
+    }
+  
+    .publication .row {
+      padding-bottom: 60px;
+    }
+
+      /* 
+     Move the profile image to top & center on tablets/mobile,
+     and shrink it for a nicer fit.
+    */
+    .profile-image {
+        display: block;
+        position: static !important; /* Undo any absolute positioning if used */
+        float: none; /* Remove float to place it in normal document flow */
+        margin: 0 auto 0 auto; /* Center horizontally */
+        max-width: 50%; /* Smaller width for tablets/mobiles */
+    }
+  }
+  
+  @media (max-width: 767px) {
+    header {
+      height: auto;
+      padding: 10px 0; /* Let the header auto-size */
+    }
+    header .logo {
+      margin: 0 0 10px 0;
+      display: inline-block; /* Let it line up above nav */
+    }
+    header nav {
+      margin-top: 0;
+      display: block;
+    }
+    header nav li {
+      float: none;
+      margin: 5px 0;
+    }
+    header nav li a {
+      font-size: 18px;
+    }
+  
+    /* Let .bio adapt to phone sizes with no forced height */
+    .bio {
+      min-height: auto;
+      background: url('../test/images/photos/background_small.jpg') no-repeat center center;
+      background-size: cover;
+      padding: 0px 15px;
+    }
+  
+    .bio .caption h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+  
+    .bio .caption p {
+      font-size: 14px;
+      line-height: 20px;
+      margin-bottom: 20px;
+    }
+  
+    .bio .void {
+      display: none;
+    }
+  
+    .bio .agenda h2 {
+        font-size: 20px;
+    }
+
+    .publication {
+      padding: 40px 0;
+    }
+    .publication .row {
+      padding-bottom: 40px;
+    }
+
+    .profile-image {
+        max-width: 65%; /* Smaller width for tablets/mobiles */
+    }
+  }
+
+  @media (max-width: 570px) {
+    .bio .bio-link-list-wide {
+        display: none;
+    }
+    .bio .bio-link-list-narrow {
+        display: block;
+    }
+    }
+  
+  @media (max-width: 449px) {
+    header {
+      font-size: 25px;
+      padding: 5px 0;
+    }
+    .bio .caption h1 {
+      font-size: 30px;
+    }
+    .bio .caption p {
+      font-size: 12px;
+      line-height: 18px;
+    }
+    .bio .agenda h2 {
+        font-size: 15px;
+    }
+    .publication {
+      padding: 30px 0;
+    }
+    .publication .row {
+      padding-bottom: 30px;
+    }
+  }
+  
+  @media (max-width: 380px) {
+    .bio .caption h1 {
+      font-size: 20px;
+    }
+    .bio .caption p {
+      font-size: 12px;
+    }
+    .publication {
+      padding: 20px 0;
+    }
+    .publication .row {
+      padding-bottom: 20px;
+    }
+  }
+  
+  /* ========== OPTIONAL FLEX / UTILITY CLASSES ========== */
+  /* Use these if you need equal-height columns or other layouts. */
+  .equal-height {
+    display: flex;
+    flex-wrap: wrap; /* Let columns wrap on smaller screens */
+  }
+  
+  .align-bottom {
+    position: relative;
+    overflow: visible; 
+  }
+  
+  .profile-image {
+    position: absolute;
+    right: -50%; 
+    bottom: 0; 
+    width: auto; 
+    height: 100%; 
+    object-fit: cover; 
+  }
+  
+  .horizontal-list {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+  
+  .horizontal-list a {
+    text-decoration: underline;
+    color: inherit;
+  }
+  
+  .horizontal-list .separator {
+    margin: 0 5px;
+    color: #666;
+  }
+
+
+/* Modern Button Style */
+button.abstract-btn {
+    background-color: transparent;
+    border: none;
+    color: #0083bb;                /* Blue text color */
+    font-size: 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: underline;   /* Underline only the text */
+    text-underline-offset: 3px;   /* Slightly offset underline for clarity */
+    padding: 5px 10px;            /* Adjusted padding */
+    display: inline-block;        /* Reset display */
+    align-items: center;          /* No longer necessary but kept for consistency */
+}
+
+/* Hover Effect */
+button.abstract-btn:hover {
+    background-color: #e6f4fa;    /* Light blue background on hover */
+    color: #005f99;               /* Darker blue text on hover */
+    box-shadow: 0 4px 12px rgba(0, 131, 187, 0.3);
+    text-decoration: underline;
+}
