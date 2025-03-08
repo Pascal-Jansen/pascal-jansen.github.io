@@ -67,7 +67,7 @@
                         </p>
                         <br />
                         <p class="animated wow fadeInUp">
-                            <span>PhD Candidate and Research Associate at <a target="_blank" href="https://www.uni-ulm.de/en/in/mi/institute/staff/pascal-jansen">Ulm University</a><br>Institute of Media Informatics, Human-Computer Interaction Group</span><br><br>
+                            <span>PhD Candidate and Research Associate at <a target="_blank" href="https://www.uni-ulm.de/en/in/mi/institute/staff/pascal-jansen">Ulm University</a>, <br>Institute of Media Informatics, Human-Computer Interaction Group</span><br><br>
                             <span>Visiting Researcher at <a target="_blank" href="https://www.ucl.ac.uk/uclic/">University College London, Interaction Centre</a></span>
                         </p>
                         <br />
@@ -76,12 +76,11 @@
                             <p>
                                 My research combines <strong>Human-Computer Interaction (HCI)</strong>, 
                                 <strong>Computational Modeling</strong>, and <strong>Inclusive Design</strong> to create a future
-                                where technology—whether in <strong>mobility</strong> contexts or everyday 
-                                <strong>environments</strong>—is personalized seamlessly to each individual's states, preferences, 
+                                where technology in everyday environments is personalized seamlessly to each individual's states, preferences, 
                                 and needs. A key challenge lies in developing systems that effectively respond 
                                 to diverse user abilities and hardly predictable use contexts. By advancing 
                                 <strong>computational user interface optimization</strong>, 
-                                <strong>scalable simulations and evaluations</strong>, and 
+                                <strong>user interaction simulation and analysis</strong>, and 
                                 <strong>inclusive design</strong>, I aim to make 
                                 technology more intuitive, adaptive, and accessible for all.
                               </p>
@@ -151,79 +150,64 @@
                 <hr>
                 <h1>Publications (Excerpt)</h1>
 
-                <div class="row">
-                    <div class="col-md-6 text-center animated wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
-                        <img src="images/hud-sumo.png" />
-                    </div>
-                    
-                    <div class="col-md-6 animated wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
-                        <h2>HUD-SUMO: Simulacra of In-Vehicle Head-Up Displays Using SUMO To Study Large-Scale Effects</h2>
-                        
-                        <p> 
-                            <u><a target="_blank" href="https://www.pascal-jansen.github.io" style="text-decoration: none; margin-right: 0px;">Pascal Jansen*</a></u>, Mark Colley*, Elisabeth Wimmer, Jan Maresch, and Enrico Rukzio (<i>*joint first-author</i>)
-                        </p>
-                        
-                        <p><strong>HRI '25</strong>: Proceedings of the 2024 ACM/IEEE International Conference on Human-Robot Interaction</p>
-                    
-                        <div class="row" style="padding: 0;">
-                            <div class="col-sm-3">
-                                <!-- Abstract Button -->
-                                <button onclick="toggleAbstract(this, 'abstract-19')" class="abstract-btn">Abstract</button>
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
-                                <a target="_blank" href="data/publications/hud-sumo-hri25.pdf" class="paper">Paper</a> 
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
-                                <a target="_blank" href="data/videos/hud-sumo-video.mp4" class="video">Video</a>
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
-                                <a target="_blank" href="https://dl.acm.org/doi/abs/10.5555/3721488.3721614" class="acm">ACM</a>
-                            </div>
+                
+                    <div class="row">
+                        <div class="col-md-6 text-center animated wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+                            <img src="images/hud-sumo.png" />
                         </div>
                         
-                        <!-- Hidden Abstract -->
-                        <p id="abstract-19" style="display: none; padding-top: 5px;">
-                            Large-scale effects of head-up displays (HUDs) are currently unknown, as experiments focus primarily on empirical data from one participant. Therefore, we simulate the impact of augmented reality (AR) windshield HUDs on driving performance. Using the open-source simulators SUMO and CARLA, we model various AR HUD settings, such as fatigue, and assess their effects on key driving factors such as reaction time, speed adherence, lane-changing behavior, and acceleration. The HUD settings include brightness, information frequency, field of view, and relevance of displayed information. The simulation provides insight into how different HUD configurations may influence driving behavior, contributing to future vehicle design and safety guidelines for AR HUDs.
-                        </p>
+                        <div class="col-md-6 animated wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+                            <h2>HUD-SUMO: Simulacra of In-Vehicle Head-Up Displays Using SUMO To Study Large-Scale Effects</h2>
+                            
+                            <p> 
+                                <u><a target="_blank" href="https://www.pascal-jansen.github.io" style="text-decoration: none; margin-right: 0px;">Pascal Jansen*</a></u>, Mark Colley*, Elisabeth Wimmer, Jan Maresch, and Enrico Rukzio (<i>*joint first-author</i>)
+                            </p>
+                            
+                            <p><strong>HRI '25</strong>: Proceedings of the 2024 ACM/IEEE International Conference on Human-Robot Interaction</p>
+                        
+                            <div class="row" style="padding: 0; padding-left: 5px; margin-bottom: 10px;">
+                                    <!-- Abstract Button -->
+                                    <button onclick="toggleAbstract(this, 'abstract-19')" class="abstract-btn">Abstract</button> /
+                                    <a target="_blank" href="data/publications/hud-sumo-hri25.pdf" class="paper">Paper</a> /
+                                    <a target="_blank" href="data/videos/hud-sumo-video.mp4" class="video">Video</a> /
+                                    <a target="_blank" href="https://dl.acm.org/doi/abs/10.5555/3721488.3721614" class="acm">ACM</a>
+                            </div>
+                            
+                            <!-- Hidden Abstract -->
+                            <p id="abstract-19" style="display: none; padding-top: 5px; text-align: justify;">
+                                Large-scale effects of head-up displays (HUDs) are currently unknown, as experiments focus primarily on empirical data from one participant. Therefore, we simulate the impact of augmented reality (AR) windshield HUDs on driving performance. Using the open-source simulators SUMO and CARLA, we model various AR HUD settings, such as fatigue, and assess their effects on key driving factors such as reaction time, speed adherence, lane-changing behavior, and acceleration. The HUD settings include brightness, information frequency, field of view, and relevance of displayed information. The simulation provides insight into how different HUD configurations may influence driving behavior, contributing to future vehicle design and safety guidelines for AR HUDs.
+                            </p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-md-6 text-center animated wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
-                        <img src="images/opticarvis.png" />
-                    </div>
-                    
-                    <div class="col-md-6 animated wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
-                        <h2>OptiCarVis: Improving Automated Vehicle Functionality Visualizations Using Bayesian Optimization to Enhance User Experience</h2>
-                        
-                        <p> 
-                            <u><a target="_blank" href="https://www.pascal-jansen.github.io" style="text-decoration: none; margin-right: 0px;">Pascal Jansen*</a></u>, Mark Colley*, Svenja Krauß, Daniel Hirschle, and Enrico Rukzio (<i>*joint first-author</i>)
-                        </p>
-                        
-                        <p><strong>CHI '25</strong>: Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems (conditionally accepted)</p>
-                    
-                        <div class="row" style="padding: 0;">
-                            <div class="col-sm-3">
-                                <!-- Abstract Button -->
-                                <button onclick="toggleAbstract(this, 'abstract-18')" class="abstract-btn">Abstract</button>
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
-                                <a target="_blank" href="https://arxiv.org/abs/2501.06757" class="paper">Paper</a> 
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
-                                <a target="_blank" href="data/videos/opticar-video-figure.mp4" class="video">Video</a>
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
-                                <a target="_blank" href="https://dl.acm.org/doi/full/10.1145/3706598.3713514" class="acm">ACM</a>
-                            </div>
+                    <div class="row">
+                        <div class="col-md-6 text-center animated wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+                            <img src="images/opticarvis.png" />
                         </div>
                         
-                        <!-- Hidden Abstract -->
-                        <p id="abstract-18" style="display: none; padding-top: 5px;">
-                            Automated vehicle (AV) acceptance relies on their understanding via feedback. While visualizations aim to enhance user understanding of AV's detection, prediction, and planning functionalities, establishing an optimal design is challenging. Traditional "one-size-fits-all" designs might be unsuitable, stemming from resource-intensive empirical evaluations. This paper introduces OptiCarVis, a set of Human-in-the-Loop (HITL) approaches using Multi-Objective Bayesian Optimization (MOBO) to optimize AV feedback visualizations. We compare conditions using eight expert and user-customized designs for a Warm-Start HITL MOBO. An online study (N=117) demonstrates OptiCarVis's efficacy in significantly improving trust, acceptance, perceived safety, and predictability without increasing cognitive load. OptiCarVis facilitates a comprehensive design space exploration, enhancing in-vehicle interfaces for optimal passenger experiences and broader applicability.
-                        </p>
+                        <div class="col-md-6 animated wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+                            <h2>OptiCarVis: Improving Automated Vehicle Functionality Visualizations Using Bayesian Optimization to Enhance User Experience</h2>
+                            
+                            <p> 
+                                <u><a target="_blank" href="https://www.pascal-jansen.github.io" style="text-decoration: none; margin-right: 0px;">Pascal Jansen*</a></u>, Mark Colley*, Svenja Krauß, Daniel Hirschle, and Enrico Rukzio (<i>*joint first-author</i>)
+                            </p>
+                            
+                            <p><strong>CHI '25</strong>: Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems (conditionally accepted)</p>
+                        
+                            <div class="row" style="padding: 0; padding-left: 5px; margin-bottom: 10px;">
+                                    <!-- Abstract Button -->
+                                    <button onclick="toggleAbstract(this, 'abstract-18')" class="abstract-btn">Abstract</button> /
+                                    <a target="_blank" href="https://arxiv.org/abs/2501.06757" class="paper">Paper</a> /
+                                    <a target="_blank" href="data/videos/opticar-video-figure.mp4" class="video">Video</a> /
+                                    <a target="_blank" href="https://dl.acm.org/doi/full/10.1145/3706598.3713514" class="acm">ACM</a>
+                            </div>
+                            
+                            <!-- Hidden Abstract -->
+                            <p id="abstract-18" style="display: none; padding-top: 5px; text-align: justify;">
+                                Automated vehicle (AV) acceptance relies on their understanding via feedback. While visualizations aim to enhance user understanding of AV's detection, prediction, and planning functionalities, establishing an optimal design is challenging. Traditional "one-size-fits-all" designs might be unsuitable, stemming from resource-intensive empirical evaluations. This paper introduces OptiCarVis, a set of Human-in-the-Loop (HITL) approaches using Multi-Objective Bayesian Optimization (MOBO) to optimize AV feedback visualizations. We compare conditions using eight expert and user-customized designs for a Warm-Start HITL MOBO. An online study (N=117) demonstrates OptiCarVis's efficacy in significantly improving trust, acceptance, perceived safety, and predictability without increasing cognitive load. OptiCarVis facilitates a comprehensive design space exploration, enhancing in-vehicle interfaces for optimal passenger experiences and broader applicability.
+                            </p>
+                        </div>
                     </div>
-                </div>
 
 
                 <div class="row">
@@ -240,24 +224,16 @@
                         
                         <p><strong>CHI '25</strong>: Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems</p>
                     
-                        <div class="row" style="padding: 0;">
-                            <div class="col-sm-3">
+                        <div class="row" style="padding: 0; padding-left: 5px; margin-bottom: 10px;">
                                 <!-- Abstract Button -->
-                                <button onclick="toggleAbstract(this, 'abstract-17')" class="abstract-btn">Abstract</button>
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
-                                <a target="_blank" href="data/publications/_CHI25____eHMI_BO.pdf" class="paper">Paper</a> 
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
-                                <a target="_blank" href="data/videos/ehmi-video-figure.mp4" class="video">Video</a>
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
+                                <button onclick="toggleAbstract(this, 'abstract-17')" class="abstract-btn">Abstract</button> /
+                                <a target="_blank" href="data/publications/_CHI25____eHMI_BO.pdf" class="paper">Paper</a> /
+                                <a target="_blank" href="data/videos/ehmi-video-figure.mp4" class="video">Video</a> /
                                 <a target="_blank" href="https://dl.acm.org/doi/full/10.1145/3706598.3714187" class="acm">ACM</a>
-                            </div>
                         </div>
                         
                         <!-- Hidden Abstract -->
-                        <p id="abstract-17" style="display: none; padding-top: 5px;">
+                        <p id="abstract-17" style="display: none; padding-top: 5px; text-align: justify;">
                             The absence of a human operator in automated vehicles (AVs) may require external Human-Machine Interfaces (eHMIs) to facilitate communication with other road users in uncertain scenarios, for example, regarding the right of way.
 Given the plethora of adjustable parameters, balancing visual and auditory elements is crucial for effective communication with other road users. With N=37 participants, this study employed multi-objective Bayesian optimization to enhance eHMI designs and improve trust, safety perception, and mental demand. By reporting the Pareto front, we identify optimal design trade-offs. This research contributes to the ongoing standardization efforts of eHMIs, supporting broader adoption.
 </p>
@@ -279,24 +255,16 @@ Given the plethora of adjustable parameters, balancing visual and auditory eleme
                         
                         <p><strong>CHI '25</strong>: Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems</p>
                     
-                        <div class="row" style="padding: 0;">
-                            <div class="col-sm-3">
+                        <div class="row" style="padding: 0; padding-left: 5px; margin-bottom: 10px;">
                                 <!-- Abstract Button -->
-                                <button onclick="toggleAbstract(this, 'abstract-16')" class="abstract-btn">Abstract</button>
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
-                                <a target="_blank" href="data/publications/CHI2025___UAM_BO.pdf" class="paper">Paper</a> 
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
-                                <a target="_blank" href="data/videos/uam-bo-video-figure.mp4" class="video">Video</a>
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
+                                <button onclick="toggleAbstract(this, 'abstract-16')" class="abstract-btn">Abstract</button> /
+                                <a target="_blank" href="data/publications/CHI2025___UAM_BO.pdf" class="paper">Paper</a> /
+                                <a target="_blank" href="data/videos/uam-bo-video-figure.mp4" class="video">Video</a> /
                                 <a target="_blank" href="https://dl.acm.org/doi/full/10.1145/3706598.3713288" class="acm">ACM</a>
-                            </div>
                         </div>
                         
                         <!-- Hidden Abstract -->
-                        <p id="abstract-16" style="display: none; padding-top: 5px;">
+                        <p id="abstract-16" style="display: none; padding-top: 5px; text-align: justify;">
                             Automated Urban Air Mobility (UAM) can improve passenger transportation and reduce congestion, but its success depends on passenger trust. While initial research addresses passengers' information needs, questions remain about how to simulate air taxi flights and how these simulations impact users and interface requirements.
 We conducted a between-subjects study (N=40), examining the influence of motion fidelity in Virtual-Reality-simulated air taxi flights on user effects and interface design. Our study compared simulations with and without motion cues using a 3-Degrees-of-Freedom motion chair. Optimizing the interface design across six objectives, such as trust and mental demand, we used multi-objective Bayesian optimization to determine the most effective design trade-offs.
 Our results indicate that motion fidelity decreases users' trust, understanding, and acceptance, highlighting the need to consider motion fidelity in future UAM studies to approach realism. However, minimal evidence was found for differences or equality in the optimized interface designs, suggesting personalized interface designs.
@@ -319,15 +287,13 @@ Our results indicate that motion fidelity decreases users' trust, understanding,
                         
                         <p><strong>CHI '25</strong>: Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems</p>
                     
-                        <div class="row" style="padding: 0;">
-                            <div class="col-sm-3">
+                        <div class="row" style="padding: 0; padding-left: 5px; margin-bottom: 10px;">
                                 <!-- Abstract Button -->
                                 <button onclick="toggleAbstract(this, 'abstract-15')" class="abstract-btn">Abstract</button>
-                            </div>
                         </div>
                         
                         <!-- Hidden Abstract -->
-                        <p id="abstract-15" style="display: none; padding-top: 5px;">
+                        <p id="abstract-15" style="display: none; padding-top: 5px; text-align: justify;">
                         As the use of Head-Mounted Displays in moving vehicles increases, passengers can immerse themselves in visual experiences independent of their physical environment. However, interaction methods are susceptible to physical motion, leading to input errors and reduced task performance. This work investigates the impact of Gforces, vibrations, and unpredictable maneuvers on 3D interaction
 methods. We conducted a field study with 24 participants in both stationary and moving vehicles to examine the effects of vehicle motion on four interaction methods: (1) Gaze&Pinch, (2) DirectTouch,
 (3) Handray, and (4) HeadGaze. Participants performed selections in a Fitts’ Law task. Our findings reveal a significant effect of vehicle motion on interaction accuracy and duration across the tested combinations of Interaction Method × Road Type × Curve Type. We
@@ -351,15 +317,13 @@ found a significant impact of movement on throughput, error rate, and perceived 
                         
                         <p><strong>CHI '25</strong>: Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems</p>
                     
-                        <div class="row" style="padding: 0;">
-                            <div class="col-sm-3">
+                        <div class="row" style="padding: 0; padding-left: 5px; margin-bottom: 10px;">
                                 <!-- Abstract Button -->
                                 <button onclick="toggleAbstract(this, 'abstract-14')" class="abstract-btn">Abstract</button>
-                            </div>
                         </div>
                         
                         <!-- Hidden Abstract -->
-                        <p id="abstract-14" style="display: none; padding-top: 5px;">
+                        <p id="abstract-14" style="display: none; padding-top: 5px; text-align: justify;">
                             Urban gardening is widely recognized for its numerous health and environmental benefits. However, the lack of suitable garden spaces, demanding daily schedules, and limited gardening expertise present major roadblocks for citizens looking to engage in urban gardening. While prior research has explored smart home solutions to support urban gardeners, these approaches currently do not fully address these practical barriers. In this paper, we present PlantPal, a system that enables the cultivation of garden spaces irrespective of one's location, expertise level, or time constraints. PlantPal enables the shared operation of a precision agriculture robot (PAR) that is equipped with garden tools and a multi-camera system. Insights from a 3-week deployment (N=18) indicate that PlantPal facilitated the integration of gardening tasks into daily routines, fostered a sense of connection with one's field, and provided an engaging experience despite the remote setting. We contribute design considerations for future robot-assisted urban gardening concepts.
                         </p>
                     </div>
@@ -368,7 +332,7 @@ found a significant impact of movement on throughput, error rate, and perceived 
 
                 <div class="row">
                     <div class="col-md-6 text-center animated wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
-                        <img src="images/edulicit.jpg" />
+                        <img src="images/edulicit.png" />
                     </div>
                     
                     <div class="col-md-6 animated wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
@@ -380,21 +344,15 @@ found a significant impact of movement on throughput, error rate, and perceived 
                         
                         <p><strong>TRF '24</strong>: Transportation Research Part F: Psychology and Behavior</p>
                     
-                        <div class="row" style="padding: 0;">
-                            <div class="col-sm-3">
+                        <div class="row" style="padding: 0; padding-left: 5px; margin-bottom: 10px;">
                                 <!-- Abstract Button -->
-                                <button onclick="toggleAbstract(this, 'abstract-13')" class="abstract-btn">Abstract</button>
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
-                                <a target="_blank" href="data/publications/edulicit.pdf" class="paper">Paper</a> 
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
+                                <button onclick="toggleAbstract(this, 'abstract-13')" class="abstract-btn">Abstract</button> /
+                                <a target="_blank" href="data/publications/edulicit.pdf" class="paper">Paper</a> /
                                 <a target="_blank" href="https://www.sciencedirect.com/science/article/pii/S1369847824001141">Elsevier</a>
-                            </div>
                         </div>
                         
                         <!-- Hidden Abstract -->
-                        <p id="abstract-13" style="display: none; padding-top: 5px;">
+                        <p id="abstract-13" style="display: none; padding-top: 5px; text-align: justify;">
                             User acceptance is essential for successfully introducing automated vehicles (AVs). Understanding the technology is necessary to overcome skepticism and achieve acceptance. This could be achieved by visualizing (uncertainties of) AV's internal processes, including situation perception, prediction, and trajectory planning. At the same time, relevant scenarios for communicating the functionalities are unclear. Therefore, we developed EduLicitto concurrently elicit relevant scenarios and evaluate the effects of visualizing AV's internal processes. A website capable of showing annotated videos enabled this methodology. With it, we replicated the results of a previous online study (N=76) using pre-recorded real-world videos. Additionally, in a second online study (N=22), participants uploaded scenarios they deemed challenging for AVs using our website. Most scenarios included large intersections and/or multiple vulnerable road users. Our work helps assess scenarios perceived as challenging for AVs by the public and, simultaneously, can help educate the public about visualizations of the functionalities of current AVs.
                         </p>
                     </div>
@@ -416,21 +374,15 @@ found a significant impact of movement on throughput, error rate, and perceived 
                         
                         <p><strong>HRI '24</strong>: Proceedings of the 2024 ACM/IEEE International Conference on Human-Robot Interaction</p>
                     
-                        <div class="row" style="padding: 0;">
-                            <div class="col-sm-3">
+                        <div class="row" style="padding: 0; padding-left: 5px; margin-bottom: 10px;">
                                 <!-- Abstract Button -->
-                                <button onclick="toggleAbstract(this, 'abstract-12')" class="abstract-btn">Abstract</button>
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
-                                <a target="_blank" href="data/publications/ped-sumo.pdf" class="paper">Paper</a> 
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
+                                <button onclick="toggleAbstract(this, 'abstract-12')" class="abstract-btn">Abstract</button> /
+                                <a target="_blank" href="data/publications/ped-sumo.pdf" class="paper">Paper</a> /
                                 <a target="_blank" href="https://dl.acm.org/doi/abs/10.1145/3610977.3637478" class="acm">ACM</a>
-                            </div>
                         </div>
                         
                         <!-- Hidden Abstract -->
-                        <p id="abstract-12" style="display: none; padding-top: 5px;">
+                        <p id="abstract-12" style="display: none; padding-top: 5px; text-align: justify;">
                             As automated vehicles become more widespread but lack a driver to communicate in uncertain situations, external communication, for example, via LEDs or displays, is evaluated. However, the concepts are mostly evaluated in simple scenarios, such as one person trying to cross in front of one automated vehicle. The traditional empirical approach fails to study the large-scale effects of these in this not-yet-real scenario. Therefore, we built PedSUMO, an enhancement to SUMO for the simulacra of automated vehicles' effects on public traffic, specifically how pedestrian attributes affect their respect for automated vehicle priority at unprioritized crossings. We explain the algorithms used and the derived parameters relevant to the crossing. We open-source our code under https://github.com/M-Colley/pedsumo and demonstrate an initial data collection and analysis of Ingolstadt, Germany.
                         </p>
                     </div>
@@ -452,21 +404,15 @@ found a significant impact of movement on throughput, error rate, and perceived 
                         
                         <p><strong>IMWUT '24</strong>: Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies</p>
                     
-                        <div class="row" style="padding: 0;">
-                            <div class="col-sm-3">
+                        <div class="row" style="padding: 0; padding-left: 5px; margin-bottom: 10px;">
                                 <!-- Abstract Button -->
-                                <button onclick="toggleAbstract(this, 'abstract-11')" class="abstract-btn">Abstract</button>
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
-                                <a target="_blank" href="data/publications/esfs.pdf" class="paper">Paper</a> 
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
+                                <button onclick="toggleAbstract(this, 'abstract-11')" class="abstract-btn">Abstract</button> /
+                                <a target="_blank" href="data/publications/esfs.pdf" class="paper">Paper</a> /
                                 <a target="_blank" href="https://dl.acm.org/doi/abs/10.1145/3643558" class="acm">ACM</a>
-                            </div>
                         </div>
                         
                         <!-- Hidden Abstract -->
-                        <p id="abstract-11" style="display: none; padding-top: 5px;">
+                        <p id="abstract-11" style="display: none; padding-top: 5px; text-align: justify;">
                             Energy-saving features (ESFs) represent a simple way to reduce the resource consumption of home appliances (HAs), yet they remain under-utilized. While prior research focused on increasing the use of ESFs through behavior change interventions, there is currently no clarity on the barriers that restrict their utilization in the first place. To bridge this gap, we conducted a qualitative analysis of 349 Amazon product reviews and 98 Reddit discussions, yielding three qualitative themes that showcase how users perceive, interact with, and evaluate ESFs in HAs. Based on these themes, we derived frequent barriers to ESF adoption, which guided a subsequent expert focus group (N=5) to assess the suitability of behavior change interventions and potential alternative strategies for ESF adoption. Our findings deepen the understanding of everyday barriers surrounding ESFs and enable the targeted design and assessment of interventions for future HAs.
                         </p>
                     </div>
@@ -487,24 +433,16 @@ found a significant impact of movement on throughput, error rate, and perceived 
                         
                         <p><strong>CHI '24</strong>: Proceedings of the 2024 CHI Conference on Human Factors in Computing Systems</p>
                     
-                        <div class="row" style="padding: 0;">
-                            <div class="col-sm-3">
+                        <div class="row" style="padding: 0; padding-left: 5px; margin-bottom: 10px;">
                                 <!-- Abstract Button -->
-                                <button onclick="toggleAbstract(this, 'abstract-10')" class="abstract-btn">Abstract</button>
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
-                                <a target="_blank" href="data/publications/eye-gaze-game.pdf" class="paper">Paper</a> 
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
-                                <a target="_blank" href="data/videos/eye-gaze-game.mp4" class="video">Video</a>
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
+                                <button onclick="toggleAbstract(this, 'abstract-10')" class="abstract-btn">Abstract</button> /
+                                <a target="_blank" href="data/publications/eye-gaze-game.pdf" class="paper">Paper</a> /
+                                <a target="_blank" href="data/videos/eye-gaze-game.mp4" class="video">Video</a> /
                                 <a target="_blank" href="https://dl.acm.org/doi/full/10.1145/3613904.3641909" class="acm">ACM</a>
-                            </div>
                         </div>
                         
                         <!-- Hidden Abstract -->
-                        <p id="abstract-10" style="display: none; padding-top: 5px;">
+                        <p id="abstract-10" style="display: none; padding-top: 5px; text-align: justify;">
                             Gaze interaction is a promising interaction method to increase variety, challenge, and fun in games. We present “Shed Some Fear”, a 2D platform game including numerous eye-gaze-based interactions. “Shed Some Fear” includes control with eye-gaze and traditional keyboard input. The eye-gaze interactions are partially based on eye exercises reducing digital eye strain but also on employing peripheral vision. By employing eye-gaze as a necessary input mechanism, we explore the effects on and tradeoffs between user enjoyment and digital eye strain in a five-day longitudinal between-subject study (N=17) compared to interaction with a traditional mouse. We found that perceived competence was significantly higher with eye gaze interaction and significantly higher internal eye strain. With this work, we contribute to the not straightforward inclusion of eye tracking as a useful and fun input method for games.
                         </p>
                     </div>
@@ -526,24 +464,16 @@ found a significant impact of movement on throughput, error rate, and perceived 
                         
                         <p><strong>CHI '23</strong>: Proceedings of the 2023 CHI Conference on Human Factors in Computing Systems</p>
                     
-                        <div class="row" style="padding: 0;">
-                            <div class="col-sm-3">
+                        <div class="row" style="padding: 0; padding-left: 5px; margin-bottom: 10px;">
                                 <!-- Abstract Button -->
-                                <button onclick="toggleAbstract(this, 'abstract-9')" class="abstract-btn">Abstract</button>
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
-                                <a target="_blank" href="data/publications/AutoVis.pdf" class="paper">Paper</a> 
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
-                                <a target="_blank" href="data/videos/AutoVis.mp4" class="video">Video</a>
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
+                                <button onclick="toggleAbstract(this, 'abstract-9')" class="abstract-btn">Abstract</button> /
+                                <a target="_blank" href="data/publications/AutoVis.pdf" class="paper">Paper</a> /
+                                <a target="_blank" href="data/videos/AutoVis.mp4" class="video">Video</a> /
                                 <a target="_blank" href="https://dl.acm.org/doi/full/10.1145/3544548.3580760" class="acm">ACM</a>
-                            </div>
                         </div>
                         
                         <!-- Hidden Abstract -->
-                        <p id="abstract-9" style="display: none; padding-top: 5px;">
+                        <p id="abstract-9" style="display: none; padding-top: 5px; text-align: justify;">
                             Automotive user interface (AUI) evaluation becomes increasingly complex due to novel interaction modalities, driving automation, heterogeneous data, and dynamic environmental contexts. Immersive analytics may enable efficient explorations of the resulting multilayered interplay between humans, vehicles, and the environment. However, no such tool exists for the automotive domain. With AutoVis, we address this gap by combining a non-immersive desktop with a virtual reality view enabling mixed-immersive analysis of AUIs. We identify design requirements based on an analysis of AUI research and domain expert interviews (N=5). AutoVis supports analyzing passenger behavior, physiology, spatial interaction, and events in a replicated study environment using avatars, trajectories, and heatmaps. We apply context portals and driving-path events as automotive-specific visualizations. To validate AutoVis against real-world analysis tasks, we implemented a prototype, conducted heuristic walkthroughs using authentic data from a case study and public datasets, and leveraged a real vehicle in the analysis process.
                         </p>
                     </div>
@@ -565,24 +495,16 @@ found a significant impact of movement on throughput, error rate, and perceived 
                         
                         <p><strong>IMWUT '22</strong>: Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies</p>
                     
-                        <div class="row" style="padding: 0;">
-                            <div class="col-sm-3">
+                        <div class="row" style="padding: 0; padding-left: 5px; margin-bottom: 10px;">
                                 <!-- Abstract Button -->
-                                <button onclick="toggleAbstract(this, 'abstract-8')" class="abstract-btn">Abstract</button>
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
-                                <a target="_blank" href="data/publications/auto-design-space.pdf" class="paper">Paper</a> 
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
-                                <a target="_blank" href="https://dl.acm.org/doi/abs/10.1145/3534617" class="acm">ACM</a>
-                            </div>
-                            <div class="col-sm-3" style="padding-top: 5px;">
+                                <button onclick="toggleAbstract(this, 'abstract-8')" class="abstract-btn">Abstract</button> /
+                                <a target="_blank" href="data/publications/auto-design-space.pdf" class="paper">Paper</a> /
+                                <a target="_blank" href="https://dl.acm.org/doi/abs/10.1145/3534617" class="acm">ACM</a> /
                                 <a target="_blank" href="https://in-vehicle-interaction-design-space.onrender.com/" class="paper">Website</a>
-                            </div>
                         </div>
                         
                         <!-- Hidden Abstract -->
-                        <p id="abstract-8" style="display: none; padding-top: 5px;">
+                        <p id="abstract-8" style="display: none; padding-top: 5px; text-align: justify;">
                             Automotive user interfaces constantly change due to increasing automation, novel features, additional applications, and user demands. While in-vehicle interaction can utilize numerous promising modalities, no existing overview includes an extensive set of human sensors and actuators and interaction locations throughout the vehicle interior. We conducted a systematic literature review of 327 publications leading to a design space for in-vehicle interaction that outlines existing and lack of work regarding input and output modalities, locations, and multimodal interaction. To investigate user acceptance of possible modalities and locations inferred from existing work and gaps unveiled in our design space, we conducted an online study (N=48). The study revealed users' general acceptance of novel modalities (e.g., brain or thermal activity) and interaction with locations other than the front (e.g., seat or table). Our work helps practitioners evaluate key design decisions, exploit trends, and explore new areas in the domain of in-vehicle interaction.
                         </p>
                     </div>
@@ -640,24 +562,16 @@ found a significant impact of movement on throughput, error rate, and perceived 
                         
                         <p><strong>IMWUT '21</strong>: Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies</p>
                     
-                        <div class="row" style="padding: 0;">
-                            <div class="col-sm-3">
+                        <div class="row" style="padding: 0; padding-left: 5px; margin-bottom: 10px;">
                                 <!-- Abstract Button -->
-                                <button onclick="toggleAbstract(this, 'abstract-6')" class="abstract-btn">Abstract</button>
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
-                                <a target="_blank" href="data/publications/swivr-car-seat.pdf" class="paper">Paper</a> 
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
-                                <a target="_blank" href="data/videos/swivr-car-seat.mp4" class="video">Video</a>
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
+                                <button onclick="toggleAbstract(this, 'abstract-6')" class="abstract-btn">Abstract</button> /
+                                <a target="_blank" href="data/publications/swivr-car-seat.pdf" class="paper">Paper</a> /
+                                <a target="_blank" href="data/videos/swivr-car-seat.mp4" class="video">Video</a> /
                                 <a target="_blank" href="https://dl.acm.org/doi/abs/10.1145/3494968" class="acm">ACM</a>
-                            </div>
                         </div>
                         
                         <!-- Hidden Abstract -->
-                        <p id="abstract-6" style="display: none; padding-top: 5px;">
+                        <p id="abstract-6" style="display: none; padding-top: 5px; text-align: justify;">
                             Autonomous vehicles provide new input modalities to improve interaction with in-vehicle information systems. However, due to the road and driving conditions, the user input can be perturbed, resulting in reduced interaction quality. One challenge is assessing the vehicle motion effects on the interaction without an expensive high-fidelity simulator or a real vehicle. This work presents SwiVR-Car-Seat, a low-cost swivel seat to simulate vehicle motion using rotation. In an exploratory user study (N=18), participants sat in a virtual autonomous vehicle and performed interaction tasks using the input modalities touch, gesture, gaze, or speech. Results show that the simulation increased the perceived realism of vehicle motion in virtual reality and the feeling of presence. Task performance was not influenced uniformly across modalities; gesture and gaze were negatively affected while there was little impact on touch and speech. The findings can advise automotive user interface design to mitigate the adverse effects of vehicle motion on the interaction.
                         </p>
                     </div>
@@ -718,24 +632,16 @@ found a significant impact of movement on throughput, error rate, and perceived 
                             </p>
                         </div>
                 
-                        <div class="row" style="padding: 0; margin-top: 10px;">
-                            <div class="col-sm-3">
+                        <div class="row" style="padding: 0; margin-top: 10px; padding-left: 5px; margin-bottom: 10px;">
                                 <!-- Abstract Button -->
-                                <button onclick="toggleAbstract(this, 'abstract-4')" class="abstract-btn">Abstract</button>
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
-                                <a target="_blank" href="data/publications/the-social-engineer.pdf" class="paper">Paper</a> 
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
-                                <a target="_blank" href="data/videos/the-social-engineer.mp4" class="video">Video</a>
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
+                                <button onclick="toggleAbstract(this, 'abstract-4')" class="abstract-btn">Abstract</button> /
+                                <a target="_blank" href="data/publications/the-social-engineer.pdf" class="paper">Paper</a> /
+                                <a target="_blank" href="data/videos/the-social-engineer.mp4" class="video">Video</a> /
                                 <a target="_blank" href="https://dl.acm.org/doi/abs/10.1145/3383668.3419917" class="acm">ACM</a>
-                            </div>
                         </div>
                 
                         <!-- Hidden Abstract -->
-                        <p id="abstract-4" style="display: none; padding-top: 5px;">
+                        <p id="abstract-4" style="display: none; padding-top: 5px; text-align: justify;">
                             As system infrastructures are becoming more secure against technical attacks, it is more difficult for attackers to overcome them with technical means. Social engineering instead exploits the human factor of information security and can have a significant impact on organizations. The lack of awareness about social engineering favors the successful realization of social engineering attacks, as employees do not recognize them as such early enough, resulting in high costs for the affected company. Current training approaches and awareness courses are limited in their versatility and create little motivation for employees to deal with the topic. The high immersion of virtual reality can improve learning in this context. We created The Social Engineer, an immersive educational game in virtual reality, to raise awareness and to sensitize players about social engineering. The player impersonates a penetration tester and conducts security audits in a virtually simulated company. The game consists of a detailed game world containing three distinct missions that require the player to apply different social engineering attack methods. Our concept enables the game to be highly extensible and flexible regarding different playable scenarios and settings. The Social Engineer can potentially benefit companies as an immersive self-training tool for their employees, support security experts in teaching social engineering awareness as part of a comprehensive training course, and entertain interested individuals by leveraging fun and innovative gameplay mechanics.
                         </p>
                     </div>
@@ -756,24 +662,16 @@ found a significant impact of movement on throughput, error rate, and perceived 
                         
                         <p><strong>UIST '20</strong>: Proceedings of the 33rd Annual ACM Symposium on User Interface Software and Technology</p>
                     
-                        <div class="row" style="padding: 0;">
-                            <div class="col-sm-3">
+                        <div class="row" style="padding: 0; padding-left: 5px; margin-bottom: 10px;">
                                 <!-- Abstract Button -->
-                                <button onclick="toggleAbstract(this, 'abstract-3')" class="abstract-btn">Abstract</button>
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
-                                <a target="_blank" href="data/publications/shARe.pdf" class="paper">Paper</a> 
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
-                                <a target="_blank" href="data/videos/shARe.mp4" class="video">Video</a>
-                            </div>
-                            <div class="col-sm-2" style="padding-top: 5px;">
+                                <button onclick="toggleAbstract(this, 'abstract-3')" class="abstract-btn">Abstract</button> /
+                                <a target="_blank" href="data/publications/shARe.pdf" class="paper">Paper</a> /
+                                <a target="_blank" href="data/videos/shARe.mp4" class="video">Video</a> /
                                 <a target="_blank" href="https://dl.acm.org/doi/abs/10.1145/3379337.3415843" class="acm">ACM</a>
-                            </div>
                         </div>
                         
                         <!-- Hidden Abstract -->
-                        <p id="abstract-3" style="display: none; padding-top: 5px;">
+                        <p id="abstract-3" style="display: none; padding-top: 5px; text-align: justify;">
                             Head-Mounted Displays (HMDs) are the dominant form of enabling Virtual Reality (VR) and Augmented Reality (AR) for personal use. One of the biggest challenges of HMDs is the exclusion of people in the vicinity, such as friends or family. While recent research on asymmetric interaction for VR HMDs has contributed to solving this problem in the VR domain, AR HMDs come with similar but also different problems, such as conflicting information in visualization through the HMD and projection. In this work, we propose ShARe, a modified AR HMD combined with a projector that can display augmented content onto planar surfaces to include the outside users (non-HMD users). To combat the challenge of conflicting visualization between augmented and projected content, ShARe visually aligns the content presented through the AR HMD with the projected content using an internal calibration procedure and a servo motor. Using marker tracking, non-HMD users are able to interact with the projected content using touch and gestures. To further explore the arising design space, we implemented three types of applications (collaborative game, competitive game, and external visualization). ShARe is a proof-of-concept system that showcases how AR HMDs can facilitate interaction with outside users to combat exclusion and instead foster rich, enjoyable social interactions.    
                         </p>
                     </div>
@@ -854,9 +752,8 @@ found a significant impact of movement on throughput, error rate, and perceived 
                 <div class="row">
                     <div class="col-md-8 animated wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
                         <h1>Guest Lecturing</h1>
-                        <p>
-                            2025-02-13 <b> UCL Interaction Centre, London, UK</b> invited by <i> Mark Colley </i> <br/>
-                        </p>
+                        <p></p>
+                        2025-02-13 <b> UCL Interaction Centre, London, UK</b> invited by <i> Mark Colley </i> <br/>
 
 
                         <hr>

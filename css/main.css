@@ -13,7 +13,7 @@
   }
   
   a:focus {
-    color: #fff !important;
+    color: #6f0083 !important;
     text-decoration: none !important;
   }
   
@@ -64,57 +64,33 @@
   }
 
   
-  /* Download link icon */
+  /* Download link icon removed */
   a.paper::before {
-    content: '';
-    display: inline-block;
-    width: 16px;  /* Adjust size as needed */
-    height: 16px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    margin-right: 6px;
-    vertical-align: middle;
-    background-image: url('../images/paper-icon.png');
-  }
-  
-  /* External link icon */
-  a.video::before {
-    content: '';
-    display: inline-block;
-    width: 16px;  /* Adjust size as needed */
-    height: 16px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    margin-right: 6px;
-    vertical-align: middle;
-    background-image: url('../images/video-icon.png');
-  }
-  
-  /* Email link icon */
-  a.acm::before {
-    content: '';
-    display: inline-block;
-    width: 16px;  /* Adjust size as needed */
-    height: 16px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    margin-right: 6px;
-    vertical-align: middle;
-    background-image: url('../images/acm-dl-icon.jpeg');
+    display: none;
   }
 
-    /* award icon */
-    .award::before {
-        content: '';
-        display: inline-block;
-        width: 16px;  /* Adjust size as needed */
-        height: 16px;
-        background-size: contain;
-        background-repeat: no-repeat;
-        margin-right: 6px;
-        vertical-align: middle;
-        background-image: url('../images/Honorable_Mention_Badge.jpg');
-    }
+  /* External link icon removed */
+  a.video::before {
+    display: none;
+  }
+
+  /* Email link icon removed */
+  a.acm::before {
+    display: none;
+  }
+
+  /* award icon */
+  .award::before {
+      content: '';
+      display: inline-block;
+      width: 16px;  /* Adjust size as needed */
+      height: 16px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-right: 6px;
+      vertical-align: middle;
+      background-image: url('../images/Honorable_Mention_Badge.jpg');
+  }
   
   
 /* ========== BANNER FADE/SLIDE (HEADHESIVE) ========== */
@@ -235,7 +211,10 @@
   }
   
   .publication .row {
-    padding-bottom: 90px; /* Adjust for spacing between rows */
+    margin-bottom: 75px; /* Adjust for spacing between rows */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #faf9f9;
   }
   
   .publication img {
@@ -260,7 +239,7 @@
   }
   
   .publication p {
-    text-align: justify;
+    color: dimgray;
   }
   
   .publication a {
@@ -278,6 +257,9 @@
     }
     .bio .agenda {
       font-size: 14px;
+    }
+    .publication .row {
+      margin-bottom: 40px;
     }
   }
   
@@ -309,9 +291,11 @@
     .publication {
       padding: 60px 0;
     }
-  
+    .publication h2 {
+      margin-top: 15px;
+    }
     .publication .row {
-      padding-bottom: 60px;
+      margin-bottom: 30px;
     }
 
       /* 
@@ -379,7 +363,7 @@
       padding: 40px 0;
     }
     .publication .row {
-      padding-bottom: 40px;
+      margin-bottom: 20px;
     }
 
     .profile-image {
@@ -415,7 +399,7 @@
       padding: 30px 0;
     }
     .publication .row {
-      padding-bottom: 30px;
+      margin-bottom: 10px;
     }
   }
   
@@ -430,7 +414,7 @@
       padding: 20px 0;
     }
     .publication .row {
-      padding-bottom: 20px;
+      margin-bottom: 10px;
     }
   }
   
