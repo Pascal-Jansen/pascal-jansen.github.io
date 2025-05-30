@@ -1,5 +1,5 @@
 /* ==============================================================
-   GLOBAL STYLES (your original rules – untouched)
+   GLOBAL STYLES
    ============================================================== */
 
 body {
@@ -17,6 +17,10 @@ a {
 a:focus {
   color: #6f0083 !important;
   text-decoration: none !important;
+}
+
+.news-text {
+  color: dimgray;
 }
 
 /* ========== HEADER AND NAVIGATION ========== */
@@ -172,7 +176,7 @@ a.acm::before {
 
 /* ========== PUBLICATION SECTION ========== */
 .publication {
-  padding: 0 0 60px 0;
+  padding: 0 0 0px 0;
   color: #000000;
 }
 .publication .row {
@@ -208,7 +212,7 @@ a.acm::before {
 }
 
 /* ========== RESPONSIVE / MEDIA QUERIES ========== */
-/* (retain your original queries here without change) */
+
 
 /* ========== OPTIONAL FLEX / UTILITY CLASSES ========== */
 .equal-height {
@@ -227,6 +231,45 @@ a.acm::before {
   height: 100%;
   object-fit: cover;
 }
+/* --------  phones / tablets  -------- */
+@media (max-width: 991px) {
+  .profile-image {
+    position: relative;      /* take image out of the absolute layout       */
+    left: 50%;               /* move its left edge to the horizontal center */
+    transform: translateX(-50%); /* pull it back by half its own width      */
+    width: 50%;              /* or 100%; choose what looks best             */
+    height: auto;            /* keep aspect ratio                            */
+  }
+
+  .bio .agenda {
+    margin-bottom: 10px;
+  }
+
+  .publication h2 {
+    margin-top: 10px;
+  }
+
+  .zefwih-img {
+    width: 40%;
+  }
+}
+
+@media (max-width: 815px) {
+  .venn-wrapper {
+    margin-bottom: 160px;
+  }
+
+  .venn-wrapper h3 {
+    margin-left: 10px !important;
+  }
+}
+
+@media (max-width: 639px) {
+  .venn-wrapper {
+    margin-bottom: 0px;
+  }
+}
+
 .horizontal-list {
   display: flex;
   gap: 5px;
@@ -617,5 +660,87 @@ button.abstract-btn:hover {
       3vw,                   /* fluid */
       1.2rem                 /* max title */
     ) !important;
+  }
+}
+
+
+
+
+/* ---------- hamburger icon ---------- */
+.hamburger{
+  display:none;                 /* hidden on desktop */
+  position:absolute;            /* sits in header flow */
+  right:20px; top:34px;         /* tweak to taste      */
+  width:28px; height:24px;
+  cursor:pointer;
+  z-index:1000;
+}
+.hamburger span{
+  display:block;
+  width:100%; height:3px;
+  margin:5px 0;
+  background:#000;
+  transition:all .3s ease;
+}
+
+/* hidden checkbox controlling nav */
+.nav-toggle{display:none;}
+
+/* --------  phones / tablets  -------- */
+@media (max-width:991px){
+
+  .pull-right{margin-top:0;}
+
+  /* show hamburger, hide default inline nav */
+  .hamburger{display:block;}
+
+  header nav{
+    position:fixed;
+    top:100px;                  /* matches header height */
+    right:0; left:0;
+    max-height:0;               /* collapsed by default  */
+    overflow:hidden;
+    text-align:center;
+    transition:max-height .3s ease;
+    z-index:998;                /* below hamburger icon  */
+  }
+
+  /* translucent overlay + 10 px blur */
+  header nav::before{
+    content:"";
+    position:absolute;
+    inset:0;                               /* fill nav area            */
+    background:rgba(249,249,249,1);       /* 40 % tint                */
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);    /* Safari / iOS             */
+    pointer-events:none;                   /* let clicks reach links   */
+  }
+
+  /* menu list sits above the blurred overlay */
+  header nav ul{
+    position:relative;
+    display:block;
+    padding:15px 0 25px;
+  }
+  header nav li{
+    float:none;
+    margin:10px 0;
+  }
+  header nav li a{
+    font-size:18px;
+  }
+
+  /* expand menu when checkbox is checked */
+  .nav-toggle:checked ~ nav{max-height:320px;}
+
+  /* transform hamburger into an “X” */
+  .nav-toggle:checked + .hamburger span:nth-child(1){
+    transform:translateY(8px) rotate(45deg);
+  }
+  .nav-toggle:checked + .hamburger span:nth-child(2){
+    opacity:0;
+  }
+  .nav-toggle:checked + .hamburger span:nth-child(3){
+    transform:translateY(-8px) rotate(-45deg);
   }
 }
