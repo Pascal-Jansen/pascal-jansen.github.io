@@ -270,6 +270,15 @@ a.acm::before {
   }
 }
 
+@media (max-width: 767px) {
+  .caption h1 {
+    font-size: 40px !important;
+  }
+  .bio .agenda h2 {
+    font-size: 20px !important;
+  }
+}
+
 .horizontal-list {
   display: flex;
   gap: 5px;
