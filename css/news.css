@@ -1,0 +1,133 @@
+
+
+/* Timeline layout */
+#timeline {
+  position: relative;
+  margin-top: 3rem;
+  z-index: 0; /* create stacking context baseline */
+  overflow: visible; /* ensure pseudo-element and markers are not clipped */
+  margin-bottom: 50px;
+}
+
+/* Continuous vertical line through all years (foreground) */
+#timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -1rem;            /* adjust to taste for mobile */
+  width: 2px;
+  background: #c5c5c5;
+  z-index: 3;              /* line in the foreground */
+  display: block;
+  pointer-events: none;    /* don't block clicks on links/text */
+}
+
+/* ensure row contents sit above/below the line as needed */
+#timeline .year-row,
+#timeline .year-label,
+#timeline .year-content {
+  position: relative;
+  z-index: 1; /* keep text below the foreground line */
+}
+
+/* Event list, no default bullets */
+#timeline .event ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;    /* <-- add this */
+}
+
+/* Circle marker for each event (aligned to that ul) */
+#timeline .year-content .event ul::before {
+  content: "";
+  position: absolute;
+  left: -4rem;         /* aligns with vertical line */
+  top: -2rem;           /* tweak this value to move dot up/down */
+  width: 16px;
+  height: 16px;
+  background: #c5c5c5;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  z-index: 4;
+}
+
+/* On wider screens, shift the line to sit between year label and content */
+@media (min-width: 768px) {
+  #timeline::before {
+    left: 16%;
+  }
+}
+
+/* Each year row */
+#timeline .year-row {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+/* Year label column */
+#timeline .year-label h4 {
+    margin: 0;
+  color: #848484;
+  text-align: right;
+  padding-right: 25px;
+}
+
+/* Right column with events */
+#timeline .year-content {
+  position: relative;
+  padding-left: 2.5rem;    /* pushes text to the right of the line */
+}
+
+/* Event blocks */
+#timeline .event {
+  margin-bottom: 1.2rem;
+}
+
+/* Dates inside year-content */
+#timeline .event h4 {
+  margin: 0 0 0.25rem;
+    color: #848484;
+    margin-top: 4rem;
+}
+
+/* Event list, no default bullets */
+#timeline .event ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* List items */
+#timeline .event ul li {
+  margin-bottom: 1.5rem;
+}
+
+
+/* ============================================================
+   Small-screen fixes (<768px)
+   ============================================================ */
+@media (max-width: 991px) {
+
+  /* Hide the vertical line */
+  #timeline::before {
+    display: none !important;
+  }
+
+  /* Hide the dot for each event */
+  #timeline .year-content .event ul::before {
+    display: none !important;
+  }
+
+  /* Left-align the year label text */
+  #timeline .year-label h4 {
+    text-align: left !important;
+    padding-right: 0 !important;
+  }
+
+  /* Remove the artificial left padding (no line to avoid anymore) */
+  #timeline .year-content {
+    padding-left: 0 !important;
+  }
+}

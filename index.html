@@ -16,6 +16,10 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="css/animate.css" />
         <link rel="stylesheet" type="text/css" href="css/main.css" />
+        <link rel="stylesheet" type="text/css" href="css/showcase.css" />
+        <link rel="stylesheet" type="text/css" href="css/news.css" />
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"> 
 
         <!-- favicon -->
         <link rel="icon" href="images/favicon.ico">
@@ -44,10 +48,11 @@
     
     <body>
         <header class="banner">
+
             <div class="container">
 
                 <div class="logo pull-left">
-                Pascal&nbsp;Jansen
+                    Pascal&nbsp;Jansen
                 </div>
 
                 <!-- Hamburger toggle (hidden on large screens) -->
@@ -70,59 +75,65 @@
         </header>
 
         <!--  Bio Section  -->
-        <section class="bio" id="bio" style="background-color: rgb(224 224 224); text-align: left;">
+        <section class="bio" id="bio" style="background-color: rgb(224 224 224); text-align: left; position: relative;">
             <div class="container">
                 <div class="row equal-height">
                     <!-- Left column with text -->
                     <div class="col-md-8 panel">
                         <div class="caption">
                             <br />
-                            <h1 class=" " style="margin-top: 0;">Pascal Jansen</h1>
+                            <h1 style="margin-top: 0;">Pascal Jansen</h1>
                         </div>
 
-                        <p class=" ">
+                        <p>
                             <span>pascal.jansen (at) uni-ulm.de</span>
                         </p>
                         <br />
-                        <p class=" ">
-                            <span>PhD Candidate and Research Associate at <a target="_blank" href="https://www.uni-ulm.de/en/in/mi/institute/staff/pascal-jansen">Ulm University</a>, <br>Institute of Media Informatics, Human-Computer Interaction Group</span><br><br>
-                            <span>previously Visiting Researcher at <a target="_blank" href="https://www.ucl.ac.uk/uclic/">University College London, Interaction Centre</a></span>
+                        <p>
+                            <span>PhD Candidate and Research Associate at 
+                                <a target="_blank" href="https://www.uni-ulm.de/en/in/mi/institute/staff/pascal-jansen">Ulm University</a>, 
+                                <br>Institute of Media Informatics, Human-Computer Interaction Group
+                            </span><br><br>
+                            <span>previously Visiting Researcher at 
+                                <a target="_blank" href="https://www.ucl.ac.uk/uclic/">University College London, Interaction Centre</a>
+                            </span>
                         </p>
                         <br />
-                        <div class="agenda  ">
-<div class="bio-text-title"><h2>Ubiquitous Personalization</h2></div>
-<p>
-Technology increasingly shapes daily life, yet new systems still force users to (re-)learn interactions—often due to one-size-fits-all design. 
-This diminishes user experience and slows acceptance of innovations such as automated mobility, which could improve safety and increases independence for older or impaired users. 
-At the same time, everyday technologies like smartphones already reveal much about individuals' preferences, abilities, and needs.<br>
-My research aims to leverage this information to make unfamiliar technologies immediately accessible and trustworthy. 
-Combining <strong>Human-Computer Interaction (HCI)</strong>, <strong>Computational Modeling</strong>, and <strong>Inclusive Design</strong>, 
-I develop and empirically evaluate adaptive interfaces and simulation-based methods for domains such as automated vehicles and extended reality, advancing a vision of technology that personalizes from user-known to (radically) new contexts.
-</p>
-<br />
-                            <!-- Left-aligned links -->
-                            <div class="horizontal-list bio-link-list-wide">
-                                <a target="_blank" href="data/CV_Jansen_2025.pdf">Curriculum Vitae (November 2025)</a>
-                                <span class="separator">/</span>
-                                <a target="_blank" href="https://scholar.google.de/citations?user=cR1_0-EAAAAJ&hl=en">Scholar Profile</a>
-                                <span class="separator">/</span>
-                                <a target="_blank" href="https://www.linkedin.com/in/pascal-jansen-/">LinkedIn</a>
-                                <span class="separator">/</span>
-                                <!--<a target="_blank" href="https://x.com/pascal_jansen_">X</a>
-                                <span class="separator">/</span>-->
-                                <a target="_blank" href="https://github.com/Pascal-Jansen">GitHub</a>
-                            </div>
-                            <div class="horizontal-list bio-link-list-narrow">
-                                <a target="_blank" href="data/CV_Jansen_2025.pdf">CV</a>
-                                <span class="separator">/</span>
-                                <a target="_blank" href="https://scholar.google.de/citations?user=cR1_0-EAAAAJ&hl=en">Scholar</a>
-                                <span class="separator">/</span>
-                                <a target="_blank" href="https://www.linkedin.com/in/pascal-jansen-/">LinkedIn</a>
-                                <span class="separator">/</span>
-                                <!--<a target="_blank" href="https://x.com/pascal_jansen_">X</a>
-                                <span class="separator">/</span>-->
-                                <a target="_blank" href="https://github.com/Pascal-Jansen">GitHub</a>
-                            </div>
+                        <div class="agenda">
+                            <div class="bio-text-title"><h2>Ubiquitous Personalization</h2></div>
+                                <p>
+                                    Technology increasingly shapes daily life, yet new systems still force users to (re-)learn interactions, often due to one-size-fits-all design. 
+                                    This diminishes user experience and slows acceptance of innovations such as automated mobility, which could improve safety and increases independence for older or impaired users. 
+                                    At the same time, everyday technologies like smartphones already reveal much about individuals' preferences, abilities, and needs.<br>
+                                    <br style="line-height:0.3">
+                                    My research aims to leverage this information to make unfamiliar technologies immediately accessible and trustworthy. 
+                                    Combining <strong>Human-Computer Interaction (HCI)</strong>, <strong>Computational Modeling</strong>, and <strong>Inclusive Design</strong>, 
+                                    I develop and empirically evaluate adaptive interfaces and simulation-based methods for domains such as automated vehicles and extended reality, advancing a vision of technology that personalizes from user-known to (radically) new contexts.
+                                </p>
+                                    <button type="button" class="btn btn-secondary"
+                                        onclick="window.open('data/CV_Jansen_2025.pdf', '_blank')"
+                                        style="border-radius:10px; padding:4px 10px; border:1px solid #ccc;">
+                                        📄 Curriculum Vitae
+                                    </button>
+
+                                    <button type="button" class="btn btn-secondary"
+                                        onclick="window.open('https://scholar.google.de/citations?user=cR1_0-EAAAAJ&hl=en', '_blank')"
+                                        style="border-radius:10px; padding:4px 10px; border:1px solid #ccc;">
+                                        🎓 Scholar
+                                    </button>
+
+                                    <button type="button" class="btn btn-secondary"
+                                        onclick="window.open('https://www.linkedin.com/in/pascal-jansen-/', '_blank')"
+                                        style="border-radius:10px; padding:4px 10px; border:1px solid #ccc;">
+                                        <i class="bi bi-linkedin" style="margin-right:4px;"></i> LinkedIn
+                                    </button>
+
+                                    <button type="button" class="btn btn-secondary"
+                                        onclick="window.open('https://github.com/Pascal-Jansen', '_blank')"
+                                        style="border-radius:10px; padding:4px 10px; border:1px solid #ccc;">
+                                        <i class="bi bi-github" style="margin-right:4px;"></i> GitHub
+                                    </button>
+                                <br/><br/><br/><br/>
                         </div>
                     </div>
 
@@ -131,6 +142,32 @@ I develop and empirically evaluate adaptive interfaces and simulation-based meth
                     </div>
                 </div>
             </div>
+
+            <!-- Full-width floating quick links panel -->
+            <div class="frosted-panel" id="header-links-panel" role="region" aria-label="Quick links panel">
+                <div class="container btn-group-wrapper">
+                    <div class="col-md-12 btn-group" role="group" aria-label="Profile links" style="display: flex; justify-content: center;">
+
+                                                <button type="button" class="btn btn-secondary" onclick="location.href='#news'">
+                                                    <h4>News</h4>
+                                                </button>
+                                                
+                                                <button type="button" class="btn btn-secondary" onclick="location.href='#agenda'">
+                                                    <h4>Research Agenda</h4>
+                                                </button>
+                                                
+                                                <button type="button" class="btn btn-secondary" onclick="location.href='#publications'">
+                                                    <h4>Publications</h4>
+                                                </button>
+                                                
+                                                <button type="button" class="btn btn-secondary" onclick="location.href='#teaching'">
+                                                    <h4>Teaching</h4>
+                                                </button>                                   
+
+                    </div>
+                </div>
+            </div>
+
         </section>
         <!--  End Bio Section  -->
 
@@ -138,157 +175,486 @@ I develop and empirically evaluate adaptive interfaces and simulation-based meth
 
         <!--  Publication Section  -->
         <section class="publication" id="publication">
+
+<div class="showcasebackground">
+  <div class="container">
+    <div class="showcase-wrapper">
+
+      <!-- Prev button -->
+      <button type="button" class="showcase-btn" id="showcasePrev" aria-label="Previous publications">
+        ‹
+      </button>
+
+      <!-- Viewport -->
+      <div class="showcase">
+        <div class="showcase-track">
+
+          <!-- 1: Longitudinal Effects (TRF '25) -->
+          <div class="showcase-item" style="background-image:url('images/long-vis.png'); background-size:cover; background-position:center;">
+            <video class="preview-video" muted loop preload="metadata" data-start="10">
+              <source src="data/videos/long-vis-video.mp4" type="video/mp4">
+            </video>
+            <div class="content">
+              <h2>Longitudinal Effects of Visualizing Uncertainty of Automated Vehicle Capabilities</h2>
+              <span>TRF ’25</span>
+            </div>
+          </div>
+
+          <!-- 2: OptiCarVis (CHI '25) -->
+          <div class="showcase-item" style="background-image:url('images/opticarvis.png'); background-size:cover; background-position:center;">
+            <video class="preview-video" muted loop preload="metadata" data-start="10">
+              <source src="data/videos/opticar-video-figure.mp4" type="video/mp4">
+            </video>
+            <div class="content">
+              <h2>OptiCarVis</h2>
+              <span>CHI ’25</span>
+            </div>
+          </div>
+
+          <!-- 3: eHMI Bayesian Optimization (CHI '25) -->
+          <div class="showcase-item" style="background-image:url('images/eHMI-BO.png'); background-size:cover; background-position:center;">
+            <video class="preview-video" muted loop preload="metadata" data-start="100">
+              <source src="data/videos/ehmi-video-figure.mp4" type="video/mp4">
+            </video>
+            <div class="content">
+              <h2>Optimizing Communication of Automated Vehicles with Pedestrians</h2>
+              <span>CHI ’25</span>
+            </div>
+          </div>
+
+          <!-- 4: UAM BO (CHI '25) -->
+          <div class="showcase-item" style="background-image:url('images/uam-BO.png'); background-size:cover; background-position:center;">
+            <video class="preview-video" muted loop preload="metadata" data-start="80">
+              <source src="data/videos/uam-bo-video-figure.mp4" type="video/mp4">
+            </video>
+            <div class="content">
+              <h2>Fly Away: Motion Fidelity in Urban Air Mobility Simulation</h2>
+              <span>CHI ’25</span>
+            </div>
+          </div>
+
+          <!-- 5: Bumpy Ride (CHI '25) -->
+          <div class="showcase-item" style="background-image:url('images/bumpy-ride.png'); background-size:cover; background-position:center;">
+            <video class="preview-video" muted loop preload="metadata" data-start="9">
+              <source src="data/videos/bumpy_ride.mp4" type="video/mp4">
+            </video>
+            <div class="content">
+              <h2>Bumpy Ride?</h2>
+              <span>CHI ’25</span>
+            </div>
+          </div>
+
+          <!-- 6: PlantPal (CHI '25) -->
+          <div class="showcase-item" style="background-image:url('images/plantpal.jpg'); background-size:cover; background-position:center;">
+            <div class="content">
+              <h2>PlantPal</h2>
+              <span>CHI ’25</span>
+            </div>
+          </div>
+
+          <!-- 7: EduLicit (TRF '24) -->
+          <div class="showcase-item" style="background-image:url('images/edulicit.png'); background-size:cover; background-position:center;">
+            <div class="content">
+              <h2>Visualizing Imperfect Situation Detection and Prediction in Automated Vehicles</h2>
+              <span>TRF ’24</span>
+            </div>
+          </div>
+
+          <!-- 8: PedSUMO (HRI '24) -->
+          <div class="showcase-item" style="background-image:url('images/ped-sumo.png'); background-size:cover; background-position:center;">
+            <div class="content">
+              <h2>PedSUMO</h2>
+              <span>HRI ’24</span>
+            </div>
+          </div>
+
+          <!-- 9: ESFs (IMWUT '24) -->
+          <div class="showcase-item" style="background-image:url('images/esfs.png'); background-size:cover; background-position:center;">
+            <div class="content">
+              <h2>“Eco Is Just Marketing”</h2>
+              <span>IMWUT ’24</span>
+            </div>
+          </div>
+
+          <!-- 10: AutoVis (CHI '23) -->
+          <div class="showcase-item" style="background-image:url('images/AutoVis.png'); background-size:cover; background-position:center;">
+            <video class="preview-video" muted loop preload="metadata" data-start="15">
+              <source src="data/videos/AutoVis.mp4" type="video/mp4">
+            </video>
+            <div class="content">
+              <h2>AutoVis</h2>
+              <span>CHI ’23</span>
+            </div>
+          </div>
+
+          <!-- 11: SwiVR-Car-Seat (IMWUT '21) -->
+          <div class="showcase-item" style="background-image:url('images/swivr-car-seat.png'); background-size:cover; background-position:center;">
+            <video class="preview-video" muted loop preload="metadata" data-start="10">
+              <source src="data/videos/swivr-car-seat.mp4" type="video/mp4">
+            </video>
+            <div class="content">
+              <h2>SwiVR-Car-Seat</h2>
+              <span>IMWUT ’21</span>
+            </div>
+          </div>
+
+          <!-- 13: ShARe (UIST '20) -->
+          <div class="showcase-item" style="background-image:url('images/shARe.png'); background-size:cover; background-position:center;">
+            <video class="preview-video" muted loop preload="metadata" data-start="10">
+              <source src="data/videos/shARe.mp4" type="video/mp4">
+            </video>
+            <div class="content">
+              <h2>ShARe</h2>
+              <span>UIST ’20</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Next button -->
+      <button type="button" class="showcase-btn" id="showcaseNext" aria-label="Next publications">
+        ›
+      </button>
+
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const track    = document.querySelector('.showcase-track');
+  const viewport = document.querySelector('.showcase');
+  const prevBtn  = document.getElementById('showcasePrev');
+  const nextBtn  = document.getElementById('showcaseNext');
+
+  if (!track || !viewport) return;
+
+  let items = Array.from(track.querySelectorAll('.showcase-item'));
+  if (items.length === 0) return;
+
+  const firstIndex = 0;
+  let index      = firstIndex;
+  let lastIndex  = items.length - 1;
+  let itemWidth  = items[0].getBoundingClientRect().width + 20; // gap
+
+  /* -----------------------------------------------------
+     Layout helpers
+  ----------------------------------------------------- */
+  function updateTransform() {
+    const offset = -index * itemWidth;
+    track.style.transform = `translateX(${offset}px)`;
+  }
+
+  function recalcWidth() {
+    items = Array.from(track.querySelectorAll('.showcase-item'));
+    if (!items[0]) return;
+    itemWidth = items[0].getBoundingClientRect().width + 20;
+    lastIndex = items.length - 1;
+    updateTransform();
+    updateButtons();
+  }
+
+  /* -----------------------------------------------------
+     Navigation (buttons)
+  ----------------------------------------------------- */
+  function next() {
+    if (index < lastIndex) {
+      index += 1;
+      updateTransform();
+      updateButtons();
+    }
+  }
+
+  function prev() {
+    if (index > firstIndex) {
+      index -= 1;
+      updateTransform();
+      updateButtons();
+    }
+  }
+
+  function updateButtons() {
+    if (!prevBtn || !nextBtn) return;
+    prevBtn.disabled = (index <= firstIndex);
+    nextBtn.disabled = (index >= lastIndex);
+  }
+
+  if (nextBtn) nextBtn.addEventListener('click', next);
+  if (prevBtn) prevBtn.addEventListener('click', prev);
+
+  window.addEventListener('resize', recalcWidth);
+
+  /* -----------------------------------------------------
+     Hover video preview with per-video start times
+  ----------------------------------------------------- */
+  function attachVideoHover(el) {
+    const video = el.querySelector('.preview-video');
+    if (!video) return;
+
+    const startAttr = video.getAttribute('data-start');
+    const startTime = startAttr ? parseFloat(startAttr) : 0;
+
+    el.addEventListener('mouseenter', () => {
+      try {
+        video.currentTime = isNaN(startTime) ? 0 : startTime;
+      } catch (e) {}
+      video.play().catch(() => {});
+    });
+
+    el.addEventListener('mouseleave', () => {
+      video.pause();
+      try {
+        video.currentTime = isNaN(startTime) ? 0 : startTime;
+      } catch (e) {}
+    });
+  }
+
+  items.forEach(attachVideoHover);
+
+  /* -----------------------------------------------------
+     Initial setup
+  ----------------------------------------------------- */
+  recalcWidth();
+  updateButtons();
+});
+</script>
+
+
+
             <div class="container">
-     
+                <hr>
                 <h1 id="news">News</h1>
-                <!-- Top 10 entries -->
-                <div class="row" style="margin-bottom: 0;">
-                <div class="col-md-2"><h4 style="margin-top: 0;">2025 October</h4></div>
-                <div class="col-md-10 news-text">
-                    Paper accepted at <a href="https://mum-conf.org/2025/" target="_blank">MUM 2025</a> - <a href="https://doi.org/10.1145/3771882.3771888" target="_blank">AirClick: Modularized Interactive Inflatables for On-Demand Room Transformation</a>
-                </div>
-                </div>
-                
-                <div class="row" style="margin-bottom: 0;">
-                <div class="col-md-2"><h4 style="margin-top: 0;">2025 August</h4></div>
-                <div class="col-md-10 news-text">
-                    Joined the CHI 2026 program committee as Associate Chair in the <a href="https://chi2026.acm.org/authors/papers/selecting-a-subcommittee/" target="_blank">User Experience and Usability subcommittee</a>.
-                </div>
-                </div>
-                
-                <div class="row" style="margin-bottom: 0;">
-                <div class="col-md-2"><h4 style="margin-top: 0;"></h4></div>
-                <div class="col-md-10 news-text">
-                    Paper accepted at <a href="https://www.ro-man2025.org/" target="_blank">IEEE RO-MAN 2025</a> (led by Maren Raab) - <a href="https://arxiv.org/abs/2508.13699"> Assessing Pedestrian Behavior Around Autonomous Cleaning Robots in Public Spaces: Findings from a Field Observation</a>.
-                </div>
-                </div>
 
-                <div class="row" style="margin-bottom: 0;">
-                <div class="col-md-2"><h4 style="margin-top: 0;"></h4></div>
-                <div class="col-md-10 news-text">
-                    Co-organized a workshop (<a href="https://dl.gi.de/bitstreams/4958bbfd-f90a-4976-af07-29c9d7ba85a9/download">Accessible Automated Automotive Workshop Series (A3WS): Accessibility in Mobility</a>) and a tutorial (<a href="https://dl.gi.de/bitstreams/2a1f0b75-16e6-4810-8ef8-8713651fb79a/download">Human-in-the-Loop Bayesian Optimization for ALL: Practical Applications in Human-Computer Interaction Challenges</a>) at MuC 2025 in Chemnitz, Germany.    
-                </div>
-                </div>
+                <div id="timeline" class="container">
 
-                <div class="row" style="margin-bottom: 0;">
-                <div class="col-md-2"><h4 style="margin-top: 0;"></h4></div>
-                <div class="col-md-10 news-text">
-                    Released v1.1.0 of <a href="https://github.com/Pascal-Jansen/Bayesian-Optimization-for-Unity">Bayesian Optimization for Unity</a>, which simplifies a human-in-the-loop workflow with Bayesian optimization (via BoTorch): the optimizer proposes parameter values, collects user feedback as objectives, and iteratively updates the model to personalize designs.    
-                </div>
-                </div>
-                
-                <div class="row" style="margin-bottom: 0;">
-                <div class="col-md-2"><h4 style="margin-top: 0;">2025 May</h4></div>
-                <div class="col-md-10 news-text">
-                    At this year's <a href="https://www.uni-ulm.de/en/in/faculty-of-engineering-computer-science-and-psychology/in-detailseiten/news-detail/article/langer-abend-der-wissenschaft-2025/" target="_blank">Long Evening of Science at Ulm University</a>, I presented our work on novel human-vehicle interaction to more than 2,000 visitors, including prospective students and families with children.
-                </div>
-                </div>
+                <!-- 2025 (top, visible) -->
+                <div class="row year-row">
+                    <div class="col-3 col-md-2 year-label">
+                    <h4>2025</h4>
+                    </div>
+                    <div class="col-9 col-md-10 year-content">
 
-                <div class="row" style="margin-bottom: 0;">
-                <div class="col-md-2"><h4 style="margin-top: 0;"></h4></div>
-                <div class="col-md-10 news-text">
-                    Transportation Research Part F: Traffic Psychology and Behaviour paper accepted: <a href="https://www.sciencedirect.com/science/article/pii/S1369847825001779" target="_blank">Longitudinal Effects of Visualizing Uncertainty of Situation Detection and Prediction of Automated Vehicles (AVs) on User Perceptions</a>.
-                    A three-day study with 50 participants who viewed real-world commute videos twice daily showed that clear, consistent AV uncertainty visualizations significantly increased trust over time while revealing the need for explicit AV intent cues and manual intervention options.
-                </div>
-                </div>
+                    <section class="event">
+                        <h4>December</h4>
+                        <ul>
+                        <li>
+                            Joined the organizing committee of <a href="https://muc2026.mensch-und-computer.de/en/organizing-committee/" target="_blank">MuC 2026</a> as Student Research Competition Chair.
+                        </li>
+                        <li>
+                            Received Honorable Mention Award at MUM 2025 for AirClick: Modularized Interactive Inflatables for On-Demand Room Transformation.
+                        </li>
+                        </ul>
+                    </section>
 
-                <div class="row" style="margin-bottom: 0;">
-                <div class="col-md-2"><h4 style="margin-top: 0;">2025 April</h4></div>
-                <div class="col-md-10 news-text">
-                    Our paper <a href="https://dl.acm.org/doi/full/10.1145/3706598.3713514" target="_blank">OptiCarVis</a> received an Honorable Mention Award at <a href="https://chi2025.acm.org/" target="_blank">CHI'25 in Yokohama, Japan</a>. <br>
-                    At CHI '25, <strong>five papers</strong> I led or co-authored were published, spanning sustainability, the impact of motion on interaction quality, and adaptive user interfaces for future mobility.<br>
-                    I delivered the laudatio for <a href="https://scholar.google.de/citations?user=Kt5I7wYAAAAJ&hl=en&oi=ao" target="_blank">Mark Colley</a> at the <strong><a href="https://sigchi.org/" target="_blank">SIGCHI</a> Awards Dinner</strong>, honoring his Special Recognition for Early Career Researcher Award.
-                </div>
-                </div>
+                    <section class="event">
+                        <h4>October</h4>
+                        <ul>
+                        <li>
+                            Paper accepted at <a href="https://mum-conf.org/2025/" target="_blank">MUM 2025</a> –
+                            <a href="https://doi.org/10.1145/3771882.3771888" target="_blank">AirClick: Modularized Interactive Inflatables for On-Demand Room Transformation</a>.
+                        </li>
+                        </ul>
+                    </section>
 
-                <div class="row" style="margin-bottom: 0;">
-                <div class="col-md-2"><h4 style="margin-top: 0;">2025 March</h4></div>
-                <div class="col-md-10 news-text">
-                    Two papers published at HRI '25 in Melbourne, Australia:  
-                    <a href="https://ieeexplore.ieee.org/abstract/document/10974171" target="_blank">HUD-SUMO</a> links SUMO and CARLA to simulate AR windshield HUD settings and predict their impact on reaction time, speed adherence, lane changes, and acceleration in dense traffic.
-                    <a href="https://ieeexplore.ieee.org/abstract/document/10973993" target="_blank">UAM-SUMO</a> extends SUMO to model urban air taxi corridors alongside ground vehicles, enabling large-scale studies of traffic flow, mode choice, and passenger trust.
-                </div>
+                    <section class="event">
+                        <h4>August</h4>
+                        <ul>
+                        <li>
+                            Joined the CHI 2026 program committee as Associate Chair in the
+                            <a href="https://chi2026.acm.org/authors/papers/selecting-a-subcommittee/" target="_blank">User Experience and Usability subcommittee</a>.
+                        </li>
+                        <li>
+                            Paper accepted at <a href="https://www.ro-man2025.org/" target="_blank">IEEE RO-MAN 2025</a> (led by Maren Raab) –
+                            <a href="https://arxiv.org/abs/2508.13699" target="_blank">Assessing Pedestrian Behavior Around Autonomous Cleaning Robots in Public Spaces: Findings from a Field Observation</a>.
+                        </li>
+                        <li>
+                            Co-organized a workshop (<a href="https://dl.gi.de/bitstreams/4958bbfd-f90a-4976-af07-29c9d7ba85a9/download" target="_blank">Accessible Automated Automotive Workshop Series (A3WS): Accessibility in Mobility</a>)
+                            and a tutorial (<a href="https://dl.gi.de/bitstreams/2a1f0b75-16e6-4810-8ef8-8713651fb79a/download" target="_blank">Human-in-the-Loop Bayesian Optimization for ALL: Practical Applications in Human-Computer Interaction Challenges</a>) at MuC 2025 in Chemnitz, Germany.
+                        </li>
+                        <li>
+                            Released v1.1.0 of <a href="https://github.com/Pascal-Jansen/Bayesian-Optimization-for-Unity" target="_blank">Bayesian Optimization for Unity</a>, enabling a streamlined HITL workflow with Bayesian optimization (via BoTorch) to personalize designs.
+                        </li>
+                        </ul>
+                    </section>
+
+                    <section class="event">
+                        <h4>May</h4>
+                        <ul>
+                        <li>
+                            At the <a href="https://www.uni-ulm.de/en/in/faculty-of-engineering-computer-science-and-psychology/in-detailseiten/news-detail/article/langer-abend-der-wissenschaft-2025/" target="_blank">Long Evening of Science at Ulm University</a>,
+                            presented novel human-vehicle interaction research to more than 2,000 visitors, including prospective students and families.
+                        </li>
+                        <li>
+                            Transportation Research Part F paper accepted:
+                            <a href="https://www.sciencedirect.com/science/article/pii/S1369847825001779" target="_blank">
+                            Longitudinal Effects of Visualizing Uncertainty of Situation Detection and Prediction of Automated Vehicles (AVs) on User Perceptions
+                            </a>.
+                            A three-day study with 50 participants viewing real-world commute videos twice daily showed that clear, consistent AV uncertainty visualizations significantly increased trust over time while revealing the need for explicit AV intent cues and manual intervention options.
+                        </li>
+                        </ul>
+                    </section>
+
+                    <section class="event">
+                        <h4>April</h4>
+                        <ul>
+                        <li>
+                            <a href="https://dl.acm.org/doi/full/10.1145/3706598.3713514" target="_blank">OptiCarVis</a> received an Honorable Mention Award at
+                            <a href="https://chi2025.acm.org/" target="_blank">CHI ’25 in Yokohama, Japan</a>.
+                        </li>
+                        <li>
+                            At CHI ’25, five papers led or co-authored were published, spanning sustainability, the impact of motion on interaction quality, and adaptive user interfaces for future mobility.
+                        </li>
+                        <li>
+                            Delivered the laudatio for <a href="https://scholar.google.de/citations?user=Kt5I7wYAAAAJ&hl=en&oi=ao" target="_blank">Mark Colley</a> at the
+                            <a href="https://sigchi.org/" target="_blank">SIGCHI</a> Awards Dinner, honoring his Special Recognition for Early Career Researcher Award.
+                        </li>
+                        </ul>
+                    </section>
+
+                    </div>
                 </div>
 
                 <!-- Hidden extra entries -->
-                <div id="moreNews" style="display: none;">
-                
-                <div class="row" style="margin-bottom: 0;">
-                <div class="col-md-2"><h4 style="margin-top: 0;">2025 February</h4></div>
-                <div class="col-md-10 news-text">
-                    At the <a href="https://www.instagram.com/p/DGVPcRkIMKA/?img_index=3" target="_blank">Bildungsmesse (education fair) Ulm 2025</a>, our <em>VeMoR</em> simulator drew many prospective students eager to experience high-immersion motion feedback in a safe, lab-grade environment.  
-                    We were honored when the speaker of the Baden-Württemberg parliament and Ulm's Mayor visited our booth to see and discuss the future of education and research.
-                </div>
-                </div>
+                <div id="moreNews" style="display:none;">
 
-                <div class="row" style="margin-bottom: 0;">
-                <div class="col-md-2"><h4 style="margin-top: 0;">2025 January</h4></div>
-                <div class="col-md-10 news-text">
-                    I started as a visiting researcher at <a href="https://www.ucl.ac.uk/uclic/" target="_blank">UCL Interaction Centre</a> in London, UK hosted by <a href="https://scholar.google.de/citations?user=Kt5I7wYAAAAJ&hl=en&oi=ao" target="_blank">Mark Colley</a>. 
-                </div>
-                </div>
-                
-                <div class="row" style="margin-bottom: 0;">
-                <div class="col-md-2"><h4 style="margin-top: 0;">2024 June</h4></div>
-                <div class="col-md-10 news-text">
-                    At the <a href="https://www.uni-ulm.de/universitaet/hochschulkommunikation/veranstaltungen/langer-abend-der-wissenschaft/" target="_blank">Long Evening of Science Fair at Ulm University</a>, I showcased <em>VeMoR</em>, our VR vehicle-motion simulator enabling roll, pitch, and yaw synchronization to the virtual vehicle to bridge the gap between static lab setups and expensive full-motion rigs.  
-                    I introduced our lab's future mobility research to over 2,000 visitors—many prospective students and families—sparking enthusiasm and discussion about science and studying at the university.
-                </div>
-                </div>
-                
-                <div class="row" style="margin-bottom: 0;">
-                <div class="col-md-2"><h4 style="margin-top: 0;">2024 May</h4></div>
-                <div class="col-md-10 news-text">
-                    Transportation Research Part F: Traffic Psychology and Behaviour paper accepted: <a href="https://www.sciencedirect.com/science/article/pii/S1369847824001141" target="_blank">Visualizing Imperfect Situation Detection and Prediction in Automated Vehicles: Understanding Users' Perceptions via User-Chosen Scenarios</a>.  
-                    In this work, we created EduLicit, a web-based platform that both elicits the public's most challenging AV scenarios and evaluates how visualizing an AV's perception, prediction, and planning processes influences user acceptance, validated via two online studies.
-                </div>
-                </div>
-
-                <div class="row" style="margin-bottom: 0;">
-                <div class="col-md-2"><h4 style="margin-top: 0;">2024 January</h4></div>
-                <div class="col-md-10 news-text">
-                    Our award-winning VR game <a href="https://store.steampowered.com/app/2746510/The_Social_Engineer/" target="_blank">The Social Engineer</a> launched on Steam. 
-                    The Social Engineer is a room-scale VR serious game that immerses players in realistic social-engineering scenarios. It enables exploring companies, exploiting vulnerabilities, and practicing defensive strategies through interactive narrative missions. 
-                </div>
-                </div>
-
-                <div class="row" style="margin-bottom: 0;">
-                <div class="col-md-2"><h4 style="margin-top: 0;"></h4></div>
-                <div class="col-md-10 news-text">
-                    <a href="https://dl.acm.org/doi/abs/10.1145/3610977.3637478" target="_blank">PedSUMO: Simulacra of Automated Vehicle-Pedestrian Interaction Using SUMO To Study Large-Scale Effects</a> accepted at HRI’24.  
-                    PedSUMO is a SUMO extension that simulates pedestrian interactions at unsignalized crossings to study how external automated vehicle signals affect large-scale pedestrian compliance, validated with data from Ingolstadt, Germany. The source-code is available on <a href="https://github.com/M-Colley/pedsumo" target="_blank">GitHub</a>.
-                </div>
-                </div>
-
-                <div class="row" style="margin-bottom: 0;">
-                <div class="col-md-2"><h4 style="margin-top: 0;">2023 September</h4></div>
-                <div class="col-md-10 news-text">
-                    <a href="https://www.auto-ui.org/23/organizers/" target="_blank">Registration Chair</a> at AutoUI’23 in Ingolstadt, overseeing the online and on-site attendee registration process. I communicated with ACM regarding the conference organization and helped finalize the conference budget.
-                </div>
-                </div>
-
-                <div class="row" style="margin-bottom: 0;">
-                    <div class="col-md-2"><h4 style="margin-top: 0;">2023 April</h4></div>
-                    <div class="col-md-10 news-text">
-                    First-author CHI'23 paper published: <a href="https://dl.acm.org/doi/full/10.1145/3544548.3580760" target="_blank">AutoVis: Enabling Mixed-Immersive Analysis of Automotive UI Interaction Studies</a>. 
-                    AutoVis is an analytics environment—combining desktop and VR views with automotive-specific visualizations like context portals, driving-path events, avatars, trajectories, and heatmaps.
-                    This was guided by expert-derived requirements and verified through prototype walkthroughs, using a real vehicle, and on a public dataset. See our <a href="https://autovis-demo.onrender.com/" target="_blank">demo website</a> for more information.
+                    <!-- 2025 (older) -->
+                    <div class="row year-row">
+                    <div class="col-3 col-md-2 year-label">
+                        <h4>2025</h4>
                     </div>
-                </div>
+                    <div class="col-9 col-md-10 year-content">
+
+                        <section class="event">
+                            <h4>March</h4>
+                            <ul>
+                            <li>
+                                Two papers published at HRI ’25 in Melbourne, Australia:
+                                <a href="https://ieeexplore.ieee.org/abstract/document/10974171" target="_blank">HUD-SUMO</a>, linking SUMO and CARLA to simulate AR HUD settings and predict their impact on reaction time, speed adherence, lane changes, and acceleration;
+                                and <a href="https://ieeexplore.ieee.org/abstract/document/10973993" target="_blank">UAM-SUMO</a>, extending SUMO to model urban air taxi corridors alongside ground vehicles for large-scale studies of traffic flow, mode choice, and passenger trust.
+                            </li>
+                            </ul>
+                        </section>
+
+                        <section class="event">
+                        <h4>February</h4>
+                        <ul>
+                            <li>
+                            At the <a href="https://www.instagram.com/p/DGVPcRkIMKA/?img_index=3" target="_blank">Bildungsmesse Ulm 2025</a>, the VeMoR simulator attracted many prospective students
+                            interested in high-immersion motion feedback in a safe, lab environment. The speaker of the Baden-Württemberg parliament and Ulm’s Mayor visited the booth.
+                            </li>
+                        </ul>
+                        </section>
+
+                        <section class="event">
+                        <h4>January</h4>
+                        <ul>
+                            <li>
+                            Started as a visiting researcher at the <a href="https://www.ucl.ac.uk/uclic/" target="_blank">UCL Interaction Centre</a> in London, UK, hosted by
+                            <a href="https://scholar.google.de/citations?user=Kt5I7wYAAAAJ&hl=en&oi=ao" target="_blank">Mark Colley</a>.
+                            </li>
+                        </ul>
+                        </section>
+
+                    </div>
+                    </div>
+
+                    <!-- 2024 -->
+                    <div class="row year-row">
+                    <div class="col-3 col-md-2 year-label">
+                        <h4>2024</h4>
+                    </div>
+                    <div class="col-9 col-md-10 year-content">
+
+                        <section class="event">
+                        <h4>June</h4>
+                        <ul>
+                            <li>
+                            At the <a href="https://www.uni-ulm.de/universitaet/hochschulkommunikation/veranstaltungen/langer-abend-der-wissenschaft/" target="_blank">Long Evening of Science Fair at Ulm University</a>,
+                            showcased VeMoR, a VR vehicle-motion simulator enabling roll, pitch, and yaw synchronization to the virtual vehicle to bridge the gap between static lab setups and expensive full-motion rigs.
+                            Presented future mobility research to over 2,000 visitors.
+                            </li>
+                        </ul>
+                        </section>
+
+                        <section class="event">
+                        <h4>May</h4>
+                        <ul>
+                            <li>
+                            Transportation Research Part F paper accepted:
+                            <a href="https://www.sciencedirect.com/science/article/pii/S1369847824001141" target="_blank">
+                                Visualizing Imperfect Situation Detection and Prediction in Automated Vehicles: Understanding Users’ Perceptions via User-Chosen Scenarios
+                            </a>.
+                            EduLicit, a web-based platform, elicits public “challenging AV scenarios” and evaluates how visualizing an AV’s perception, prediction, and planning influences user acceptance.
+                            </li>
+                        </ul>
+                        </section>
+
+                        <section class="event">
+                        <h4>January</h4>
+                        <ul>
+                            <li>
+                            <a href="https://store.steampowered.com/app/2746510/The_Social_Engineer/" target="_blank">The Social Engineer</a> launched on Steam – a room-scale VR serious game for practicing social-engineering defense strategies.
+                            </li>
+                            <li>
+                            <a href="https://dl.acm.org/doi/abs/10.1145/3610977.3637478" target="_blank">PedSUMO</a> accepted at HRI ’24, a SUMO extension simulating pedestrian interactions at unsignalized crossings to study how external AV signals affect large-scale pedestrian compliance (code on
+                            <a href="https://github.com/M-Colley/pedsumo" target="_blank">GitHub</a>).
+                            </li>
+                        </ul>
+                        </section>
+
+                    </div>
+                    </div>
+
+                    <!-- 2023 -->
+                    <div class="row year-row">
+                    <div class="col-3 col-md-2 year-label">
+                        <h4>2023</h4>
+                    </div>
+                    <div class="col-9 col-md-10 year-content">
+
+                        <section class="event">
+                        <h4>September</h4>
+                        <ul>
+                            <li>
+                            <a href="https://www.auto-ui.org/23/organizers/" target="_blank">Registration Chair</a> at AutoUI ’23 in Ingolstadt, overseeing online and on-site registration and coordinating with ACM on organization and budgeting.
+                            </li>
+                        </ul>
+                        </section>
+
+                        <section class="event">
+                        <h4>April</h4>
+                        <ul>
+                            <li>
+                            First-author CHI ’23 paper:
+                            <a href="https://dl.acm.org/doi/full/10.1145/3544548.3580760" target="_blank">AutoVis: Enabling Mixed-Immersive Analysis of Automotive UI Interaction Studies</a>.
+                            AutoVis combines desktop and VR views with automotive-specific visualizations (context portals, driving-path events, avatars, trajectories, heatmaps), guided by expert requirements and validated on real and public datasets
+                            (<a href="https://autovis-demo.onrender.com/" target="_blank">demo</a>).
+                            </li>
+                        </ul>
+                        </section>
+
+                    </div>
+                    </div>
+
+                </div> <!-- /#moreNews -->
+
+                <div class="text-end pe-3">
+                    <button id="moreBtn" class="btn btn-secondary">More News</button>
                 </div>
 
-                <button id="moreBtn" class="btn btn-primary">More News</button>
+                </div> <!-- /#timeline -->
 
                 <script>
-                document.getElementById('moreBtn').addEventListener('click', function() {
-                    var extra = document.getElementById('moreNews');
-                    if (extra.style.display === 'none') {
+                document.getElementById('moreBtn').addEventListener('click', function () {
+                var extra = document.getElementById('moreNews');
+                if (extra.style.display === 'none' || extra.style.display === '') {
                     extra.style.display = 'block';
                     this.textContent = 'Show Less';
-                    } else {
+                } else {
                     extra.style.display = 'none';
                     this.textContent = 'More News';
-                    }
+                }
                 });
                 </script>
 
@@ -1003,7 +1369,8 @@ I develop and empirically evaluate adaptive interfaces and simulation-based meth
 
                         <h4>Guest Lecturing</h4>
                         <p></p>
-                        2025-02-13 <b> UCL Interaction Centre, London, UK</b> invited by <i> Mark Colley </i> <br/>
+                        2025-02-13 "Personalization in Future Interfaces" <b> UCL Interaction Centre, London, UK</b>; in person; invited by <i> <a href="https://profiles.ucl.ac.uk/102233-mark-colley" target="_blank">Mark Colley</a> </i> <br/>
+                        2026-03-04 "Personalization in Future Interfaces" <b> UCL Interaction Centre, London, UK</b>; in person; invited by <i> <a href="https://profiles.ucl.ac.uk/96949-george-chalhoub" target="_blank">George Chalhoub</a> </i> <br/>
 
 
                         <hr>
@@ -1023,6 +1390,7 @@ I develop and empirically evaluate adaptive interfaces and simulation-based meth
                         <p></p>
                         <ul>
                             <li>Registration and Local Chair AutomotiveUI '23</li>
+                            <li>Student Research Competition Chair MuC '26</li>
                         </ul>
                         <p></p>
                         Reviewer (Excerpt):
