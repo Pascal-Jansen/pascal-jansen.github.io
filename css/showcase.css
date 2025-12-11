@@ -84,6 +84,36 @@
 
 
 
+/* Hide entire showcase system on small screens */
+@media (max-width: 1000px) {
+
+  /* Frosted menu panel */
+  .frosted-panel {
+    display: none !important;
+  }
+
+  /* Background wrapper */
+  .showcasebackground {
+    display: none !important;
+  }
+
+  /* Core showcase containers */
+  .showcase,
+  #showcase,
+  .showcase-wrapper,
+  .showcase-track {
+    display: none !important;
+  }
+
+  /* All showcase navigation buttons */
+  #showcasePrev,
+  #showcaseNext,
+  .showcase-btn {
+    display: none !important;
+  }
+}
+
+
 
 
 

@@ -48,6 +48,60 @@ a:focus {
   color: dimgray;
 }
 
+
+
+
+
+
+/* Main card styling (your existing version, unchanged) */
+.publication-entry {
+  border-radius: 12px;
+  border-color: #555555;
+  transition: transform 0.20s ease, box-shadow 0.20s ease;
+  background: #ffffff;
+}
+
+.publication-entry:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* Media wrapper: ensures rounded overlay + clipping */
+.publication-entry .pub-media {
+  position: relative;
+  width: 100%;
+  overflow: hidden;            /* ensures video follows rounded corners */
+  border-radius: 12px;         /* matching card rounding */
+}
+
+/* Image always visible by default */
+.publication-entry .pub-media img {
+  width: 100%;
+  display: block;
+  border-radius: 12px;         /* also apply to image */
+}
+
+/* Video overlay (initially hidden) */
+.publication-entry .pub-media .pub-video {
+  position: absolute;
+  inset: 0;                    /* top:0; right:0; bottom:0; left:0 */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  pointer-events: none;        /* ignore mouse; keeps hover on card */
+  transition: opacity 0.25s ease;
+  border-radius: 12px;
+}
+
+/* Hover → show video on top of image */
+.publication-entry:hover .pub-media .pub-video {
+  opacity: 1;
+}
+
+
+
+
 /* ========== HEADER AND NAVIGATION ========== */
 header {
   backdrop-filter: blur(10px);
@@ -107,6 +161,40 @@ a.acm::before {
   margin-right: 6px;
   vertical-align: middle;
   background-image: url('../images/Honorable_Mention_Badge.jpg');
+}
+
+
+
+
+
+
+/* default: desktop bio visible, mobile bio hidden */
+.bio-desktop {
+  display: block;
+}
+.bio-mobile {
+  display: none;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+/* smaller screens: show mobile layout, hide desktop layout */
+@media (max-width: 767px) {
+  .equal-height.bio-desktop {
+    display: none;
+  }
+  .bio-mobile {
+    display: block;
+  }
+
+.profile-image-mobile {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+
+  border-radius: 50%;   
+  border: 2px solid rgba(0,0,0,0.15);
+}
 }
 
 /* ========== BANNER FADE/SLIDE (HEADHESIVE) ========== */
@@ -206,8 +294,8 @@ a.acm::before {
 }
 .publication .row {
   margin-bottom: 50px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   background-color: #faf9f9;
 }
 .publication img {
