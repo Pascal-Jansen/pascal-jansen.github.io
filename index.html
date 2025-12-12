@@ -18,6 +18,7 @@
         <link rel="stylesheet" type="text/css" href="css/main.css" />
         <link rel="stylesheet" type="text/css" href="css/showcase.css" />
         <link rel="stylesheet" type="text/css" href="css/news.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"> 
 
@@ -34,6 +35,7 @@
         <script type="text/javascript" src="js/parallax.js"></script>
         <script type="text/javascript" src="js/headhesive.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     </head>
 
 <!-- Google tag (gtag.js) -->
@@ -47,6 +49,7 @@
 </script>
     
     <body>
+
         <header class="banner">
 
             <div class="container">
@@ -73,6 +76,76 @@
 
             </div>
         </header>
+
+        <!-- Side profile panel (desktop only) -->
+        <div id="side-profile-panel" class="side-profile-panel">
+
+            <div class="side-profile-inner">
+
+                <div class="text-center">
+                    <h2>Pascal&nbsp;Jansen</h2>
+                </div>
+
+                <img src="images/uu-jansen-transparent.png"
+                    alt="Profile Picture"
+                    class="side-profile-img" />
+
+                <div class="side-profile-text text-center">
+
+                    <br/>
+
+                    <div class="side-profile-email">
+                        <a href="mailto:pascal.jansen@uni-ulm.de">pascal.jansen@uni-ulm.de</a>
+                    </div>
+
+                    <br/>
+
+                    <div class="side-profile-role">
+                        PhD Candidate &amp;<br> Research Associate <br>at
+                        <a target="_blank" rel="noopener noreferrer"
+                        href="https://www.uni-ulm.de/en/in/mi/institute/staff/pascal-jansen">Ulm University</a>,
+                        Inst. of Media Informatics, Human-Computer Interaction Group
+                    </div>
+
+                    <br/>
+
+                    <div class="side-profile-prev">
+                        Previously Visiting Researcher at
+                        <a target="_blank" rel="noopener noreferrer"
+                        href="https://www.ucl.ac.uk/uclic/">UCL, Interaction Centre</a>
+                    </div>
+                </div>
+
+                <div class="side-profile-links text-center">
+                    <button type="button" class="btn btn-secondary"
+                        onclick="window.open('data/CV_Jansen_2025.pdf', '_blank')"
+                        style="border-radius:10px; padding:4px 10px; border:1px solid #ccc;">
+                        📄 CV (Dec. 2025)
+                    </button>
+
+                    <button type="button" class="btn btn-secondary"
+                        onclick="window.open('https://scholar.google.de/citations?user=cR1_0-EAAAAJ&hl=en', '_blank')"
+                        style="border-radius:10px; padding:4px 10px; border:1px solid #ccc;">
+                        <img src="images/google-scholar.png"
+                            alt="Google Scholar"
+                            style="height:18px; width:auto; margin-right:4px; vertical-align:-3px;"> Google Scholar
+                    </button>
+
+                    <button type="button" class="btn btn-secondary"
+                        onclick="window.open('https://www.linkedin.com/in/pascal-jansen-/', '_blank')"
+                        style="border-radius:10px; padding:4px 10px; border:1px solid #ccc;">
+                        <i class="bi bi-linkedin" style="margin-right:4px;"></i> LinkedIn
+                    </button>
+
+                    <button type="button" class="btn btn-secondary"
+                        onclick="window.open('https://github.com/Pascal-Jansen', '_blank')"
+                        style="border-radius:10px; padding:4px 10px; border:1px solid #ccc;">
+                        <i class="bi bi-github" style="margin-right:4px;"></i> GitHub
+                    </button>
+                </div>
+
+            </div>
+        </div>
 
         <!--  Bio Section  -->
         <section class="bio" id="bio" style="background-color: rgb(224 224 224); text-align: left; position: relative;">
@@ -266,291 +339,242 @@
         <!--  Publication Section  -->
         <section class="publication" id="publication">
 
-<div class="showcasebackground">
-  <div class="container">
-    <div class="showcase-wrapper">
+            <div class="container" style="margin-top: 80px; margin-bottom: 50px;"> 
+                <!-- Swiper HTML init -->
+                <div class="swiper publication-swiper">
+                  <div class="swiper-wrapper">
+                        <!-- 1: Longitudinal Effects (TRF '25) -->
+                    <div class="swiper-slide carousel-cell"
+                        data-link="https://www.sciencedirect.com/science/article/pii/S1369847825001779"
+                        style="background-image:url('images/long-vis.png'); background-size:cover; background-position:center;">
+                    <video class="preview-video" muted loop preload="metadata" data-start="10">
+                        <source src="data/videos/long-vis-video.mp4" type="video/mp4">
+                    </video>
+                    <div class="content">
+                        <h5>Longitudinal Effects of Visualizing Uncertainty of Situation Detection and Prediction of Automated Vehicles on User Perceptions</h5>
+                        <span>TRF ’25</span>
+                    </div>
+                    </div>
 
-      <!-- Prev button -->
-      <button type="button" class="showcase-btn" id="showcasePrev" aria-label="Previous publications">
-        ‹
-      </button>
+                    <!-- 2: OptiCarVis (CHI '25) -->
+                    <div class="swiper-slide carousel-cell"
+                        data-link="https://dl.acm.org/doi/full/10.1145/3706598.3713514"
+                        style="background-image:url('images/opticarvis.png'); background-size:cover; background-position:center;">
+                    <video class="preview-video" muted loop preload="metadata" data-start="10">
+                        <source src="data/videos/opticar-video-figure.mp4" type="video/mp4">
+                    </video>
+                    <div class="content">
+                        <h5>OptiCarVis: Improving Automated Vehicle Functionality Visualizations Using Bayesian Optimization to Enhance User Experience</h5>
+                        <span>CHI ’25</span>
+                    </div>
+                    </div>
 
-      <!-- Viewport -->
-      <div class="showcase">
-        <div class="showcase-track">
+                    <!-- 3: eHMI Bayesian Optimization (CHI '25) -->
+                    <div class="swiper-slide carousel-cell"
+                        data-link="https://dl.acm.org/doi/full/10.1145/3706598.3714187"
+                        style="background-image:url('images/eHMI-BO.png'); background-size:cover; background-position:center;">
+                    <video class="preview-video" muted loop preload="metadata" data-start="100">
+                        <source src="data/videos/ehmi-video-figure.mp4" type="video/mp4">
+                    </video>
+                    <div class="content">
+                        <h5>Improving External Communication of Automated Vehicles Using Bayesian Optimization</h5>
+                        <span>CHI ’25</span>
+                    </div>
+                    </div>
 
- <!-- 1: Longitudinal Effects (TRF '25) -->
-<div class="showcase-item" 
-     data-link="https://www.sciencedirect.com/science/article/pii/S1369847825001779"
-     style="background-image:url('images/long-vis.png'); background-size:cover; background-position:center;">
-  <video class="preview-video" muted loop preload="metadata" data-start="10">
-    <source src="data/videos/long-vis-video.mp4" type="video/mp4">
-  </video>
-  <div class="content">
-    <h2>Longitudinal Effects of Visualizing Uncertainty of Automated Vehicle Capabilities</h2>
-    <span>TRF ’25</span>
-  </div>
-</div>
+                    <!-- 4: UAM BO (CHI '25) -->
+                    <div class="swiper-slide carousel-cell"
+                        data-link="https://dl.acm.org/doi/full/10.1145/3706598.3713288"
+                        style="background-image:url('images/uam-BO.png'); background-size:cover; background-position:center;">
+                    <video class="preview-video" muted loop preload="metadata" data-start="80">
+                        <source src="data/videos/uam-bo-video-figure.mp4" type="video/mp4">
+                    </video>
+                    <div class="content">
+                        <h5>Fly Away: Evaluating the Impact of Motion Fidelity on Optimized User Interface Design via Bayesian Optimization in Automated Urban Air Mobility Simulations</h5>
+                        <span>CHI ’25</span>
+                    </div>
+                    </div>
 
-<!-- 2: OptiCarVis (CHI '25) -->
-<div class="showcase-item" 
-     data-link="https://dl.acm.org/doi/full/10.1145/3706598.3713514"
-     style="background-image:url('images/opticarvis.png'); background-size:cover; background-position:center;">
-  <video class="preview-video" muted loop preload="metadata" data-start="10">
-    <source src="data/videos/opticar-video-figure.mp4" type="video/mp4">
-  </video>
-  <div class="content">
-    <h2>OptiCarVis</h2>
-    <span>CHI ’25</span>
-  </div>
-</div>
+                    <!-- 5: Bumpy Ride (CHI '25) -->
+                    <div class="swiper-slide carousel-cell"
+                        data-link="https://dl.acm.org/doi/10.1145/3706598.3714077"
+                        style="background-image:url('images/bumpy-ride.png'); background-size:cover; background-position:center;">
+                    <video class="preview-video" muted loop preload="metadata" data-start="9">
+                        <source src="data/videos/bumpy_ride.mp4" type="video/mp4">
+                    </video>
+                    <div class="content">
+                        <h5>Bumpy Ride? Understanding the Effects of External Forces on Spatial Interactions in Moving Vehicles</h5>
+                        <span>CHI ’25</span>
+                    </div>
+                    </div>
 
-<!-- 3: eHMI Bayesian Optimization (CHI '25) -->
-<div class="showcase-item" 
-     data-link="https://dl.acm.org/doi/full/10.1145/3706598.3714187"
-     style="background-image:url('images/eHMI-BO.png'); background-size:cover; background-position:center;">
-  <video class="preview-video" muted loop preload="metadata" data-start="100">
-    <source src="data/videos/ehmi-video-figure.mp4" type="video/mp4">
-  </video>
-  <div class="content">
-    <h2>Optimizing Communication of Automated Vehicles with Pedestrians</h2>
-    <span>CHI ’25</span>
-  </div>
-</div>
+                    <!-- 6: AutoVis (CHI '23) -->
+                    <div class="swiper-slide carousel-cell"
+                        data-link="https://dl.acm.org/doi/full/10.1145/3544548.3580760"
+                        style="background-image:url('images/AutoVis.png'); background-size:cover; background-position:center;">
+                    <video class="preview-video" muted loop preload="metadata" data-start="15">
+                        <source src="data/videos/AutoVis.mp4" type="video/mp4">
+                    </video>
+                    <div class="content">
+                        <h5>AutoVis: Enabling Mixed-Immersive Analysis of Automotive User Interface Interaction Studies</h5>
+                        <span>CHI ’23</span>
+                    </div>
+                    </div>
 
-<!-- 4: UAM BO (CHI '25) -->
-<div class="showcase-item" 
-     data-link="https://dl.acm.org/doi/full/10.1145/3706598.3713288"
-     style="background-image:url('images/uam-BO.png'); background-size:cover; background-position:center;">
-  <video class="preview-video" muted loop preload="metadata" data-start="80">
-    <source src="data/videos/uam-bo-video-figure.mp4" type="video/mp4">
-  </video>
-  <div class="content">
-    <h2>Fly Away: Motion Fidelity in Urban Air Mobility Simulation</h2>
-    <span>CHI ’25</span>
-  </div>
-</div>
+                    <!-- 7: SwiVR-Car-Seat (IMWUT '21) -->
+                    <div class="swiper-slide carousel-cell"
+                        data-link="https://dl.acm.org/doi/abs/10.1145/3494968"
+                        style="background-image:url('images/swivr-car-seat.png'); background-size:cover; background-position:center;">
+                    <video class="preview-video" muted loop preload="metadata" data-start="10">
+                        <source src="data/videos/swivr-car-seat.mp4" type="video/mp4">
+                    </video>
+                    <div class="content">
+                        <h5>SwiVR-Car-Seat: Exploring Vehicle Motion Effects on Interaction Quality in Virtual Reality Automated Driving Using a Motorized Swivel Seat</h5>
+                        <span>IMWUT ’21</span>
+                    </div>
+                    </div>
 
-<!-- 5: Bumpy Ride (CHI '25) -->
-<div class="showcase-item" 
-     data-link="https://dl.acm.org/doi/10.1145/3706598.3714077"
-     style="background-image:url('images/bumpy-ride.png'); background-size:cover; background-position:center;">
-  <video class="preview-video" muted loop preload="metadata" data-start="9">
-    <source src="data/videos/bumpy_ride.mp4" type="video/mp4">
-  </video>
-  <div class="content">
-    <h2>Bumpy Ride?</h2>
-    <span>CHI ’25</span>
-  </div>
-</div>
+                    <!-- 8: ShARe (UIST '20) -->
+                    <div class="swiper-slide carousel-cell"
+                        data-link="https://dl.acm.org/doi/abs/10.1145/3379337.3415843"
+                        style="background-image:url('images/share-small.png'); background-size:cover; background-position:center;">
+                    <video class="preview-video" muted loop preload="metadata" data-start="10">
+                        <source src="data/videos/shARe.mp4" type="video/mp4">
+                    </video>
+                    <div class="content">
+                        <h5>ShARe: Enabling Co-Located Asymmetric Multi-User Interaction for Augmented Reality Head-Mounted Displays</h5>
+                        <span>UIST ’20</span>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="swiper-button-prev"></div>
+                  <div class="swiper-button-next"></div>
+                  <div class="swiper-pagination"></div>
+                </div>
 
-<!-- 6: PlantPal (CHI '25) -->
-<div class="showcase-item" 
-     data-link="https://dl.acm.org/doi/10.1145/3706598.3714077" 
-     style="background-image:url('images/plantpal.jpg'); background-size:cover; background-position:center;">
-  <div class="content">
-    <h2>PlantPal</h2>
-    <span>CHI ’25</span>
-  </div>
-</div>
 
-<!-- 7: EduLicit (TRF '24) -->
-<div class="showcase-item" 
-     data-link="https://www.sciencedirect.com/science/article/pii/S1369847824001141"
-     style="background-image:url('images/edulicit.png'); background-size:cover; background-position:center;">
-  <div class="content">
-    <h2>Visualizing Imperfect Situation Detection and Prediction in Automated Vehicles</h2>
-    <span>TRF ’24</span>
-  </div>
-</div>
+            <!-- Swiper initialization for Publications carousel -->
+            <script>
+let videoPlayTimeout = null;
 
-<!-- 8: PedSUMO (HRI '24) -->
-<div class="showcase-item"
-     data-link="https://dl.acm.org/doi/abs/10.1145/3610977.3637478"
-     style="background-image:url('images/ped-sumo.png'); background-size:cover; background-position:center;">
-  <div class="content">
-    <h2>PedSUMO</h2>
-    <span>HRI ’24</span>
-  </div>
-</div>
+let videoUnlocked = false;
+window.addEventListener('pointerdown', () => {
+  if (videoUnlocked) return;
+  videoUnlocked = true;
+  // Re-run state logic on first user interaction so play() is no longer blocked
+  handleVideoState();
+}, { once: true });
 
-<!-- 9: ESFs (IMWUT '24) -->
-<div class="showcase-item"
-     data-link="https://dl.acm.org/doi/abs/10.1145/3643558"
-     style="background-image:url('images/esfs.png'); background-size:cover; background-position:center;">
-  <div class="content">
-    <h2>“Eco Is Just Marketing”</h2>
-    <span>IMWUT ’24</span>
-  </div>
-</div>
+function startVideoFrom(video, startTime, slide) {
+  // Reveal video layer (thumbnail stays as background underneath)
+  slide.classList.add('video-on');
 
-<!-- 10: AutoVis (CHI '23) -->
-<div class="showcase-item" 
-     data-link="https://dl.acm.org/doi/full/10.1145/3544548.3580760"
-     style="background-image:url('images/AutoVis.png'); background-size:cover; background-position:center;">
-  <video class="preview-video" muted loop preload="metadata" data-start="15">
-    <source src="data/videos/AutoVis.mp4" type="video/mp4">
-  </video>
-  <div class="content">
-    <h2>AutoVis</h2>
-    <span>CHI ’23</span>
-  </div>
-</div>
-
-<!-- 11: SwiVR-Car-Seat (IMWUT '21) -->
-<div class="showcase-item"
-     data-link="https://dl.acm.org/doi/abs/10.1145/3494968"
-     style="background-image:url('images/swivr-car-seat.png'); background-size:cover; background-position:center;">
-  <video class="preview-video" muted loop preload="metadata" data-start="10">
-    <source src="data/videos/swivr-car-seat.mp4" type="video/mp4">
-  </video>
-  <div class="content">
-    <h2>SwiVR-Car-Seat</h2>
-    <span>IMWUT ’21</span>
-  </div>
-</div>
-
-<!-- 13: ShARe (UIST '20) -->
-<div class="showcase-item"
-     data-link="https://dl.acm.org/doi/abs/10.1145/3379337.3415843"
-     style="background-image:url('images/shARe.png'); background-size:cover; background-position:center;">
-  <video class="preview-video" muted loop preload="metadata" data-start="10">
-    <source src="data/videos/shARe.mp4" type="video/mp4">
-  </video>
-  <div class="content">
-    <h2>ShARe</h2>
-    <span>UIST ’20</span>
-  </div>
-</div>
-
-        </div>
-      </div>
-
-      <!-- Next button -->
-      <button type="button" class="showcase-btn" id="showcaseNext" aria-label="Next publications">
-        ›
-      </button>
-
-    </div>
-  </div>
-</div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const track    = document.querySelector('.showcase-track');
-  const viewport = document.querySelector('.showcase');
-  const prevBtn  = document.getElementById('showcasePrev');
-  const nextBtn  = document.getElementById('showcaseNext');
-
-  if (!track || !viewport) return;
-
-  let items = Array.from(track.querySelectorAll('.showcase-item'));
-  if (items.length === 0) return;
-
-  const firstIndex = 0;
-  let index      = firstIndex;
-  let lastIndex  = items.length - 1;
-  let itemWidth  = items[0].getBoundingClientRect().width + 20; // gap
-
-  /* -----------------------------------------------------
-     Layout helpers
-  ----------------------------------------------------- */
-  function updateTransform() {
-    const offset = -index * itemWidth;
-    track.style.transform = `translateX(${offset}px)`;
-  }
-
-  function recalcWidth() {
-    items = Array.from(track.querySelectorAll('.showcase-item'));
-    if (!items[0]) return;
-    itemWidth = items[0].getBoundingClientRect().width + 20;
-    lastIndex = items.length - 1;
-    updateTransform();
-    updateButtons();
-  }
-
-  /* -----------------------------------------------------
-     Navigation (buttons)
-  ----------------------------------------------------- */
-  function next() {
-    if (index < lastIndex) {
-      index += 1;
-      updateTransform();
-      updateButtons();
+  const seekAndPlay = () => {
+    try {
+      // Clamp to duration if available to avoid invalid seeks
+      const t = (Number.isFinite(video.duration) && video.duration > 0)
+        ? Math.min(startTime, Math.max(0, video.duration - 0.25))
+        : startTime;
+      video.currentTime = t;
+    } catch (e) {
+      // ignore
     }
-  }
 
-  function prev() {
-    if (index > firstIndex) {
-      index -= 1;
-      updateTransform();
-      updateButtons();
-    }
-  }
-
-  function updateButtons() {
-    if (!prevBtn || !nextBtn) return;
-    prevBtn.disabled = (index <= firstIndex);
-    nextBtn.disabled = (index >= lastIndex);
-  }
-
-  if (nextBtn) nextBtn.addEventListener('click', next);
-  if (prevBtn) prevBtn.addEventListener('click', prev);
-
-  window.addEventListener('resize', recalcWidth);
-
-  /* -----------------------------------------------------
-     Hover video preview with per-video start times
-  ----------------------------------------------------- */
-  function attachVideoHover(el) {
-    const video = el.querySelector('.preview-video');
-    if (!video) return;
-
-    const startAttr = video.getAttribute('data-start');
-    const startTime = startAttr ? parseFloat(startAttr) : 0;
-
-    el.addEventListener('mouseenter', () => {
-      try {
-        video.currentTime = isNaN(startTime) ? 0 : startTime;
-      } catch (e) {}
-      video.play().catch(() => {});
+    video.play().catch(() => {
+      // autoplay may still be blocked in some setups; ignore
     });
+  };
 
-    el.addEventListener('mouseleave', () => {
-      video.pause();
-      try {
-        video.currentTime = isNaN(startTime) ? 0 : startTime;
-      } catch (e) {}
-    });
+  // If metadata is ready, we can seek immediately; otherwise wait.
+  if (video.readyState >= 1) {
+    seekAndPlay();
+  } else {
+    video.addEventListener('loadedmetadata', seekAndPlay, { once: true });
+    // Force load in case the browser deferred it
+    try { video.load(); } catch (e) {}
+  }
+}
+
+function handleVideoState() {
+  if (videoPlayTimeout) {
+    clearTimeout(videoPlayTimeout);
+    videoPlayTimeout = null;
   }
 
-  /* -----------------------------------------------------
-     Click-to-open using data-link
-  ----------------------------------------------------- */
-  function attachClickOpen(el) {
-    const link = el.getAttribute('data-link');
-    if (!link) return;
-
-    el.style.cursor = 'pointer';
-
-    el.addEventListener('click', (evt) => {
-      window.open(link, '_blank');
-    });
-  }
-
-  items.forEach(el => {
-    attachVideoHover(el);
-    attachClickOpen(el);
+  // Stop everything and ensure thumbnails are visible (videos hidden)
+  document.querySelectorAll('.publication-swiper .swiper-slide').forEach(slide => {
+    slide.classList.remove('video-on');
+    const v = slide.querySelector('video.preview-video');
+    if (!v) return;
+    v.pause();
+    // Resetting currentTime can throw if metadata is not available yet (esp. Safari)
+    try { v.currentTime = 0; } catch (e) {}
   });
 
-  /* -----------------------------------------------------
-     Initial setup
-  ----------------------------------------------------- */
-  recalcWidth();
-  updateButtons();
+  const activeSlide = document.querySelector('.publication-swiper .swiper-slide-active');
+  if (!activeSlide) return;
+
+  const video = activeSlide.querySelector('video.preview-video');
+  if (!video) return;
+
+  const startTime = parseFloat(video.dataset.start || '0');
+
+  // Keep thumbnail visible for 3 seconds, then play video from data-start
+  videoPlayTimeout = setTimeout(() => {
+    const stillActive = document.querySelector('.publication-swiper .swiper-slide-active');
+    if (!stillActive || stillActive !== activeSlide) return;
+
+    startVideoFrom(video, startTime, activeSlide);
+  }, 3000);
+}
+
+</script>
+<script>
+const pubSwiper = new Swiper('.publication-swiper', {
+  loop: true,
+  centeredSlides: true,
+  slidesPerView: 'auto',
+  spaceBetween: 16,
+  slideToClickedSlide: true,
+  navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true
+  },
+  on: {
+    init: () => {
+      // Ensure iOS/Safari allows inline playback
+      document.querySelectorAll('.publication-swiper video.preview-video').forEach(v => {
+        v.setAttribute('playsinline', '');
+        v.playsInline = true;
+        v.muted = true;
+      });
+      handleVideoState();
+    },
+    slideChangeTransitionEnd: handleVideoState,
+    click: handleVideoState
+  }
 });
 </script>
+<script>
+// Make only the active slide clickable
+const swiperRoot = document.querySelector('.publication-swiper');
 
+swiperRoot.addEventListener('click', (e) => {
+  const activeSlide = swiperRoot.querySelector('.swiper-slide-active');
+  if (!activeSlide) return;
+
+  // Only react if the click happened inside the active slide
+  if (!activeSlide.contains(e.target)) return;
+
+  const link = activeSlide.getAttribute('data-link');
+  if (!link) return;
+
+  window.open(link, '_blank', 'noopener,noreferrer');
+});
+</script>
+</script>
+            </div>
 
 
             <div class="container">
@@ -1419,8 +1443,13 @@ document.querySelectorAll('.publication-entry').forEach(entry => {
                             </div>
 
                             <div class="col-md-6">
-                                <img src="images/study-supervision.png" alt="Student supervision" />
-                                <img src="images/team-supervision.png" alt="Team supervision" />
+                                <img src="images/study-supervision.png"
+                                    alt="Student supervision"
+                                    style="border-radius:12px;" />
+
+                                <img src="images/team-supervision.png"
+                                    alt="Team supervision"
+                                    style="border-radius:12px;" />
                             </div>
                         </div>
 
@@ -1560,6 +1589,78 @@ document.querySelectorAll('.publication-entry').forEach(entry => {
             banner.remove();
         });
         })();
+        </script>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const sidePanel    = document.getElementById('side-profile-panel');
+        const bioSection   = document.querySelector('.bio');
+        const pubContainer = document.querySelector('#publication .container');
+
+        function getPanelWidth() {
+            if (!sidePanel) return 0;
+
+            const cs = window.getComputedStyle(sidePanel);
+            if (cs.display === 'none') {
+            const prev = {
+                display: sidePanel.style.display,
+                visibility: sidePanel.style.visibility,
+                position: sidePanel.style.position,
+                left: sidePanel.style.left,
+                top: sidePanel.style.top
+            };
+
+            sidePanel.style.display = 'block';
+            sidePanel.style.visibility = 'hidden';
+            sidePanel.style.position = 'fixed';
+            sidePanel.style.left = '-9999px';
+            sidePanel.style.top = '0';
+
+            const w = sidePanel.getBoundingClientRect().width || 0;
+
+            Object.assign(sidePanel.style, prev);
+            return w;
+            }
+
+            return sidePanel.getBoundingClientRect().width || 0;
+        }
+
+        function positionSidePanel() {
+            if (!sidePanel || !pubContainer) return;
+
+            const rect    = pubContainer.getBoundingClientRect();
+            const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
+            const panelW  = getPanelWidth();
+
+            const containerLeft = rect.left + scrollX;
+
+            /* RIGHT edge of panel aligns with LEFT edge of publication container */
+            sidePanel.style.left = (containerLeft - panelW - 20) + 'px';
+
+            /* FULL viewport height, no offset */
+            sidePanel.style.top    = '0';
+            sidePanel.style.height = '100vh';
+        }
+
+        function toggleSidePanel() {
+            if (!sidePanel || !bioSection) return;
+
+            const triggerY = bioSection.offsetHeight;
+
+            if (window.scrollY > triggerY) {
+            sidePanel.classList.add('visible');
+            positionSidePanel();
+            } else {
+            sidePanel.classList.remove('visible');
+            }
+        }
+
+        window.addEventListener('scroll', toggleSidePanel);
+        window.addEventListener('resize', positionSidePanel);
+
+        positionSidePanel();
+        toggleSidePanel();
+        });
         </script>
     </body>
 </html>

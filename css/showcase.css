@@ -1,3 +1,7 @@
+/* =========================
+   FROSTED PANEL (unchanged)
+   ========================= */
+
 /* PANEL BASE (full-width visual band) */
 .frosted-panel{
   position: relative;
@@ -6,16 +10,16 @@
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  padding: 0;
-  width: 100%;                 /* stays full-width visually */
+  padding-top: 20px;
+  width: 100%;
 }
 
 /* CONTENT WRAPPER — matches site width */
 .frosted-panel .btn-group-wrapper{
   width: 100%;
-  max-width: 1100px;           /* <— MATCH YOUR WEBSITE BODY WIDTH */
+  max-width: 1100px;
   padding: 0 1rem;
-  margin: 0 auto;              /* <— centers content */
+  margin: 0 auto;
 }
 
 /* Full-width menu row inside constrained wrapper */
@@ -82,30 +86,14 @@
   }
 }
 
-
-
 /* Hide entire showcase system on small screens */
 @media (max-width: 1000px) {
-
-  /* Frosted menu panel */
-  .frosted-panel {
-    display: none !important;
-  }
-
-  /* Background wrapper */
-  .showcasebackground {
-    display: none !important;
-  }
-
-  /* Core showcase containers */
+  .frosted-panel,
+  .showcasebackground,
   .showcase,
   #showcase,
   .showcase-wrapper,
-  .showcase-track {
-    display: none !important;
-  }
-
-  /* All showcase navigation buttons */
+  .showcase-track,
   #showcasePrev,
   #showcaseNext,
   .showcase-btn {
@@ -115,234 +103,299 @@
 
 
 
-
-
-
-/* Invisible hover zones for auto scroll */
-.auto-hover-zone {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 18%;                  /* how wide the “scroll area” is */
-  z-index: 10;                 /* above track, below buttons */
-  pointer-events: auto;
-}
-
-.left-zone {
-  left: 0;
-}
-
-.right-zone {
-  right: 0;
-}
-
-/* Optional debugging — remove after testing */
-/*
-.auto-hover-zone {
-  background: rgba(255,0,0,0.1);
-}
-*/
-
-.showcasebackground {
+/* Swiper carousel (container-bounded) */
+.publication-swiper {
   width: 100%;
-  background: #faf9f9;
-  height: 500px;
-  display: flex;
-  align-items: center;
+  max-width: 100%;
+  padding: 0;
+  height: auto !important; /* prevent full-viewport/tall swiper */
 }
 
-/* wrapper with buttons left/right */
-.showcase-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-/* viewport */
-.showcase {
+/* Side fade overlays (visual focus + improves arrow contrast) */
+.publication-swiper {
   position: relative;
-  overflow: hidden;
-  padding-block: 40px;
 }
 
-/* horizontal track */
-.showcase-track {
-  display: flex;
-  gap: 20px;
-  transition: transform 0.25s ease-out;
-}
-
-/* base size for visible items */
-.showcase-item {
-  flex: 0 0 160px;
-  height: 380px;
-  border-radius: 0.5rem;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+/* Swiper pagination (dots) — below carousel */
+.publication-swiper .swiper-pagination {
   position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  background-color: #ddd;
-  background-size: cover;
-  background-position: center;
-  transition:
-    flex-basis 0.22s ease-out,
-    transform 0.22s ease-out,
-    box-shadow 0.22s ease-out;
-}
-
-/* responsive: wider items on medium screens */
-@media (max-width: 992px) {
-  .showcase-item {
-    flex: 0 0 200px;
-  }
-}
-
-/* responsive: large touch targets on mobile */
-@media (max-width: 768px) {
-  .showcase-item {
-    flex: 0 0 75%;
-  }
-}
-
-/* hidden label overlay */
-.showcase-item .content {
-  font-size: 1.3rem;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  padding: 15px;
-  flex-direction: column;
-  height: 100%;
-  justify-content: flex-end;
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.80) 0%,
-    rgba(0, 0, 0, 0.0) 100%
-  );
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(14px);
-  transition: opacity 0.22s ease-out, transform 0.22s ease-out;
-}
-
-.showcase-item .content span {
-  margin-top: 5px;
-  font-size: 1rem;
-}
-
-/* video overlay (initially hidden) */
-.showcase-item .preview-video {
-  position: absolute;
-  inset: 0;
+  left: auto;
+  transform: none;
+  bottom: auto;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.22s ease-out;
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
   z-index: 1;
 }
 
-/* content above video */
-.showcase-item .content {
-  position: relative;
-  z-index: 2;
-}
-
-/* enlarge on hover: wider + float + reveal label + video */
-.showcase-item:hover {
-  flex-basis: 400px;
-  transform: translateY(-14px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-}
-
-.showcase-item:hover .content {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.showcase-item:hover .preview-video {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* fades at left/right edges – now on white background */
-.showcase::before,
-.showcase::after {
+.publication-swiper::before,
+.publication-swiper::after {
   content: "";
   position: absolute;
   top: 0;
   bottom: 0;
-  width: clamp(60px, 18vw, 100px);
+  width: 120px;
+  z-index: 4;
   pointer-events: none;
-  z-index: 3;
 }
 
-.showcase::before {
+.publication-swiper::before {
   left: 0;
-  background: linear-gradient(
-    to right,
-    #faf9f9 0%,
-    rgba(250, 249, 249, 0.9) 60%,
-    rgba(250, 249, 249, 0.0) 100%
-  );
+  background: linear-gradient(to right, rgba(255,255,255,0.97), rgba(255,255,255,0));
 }
 
-.showcase::after {
+.publication-swiper::after {
   right: 0;
-  background: linear-gradient(
-    to left,
-    #faf9f9 0%,
-    rgba(250, 249, 249, 0.9) 60%,
-    rgba(250, 249, 249, 0.0) 100%
-  );
+  background: linear-gradient(to left, rgba(255,255,255,0.97), rgba(255,255,255,0));
 }
 
-/* button controls – neutral on white */
-.showcase-btn {
-  border: none;
-  background: #f1f1f1;
-  color: #444;
-  width: 40px;
-  height: 40px;
-  border-radius: 999px;
+.publication-swiper .swiper-wrapper {
+  align-items: stretch;
+  height: auto !important;
+}
+.publication-swiper .swiper-slide {
+  height: auto !important; /* override Swiper default height:100% */
+}
+
+/* Ensure Flickity doesn't create horizontal bleed outside the container */
+.publication-swiper {
+  overflow: hidden;
+}
+
+/* Cards: scoped to Swiper so this wins over any older carousel-cell rules */
+.publication-swiper .carousel-cell {
+  position: relative;
+  width: min(50%, 720px) !important;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  margin-right: 0; /* Swiper handles spacing via spaceBetween */
+  border-radius: 16px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  transform-origin: center center;
+  transition: transform 180ms ease;
+}
+.publication-swiper .swiper-slide-active.carousel-cell { transform: scale(1.03); }
+
+/* Make single-card view on narrow screens */
+@media (max-width: 768px) {
+  .publication-swiper .carousel-cell {
+    width: 100% !important;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    margin-right: 0;
+    border-radius: 12px;
+  }
+}
+
+/* Video overlay */
+.carousel-cell .preview-video {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Video becomes visible only after JS adds .video-on to the slide (after a delay) */
+.publication-swiper .carousel-cell.video-on .preview-video {
+  opacity: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Fallback if the browser ignores aspect-ratio on video: keep it centered and bounded */
+@supports not (aspect-ratio: 16 / 9) {
+  .publication-swiper .carousel-cell {
+    height: 300px;
+  }
+  @media (max-width: 768px) {
+    .publication-swiper .carousel-cell { height: 220px; }
+  }
+  .publication-swiper .carousel-cell.video-on .preview-video {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Content overlay (hidden by default) */
+.carousel-cell .content {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  color: #fff;
+  z-index: 2;
+  text-shadow: 0 2px 12px rgba(0,0,0,.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+}
+
+/* Show content only for the focused (active) slide */
+.publication-swiper .swiper-slide-active .content {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Gradient for readability */
+.carousel-cell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.65), rgba(0,0,0,0) 55%);
+  z-index: 1;
+}
+
+/* Title sizing */
+.carousel-cell .content h5 {
+  margin: 0 0 4px 0;
+  font-size: clamp(14px, 1.2vw, 17px);
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.carousel-cell .content span {
+  font-size: 14px;
+  opacity: .9;
+}
+
+/* Swiper pagination bullets wrapper */
+.publication-swiper .swiper-pagination-bullets {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.6rem;
+  width: auto;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Swiper pagination (dots) */
+.publication-swiper .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  opacity: 0.35;
+  background: rgba(0,0,0,0.65);
+  margin: 0 6px !important;
+}
+
+.publication-swiper .swiper-pagination-bullet-active {
+  opacity: 1;
+  background: rgba(0,0,0,0.85);
+}
+
+/* More visible navigation arrows */
+.publication-swiper {
+  --swiper-navigation-color: #fff;
+  --swiper-navigation-size: 20px;
+}
+
+.publication-swiper .swiper-button-prev,
+.publication-swiper .swiper-button-next {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.38);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.45);
+  z-index: 6;
+}
+
+.publication-swiper .swiper-button-prev:hover,
+.publication-swiper .swiper-button-next:hover {
+  background: rgba(0,0,0,0.55);
+}
+
+.publication-swiper .swiper-button-prev::after,
+.publication-swiper .swiper-button-next::after {
+  font-size: 18px;
+  opacity: 0.85;
+}
+
+.publication-swiper .swiper-button-prev,
+.publication-swiper .swiper-button-next {
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 6;
+}
+
+.publication-swiper .swiper-button-prev { left: 14px; }
+.publication-swiper .swiper-button-next { right: 14px; }
+
+.publication-swiper .swiper-slide-active {
   cursor: pointer;
-  transition:
-    background 0.18s ease,
-    transform 0.12s ease,
-    box-shadow 0.18s ease;
 }
 
-.showcase-btn:hover {
-  background: #e2e2e2;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transform: translateY(-2px);
-}
-
-.showcase-btn:active {
-  transform: translateY(0) scale(0.95);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-}
-
-.showcase-btn:focus-visible {
-  outline: 2px solid #0a84ff;
-  outline-offset: 3px;
-}
-
-/* compact controls for tiny screens */
-@media (max-width: 576px) {
-  .showcase-wrapper {
-    gap: 6px;
+/* Desktop: place arrows beside pagination dots */
+@media (min-width: 769px) {
+  /* Reserve space for controls row */
+  .publication-swiper {
+    padding-bottom: 56px;
   }
-  .showcase-btn {
-    width: 34px;
-    height: 34px;
-    font-size: 1.3rem;
+
+  /* Keep pagination below carousel */
+  .publication-swiper .swiper-pagination {
+    margin-top: 14px;
   }
+
+  /* Move arrows down to pagination row */
+  .publication-swiper .swiper-button-prev,
+  .publication-swiper .swiper-button-next {
+    top: auto;
+    bottom: 10px;
+    transform: none;
+  }
+
+  /* Position arrows left/right of dot pill */
+  .publication-swiper .swiper-button-prev { left: calc(50% - 140px); }
+  .publication-swiper .swiper-button-next { right: calc(50% - 140px); }
+}
+
+@media (max-width: 768px) {
+  /* Remove side fades on mobile */
+  .publication-swiper::before,
+  .publication-swiper::after {
+    display: none;
+  }
+
+  /* Reserve a row for pagination + arrows */
+  .publication-swiper {
+    padding-bottom: 54px; /* space for controls row */
+  }
+
+  /* Place pagination centered below carousel */
+  .publication-swiper .swiper-pagination {
+    margin-top: 10px;
+  }
+
+  /* Move arrows next to the dots */
+  .publication-swiper .swiper-button-prev,
+  .publication-swiper .swiper-button-next {
+    top: auto;
+    bottom: 8px;
+    transform: none;
+    width: 36px;
+    height: 36px;
+    background: rgba(0,0,0,0.22);
+    box-shadow: none;
+    border: 1px solid rgba(0,0,0,0.12);
+  }
+
+  .publication-swiper .swiper-button-prev::after,
+  .publication-swiper .swiper-button-next::after {
+    font-size: 16px;
+    opacity: 0.75;
+  }
+
+  /* Position left/right of the centered pagination pill */
+  .publication-swiper .swiper-button-prev { left: calc(50% - 120px); }
+  .publication-swiper .swiper-button-next { right: calc(50% - 120px); }
 }

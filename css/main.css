@@ -56,7 +56,7 @@ a:focus {
 /* Main card styling (your existing version, unchanged) */
 .publication-entry {
   border-radius: 12px;
-  border-color: #555555;
+  outline: 1px solid #ccc;
   transition: transform 0.20s ease, box-shadow 0.20s ease;
   background: #ffffff;
 }
@@ -191,11 +191,122 @@ a.acm::before {
   width: 100%;
   max-width: 220px;
   height: auto;
-
   border-radius: 50%;   
   border: 2px solid rgba(0,0,0,0.15);
 }
 }
+
+
+
+/* ========== Alterantive banner menu ========== */
+
+/* 1) Disable the top header on wide screens */
+@media (min-width: 1689px) {
+  header.banner {
+    display: none !important;
+  }
+
+  /* 2) Make the frosted panel “take over” as the sticky top bar when it reaches the top */
+  #header-links-panel.frosted-panel {
+    position: sticky;
+    top: 0;
+    z-index: 1200; /* above content */
+  }
+
+  /* Optional: ensure it renders like a bar when stuck */
+  #header-links-panel.frosted-panel {
+    width: 100%;
+  }
+
+  /* Optional: avoid the sticky bar overlapping anchor targets */
+  :root { scroll-padding-top: 80px; } /* tune to panel height */
+}
+
+
+
+
+
+/* ========== SIDE PANEL ========== */
+
+.side-profile-panel {
+  position: fixed;
+  z-index: 10000;
+  width: 240px;
+  height: 100vh;
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.side-profile-panel.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.side-profile-inner {
+  padding: 14px 14px;
+  background: rgba(224, 224, 224, 1);
+  /* border-radius: 12px; */
+  /* box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15); */
+  /* border: 1px solid #d0d0d0; */
+  height: 100vh;
+  font-size: 15px;             /* matches body text */
+  line-height: 1.6;
+}
+
+.side-profile-img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 999px;
+  outline: 2px solid #cfcfcf;
+  display: block;
+  margin: 0 auto 12px;
+  margin-top: 30px;
+}
+
+.side-profile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 40px;
+}
+
+.side-profile-links button {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #f8f8f8;
+  padding: 6px 8px;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.side-profile-links button:hover {
+  background: #f0f0f0;
+}
+
+.side-profile-links .side-icon {
+  height: 15px;
+  width: auto;
+  vertical-align: -2px;
+}
+
+/* Hide side panel on tablets/phones */
+@media (max-width: 1689px) {
+  .side-profile-panel {
+    display: none !important;
+  }
+}
+
+
+
+
 
 /* ========== BANNER FADE/SLIDE (HEADHESIVE) ========== */
 .banner {
