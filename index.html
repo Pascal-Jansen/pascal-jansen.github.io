@@ -120,7 +120,7 @@
                     <button type="button" class="btn btn-secondary"
                         onclick="window.open('data/CV_Jansen_2025.pdf', '_blank')"
                         style="border-radius:10px; padding:4px 10px; border:1px solid #ccc;">
-                        📄 CV (Dec. 2025)
+                        <i class="bi bi-file-earmark-person" style="margin-right:4px;"></i> CV (Dec. 2025)
                     </button>
 
                     <button type="button" class="btn btn-secondary"
@@ -128,7 +128,7 @@
                         style="border-radius:10px; padding:4px 10px; border:1px solid #ccc;">
                         <img src="images/google-scholar.png"
                             alt="Google Scholar"
-                            style="height:18px; width:auto; margin-right:4px; vertical-align:-3px;"> Google Scholar
+                            style="height:18px; width:auto; margin-right:2px; vertical-align:-3px;"> Google Scholar
                     </button>
 
                     <button type="button" class="btn btn-secondary"
@@ -675,6 +675,11 @@ swiperRoot.addEventListener('click', (e) => {
 
                     <!-- 2025 (older) -->
                     <div class="row year-row">
+
+                    <div class="col-3 col-md-2 year-label">
+                    <h4></h4>
+                    </div>
+
                     <div class="col-9 col-md-10 year-content">
 
                         <section class="event">
@@ -798,17 +803,45 @@ swiperRoot.addEventListener('click', (e) => {
                 </div> <!-- /#timeline -->
 
                 <script>
-                document.getElementById('moreBtn').addEventListener('click', function () {
-                var extra = document.getElementById('moreNews');
-                if (extra.style.display === 'none' || extra.style.display === '') {
+                let scrollPosBeforeExpand = null;
+                let t = null;
+
+                const btn = document.getElementById('moreBtn');
+                const extra = document.getElementById('moreNews');
+
+                btn.addEventListener('click', () => {
+                const opening = !extra.classList.contains('is-open');
+
+                if (opening) {
+                    scrollPosBeforeExpand = window.scrollY;
+
+                    // ensure element participates in layout first
                     extra.style.display = 'block';
-                    this.textContent = 'Show Less';
+                    requestAnimationFrame(() => {
+                    extra.classList.add('is-open'); // triggers opacity/transform transition
+                    });
+
+                    btn.textContent = 'Show Less';
                 } else {
-                    extra.style.display = 'none';
-                    this.textContent = 'More News';
+                    extra.classList.remove('is-open'); // triggers fade-out
+                    btn.textContent = 'More News';
+
+                    const onEnd = (e) => {
+                    if (e.propertyName !== 'opacity') return;
+                    extra.removeEventListener('transitionend', onEnd);
+                    extra.style.display = 'none'; // only after fade-out finishes
+                    if (scrollPosBeforeExpand != null) {
+                        window.scrollTo({ top: scrollPosBeforeExpand, behavior: 'smooth' });
+                    }
+                    };
+                    extra.addEventListener('transitionend', onEnd);
                 }
                 });
                 </script>
+
+
+
+
 
                 <hr>
                 <h1 id="agenda">Research Agenda</h1>

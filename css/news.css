@@ -131,3 +131,31 @@
     padding-left: 0 !important;
   }
 }
+
+
+/* ============================================================
+   Smooth expand / collapse for "More News"
+   ============================================================ */
+
+#moreNews {
+  display: none;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 220ms ease, transform 220ms ease;
+  will-change: opacity, transform;
+}
+
+/* Visible state */
+#moreNews.is-open {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Accessibility: respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  #moreNews {
+    transition: none;
+    transform: none;
+  }
+}
