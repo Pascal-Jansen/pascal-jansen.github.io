@@ -230,9 +230,10 @@ a.acm::before {
 
 .side-profile-panel {
   position: fixed;
-  z-index: 10000;
-  width: 240px;
+  /*z-index: 10000;*/
+  width: 440px;
   height: 100vh;
+  left: 0;
   opacity: 0;
   transform: translateY(8px);
   pointer-events: none;
@@ -246,13 +247,10 @@ a.acm::before {
 }
 
 .side-profile-inner {
-  padding: 14px 14px;
+  padding: 100px 50px 50px 50px;
   background: rgba(224, 224, 224, 1);
-  /* border-radius: 12px; */
-  /* box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15); */
-  /* border: 1px solid #d0d0d0; */
   height: 100vh;
-  font-size: 15px;             /* matches body text */
+  font-size: 15px;
   line-height: 1.6;
 }
 
@@ -263,38 +261,121 @@ a.acm::before {
   border-radius: 999px;
   outline: 2px solid #cfcfcf;
   display: block;
-  margin: 0 auto 12px;
-  margin-top: 30px;
+  margin: 30px auto 12px;
 }
 
 .side-profile-links {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;        /* side by side */
+  justify-content: center;
   gap: 10px;
   padding-top: 40px;
 }
 
 .side-profile-links button {
-  border-radius: 8px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
   border: 1px solid #ccc;
   background: #f8f8f8;
-  padding: 6px 8px;
-  font-size: 14px;
-  text-align: left;
+  padding: 0;
   cursor: pointer;
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
 }
 
 .side-profile-links button:hover {
   background: #f0f0f0;
 }
 
-.side-profile-links .side-icon {
-  height: 15px;
+.side-profile-links img,
+.side-profile-links i {
+  font-size: 18px;
+  height: 18px;
   width: auto;
-  vertical-align: -2px;
+}
+
+/* ========== SIDE PANEL ABOUT TEXT ========== */
+
+.side-profile-about {
+  margin-top: 12px;
+  font-size: 13.5px;
+  line-height: 1.45;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 300px;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+
+  /* collapse / expand behavior */
+  overflow: hidden;
+  transition: max-height 0.25s ease, opacity 0.2s ease;
+}
+
+.side-profile-about.is-collapsed {
+  max-height: 0;
+  opacity: 0;
+}
+
+.side-profile-about:not(.is-collapsed) {
+  max-height: 1200px; /* safely above expected content height */
+  opacity: 1;
+}
+
+.side-profile-about p {
+  margin-bottom: 0.85em;
+  text-align-last: left; /* prevents stretched last line */
+}
+
+.side-profile-about strong {
+  font-weight: 600;
+}
+
+/* ========== ABOUT ME TOGGLE CHEVRON ========== */
+
+.side-about-toggle {
+  display: inline-flex;               /* same interaction model as other buttons */
+  align-items: center;
+  gap: 6px;
+
+  display: flex;        /* instead of inline-flex */
+  margin-left: auto;
+  margin-right: auto;
+
+  padding: 4px 12px;
+
+  background: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+
+  color: #444;
+  cursor: pointer;
+
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.side-about-toggle:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+}
+
+/* Chevron rotation (Bootstrap Icons) */
+.side-about-toggle .bi {
+  display: inline-block;               /* required for transform to apply */
+  transition: transform 0.2s ease;
+  transform-origin: 50% 50%;
+}
+
+/* Closed: right */
+.side-about-toggle[aria-expanded="false"] .bi {
+  transform: rotate(0deg);
+}
+
+/* Open: down (rotate right chevron by 90deg) */
+.side-about-toggle[aria-expanded="true"] .bi {
+  transform: rotate(90deg);
 }
 
 /* Hide side panel on tablets/phones */
@@ -305,6 +386,75 @@ a.acm::before {
 }
 
 
+
+
+
+/* ========== BANNER LINKS (INLINE ICON BUTTONS) ========== */
+
+.banner-links {
+  display: flex;
+  gap: 10px;
+}
+
+/* ========== ABOUT ME BANNER TOGGLE ========== */
+
+.banner-about-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.banner-about-toggle:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+}
+
+/* Chevron (Bootstrap Icons) */
+.banner-about-toggle .bi {
+  display: inline-block;
+  transition: transform 0.2s ease;
+  transform-origin: 50% 50%;
+}
+
+/* Closed: chevron points right */
+.banner-about-toggle[aria-expanded="false"] .bi {
+  transform: rotate(0deg);
+}
+
+/* Open: chevron points down */
+.banner-about-toggle[aria-expanded="true"] .bi {
+  transform: rotate(90deg);
+}
+
+/* ========== BANNER ABOUT ME (COLLAPSIBLE CONTENT) ========== */
+
+.banner-about-me {
+  overflow: hidden;
+  transition: max-height 0.25s ease, opacity 0.2s ease;
+}
+
+/* Collapsed by default */
+.banner-about-me.is-collapsed {
+  max-height: 0;
+  opacity: 0;
+}
+
+/* Expanded state */
+.banner-about-me:not(.is-collapsed) {
+  max-height: 1200px; /* safely above content height */
+  opacity: 1;
+}
+
+.bio.banner-about-open .bio-desktop .col-md-4 {
+  position: sticky;
+  top: 90px;              /* adjust to your header height */
+  align-self: flex-start; /* avoid bottom alignment shifts */
+}
 
 
 
