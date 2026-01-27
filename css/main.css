@@ -188,11 +188,13 @@ a.acm::before {
   }
 
 .profile-image-mobile {
-  width: 100%;
-  max-width: 220px;
-  height: auto;
-  border-radius: 50%;   
-  border: 2px solid rgba(0,0,0,0.15);
+width: 100%;
+max-width: 220px;
+aspect-ratio: 1 / 1;
+height: auto;
+object-fit: cover;
+border-radius: 50%;
+border: 2px solid rgba(0,0,0,0.15);
 }
 }
 
