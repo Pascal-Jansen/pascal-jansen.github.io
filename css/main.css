@@ -231,7 +231,7 @@ a.acm::before {
 .side-profile-panel {
   position: fixed;
   /*z-index: 10000;*/
-  width: 440px;
+  width: 380px;
   height: 100vh;
   left: 0;
   opacity: 0;
@@ -247,7 +247,7 @@ a.acm::before {
 }
 
 .side-profile-inner {
-  padding: 100px 50px 50px 50px;
+  padding: 100px 20px 20px 20px;
   background: rgba(224, 224, 224, 1);
   height: 100vh;
   font-size: 15px;
@@ -379,7 +379,7 @@ a.acm::before {
 }
 
 /* Hide side panel on tablets/phones */
-@media (max-width: 1689px) {
+@media (max-width: 1975px) {
   .side-profile-panel {
     display: none !important;
   }
