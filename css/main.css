@@ -3,6 +3,7 @@
    ============================================================== */
 
 /* Offset in-page anchors so they are not hidden behind the fixed header */
+#aboutme,
 #news,
 #agenda,
 #publications,
@@ -53,8 +54,252 @@ a:focus {
 
 
 
+/* ==============================================================
+   AFFILIATIONs SIDE PANEL BLOCK
+   ============================================================== */
+
+
+
+/* Affiliation row with logo */
+.side-affiliation{
+  display: flex;
+  gap: 10px;
+  padding: 10px 0 12px 0;
+  border-top: 1px solid rgba(0,0,0,0.12);
+  align-items: flex-start;
+}
+
+.side-affiliation:first-of-type{
+  border-top: 0;
+}
+
+/* Logo */
+.side-affil-logo{
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  opacity: 0.85;
+  flex-shrink: 0;
+}
+
+/* Text block */
+.side-affil-text{
+  flex: 1;
+  min-width: 0;
+}
+
+/* Typography (inherits your existing tone) */
+.side-affil-org{
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+  line-height: 1.2;
+}
+
+.side-affil-dept,
+.side-affil-role{
+  font-size: 13px;
+  color: #333;
+}
+
+.side-affil-lab{
+  font-size: 12.5px;
+  color: #555;
+  font-style: italic;
+}
+
+.side-affil-dates{
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: #555;
+}
+
+
+
+/* ==============================================================
+   RECENT NEWS SIDE PANEL BLOCK
+   ============================================================== */
+
+/* Side panel “Recent Updates” block */
+.side-updates{
+  max-width: 300px;                 /* matches your side-profile-about max-width */
+  margin: 18px auto 0;
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: #222;
+}
+
+/* Title */
+.side-updates-title{
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #444;
+  margin: 0 0 10px 0;
+}
+
+/* Scroll container */
+.side-updates-list{
+  position: relative;
+  max-height: 340px;                /* tune: 220–340 depending on your panel */
+  overflow-y: auto;
+  padding-right: 8px;               /* space for scrollbar */
+}
+
+/* Subtle scrollbar (WebKit) */
+.side-updates-list::-webkit-scrollbar{ width: 8px; }
+.side-updates-list::-webkit-scrollbar-track{ background: transparent; }
+.side-updates-list::-webkit-scrollbar-thumb{
+  background: rgba(0,0,0,0.18);
+  border-radius: 0;                 /* no rounded corners */
+}
+.side-updates-list::-webkit-scrollbar-thumb:hover{
+  background: rgba(0,0,0,0.28);
+}
+
+.side-updates-list::after{
+  content: "";
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  display: block;
+  height: 36px;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(224,224,224,0),
+    rgba(224,224,224,0.85),
+    rgba(224,224,224,1)
+  );
+}
+
+/* Update row */
+.side-update{
+  padding: 10px 0;
+  border-top: 1px solid rgba(0,0,0,0.12);
+}
+.side-update:first-child{ border-top: 0; }
+
+/* Date + text */
+.side-update-date{
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 4px;
+}
+.side-update-text{
+  font-size: 13.5px;
+  color: #222;
+}
+
+/* Optional: tighter on very small screens */
+@media (max-width: 767px){
+  .side-updates{ max-width: 100%; }
+  .side-updates-list{ max-height: 220px; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==============================================================
+   MISSION BLOCK (flat, square, matches existing palette)
+   ============================================================== */
+
+.mission-block{
+  max-width: 860px;
+  margin: 26px 0 18px 0;
+}
+
+/* centered “— Mission —” with spanning rules, subtle + italic */
+.mission-kicker{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 0 14px 0;
+
+  color: var(--muted-text-color);
+  font-style: italic;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: none;
+}
+
+.mission-kicker::after{
+  content: "";
+  height: 1px;
+  background: rgba(0,0,0,0.18);
+  flex: 1;
+}
+.mission-kicker span{
+  padding: 0 6px;
+  white-space: nowrap;
+}
+
+/* Headline: closer to your existing hero typography, but not as huge as H1 */
+.mission-tagline{
+  margin: 0 0 10px 0;
+  font-size: 28px;   /* tune 26–30 depending on your column width */
+  line-height: 1.15;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+/* Subline: flat box, no rounding, no shadow, no blur */
+.mission-subline{
+  display: block;              /* ensures full-width box in the text column */
+  width: 100%;
+  box-sizing: border-box;
+
+  margin: 10px 0 18px 0;
+  padding: 10px 12px;
+
+  background: #d8d8d8;         /* boxed background as requested */
+  /*border: 1px solid rgba(0,0,0,0.20);
+  border-radius: 0;            /* no rounded corners */
+
+  font-size: 15px;
+  line-height: 1.45;
+  font-weight: 500;
+  color: #222;
+}
+
+/* Body text: keep consistent with your publication/bio gray */
+.mission-text p{
+  margin: 0 0 14px 0;
+  line-height: 1.6;
+  text-align: left;
+}
+.mission-text strong{
+  font-weight: 600;
+}
+
+/* Mobile tuning */
+@media (max-width: 767px){
+  .mission-tagline{ font-size: 20px; }
+  .mission-kicker{ font-size: 13px; }
+  .mission-subline{ font-size: 14px; }
+}
+
+
+
+
+
+
 /* Main card styling (your existing version, unchanged) */
 .publication-entry {
+  margin-left: 0;
   border-radius: 12px;
   outline: 1px solid #ccc;
   transition: transform 0.20s ease, box-shadow 0.20s ease;
@@ -263,7 +508,7 @@ border: 2px solid rgba(0,0,0,0.15);
   border-radius: 999px;
   outline: 2px solid #cfcfcf;
   display: block;
-  margin: 30px auto 12px;
+  margin: 20px auto 0px;
 }
 
 .side-profile-links {
@@ -271,7 +516,7 @@ border: 2px solid rgba(0,0,0,0.15);
   flex-direction: row;        /* side by side */
   justify-content: center;
   gap: 10px;
-  padding-top: 40px;
+  padding-top: 15px;
 }
 
 .side-profile-links button {
