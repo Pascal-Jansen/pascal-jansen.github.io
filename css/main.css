@@ -849,7 +849,7 @@ border: 2px solid rgba(0,0,0,0.15);
   right: -50%;
   bottom: 0;
   width: auto;
-  height: 100%;
+  height: 90%;
   object-fit: cover;
 }
 /* --------  phones / tablets  -------- */
