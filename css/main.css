@@ -121,9 +121,12 @@ a:focus {
    ============================================================== */
 
 /* Side panel “Recent Updates” block */
+/* was: max-width: 300px; margin: 18px auto 0; */
 .side-updates{
-  max-width: 300px;                 /* matches your side-profile-about max-width */
-  margin: 18px auto 0;
+  width: 100%;
+  max-width: none;
+  margin: 18px 0 0;
+  padding: 0 20px;   /* left and right spacing */
   font-size: 13.5px;
   line-height: 1.45;
   color: #222;
@@ -496,9 +499,27 @@ border: 2px solid rgba(0,0,0,0.15);
 .side-profile-inner {
   padding: 100px 20px 20px 20px;
   background: rgba(224, 224, 224, 1);
-  height: 100vh;
   font-size: 15px;
   line-height: 1.6;
+    display: flex;
+  flex-direction: column;
+  height: 100vh;           /* already set, keep explicit */
+}
+
+/* 2) Let ONLY the last "side-updates" section (Recent Updates) take remaining space */
+.side-profile-inner .side-updates:last-of-type{
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;           /* critical so the child can shrink and scroll */
+}
+
+/* 3) Make the updates list the scrolling region that fills available height */
+.side-profile-inner .side-updates:last-of-type .side-updates-list{
+  flex: 1 1 auto;
+  min-height: 0;           /* critical for overflow scrolling in flex children */
+  max-height: none;        /* remove the fixed cap (your current 340px) */
+  overflow-y: auto;        /* keep scrolling */
 }
 
 .side-profile-img {
