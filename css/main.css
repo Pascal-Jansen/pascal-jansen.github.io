@@ -17,7 +17,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 :root {
@@ -405,6 +405,13 @@ header nav li a:hover,
 header nav li a:focus {
   text-decoration: none;
   color: #b83000 !important;
+}
+header nav li a.is-active {
+  color: #123b7a !important;
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 2px solid #123b7a;
+  padding-bottom: 2px;
 }
 
 /* Download link icon removed */

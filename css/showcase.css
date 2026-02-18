@@ -74,6 +74,14 @@
 .frosted-panel .btn.btn-secondary:active{
   background: rgba(0,0,0,0.12) !important;
 }
+.frosted-panel .btn.btn-secondary.is-active{
+  background: transparent !important;
+  box-shadow: inset 0 -2px 0 #123b7a !important;
+}
+.frosted-panel .btn.btn-secondary.is-active h4{
+  color: #123b7a;
+  font-weight: 600;
+}
 
 /* Responsive tuning */
 @media (max-width: 768px){

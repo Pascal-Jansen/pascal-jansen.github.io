@@ -550,23 +550,23 @@
                     <div class="col-md-12 btn-group" role="group" aria-label="Profile links" style="display: flex; justify-content: center;">
 
                                                                              
-                                                <button type="button" class="btn btn-secondary" onclick="location.href='#aboutme'">
+                                                <button type="button" class="btn btn-secondary" data-target="#aboutme" onclick="location.href='#aboutme'">
                                                     <h4>Profile</h4>
                                                 </button>
 
-                                                <button type="button" class="btn btn-secondary" onclick="location.href='#agenda'">
+                                                <button type="button" class="btn btn-secondary" data-target="#agenda" onclick="location.href='#agenda'">
                                                     <h4>Research Agenda</h4>
                                                 </button>
 
-                                                <button type="button" class="btn btn-secondary" onclick="location.href='#news'">
+                                                <button type="button" class="btn btn-secondary" data-target="#news" onclick="location.href='#news'">
                                                     <h4>News</h4>
                                                 </button>
                                                 
-                                                <button type="button" class="btn btn-secondary" onclick="location.href='#publications'">
+                                                <button type="button" class="btn btn-secondary" data-target="#publications" onclick="location.href='#publications'">
                                                     <h4>Publications</h4>
                                                 </button>
                                                 
-                                                <button type="button" class="btn btn-secondary" onclick="location.href='#teaching'">
+                                                <button type="button" class="btn btn-secondary" data-target="#teaching" onclick="location.href='#teaching'">
                                                     <h4>Teaching</h4>
                                                 </button>                                   
 
@@ -1295,7 +1295,7 @@ swiperRoot.addEventListener('click', (e) => {
                     extra.removeEventListener('transitionend', onEnd);
                     extra.style.display = 'none'; // only after fade-out finishes
                     if (scrollPosBeforeExpand != null) {
-                        window.scrollTo({ top: scrollPosBeforeExpand, behavior: 'smooth' });
+                        window.scrollTo({ top: scrollPosBeforeExpand, behavior: 'auto' });
                     }
                     };
                     extra.addEventListener('transitionend', onEnd);
@@ -2173,6 +2173,90 @@ document.querySelectorAll('.publication-entry').forEach(entry => {
             banner.remove();
         });
         })();
+        </script>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const getNavLinks = () => Array.from(document.querySelectorAll('header nav a[href^="#"]'));
+        const getQuickButtons = () => Array.from(document.querySelectorAll('#header-links-panel .btn.btn-secondary[data-target]'));
+        const sectionTargets = Array.from(
+            new Set([
+            ...getNavLinks().map((link) => link.getAttribute('href')),
+            ...getQuickButtons().map((button) => button.getAttribute('data-target'))
+            ])
+        )
+            .map((hash) => ({
+            hash,
+            section: document.querySelector(hash)
+            }))
+            .filter((entry) => entry.section);
+
+        if (!sectionTargets.length) return;
+
+        const header = document.querySelector('header');
+
+        function getHeaderOffset() {
+            const headerHeight = header ? header.getBoundingClientRect().height : 0;
+            return headerHeight + 12;
+        }
+
+        function setActiveByHash(activeHash) {
+            getNavLinks().forEach((link) => {
+            const isActive = link.getAttribute('href') === activeHash;
+            link.classList.toggle('is-active', isActive);
+            if (isActive) {
+                link.setAttribute('aria-current', 'page');
+            } else {
+                link.removeAttribute('aria-current');
+            }
+            });
+
+            getQuickButtons().forEach((button) => {
+            const isActive = button.getAttribute('data-target') === activeHash;
+            button.classList.toggle('is-active', isActive);
+            button.setAttribute('aria-pressed', String(isActive));
+            });
+        }
+
+        function syncActiveLink() {
+            if (window.scrollY <= 8) {
+            setActiveByHash(null);
+            return;
+            }
+
+            const activationOffset = Math.max(getHeaderOffset(), Math.round(window.innerHeight * 0.25));
+            const scrollPosition = window.scrollY + activationOffset;
+            let currentHash = sectionTargets[0].hash;
+
+            for (const entry of sectionTargets) {
+            const sectionTop = entry.section.getBoundingClientRect().top + window.scrollY;
+            if (sectionTop <= scrollPosition) {
+                currentHash = entry.hash;
+            } else {
+                break;
+            }
+            }
+
+            setActiveByHash(currentHash);
+        }
+
+        document.addEventListener('click', (event) => {
+            const link = event.target.closest('header nav a[href^="#"]');
+            if (link) {
+            setActiveByHash(link.getAttribute('href'));
+            return;
+            }
+
+            const button = event.target.closest('#header-links-panel .btn.btn-secondary[data-target]');
+            if (!button) return;
+            setActiveByHash(button.getAttribute('data-target'));
+        });
+
+        window.addEventListener('scroll', syncActiveLink, { passive: true });
+        window.addEventListener('resize', syncActiveLink);
+
+        syncActiveLink();
+        });
         </script>
 
         <script>

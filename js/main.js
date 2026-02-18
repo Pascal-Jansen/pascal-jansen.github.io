@@ -1,14 +1,10 @@
 $(document).ready(function() {
-    $('header nav ul li a').click(function(event) {
-        event.preventDefault();
+    $('header nav ul li a').click(function() {
         var section = $(this).attr('href');
-        var section_pos = $(section).position();
-        if (section_pos) {
-            $(window).scrollTo({
-                top: section_pos.top,
-                left: '0px'
-            }, 1000);
-        }
+        if (!section || section.charAt(0) !== '#') return;
+
+        var toggle = document.getElementById('nav-toggle');
+        if (toggle) toggle.checked = false;
     });
 
     $('.burger_icon').click(function() {
