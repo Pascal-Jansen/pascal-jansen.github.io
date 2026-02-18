@@ -2,6 +2,10 @@
    GLOBAL STYLES
    ============================================================== */
 
+.container {
+  width: 1300px;
+}
+
 /* Offset in-page anchors so they are not hidden behind the fixed header */
 #aboutme,
 #news,
@@ -47,6 +51,17 @@ a:focus {
 
 .news-text {
   color: dimgray;
+}
+
+
+.service-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.service-col {
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -222,6 +237,7 @@ a:focus {
 .mission-block{
   max-width: 860px;
   margin: 26px 0 18px 0;
+  font-size: 0.9em;
 }
 
 /* centered “— Mission —” with spanning rules, subtle + italic */
@@ -306,7 +322,7 @@ a:focus {
   border-radius: 12px;
   outline: 1px solid #ccc;
   transition: transform 0.20s ease, box-shadow 0.20s ease;
-  background: #ffffff;
+  background-color: #ffffff;
 }
 
 .publication-entry:hover {
@@ -647,7 +663,7 @@ border: 2px solid rgba(0,0,0,0.15);
 }
 
 /* Hide side panel on tablets/phones */
-@media (max-width: 1975px) {
+@media (max-width: 2222px) {
   .side-profile-panel {
     display: none !important;
   }
@@ -825,7 +841,6 @@ border: 2px solid rgba(0,0,0,0.15);
   margin-bottom: 50px;
   padding-top: 20px;
   padding-bottom: 20px;
-  background-color: #faf9f9;
 }
 .publication img {
   width: 100%;
@@ -852,6 +867,19 @@ border: 2px solid rgba(0,0,0,0.15);
   margin-right: 0px;
   line-height: 16px;
 }
+
+.pub-badge {
+  position: relative;
+  text-align: center;
+  width: 70px;
+  background: #828282;
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 4px 10px;
+  border-radius: 10px;
+  letter-spacing: 0.3px;
+}
+
 
 /* ========== RESPONSIVE / MEDIA QUERIES ========== */
 
