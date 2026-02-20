@@ -3,7 +3,8 @@
    ============================================================== */
 
 .container {
-  width: 1300px;
+  width: 100%;
+  max-width: 1300px;
 }
 
 /* Offset in-page anchors so they are not hidden behind the fixed header */
@@ -774,8 +775,6 @@ border: 2px solid rgba(0,0,0,0.15);
   display: block;
   position: relative;
   width: 100%;
-  background: url('../test/images/photos/background.jpg') no-repeat center center;
-  background-size: cover;
   color: #000000;
   text-align: left !important;
 }
