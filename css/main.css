@@ -475,7 +475,7 @@ border: 2px solid rgba(0,0,0,0.15);
 /* ========== Alterantive banner menu ========== */
 
 /* 1) Disable the top header on wide screens */
-@media (min-width: 1689px) {
+@media (min-width: 2222px) {
   header.banner {
     display: none !important;
   }
