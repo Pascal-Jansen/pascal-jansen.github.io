@@ -38,14 +38,26 @@
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-N465H94Q6K"></script>
+<!-- Google tag (gtag.js) loaded only after cookie consent -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  (function () {
+    const GA_MEASUREMENT_ID = 'G-N465H94Q6K';
 
-  gtag('config', 'G-N465H94Q6K');
+    window.enableAnalytics = function enableAnalytics() {
+      if (window.__gaEnabled) return;
+      window.__gaEnabled = true;
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function gtag(){ window.dataLayer.push(arguments); };
+      window.gtag('js', new Date());
+      window.gtag('config', GA_MEASUREMENT_ID);
+
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+      document.head.appendChild(script);
+    };
+  })();
 </script>
     
     <body>
@@ -70,6 +82,7 @@
                     <li><a href="#agenda">Research Agenda</a></li>
                     <li><a href="#news">News</a></li>
                     <li><a href="#publications">Publications</a></li>
+                    <li><a href="#teaching">Teaching</a></li>
                     <li><a target="_blank" href="data/CV_Jansen_2026.pdf">CV</a></li>
                     <li><a target="_blank" href="mailto:pascal.jansen@uni-ulm.de">E-Mail</a></li>
                 </ul>
@@ -361,24 +374,50 @@
 
                         <br>
 
+                        
                         <div class="mission-block" id="mission">
-                        <div class="mission-kicker"><span>Mission</span></div>
+                        <!-- <div class="mission-kicker"><span>Mission</span></div>-->
 
+<hr style="border: none; border-top: 1px solid #bfbfbf;">
+                        <!-- 
 <h2 class="mission-tagline">
-Experience-Aligned Interactive Systems
+Optimizing Interactive Systems for Human Experience
 </h2>
 
 <div class="mission-text">
 <p>
-<strong>Artificial intelligence (AI) systems</strong> are increasingly shifting from learning primarily from static human data toward learning from their interactions in the environment and resulting experience.
+<strong>Adaptive systems</strong> are increasingly shifting from learning based on static human data toward learning from interactions with their environment to optimize performance metrics such as task efficiency or accuracy.
 </p>
 <p>
-In <strong>ubiquitous interactive systems</strong>, however, critical <strong>human-centered experience signals</strong>, such as trust, perceived safety, and cognitive effort, emerge through real human interaction and vary across contexts and individuals, making them difficult to fully capture with computational models or simulated users.
+In <strong>ubiquitous interactive systems</strong>, however, critical <strong>human-centered experience signals</strong>—such as trust, perceived safety, and cognitive effort—emerge through real-world use and vary across contexts and individuals, making them difficult to capture through <strong>user simulations or offline evaluation</strong>. 
+Yet, these experiential factors often determine whether automated systems are trusted, accepted, and safely used in practice.
 </p>
 <p>
-My research develops <strong>computational methods</strong> that enable systems to learn from <strong>real human interaction</strong> and optimize behavior, interface design, and information mediation 
-in <strong>safety-critical contexts</strong>, particularly in <strong>mobility</strong> and <strong>extended reality (XR)</strong>, supporting interactive systems that enhance safety, trust, and human–AI collaboration.
+My research develops methods to <strong>measure and incorporate human experience signals into the design and adaptation of interactive systems</strong>. 
+By combining <strong>Human–Computer Interaction</strong>, inclusive design, and computational modeling, I create approaches that use human feedback during interaction to guide how systems behave, communicate, and adapt in <strong>safety-critical contexts</strong>, particularly in <strong>mobility</strong> and <strong>extended reality (XR)</strong>.
 </p>
+-->
+
+<h2 class="mission-tagline">
+Optimizing Interactive Systems for Human Experience
+</h2>
+
+<div class="mission-text">
+
+<p>
+Modern <strong>interactive systems</strong> increasingly adapt their behavior with machine learning to optimize objective performance metrics such as efficiency, prediction accuracy, and task success.
+</p>
+
+<p>
+However, adoption and safe use often <strong>depend on human experience</strong> including trust, perceived safety, and cognitive effort.
+These vary across individuals and contexts and are difficult to represent in user simulations alone.
+</p>
+
+<p>
+My research combines <strong>Human-Computer Interaction</strong>, inclusive design, and computational modeling to integrate these contextual experience signals into the optimization of interactive systems.
+This aims for adaptive systems that are more trusted, safer, and more usable in <strong>safety-critical domains</strong>, especially <strong>mobility</strong> and <strong>extended reality</strong>.
+</p>
+
 
 <!-- 
 <h2 class="mission-tagline">
@@ -471,7 +510,9 @@ By integrating Human–Computer Interaction, inclusive design, and human-in-the-
                     <div class="col-4 text-center" style="padding-top: 20px;">
                         <img src="images/uu-jansen-transparent.png"
                             alt="Profile Picture"
-                            class="profile-image-mobile" />
+                            class="profile-image-mobile"
+                            loading="lazy"
+                            decoding="async" />
                         </div>
 
                     <div class="col-8 text-center">
@@ -539,27 +580,31 @@ By integrating Human–Computer Interaction, inclusive design, and human-in-the-
                         </div>
 
                         <br/>
-                          <em style="display:block; color:#555; letter-spacing:0.08em; font-size:12px; margin-bottom:6px; text-align: center;">
+                        <!--<em style="display:block; color:#555; letter-spacing:0.08em; font-size:12px; margin-bottom:6px; text-align: center;">
                             — Mission —
-                        </em>
-                        <div class="bio-text-title">
-                        <h2 style="font-size: 22px;text-align: center;">Experience-Aligned Interactive Systems</h2>
-                        </div>
+                        </em> -->
+                        <hr style="border: none; border-top: 1px solid #bfbfbf;">
+
+<div class="bio-text-title">
+<h2 style="font-size: 22px;text-align: center;">Optimizing Interactive Systems for Human Experience</h2>
+</div>
+
 <p>
-<strong>Artificial intelligence (AI) systems</strong> are increasingly shifting from learning primarily from static human data toward learning from their interactions in the environment and resulting experience.
-</p>
-<p>
-In <strong>ubiquitous interactive systems</strong>, however, critical <strong>human-centered experience signals</strong>—such as trust, perceived safety, and cognitive effort—emerge through real human interaction and vary across contexts and individuals, making them difficult to fully capture with computational models or simulated users.
-</p>
-<p>
-My research develops <strong>computational methods</strong> that enable systems to learn from <strong>real human interaction</strong> and optimize behavior, interface design, and information mediation 
-in <strong>safety-critical contexts</strong>, particularly in <strong>mobility</strong> and <strong>extended reality (XR)</strong>, supporting interactive systems that enhance safety, trust, and human–AI collaboration.
+Modern <strong>interactive systems</strong> increasingly adapt their behavior using machine learning to optimize objective performance metrics such as efficiency, prediction accuracy, or task success.
 </p>
 
-<p class="research-keywords">
-<strong>Keywords:</strong> Human–Automation Interaction · Human-in-the-Loop Optimization · Adaptive Interfaces · Trust in Automation · Mobility · Extended Reality
+<p>
+However, adoption and safe use often depend on <strong>human experience</strong>, including trust, perceived safety, and cognitive effort. 
+These signals vary across individuals and contexts and are difficult to represent computationally or capture through user simulations.
+</p>
+
+<p>
+My research combines <strong>Human–Computer Interaction</strong>, inclusive design, and computational modeling to integrate these contextual experience signals into the optimization of interactive systems. 
+This aims for adaptive systems that are <strong>more trusted, safer, and more usable</strong> in <strong>safety-critical domains</strong>, especially <strong>mobility</strong> and <strong>extended reality</strong>.
 </p>
                     </div>
+
+                    <hr style="border: none; border-top: 1px solid #bfbfbf;">
                     </div>
                 </div>
                 </div>
@@ -592,7 +637,7 @@ in <strong>safety-critical contexts</strong>, particularly in <strong>mobility</
                                                 
                                                 <button type="button" class="btn btn-secondary" data-target="#teaching" onclick="location.href='#teaching'">
                                                     <h4>Teaching</h4>
-                                                </button>                                   
+                                                </button>
 
                     </div>
                 </div>
@@ -655,7 +700,7 @@ in <strong>safety-critical contexts</strong>, particularly in <strong>mobility</
                     <div class="swiper-slide carousel-cell"
                         data-link="https://arxiv.org/abs/2601.19385"
                         style="background-image:url('images/carousel-thumbnails/mirage-start-164.webp'); background-size:cover; background-position:center;">
-                    <video class="preview-video" muted loop preload="none" data-start="164" data-end="170">
+                    <video class="preview-video" muted preload="none" data-start="164" data-end="170">
                         <source src="data/videos/mirage.mp4" type="video/mp4">
                     </video>
                     <div class="content">
@@ -668,7 +713,7 @@ in <strong>safety-critical contexts</strong>, particularly in <strong>mobility</
                     <div class="swiper-slide carousel-cell"
                         data-link="https://www.sciencedirect.com/science/article/pii/S1369847825001779"
                         style="background-image:url('images/carousel-thumbnails/long-vis-start-10.webp'); background-size:cover; background-position:center;">
-                    <video class="preview-video" muted loop preload="none" data-start="10" data-end="18">
+                    <video class="preview-video" muted preload="none" data-start="10" data-end="18">
                         <source src="data/videos/long-vis-video.mp4" type="video/mp4">
                     </video>
                     <div class="content">
@@ -681,7 +726,7 @@ in <strong>safety-critical contexts</strong>, particularly in <strong>mobility</
                     <div class="swiper-slide carousel-cell"
                         data-link="https://dl.acm.org/doi/full/10.1145/3706598.3713514"
                         style="background-image:url('images/carousel-thumbnails/opticar-start-10.webp'); background-size:cover; background-position:center;">
-                    <video class="preview-video" muted loop preload="none" data-start="10" data-end="18">
+                    <video class="preview-video" muted preload="none" data-start="10" data-end="18">
                         <source src="data/videos/opticar-video-figure.mp4" type="video/mp4">
                     </video>
                     <div class="content">
@@ -694,7 +739,7 @@ in <strong>safety-critical contexts</strong>, particularly in <strong>mobility</
                     <div class="swiper-slide carousel-cell"
                         data-link="https://dl.acm.org/doi/full/10.1145/3706598.3714187"
                         style="background-image:url('images/carousel-thumbnails/ehmi-bo-start-100.webp'); background-size:cover; background-position:center;">
-                    <video class="preview-video" muted loop preload="none" data-start="100" data-end="108">
+                    <video class="preview-video" muted preload="none" data-start="100" data-end="108">
                         <source src="data/videos/ehmi-video-figure.mp4" type="video/mp4">
                     </video>
                     <div class="content">
@@ -707,7 +752,7 @@ in <strong>safety-critical contexts</strong>, particularly in <strong>mobility</
                     <div class="swiper-slide carousel-cell"
                         data-link="https://dl.acm.org/doi/full/10.1145/3706598.3713288"
                         style="background-image:url('images/carousel-thumbnails/uam-bo-start-80.webp'); background-size:cover; background-position:center;">
-                    <video class="preview-video" muted loop preload="none" data-start="80" data-end="88">
+                    <video class="preview-video" muted preload="none" data-start="80" data-end="88">
                         <source src="data/videos/uam-bo-video-figure.mp4" type="video/mp4">
                     </video>
                     <div class="content">
@@ -720,7 +765,7 @@ in <strong>safety-critical contexts</strong>, particularly in <strong>mobility</
                     <div class="swiper-slide carousel-cell"
                         data-link="https://dl.acm.org/doi/10.1145/3706598.3714077"
                         style="background-image:url('images/carousel-thumbnails/bumpy-ride-start-9.webp'); background-size:cover; background-position:center;">
-                    <video class="preview-video" muted loop preload="none" data-start="9" data-end="17">
+                    <video class="preview-video" muted preload="none" data-start="9" data-end="17">
                         <source src="data/videos/bumpy_ride.mp4" type="video/mp4">
                     </video>
                     <div class="content">
@@ -733,7 +778,7 @@ in <strong>safety-critical contexts</strong>, particularly in <strong>mobility</
                     <div class="swiper-slide carousel-cell"
                         data-link="https://dl.acm.org/doi/full/10.1145/3544548.3580760"
                         style="background-image:url('images/carousel-thumbnails/autovis-start-15.webp'); background-size:cover; background-position:center;">
-                    <video class="preview-video" muted loop preload="none" data-start="15" data-end="23">
+                    <video class="preview-video" muted preload="none" data-start="15" data-end="23">
                         <source src="data/videos/AutoVis.mp4" type="video/mp4">
                     </video>
                     <div class="content">
@@ -746,7 +791,7 @@ in <strong>safety-critical contexts</strong>, particularly in <strong>mobility</
                     <div class="swiper-slide carousel-cell"
                         data-link="https://dl.acm.org/doi/abs/10.1145/3494968"
                         style="background-image:url('images/carousel-thumbnails/swivr-start-10.webp'); background-size:cover; background-position:center;">
-                    <video class="preview-video" muted loop preload="none" data-start="10" data-end="18">
+                    <video class="preview-video" muted preload="none" data-start="10" data-end="18">
                         <source src="data/videos/swivr-car-seat.mp4" type="video/mp4">
                     </video>
                     <div class="content">
@@ -759,7 +804,7 @@ in <strong>safety-critical contexts</strong>, particularly in <strong>mobility</
                     <div class="swiper-slide carousel-cell"
                         data-link="https://dl.acm.org/doi/abs/10.1145/3379337.3415843"
                         style="background-image:url('images/carousel-thumbnails/share-start-10.webp'); background-size:cover; background-position:center;">
-                    <video class="preview-video" muted loop preload="none" data-start="10" data-end="18">
+                    <video class="preview-video" muted preload="none" data-start="10" data-end="18">
                         <source src="data/videos/shARe.mp4" type="video/mp4">
                     </video>
                     <div class="content">
@@ -777,150 +822,143 @@ in <strong>safety-critical contexts</strong>, particularly in <strong>mobility</
             <!-- Swiper initialization for Publications carousel -->
 <script>
 let pubSwiper = null;
-let videoAutoAdvanceTimeout = null;
-let userInteractedWithPage = false;
-
-window.addEventListener('pointerdown', () => {
-  userInteractedWithPage = true;
-  // Retry active-slide playback in environments that block autoplay before interaction.
-  handleVideoState();
-}, { once: true });
+let carouselVideoEnabled = false;
+let carouselInViewport = false;
+let carouselHovered = false;
+const FIRST_SLIDE_BOTTOM_BUFFER_PX = 24;
 
 function parseTimeValue(rawValue) {
   const parsed = Number.parseFloat(rawValue);
   return Number.isFinite(parsed) && parsed >= 0 ? parsed : null;
 }
 
-function getSlideVideoTimes(slide, video) {
-  const start =
+function getSlideVideoStart(slide, video) {
+  return (
     parseTimeValue(video.dataset.start) ??
     parseTimeValue(slide.dataset.start) ??
-    0;
+    0
+  );
+}
+
+function getSlideVideoEnd(slide, video, startTime) {
   const endCandidate =
     parseTimeValue(video.dataset.end) ??
     parseTimeValue(slide.dataset.end);
-  const end = endCandidate !== null && endCandidate > start ? endCandidate : null;
-  return { start, end };
+  if (endCandidate === null) return null;
+  return endCandidate > (startTime + 0.05) ? endCandidate : null;
 }
 
-function clearActiveVideoHandlers(video) {
+function getBoundedVideoTime(video, preferredTime) {
+  if (!Number.isFinite(video.duration) || video.duration <= 0) return preferredTime;
+  return Math.min(preferredTime, Math.max(0, video.duration - 0.25));
+}
+
+function canPlayActiveSlide(slide) {
+  if (!slide) return false;
+  const isFirstSlide = slide.dataset.swiperSlideIndex === '0';
+  if (carouselHovered) return true;
+  if (!carouselInViewport) return false;
+  if (isFirstSlide && !isFirstSlideViewportReady()) return false;
+  return true;
+}
+
+function clearSlideVideoLoopHandler(video) {
   if (!video) return;
-  if (typeof video._autoAdvanceCleanup === 'function') {
-    video._autoAdvanceCleanup();
-    video._autoAdvanceCleanup = null;
+
+  if (typeof video._segmentLoopHandler === 'function') {
+    video.removeEventListener('timeupdate', video._segmentLoopHandler);
+    video._segmentLoopHandler = null;
+  }
+
+  if (typeof video._restartFromDataStart === 'function') {
+    video.removeEventListener('ended', video._restartFromDataStart);
+    video._restartFromDataStart = null;
   }
 }
 
-function clearCarouselVideoTimers() {
-  if (videoAutoAdvanceTimeout !== null) {
-    window.clearTimeout(videoAutoAdvanceTimeout);
-    videoAutoAdvanceTimeout = null;
-  }
+function stopSlideVideo(slide) {
+  slide.classList.remove('video-on');
+  const video = slide.querySelector('video.preview-video');
+  if (!video) return;
+  clearSlideVideoLoopHandler(video);
+  video.pause();
+  try { video.currentTime = 0; } catch (error) {}
 }
 
-function advanceToNextSlide(activeSlide) {
-  if (!pubSwiper) return;
-  const currentActive = document.querySelector('.publication-swiper .swiper-slide-active');
-  if (!currentActive || currentActive !== activeSlide) return;
-  pubSwiper.slideNext();
-}
+function startSlideVideo(slide) {
+  const video = slide.querySelector('video.preview-video');
+  if (!video) return;
 
-function scheduleAutoAdvance(slide, video, startTime, endTime) {
-  if (endTime === null) return;
-
-  const thresholdTime = Math.max(startTime, endTime - 0.05);
-  const onTimeUpdate = () => {
-    if (video.currentTime >= thresholdTime) {
-      clearActiveVideoHandlers(video);
-      clearCarouselVideoTimers();
-      advanceToNextSlide(slide);
-    }
-  };
-  const onEnded = () => {
-    clearActiveVideoHandlers(video);
-    clearCarouselVideoTimers();
-    advanceToNextSlide(slide);
-  };
-
-  video.addEventListener('timeupdate', onTimeUpdate);
-  video.addEventListener('ended', onEnded);
-  video._autoAdvanceCleanup = () => {
-    video.removeEventListener('timeupdate', onTimeUpdate);
-    video.removeEventListener('ended', onEnded);
-  };
-
-  const durationMs = Math.max(0, (endTime - startTime) * 1000);
-  videoAutoAdvanceTimeout = window.setTimeout(() => {
-    clearActiveVideoHandlers(video);
-    advanceToNextSlide(slide);
-  }, durationMs + 180);
-}
-
-function startVideoFrom(video, startTime, endTime, slide) {
+  const startTime = getSlideVideoStart(slide, video);
+  const endTime = getSlideVideoEnd(slide, video, startTime);
   slide.classList.add('video-on');
+  video.loop = false;
+  clearSlideVideoLoopHandler(video);
 
-  const hasAutoAdvanceTarget = endTime !== null;
-  if (typeof video._originalLoop !== 'boolean') {
-    video._originalLoop = video.loop;
-  }
-  video.loop = hasAutoAdvanceTarget ? false : video._originalLoop;
-
-  const seekAndPlay = () => {
+  const playFromConfiguredStart = () => {
     try {
-      const t = (Number.isFinite(video.duration) && video.duration > 0)
-        ? Math.min(startTime, Math.max(0, video.duration - 0.25))
-        : startTime;
-      video.currentTime = t;
+      const boundedTime = getBoundedVideoTime(video, startTime);
+      video.currentTime = boundedTime;
     } catch (error) {
       // Ignore invalid seek errors on browsers without metadata.
     }
 
     const playPromise = video.play();
-    if (playPromise && typeof playPromise.then === 'function') {
-      playPromise.then(() => {
-        scheduleAutoAdvance(slide, video, startTime, endTime);
-      }).catch(() => {
-        // If autoplay is blocked, a user interaction will re-trigger handleVideoState.
-        if (userInteractedWithPage) {
-          scheduleAutoAdvance(slide, video, startTime, endTime);
-        }
-      });
-    } else {
-      scheduleAutoAdvance(slide, video, startTime, endTime);
+    if (playPromise && typeof playPromise.catch === 'function') {
+      playPromise.catch(() => {});
     }
   };
 
+  if (endTime !== null) {
+    const segmentLoopHandler = () => {
+      const effectiveEnd = getBoundedVideoTime(video, endTime);
+      if (video.currentTime < (effectiveEnd - 0.04)) return;
+      playFromConfiguredStart();
+    };
+    video._segmentLoopHandler = segmentLoopHandler;
+    video.addEventListener('timeupdate', segmentLoopHandler);
+  }
+
+  const restartFromDataStart = () => {
+    if (!slide.classList.contains('swiper-slide-active')) return;
+    if (!canPlayActiveSlide(slide)) return;
+    playFromConfiguredStart();
+  };
+  video._restartFromDataStart = restartFromDataStart;
+  video.addEventListener('ended', restartFromDataStart);
+
   if (video.readyState >= 1) {
-    seekAndPlay();
+    playFromConfiguredStart();
   } else {
-    video.addEventListener('loadedmetadata', seekAndPlay, { once: true });
+    video.addEventListener('loadedmetadata', playFromConfiguredStart, { once: true });
     try { video.load(); } catch (error) {}
   }
 }
 
-function handleVideoState() {
-  clearCarouselVideoTimers();
+function isFirstSlideViewportReady() {
+  const root = document.querySelector('.publication-swiper');
+  if (!root) return false;
 
-  document.querySelectorAll('.publication-swiper .swiper-slide').forEach((slide) => {
-    slide.classList.remove('video-on');
-    const v = slide.querySelector('video.preview-video');
-    if (!v) return;
-    clearActiveVideoHandlers(v);
-    v.pause();
-    try { v.currentTime = 0; } catch (error) {}
-    if (typeof v._originalLoop === 'boolean') {
-      v.loop = v._originalLoop;
-    }
-  });
+  const rect = root.getBoundingClientRect();
+  return rect.top >= 0 && rect.bottom <= (window.innerHeight - FIRST_SLIDE_BOTTOM_BUFFER_PX);
+}
+
+function handleVideoState() {
+  document.querySelectorAll('.publication-swiper .swiper-slide').forEach(stopSlideVideo);
+  if (!carouselVideoEnabled) return;
 
   const activeSlide = document.querySelector('.publication-swiper .swiper-slide-active');
-  if (!activeSlide) return;
+  if (!canPlayActiveSlide(activeSlide)) return;
+  startSlideVideo(activeSlide);
+}
 
-  const video = activeSlide.querySelector('video.preview-video');
-  if (!video) return;
-
-  const { start, end } = getSlideVideoTimes(activeSlide, video);
-  startVideoFrom(video, start, end, activeSlide);
+function enableCarouselVideo({ playImmediately = true } = {}) {
+  if (!carouselVideoEnabled) {
+    carouselVideoEnabled = true;
+  }
+  if (playImmediately) {
+    handleVideoState();
+  }
 }
 </script>
 <script>
@@ -942,11 +980,56 @@ pubSwiper = new Swiper('.publication-swiper', {
         v.setAttribute('playsinline', '');
         v.playsInline = true;
         v.muted = true;
+        v.loop = false;
       });
+      const root = document.querySelector('.publication-swiper');
+      if (root) {
+        let updateQueued = false;
+        const scheduleVideoStateUpdate = () => {
+          if (updateQueued) return;
+          updateQueued = true;
+          window.requestAnimationFrame(() => {
+            updateQueued = false;
+            handleVideoState();
+          });
+        };
+
+        root.addEventListener('pointerenter', () => {
+          carouselHovered = true;
+          enableCarouselVideo({ playImmediately: true });
+        });
+        root.addEventListener('pointerleave', () => {
+          carouselHovered = false;
+          handleVideoState();
+        });
+        root.addEventListener('touchstart', () => enableCarouselVideo({ playImmediately: true }), { once: true, passive: true });
+        root.addEventListener('focusin', () => enableCarouselVideo({ playImmediately: true }), { once: true });
+        window.addEventListener('scroll', scheduleVideoStateUpdate, { passive: true });
+        window.addEventListener('resize', scheduleVideoStateUpdate);
+
+        if ('IntersectionObserver' in window) {
+          const viewportObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.target !== root) return;
+              carouselInViewport = entry.isIntersecting;
+              if (entry.isIntersecting) {
+                enableCarouselVideo({ playImmediately: true });
+                return;
+              }
+              handleVideoState();
+            });
+          }, {
+            threshold: 0.12
+          });
+          viewportObserver.observe(root);
+        } else {
+          carouselInViewport = true;
+          enableCarouselVideo({ playImmediately: true });
+        }
+      }
       handleVideoState();
     },
-    slideChangeTransitionEnd: handleVideoState,
-    click: handleVideoState
+    slideChangeTransitionEnd: handleVideoState
   }
 });
 </script>
@@ -1033,7 +1116,7 @@ swiperRoot.addEventListener('click', (e) => {
 While many of these one-size-fits-all designs work for assumed <strong>average</strong> users, designs are <strong>not optimal for every individual</strong> when devices, tasks, environments, or user states sometimes radically shift (e.g., from daily smartphone use to a one-time mixed-reality experience). 
 This exclusion disproportionately affects users with sensory, cognitive, or situational constraints, limiting their ability to benefit from emerging technologies. 
 In such dynamic environments, designing interfaces that align with <strong>human-centered experience signals</strong>—such as trust, perceived safety, and cognitive effort—becomes essential for effective human–AI interaction.
-My multidisciplinary research therefore bridges <strong>Human–Computer Interaction</strong>, <strong style="color:rgb(140, 181, 145);">Inclusive Design</strong>, and <strong style="color:rgb(244, 184, 152);">Computational Modeling</strong> to achieve three objectives (1–3):
+My multidisciplinary research, therefore, bridges <strong>Human–Computer Interaction</strong>, <strong style="color:rgb(140, 181, 145);">Inclusive Design</strong>, and <strong style="color:rgb(244, 184, 152);">Computational Modeling</strong> to achieve three objectives (1–3):
 </p>
 
                         <div class="venn-wrapper">
@@ -1424,7 +1507,7 @@ My multidisciplinary research therefore bridges <strong>Human–Computer Interac
 
                 <hr>
                 <h1 id="publications">Selected Publications</h1>
-                <p style="margin-top: -6px; margin-bottom: 18px;">
+                <p class="publication-note">
                     For a complete list of publications, see
                     <a href="https://scholar.google.de/citations?user=cR1_0-EAAAAJ&hl=en" target="_blank">Google Scholar</a>.
                 </p>
@@ -2166,10 +2249,10 @@ document.querySelectorAll('.publication-entry').forEach(entry => {
 
 
                 <div class="row">
-                    <div class="col-md-12  " style="visibility: visible;  ">
+                    <div class="col-md-12" style="visibility: visible;  ">
                         <hr>
                         <h1 id="teaching">Teaching</h1>
-                        <div class="row panel-row teaching-courses">
+                        <div class="row panel-row teaching-courses" style="margin-bottom: 0px;">
                             <div class="col-xs-12 col-sm-6 panel-col">
                                 <div class="section-panel">
                                     <h4>Technical Foundations of Media Development</h4>
@@ -2189,7 +2272,7 @@ document.querySelectorAll('.publication-entry').forEach(entry => {
                             <div class="col-xs-12 col-sm-6 panel-col">
                                 <div class="section-panel">
                                     <h4>Automotive User Interfaces and Interactive Vehicle Applications</h4>
-                                    <p>Led weekly practical sessions and held lectures on future mobility, teaching design and evaluation of in-vehicle interfaces.</p>
+                                    <p>Led weekly practical sessions and held lectures on future mobility, teaching design and evaluation of in-vehicle interfaces. Established the topical direction of the course and developed course materials.</p>
                                     <p class="teaching-period"><em>Fall 2021 - Fall 2025</em></p>
                                 </div>
                             </div>
@@ -2197,7 +2280,7 @@ document.querySelectorAll('.publication-entry').forEach(entry => {
                             <div class="col-xs-12 col-sm-6 panel-col">
                                 <div class="section-panel">
                                     <h4>User Interface Software Technologies</h4>
-                                    <p>Developed course materials and delivered weekly hands-on lectures covering interactive systems, formal HCI methods, and notation.</p>
+                                    <p>Led weekly hands-on lectures covering interactive systems, formal HCI methods, and notation. Developed course materials.</p>
                                     <p class="teaching-period"><em>Spring 2022 - Spring 2024</em></p>
                                 </div>
                             </div>
@@ -2214,18 +2297,18 @@ document.querySelectorAll('.publication-entry').forEach(entry => {
                         <div class="row panel-row teaching-images">
                             <div class="col-xs-12 col-sm-6 panel-col">
                                 <div class="section-panel teaching-image-panel">
-                                    <img src="images/study-supervision.png" alt="Student supervision" class="teaching-image" />
+                                    <img src="images/study-supervision.png" alt="Student supervision" class="teaching-image" loading="lazy" decoding="async" />
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-sm-6 panel-col">
                                 <div class="section-panel teaching-image-panel">
-                                    <img src="images/team-supervision.png" alt="Team supervision" class="teaching-image" />
+                                    <img src="images/team-supervision.png" alt="Team supervision" class="teaching-image" loading="lazy" decoding="async" />
                                 </div>
                             </div>
                         </div>
 
-                        <h4>Guest Lecturing</h4>
+                        <h4 class="teaching-guest-heading">Guest Lecturing</h4>
                         <div style="display:grid; grid-template-columns: 140px 1fr; row-gap:8px; column-gap:16px;">
                         <div>2025-02-13</div>
                         <div>
@@ -2348,7 +2431,7 @@ document.querySelectorAll('.publication-entry').forEach(entry => {
                             </div>
 
                             <div class="col-md-3 zefwih-img">
-                                <img src="images/zefwih-banner.png" alt="Student Banner" />
+                                <img src="images/zefwih-banner.png" alt="Student Banner" loading="lazy" decoding="async" />
                             </div>
                         </div>
 
@@ -2398,10 +2481,18 @@ document.querySelectorAll('.publication-entry').forEach(entry => {
         (function(){
         const banner = document.getElementById('cookie-banner');
         const close  = document.getElementById('cookie-close');
-        if(localStorage.getItem('cookie_notice')==='dismissed'){ banner.remove(); }
+        if(localStorage.getItem('cookie_notice')==='dismissed'){
+            banner.remove();
+            if (typeof window.enableAnalytics === 'function') {
+                window.enableAnalytics();
+            }
+        }
         close.addEventListener('click', ()=>{
             localStorage.setItem('cookie_notice','dismissed');
             banner.remove();
+            if (typeof window.enableAnalytics === 'function') {
+                window.enableAnalytics();
+            }
         });
         })();
         </script>
@@ -2477,7 +2568,7 @@ document.querySelectorAll('.publication-entry').forEach(entry => {
         observerAnchors.forEach((anchor, sectionIndex) => {
             const nodes = sectionMap.get(anchor) || [];
             nodes.forEach((node, nodeIndex) => {
-            const delay = Math.min(sectionIndex * 70 + nodeIndex * 18, 320);
+            const delay = Math.min(sectionIndex * 35 + nodeIndex * 10, 140);
             node.style.setProperty('--section-fade-delay', `${delay}ms`);
             });
         });
@@ -2536,7 +2627,7 @@ document.querySelectorAll('.publication-entry').forEach(entry => {
 
         publicationEntries.forEach((entry, index) => {
             entry.classList.add('publication-entry-fade');
-            entry.style.setProperty('--publication-fade-delay', `${Math.min((index % 3) * 45, 90)}ms`);
+            entry.style.setProperty('--publication-fade-delay', `${Math.min((index % 3) * 20, 40)}ms`);
         });
 
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -2586,6 +2677,126 @@ document.querySelectorAll('.publication-entry').forEach(entry => {
 
         <script>
         document.addEventListener('DOMContentLoaded', function () {
+        const publicationSection = document.getElementById('publication');
+        if (!publicationSection) return;
+
+        const teaserImages = Array.from(
+            publicationSection.querySelectorAll('.publication-entry .pub-media img[loading="lazy"]')
+        );
+        if (!teaserImages.length) return;
+
+        const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        const constrainedNetwork = Boolean(
+            connection &&
+            (connection.saveData || /(^|\b)(slow-2g|2g)(\b|$)/i.test(connection.effectiveType || ''))
+        );
+
+        const initialWarmBatch = constrainedNetwork ? 4 : 8;
+        const idleWarmBatch = constrainedNetwork ? 1 : 3;
+        const remainderWarmDelayMs = constrainedNetwork ? 2600 : 1400;
+        const warmedImages = new WeakSet();
+        const preloadRefs = [];
+        let warmedThroughIndex = 0;
+
+        const warmImage = (img, { highPriority = false } = {}) => {
+            if (!img || warmedImages.has(img)) return;
+            warmedImages.add(img);
+
+            img.loading = 'eager';
+            if (highPriority && 'fetchPriority' in img) {
+            img.fetchPriority = 'high';
+            }
+
+            if (img.complete && img.naturalWidth > 0) return;
+
+            const src = img.currentSrc || img.src;
+            if (!src) return;
+
+            const preloader = new Image();
+            preloader.decoding = 'async';
+            if (highPriority && 'fetchPriority' in preloader) {
+            preloader.fetchPriority = 'high';
+            }
+            preloader.src = src;
+            preloadRefs.push(preloader);
+        };
+
+        const warmBatch = (startIndex, count, { highPriorityFirst = 0 } = {}) => {
+            const endIndex = Math.min(teaserImages.length, startIndex + count);
+            for (let i = startIndex; i < endIndex; i += 1) {
+            warmImage(teaserImages[i], { highPriority: i < highPriorityFirst });
+            }
+            return endIndex;
+        };
+
+        const warmAllRemainingInIdle = () => {
+            const runBatch = () => {
+            warmedThroughIndex = warmBatch(warmedThroughIndex, idleWarmBatch);
+            if (warmedThroughIndex >= teaserImages.length) return;
+
+            if ('requestIdleCallback' in window) {
+                window.requestIdleCallback(runBatch, { timeout: 900 });
+            } else {
+                window.setTimeout(runBatch, 120);
+            }
+            };
+
+            runBatch();
+        };
+
+        const warmInitialSet = () => {
+            if (warmedThroughIndex > 0) return;
+            warmedThroughIndex = warmBatch(0, initialWarmBatch, { highPriorityFirst: 2 });
+            window.setTimeout(() => {
+            warmAllRemainingInIdle();
+            }, remainderWarmDelayMs);
+        };
+
+        const warmForPublicationHash = () => {
+            const hash = window.location.hash;
+            if (hash === '#publication' || hash === '#publications') {
+            warmInitialSet();
+            }
+        };
+
+        const publicationEntries = Array.from(publicationSection.querySelectorAll('.publication-entry'));
+
+        if ('IntersectionObserver' in window) {
+            const sectionObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                warmInitialSet();
+                observer.unobserve(entry.target);
+            });
+            }, {
+            rootMargin: '420px 0px 420px 0px',
+            threshold: 0.01
+            });
+            sectionObserver.observe(publicationSection);
+
+            const entryObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                const img = entry.target.querySelector('.pub-media img[loading="lazy"]');
+                warmImage(img);
+                observer.unobserve(entry.target);
+            });
+            }, {
+            rootMargin: '700px 0px 700px 0px',
+            threshold: 0.01
+            });
+            publicationEntries.forEach((entry) => entryObserver.observe(entry));
+        } else {
+            warmInitialSet();
+        }
+
+        warmForPublicationHash();
+        window.addEventListener('hashchange', warmForPublicationHash);
+        });
+        </script>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', function () {
         const teachingPanels = Array.from(document.querySelectorAll('.teaching-courses .section-panel'));
         if (!teachingPanels.length) return;
 
@@ -2628,9 +2839,30 @@ document.querySelectorAll('.publication-entry').forEach(entry => {
             hash,
             section: document.querySelector(hash)
             }))
-            .filter((entry) => entry.section);
+            .filter((entry) => entry.section)
+            .sort((a, b) => {
+            if (a.section === b.section) return 0;
+            return a.section.compareDocumentPosition(b.section) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
+            });
 
-        if (!sectionTargets.length) return;
+        const headingMarkers = Array.from(document.querySelectorAll('.publication h1[id]'));
+        const headingIndexById = new Map(
+            headingMarkers.map((heading, index) => [heading.id, index])
+        );
+
+        const sectionRanges = sectionTargets.map((entry, index) => {
+            const markerIndex = headingIndexById.get(entry.section.id);
+            const endMarker = typeof markerIndex === 'number'
+            ? headingMarkers[markerIndex + 1] || null
+            : sectionTargets[index + 1]?.section || null;
+
+            return {
+            ...entry,
+            endMarker
+            };
+        });
+
+        if (!sectionRanges.length) return;
 
         const header = document.querySelector('header');
 
@@ -2665,14 +2897,19 @@ document.querySelectorAll('.publication-entry').forEach(entry => {
 
             const activationOffset = Math.max(getHeaderOffset(), Math.round(window.innerHeight * 0.25));
             const scrollPosition = window.scrollY + activationOffset;
-            let currentHash = sectionTargets[0].hash;
+            let currentHash = null;
 
-            for (const entry of sectionTargets) {
+            for (const entry of sectionRanges) {
             const sectionTop = entry.section.getBoundingClientRect().top + window.scrollY;
-            if (sectionTop <= scrollPosition) {
+            const sectionEnd = entry.endMarker
+                ? entry.endMarker.getBoundingClientRect().top + window.scrollY
+                : Number.POSITIVE_INFINITY;
+
+            if (scrollPosition >= sectionTop && scrollPosition < sectionEnd) {
                 currentHash = entry.hash;
-            } else {
                 break;
+            } else {
+                continue;
             }
             }
 
