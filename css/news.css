@@ -3,10 +3,10 @@
 /* Timeline layout */
 #timeline {
   position: relative;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
   z-index: 0; /* create stacking context baseline */
   overflow: visible; /* ensure pseudo-element and markers are not clipped */
-  margin-bottom: 110px;
+  margin-bottom: 72px;
 }
 
 /* Continuous vertical line through all years (foreground) */
@@ -17,7 +17,7 @@
   bottom: 0;
   left: -1rem;            /* adjust to taste for mobile */
   width: 2px;
-  background: #c5c5c5;
+  background: rgba(29, 29, 31, 0.12);
   z-index: 3;              /* line in the foreground */
   display: block;
   pointer-events: none;    /* don't block clicks on links/text */
@@ -47,7 +47,7 @@
   top: -2rem;           /* tweak this value to move dot up/down */
   width: 16px;
   height: 16px;
-  background: #c5c5c5;
+  background: #f5f5f7;
   border: 2px solid #ffffff;
   border-radius: 50%;
   z-index: 4;
@@ -68,8 +68,12 @@
 
 /* Year label column */
 #timeline .year-label h4 {
-    margin: 0;
-  color: #848484;
+  margin: 0;
+  color: var(--muted-text-color);
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
   text-align: right;
   padding-right: 25px;
 }
@@ -82,14 +86,20 @@
 
 /* Event blocks */
 #timeline .event {
-  margin-bottom: 1.2rem;
+  margin-bottom: 18px;
+  padding: 22px 24px 18px;
+  background: var(--panel-surface);
+  border-radius: var(--panel-radius);
 }
 
 /* Dates inside year-content */
 #timeline .event h4 {
-  margin: 0 0 0.25rem;
-    color: #848484;
-    margin-top: 4rem;
+  margin: 0 0 14px;
+  color: var(--text-color);
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 /* Event list, no default bullets */
@@ -102,7 +112,14 @@
 /* List items */
 #timeline .event ul li {
   margin-bottom: 1.5rem;
+  color: var(--muted-text-color);
 }
+
+
+  /* Hide the dot for each event */
+  #timeline .year-content .event ul::before {
+    display: none !important;
+  }
 
 
 /* ============================================================

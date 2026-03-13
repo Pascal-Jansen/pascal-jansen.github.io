@@ -47,16 +47,47 @@ $(document).ready(function() {
             $('iframe', this).remove();
         });
     });
+
+    initializePublicationAbstractButtons();
 });
+
+function setAbstractButtonState(button, target, isOpen) {
+    if (!button) return;
+
+    button.type = 'button';
+    button.classList.toggle('is-open', isOpen);
+    button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+    if (target) {
+        button.setAttribute('data-abstract-target', target);
+        button.setAttribute('aria-controls', target);
+    }
+
+    button.textContent = isOpen ? 'Hide abstract' : 'Show abstract';
+}
+
+function initializePublicationAbstractButtons() {
+    document.querySelectorAll('button.abstract-btn').forEach((button) => {
+        const inlineHandler = button.getAttribute('onclick') || '';
+        const match = inlineHandler.match(/'([^']+)'/);
+        const target = match ? match[1] : button.getAttribute('data-abstract-target');
+        const abstract = target ? document.getElementById(target) : null;
+        const isOpen = !!abstract && window.getComputedStyle(abstract).display !== 'none';
+
+        setAbstractButtonState(button, target, isOpen);
+
+        if (abstract) {
+            abstract.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+        }
+    });
+}
 
 function toggleAbstract(button, target) {    
     var abstract = document.getElementById(target);
+    if (!abstract) return;
 
-    if (abstract.style.display === "none") {
-        abstract.style.display = "block";
-        button.textContent = "Hide Abstract";
-    } else {
-        abstract.style.display = "none";
-        button.textContent = "Abstract";
-    }
+    var opening = window.getComputedStyle(abstract).display === "none";
+    abstract.style.display = opening ? "block" : "none";
+    abstract.setAttribute('aria-hidden', opening ? 'false' : 'true');
+    setAbstractButtonState(button, target, opening);
 }

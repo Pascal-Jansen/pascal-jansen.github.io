@@ -6,12 +6,12 @@
 .frosted-panel{
   position: relative;
   z-index: 1050;
-  background: #f5f9ff;
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  padding-top: 20px;
-  padding-bottom: 25px;
+  background: rgba(250, 250, 252, 0.78);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  backdrop-filter: blur(18px) saturate(1.2);
+  box-shadow: none;
+  padding-top: 14px;
+  padding-bottom: 18px;
   width: 100%;
 }
 
@@ -31,6 +31,9 @@
   width: 100%;
   padding: 0;
   margin: 0;
+  background: rgba(255, 255, 255, 0.68);
+  border-radius: 24px;
+  overflow: hidden;
 }
 
 /* Menu tabs */
@@ -42,7 +45,7 @@
   border: none !important;
   border-radius: 0 !important;
   box-shadow: none !important;
-  color: #000 !important;
+  color: var(--text-color) !important;
   text-align: center;
   position: relative;
 }
@@ -50,11 +53,12 @@
 /* Typography styling identical to your section titles */
 .frosted-panel .btn.btn-secondary h4{
   margin: 0;
-  padding: 16px 0;
-  font-size: 20px;
-  font-weight: 400;
+  padding: 18px 0;
+  font-size: 16px;
+  font-weight: 500;
   display: inline-block;
   line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
 /* Vertical separators */
@@ -65,22 +69,22 @@
   top: 22%;
   bottom: 22%;
   width: 1px;
-  background: rgba(0,0,0,0.12);
+  background: rgba(29, 29, 31, 0.08);
 }
 
 /* Hover / Active */
 .frosted-panel .btn.btn-secondary:hover{
-  background: rgba(0,0,0,0.06) !important;
+  background: rgba(29, 29, 31, 0.04) !important;
 }
 .frosted-panel .btn.btn-secondary:active{
-  background: rgba(0,0,0,0.12) !important;
+  background: rgba(29, 29, 31, 0.08) !important;
 }
 .frosted-panel .btn.btn-secondary.is-active{
-  background: transparent !important;
-  box-shadow: inset 0 -2px 0 #123b7a !important;
+  background: rgba(29, 29, 31, 0.06) !important;
+  box-shadow: none !important;
 }
 .frosted-panel .btn.btn-secondary.is-active h4{
-  color: #123b7a;
+  color: var(--text-color);
   font-weight: 600;
 }
 
@@ -112,32 +116,50 @@
 
 
 
-/* Swiper carousel (container-bounded) */
-.publication-swiper {
+/* Swiper carousel shell keeps controls outside the clipped slide area */
+.publication-swiper-shell {
   width: 100%;
   max-width: 100%;
-  padding: 24px 0 14px;
+}
+
+.publication-swiper-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+/* Swiper carousel (container-bounded) */
+.swiper.publication-swiper {
+  width: 100%;
+  max-width: 100%;
+  padding: 20px 0 18px !important;
   height: auto !important; /* prevent full-viewport/tall swiper */
 }
 
 /* Side fade overlays (visual focus + improves arrow contrast) */
-.publication-swiper {
+.swiper.publication-swiper {
   position: relative;
 }
 
 /* Swiper pagination (dots) — below carousel */
-.publication-swiper .swiper-pagination {
+.publication-swiper-shell .swiper-pagination {
   position: relative;
-  left: auto;
-  transform: none;
-  bottom: auto;
-  width: 100%;
-  display: flex;
+  inset: auto !important;
+  top: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  width: fit-content !important;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
-  min-height: 56px;
-  margin-top: 20px;
+  min-height: 44px;
+  margin: 0;
   z-index: 1;
+  flex: 0 0 auto;
+  transform: none !important;
 }
 
 .publication-swiper::before,
@@ -165,7 +187,7 @@
 }
 
 /* Ensure Flickity doesn't create horizontal bleed outside the container */
-.publication-swiper {
+.swiper.publication-swiper {
   overflow: hidden;
 }
 
@@ -198,6 +220,7 @@
 
 .publication-swiper .swiper-slide-active.carousel-cell {
   transform: scale(1.08);
+  transform-origin: center center;
   filter: saturate(1) brightness(1);
   box-shadow: 0 30px 56px rgba(0, 0, 0, 0.28);
 }
@@ -212,8 +235,14 @@
     border-radius: 12px;
   }
 
-  .publication-swiper {
-    padding-top: 10px;
+  .swiper.publication-swiper {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+
+  .publication-swiper-controls {
+    gap: 12px;
+    margin-top: 12px;
   }
 }
 
@@ -227,11 +256,12 @@
   z-index: 0;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 260ms ease;
+  transition: none;
 }
 
-/* Video becomes visible only after JS adds .video-on to the slide (after a delay) */
+/* Fade in when activated, but hide immediately when deactivated to avoid frame-0 flashes. */
 .publication-swiper .carousel-cell.video-on .preview-video {
+  transition: opacity 260ms ease;
   opacity: 1;
 }
 
@@ -253,12 +283,12 @@
 /* Content overlay (hidden by default) */
 .carousel-cell .content {
   position: absolute;
-  left: 16px;
-  right: 16px;
-  bottom: 16px;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
   color: #fff;
   z-index: 3;
-  text-shadow: 0 2px 12px rgba(0,0,0,.5);
+  text-shadow: 0 3px 18px rgba(0,0,0,.72);
   opacity: 0;
   pointer-events: none;
   transition: opacity 200ms ease;
@@ -278,16 +308,37 @@
   background: rgba(0, 0, 0, 0);
   pointer-events: none;
   z-index: 1;
-  transition: background-color 420ms ease;
+  transition: background 420ms ease;
 }
 
 .publication-swiper .swiper-slide-prev.carousel-cell::before,
 .publication-swiper .swiper-slide-next.carousel-cell::before {
-  background: rgba(0, 0, 0, 0.36);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.publication-swiper .swiper-slide-prev.carousel-cell::before {
+  background-image: linear-gradient(
+    to right,
+    rgba(250, 249, 249, 0.9) 0%,
+    rgba(250, 249, 249, 0.34) 15%,
+    rgba(250, 249, 249, 0.08) 28%,
+    rgba(250, 249, 249, 0) 40%
+  );
+}
+
+.publication-swiper .swiper-slide-next.carousel-cell::before {
+  background-image: linear-gradient(
+    to left,
+    rgba(250, 249, 249, 0.9) 0%,
+    rgba(250, 249, 249, 0.34) 15%,
+    rgba(250, 249, 249, 0.08) 28%,
+    rgba(250, 249, 249, 0) 40%
+  );
 }
 
 .publication-swiper .swiper-slide-active.carousel-cell::before {
-  background: rgba(0, 0, 0, 0.04);
+  background: rgba(0, 0, 0, 0);
 }
 
 /* Gradient for readability */
@@ -295,7 +346,12 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,.65), rgba(0,0,0,0) 55%);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.82) 0%,
+    rgba(0, 0, 0, 0.38) 34%,
+    rgba(0, 0, 0, 0) 64%
+  );
   z-index: 2;
   pointer-events: none;
 }
@@ -303,18 +359,22 @@
 /* Title sizing */
 .carousel-cell .content h5 {
   margin: 0 0 4px 0;
-  font-size: clamp(14px, 1.2vw, 17px);
-  line-height: 1.2;
-  font-weight: 500;
+  font-size: clamp(14px, 1.1vw, 16px);
+  line-height: 1.22;
+  font-weight: 600;
+  color: #fff;
 }
 
 .carousel-cell .content span {
-  font-size: 14px;
-  opacity: .9;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.92);
+  opacity: 1;
 }
 
 /* Swiper pagination bullets wrapper */
-.publication-swiper .swiper-pagination-bullets {
+.publication-swiper-shell .swiper-pagination-bullets {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -326,7 +386,7 @@
 }
 
 /* Swiper pagination (dots) */
-.publication-swiper .swiper-pagination-bullet {
+.publication-swiper-shell .swiper-pagination-bullet {
   width: 8px;
   height: 8px;
   opacity: 0.35;
@@ -334,20 +394,22 @@
   margin: 0 6px !important;
 }
 
-.publication-swiper .swiper-pagination-bullet-active {
+.publication-swiper-shell .swiper-pagination-bullet-active {
   opacity: 1;
   background: rgba(0,0,0,0.85);
 }
 
 /* More visible navigation arrows */
-.publication-swiper {
+.publication-swiper-shell {
   --swiper-navigation-color: #fff;
   --swiper-navigation-size: 20px;
 }
 
-.publication-swiper .swiper-button-prev,
-.publication-swiper .swiper-button-next {
+.publication-swiper-shell .swiper-button-prev,
+.publication-swiper-shell .swiper-button-next {
+  position: relative;
   width: 44px;
+  min-width: 44px;
   height: 44px;
   border-radius: 999px;
   background: rgba(0,0,0,0.38);
@@ -356,56 +418,35 @@
   box-shadow: 0 4px 10px rgba(0,0,0,0.18);
   border: 1px solid rgba(255,255,255,0.45);
   z-index: 6;
+  inset: auto;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  transform: none;
+  margin: 0;
+  flex: 0 0 auto;
 }
 
-.publication-swiper .swiper-button-prev:hover,
-.publication-swiper .swiper-button-next:hover {
+.publication-swiper-shell .swiper-button-prev:hover,
+.publication-swiper-shell .swiper-button-next:hover {
   background: rgba(0,0,0,0.55);
 }
 
-.publication-swiper .swiper-button-prev::after,
-.publication-swiper .swiper-button-next::after {
+.publication-swiper-shell .swiper-button-prev::after,
+.publication-swiper-shell .swiper-button-next::after {
   font-size: 18px;
   opacity: 0.85;
 }
-
-.publication-swiper .swiper-button-prev,
-.publication-swiper .swiper-button-next {
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 6;
-}
-
-.publication-swiper .swiper-button-prev { left: 14px; }
-.publication-swiper .swiper-button-next { right: 14px; }
 
 .publication-swiper .swiper-slide-active {
   cursor: pointer;
 }
 
-/* Desktop: place arrows beside pagination dots */
 @media (min-width: 769px) {
-  /* Reserve space for controls row */
-  .publication-swiper {
-    padding-bottom: 94px;
+  .publication-swiper-controls {
+    margin-top: 18px;
   }
-
-  /* Keep pagination below carousel */
-  .publication-swiper .swiper-pagination {
-    margin-top: 22px;
-  }
-
-  /* Move arrows down to pagination row */
-  .publication-swiper .swiper-button-prev,
-  .publication-swiper .swiper-button-next {
-    top: auto;
-    bottom: 18px;
-    transform: none;
-  }
-
-  /* Position arrows left/right of dot pill */
-  .publication-swiper .swiper-button-prev { left: calc(50% - 140px); }
-  .publication-swiper .swiper-button-next { right: calc(50% - 140px); }
 }
 
 @media (max-width: 768px) {
@@ -417,43 +458,25 @@
     transform: scale(1.03);
   }
 
-  /* Remove side fades on mobile */
-  .publication-swiper::before,
-  .publication-swiper::after {
-    display: none;
+  /* Keep neighbors dimmed, but remove the edge fade in single-card view */
+  .publication-swiper .swiper-slide-prev.carousel-cell::before,
+  .publication-swiper .swiper-slide-next.carousel-cell::before {
+    background: rgba(0, 0, 0, 0.22);
   }
 
-  /* Reserve a row for pagination + arrows */
-  .publication-swiper {
-    padding-bottom: 72px; /* space for controls row */
-  }
-
-  /* Place pagination centered below carousel */
-  .publication-swiper .swiper-pagination {
-    min-height: 44px;
-    margin-top: 14px;
-  }
-
-  /* Move arrows next to the dots */
-  .publication-swiper .swiper-button-prev,
-  .publication-swiper .swiper-button-next {
-    top: auto;
-    bottom: 12px;
-    transform: none;
+  .publication-swiper-shell .swiper-button-prev,
+  .publication-swiper-shell .swiper-button-next {
     width: 36px;
+    min-width: 36px;
     height: 36px;
     background: rgba(0,0,0,0.22);
     box-shadow: none;
     border: 1px solid rgba(0,0,0,0.12);
   }
 
-  .publication-swiper .swiper-button-prev::after,
-  .publication-swiper .swiper-button-next::after {
+  .publication-swiper-shell .swiper-button-prev::after,
+  .publication-swiper-shell .swiper-button-next::after {
     font-size: 16px;
     opacity: 0.75;
   }
-
-  /* Position left/right of the centered pagination pill */
-  .publication-swiper .swiper-button-prev { left: calc(50% - 120px); }
-  .publication-swiper .swiper-button-next { right: calc(50% - 120px); }
 }
