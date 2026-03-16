@@ -15,9 +15,9 @@
 
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="css/animate.css" />
-        <link rel="stylesheet" type="text/css" href="css/main.css?v=20260313q" />
-        <link rel="stylesheet" type="text/css" href="css/showcase.css?v=20260313j" />
-        <link rel="stylesheet" type="text/css" href="css/news.css?v=20260313i" />
+        <link rel="stylesheet" type="text/css" href="css/main.css?v=20260316n" />
+        <link rel="stylesheet" type="text/css" href="css/showcase.css?v=20260316b" />
+        <link rel="stylesheet" type="text/css" href="css/news.css?v=20260316a" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"> 
@@ -34,7 +34,7 @@
         <script type="text/javascript" src="js/wow.js"></script>
         <script type="text/javascript" src="js/parallax.js"></script>
         <script type="text/javascript" src="js/headhesive.js"></script>
-        <script type="text/javascript" src="js/main.js?v=20260313a"></script>
+        <script type="text/javascript" src="js/main.js?v=20260316a"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     </head>
 
@@ -517,7 +517,7 @@ By integrating Human–Computer Interaction, inclusive design, and human-in-the-
                     <div class="col-8 text-center">
                         <div class="caption">
                             <br />
-                            <h1 style="margin-top: 0; font-size: 28px;">Pascal Jansen</h1>
+                            <h1 style="margin-top: 0;">Pascal Jansen</h1>
                         </div>
                         <p style="margin-bottom: 16px;">
                             <span>pascal.jansen (at) uni-ulm.de</span>
@@ -585,7 +585,7 @@ By integrating Human–Computer Interaction, inclusive design, and human-in-the-
                         <hr style="border: none; border-top: 1px solid #bfbfbf;">
 
 <div class="bio-text-title">
-<h2 style="font-size: 22px;text-align: center;">Optimizing Interactive Systems for Human Experience</h2>
+<h2 class="mission-tagline" style="text-align: center;">Optimizing Interactive Systems for Human Experience</h2>
 </div>
 
 <p>
@@ -1232,7 +1232,7 @@ swiperRoot.addEventListener('click', (e) => {
                 <hr>
                 <h1 id="aboutme">Profile</h1>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12 profile-copy">
                         <p>
                         Pascal Jansen researches <strong>human-in-the-loop design optimization</strong> for adaptive and trust-calibrated user interfaces in safety-critical and emerging domains, including automated mobility and extended reality. He is a final-year PhD Candidate and Research Associate at 
                         <a href="https://www.uni-ulm.de/en/in/mi/" target="_blank">Ulm University’s Institute of Media Informatics</a>, 
@@ -1284,15 +1284,19 @@ swiperRoot.addEventListener('click', (e) => {
                 <h1 id="agenda">Research Agenda</h1>
                 <div class="row">
                     <div class="col-md-12">
-<p>
+<p class="agenda-overview">
 <strong style="color:rgb(138, 175, 192);">Ubiquitous User Interfaces</strong> are reshaping people's interaction with the world—from mixed-reality workspaces to autonomous cars and service robots. 
 While many of these one-size-fits-all designs work for assumed <strong>average</strong> users, designs are <strong>not optimal for every individual</strong> when devices, tasks, environments, or user states sometimes radically shift (e.g., from daily smartphone use to a one-time mixed-reality experience). 
 This exclusion disproportionately affects users with sensory, cognitive, or situational constraints, limiting their ability to benefit from emerging technologies. 
-In such dynamic environments, designing interfaces that align with <strong>human-centered experience signals</strong>—such as trust, perceived safety, and cognitive effort—becomes essential for effective human–AI interaction.
+In such dynamic environments, designing interfaces that align with <strong>human-centered experience signals</strong>, such as trust, perceived safety, and cognitive effort, becomes essential.
 My multidisciplinary research, therefore, bridges <strong>Human–Computer Interaction</strong>, <strong style="color:rgb(140, 181, 145);">Inclusive Design</strong>, and <strong style="color:rgb(244, 184, 152);">Computational Modeling</strong> to achieve three objectives (1–3):
 </p>
 
-                        <div class="venn-wrapper">
+                        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" rel="stylesheet">
+
+                        <div class="agenda-feature-layout">
+                        <div class="agenda-visual-column">
+                        <div class="venn-wrapper agenda-venn-wrapper">
                         <div class="css-art--3-pie-venn-diagram">
                             <div class="css-art--pie css-art--pie-1">
                                 <h3>Ubiquitous<br>User Interfaces</h3>
@@ -1334,11 +1338,10 @@ My multidisciplinary research, therefore, bridges <strong>Human–Computer Inter
                             </div>
                         </div>
                         </div>
-
-                        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" rel="stylesheet">
+                        </div>
                     
-                        
-<div class="row panel-row goal-panels" style="margin-top: 0px; margin-bottom: 0; padding-top: 0; padding-bottom: 0;">
+                        <div class="agenda-cards-column">
+<div class="row panel-row goal-panels agenda-goals" style="margin-top: 0px; margin-bottom: 0; padding-top: 0; padding-bottom: 0;">
     <div class="col-xs-12 col-sm-4 panel-col">
         <div class="section-panel">
             <h4>(1) Accessible UIs for everyone, everywhere</h4>
@@ -1366,6 +1369,8 @@ My multidisciplinary research, therefore, bridges <strong>Human–Computer Inter
         </div>
     </div>
 </div>
+                        </div>
+                        </div>
 
                                 <!--<p>This agenda operationalizes ‘human–automation centaurs’ as interactive loops where humans set goals/constraints and systems optimize/learn under transparency and safety constraints.</p>-->
                     </div>
@@ -3079,6 +3084,7 @@ document.querySelectorAll('.publication-entry').forEach(entry => {
         const headingIndexById = new Map(
             headingMarkers.map((heading, index) => [heading.id, index])
         );
+        const targetedSectionIds = new Set(sectionTargets.map((entry) => entry.section.id));
 
         const sectionRanges = sectionTargets.map((entry, index) => {
             const markerIndex = headingIndexById.get(entry.section.id);
@@ -3089,7 +3095,8 @@ document.querySelectorAll('.publication-entry').forEach(entry => {
             return {
             ...entry,
             rangeStart: getSectionStartElement(entry.section),
-            endMarker: getSectionStartElement(nextSection)
+            endMarker: getSectionStartElement(nextSection),
+            endMarkerIsTargeted: !!nextSection && targetedSectionIds.has(nextSection.id)
             };
         });
 
@@ -3235,8 +3242,10 @@ document.querySelectorAll('.publication-entry').forEach(entry => {
                 const sectionEnd = entry.endMarker
                 ? entry.endMarker.getBoundingClientRect().top + window.scrollY
                 : Number.POSITIVE_INFINITY;
+                const sectionTopBoundary = window.scrollY + getHeaderOffset() + 8;
+                const endBoundary = entry.endMarkerIsTargeted ? scrollPosition : sectionTopBoundary;
 
-            if (scrollPosition >= sectionTop && scrollPosition < sectionEnd) {
+            if (scrollPosition >= sectionTop && endBoundary < sectionEnd) {
                 currentHash = entry.hash;
                 break;
             } else {

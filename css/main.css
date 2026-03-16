@@ -44,11 +44,74 @@ html {
   --panel-surface: rgba(255, 255, 255, 0.92);
   --panel-surface-muted: #f5f5f7;
   --panel-radius: 28px;
-  --profile-start-gap: clamp(4rem, 16svh, 10rem);
-  --section-gap-large: clamp(4rem, 10svh, 9rem);
-  --section-gap-small: clamp(1.75rem, 4.5svh, 3.5rem);
-  --section-title-gap: clamp(1.5rem, 4svh, 3rem);
-  --section-band-padding: clamp(3rem, 6vw, 5rem);
+  --profile-start-gap: clamp(3.25rem, 13svh, 8.5rem);
+  --section-gap-large: clamp(3.25rem, 8.5svh, 7.5rem);
+  --section-gap-small: clamp(1.5rem, 4svh, 3rem);
+  --section-title-gap: clamp(1.25rem, 3.25svh, 2.4rem);
+  --section-band-padding: clamp(2.5rem, 5vw, 4.25rem);
+  --hero-title-size: clamp(46px, 4.8vw, 64px);
+  --section-heading-size: clamp(30px, 3.1vw, 42px);
+  --card-heading-size: clamp(22px, 2vw, 26px);
+  --mission-title-size: clamp(24px, 2.2vw, 26px);
+  --body-copy-size: 16px;
+  --body-copy-size-compact: 15px;
+  --timeline-year-size: 22px;
+  --timeline-event-size: 19px;
+  --timeline-event-padding: 20px 22px 16px;
+  --goal-card-title-size: 15px;
+  --goal-card-body-size: 13.5px;
+  --goal-card-padding: 16px 18px;
+  --quicklink-font-size: 15px;
+  --quicklink-padding-y: 14px;
+  --profile-reading-measure: 67rem;
+}
+
+@media (max-width: 991px) {
+  :root {
+    --profile-start-gap: clamp(2.25rem, 8svh, 4rem);
+    --section-gap-large: clamp(2.5rem, 7svh, 4.5rem);
+    --section-gap-small: clamp(1.15rem, 3.2svh, 2rem);
+    --section-title-gap: clamp(1rem, 2.8svh, 1.7rem);
+    --section-band-padding: clamp(1.85rem, 6vw, 2.8rem);
+    --hero-title-size: clamp(32px, 8vw, 40px);
+    --section-heading-size: clamp(26px, 7vw, 32px);
+    --card-heading-size: clamp(20px, 5.6vw, 22px);
+    --mission-title-size: clamp(17px, 5vw, 20px);
+    --body-copy-size: 15px;
+    --body-copy-size-compact: 14px;
+    --timeline-year-size: 21px;
+    --timeline-event-size: 18px;
+    --timeline-event-padding: 18px 20px 15px;
+  }
+}
+
+@media (min-width: 1200px) and (max-height: 1180px) {
+  .container {
+    max-width: 1200px;
+  }
+
+  :root {
+    --profile-start-gap: clamp(1.75rem, 5svh, 3.25rem);
+    --section-gap-large: clamp(2rem, 5.5svh, 4rem);
+    --section-gap-small: clamp(0.95rem, 2.4svh, 1.5rem);
+    --section-title-gap: clamp(0.85rem, 2.2svh, 1.35rem);
+    --section-band-padding: clamp(1.65rem, 3.4vw, 2.4rem);
+    --hero-title-size: clamp(34px, 3vw, 42px);
+    --section-heading-size: clamp(22px, 1.65vw, 26px);
+    --card-heading-size: clamp(16px, 1.1vw, 18px);
+    --mission-title-size: clamp(17px, 1.25vw, 19px);
+    --body-copy-size: 13px;
+    --body-copy-size-compact: 12.5px;
+    --timeline-year-size: 18px;
+    --timeline-event-size: 16px;
+    --timeline-event-padding: 16px 18px 13px;
+    --goal-card-title-size: 14px;
+    --goal-card-body-size: 12.5px;
+    --goal-card-padding: 12px 14px;
+    --quicklink-font-size: 13px;
+    --quicklink-padding-y: 11px;
+    --profile-reading-measure: 63rem;
+  }
 }
 
 body {
@@ -127,13 +190,46 @@ b {
 }
 
 .goal-panels .section-panel h4 {
-  font-size: 16px;
+  font-size: var(--goal-card-title-size);
   line-height: 1.3;
 }
 
 .goal-panels .section-panel p {
-  font-size: 14px;
+  font-size: var(--goal-card-body-size);
   line-height: 1.5;
+}
+
+.agenda-overview {
+  font-size: var(--body-copy-size);
+  line-height: 1.46;
+  margin-bottom: 1rem;
+}
+
+.agenda-venn-wrapper {
+  margin: 0.35rem auto 0.6rem;
+}
+
+.agenda-feature-layout {
+  width: 100%;
+}
+
+.agenda-goals .panel-col {
+  margin-bottom: 16px;
+}
+
+.agenda-goals .section-panel {
+  padding: var(--goal-card-padding);
+}
+
+.agenda-goals .section-panel h4 {
+  margin-bottom: 8px;
+  font-size: var(--goal-card-title-size);
+  line-height: 1.25;
+}
+
+.agenda-goals .section-panel p {
+  font-size: var(--goal-card-body-size);
+  line-height: 1.4;
 }
 
 .teaching-courses .section-panel {
@@ -479,7 +575,7 @@ b {
 /* Headline: closer to your existing hero typography, but not as huge as H1 */
 .mission-tagline{
   margin: 0 0 10px 0;
-  font-size: 28px;   /* tune 26–30 depending on your column width */
+  font-size: var(--mission-title-size);
   line-height: 1.15;
   font-weight: 500;
   color: var(--text-color);
@@ -507,24 +603,13 @@ b {
 /* Body text: keep consistent with your publication/bio gray */
 .mission-text p{
   margin: 0 0 14px 0;
-  line-height: 1.6;
+  font-size: var(--body-copy-size);
+  line-height: 1.55;
   text-align: left;
 }
 .mission-text strong{
   font-weight: 600;
 }
-
-/* Mobile tuning */
-@media (max-width: 767px){
-  .mission-tagline{ font-size: 20px; }
-  .mission-kicker{ font-size: 13px; }
-  .mission-subline{ font-size: 14px; }
-}
-
-
-
-
-
 
 /* Main card styling (your existing version, unchanged) */
 .publication-entry {
@@ -751,6 +836,75 @@ border: 2px solid rgba(0,0,0,0.15);
 
   /* Optional: avoid the sticky bar overlapping anchor targets */
   :root { scroll-padding-top: 80px; } /* tune to panel height */
+
+  .agenda-feature-layout {
+    display: grid;
+    grid-template-columns: max-content minmax(360px, 390px);
+    gap: clamp(0.75rem, 6vw, 8rem);
+    justify-content: center;
+    align-items: start;
+    margin-top: 0.35rem;
+  }
+
+  .agenda-visual-column {
+    min-width: 0;
+  }
+
+  .agenda-cards-column {
+    min-width: 0;
+    align-self: stretch;
+  }
+
+  .agenda-venn-wrapper {
+    margin: 0;
+    width: auto;
+    max-width: none;
+  }
+
+  .agenda-visual-column .css-art--3-pie-venn-diagram {
+    font-size: clamp(
+      1.08rem,
+      calc(0.7rem + 0.36vw),
+      2.9rem
+    ) !important;
+  }
+
+  .agenda-visual-column .pie-main-intersection {
+    font-size: 0.68em;
+    line-height: 1.16;
+  }
+
+  .agenda-goals {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(16px, 1.1vw, 24px);
+    margin: 0;
+    padding: 0;
+  }
+
+  .agenda-goals .panel-col {
+    float: none;
+    width: 100%;
+    max-width: none;
+    flex: 0 0 auto;
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 0;
+  }
+
+  .agenda-goals .section-panel {
+    height: 100%;
+    padding: 18px 22px;
+  }
+
+  .agenda-goals .section-panel h4 {
+    line-height: 1.22;
+  }
+
+  .agenda-goals .section-panel p {
+    font-size: var(--body-copy-size);
+    line-height: 1.44;
+  }
 }
 
 
@@ -1150,11 +1304,11 @@ body.anchor-jumping .banner--clone {
   color: var(--text-color);
 }
 .bio .caption h1 {
-  font-size: clamp(50px, 5.4vw, 72px);
+  font-size: var(--hero-title-size);
   font-weight: 600;
   word-break: break-word;
   width: auto;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   line-height: 1.05;
   letter-spacing: -0.04em;
 }
@@ -1165,19 +1319,27 @@ body.anchor-jumping .banner--clone {
 .bio .caption li {
   float: left;
   margin-right: 50px;
-  font-size: 16px;
+  font-size: var(--body-copy-size);
 }
 .bio .caption p {
-  font-size: 16px;
-  line-height: 1.5;
-  margin: 12px 0 30px 0;
+  font-size: var(--body-copy-size);
+  line-height: 1.45;
+  margin: 10px 0 24px 0;
   color: var(--muted-text-color);
 }
+.bio .caption .profile-copy {
+  width: 100%;
+  max-width: min(100%, var(--profile-reading-measure));
+}
+.bio .caption .profile-copy > p {
+  text-wrap: pretty;
+}
+
 .bio .void {
   height: 150px;
 }
 .bio .agenda {
-  font-size: 14px;
+  font-size: var(--body-copy-size-compact);
 }
 .bio .agenda h2 {
   word-break: break-word;
@@ -1187,9 +1349,9 @@ body.anchor-jumping .banner--clone {
 }
 .bio .agenda p {
   text-align: justify;
-  margin-bottom: 20px;
-  font-size: 15px;
-  line-height: 1.55;
+  margin-bottom: 16px;
+  font-size: var(--body-copy-size-compact);
+  line-height: 1.5;
   color: var(--muted-text-color);
 }
 .bio .bio-link-list-wide {
@@ -1267,7 +1429,8 @@ body.anchor-jumping .banner--clone {
 
 .publication .publication-note {
   margin-top: -2px;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
+  font-size: var(--body-copy-size-compact);
   text-align: left;
   color: var(--muted-text-color);
 }
@@ -1302,36 +1465,36 @@ body.anchor-jumping .banner--clone {
 }
 
 .publication .row {
-  margin-bottom: 50px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  margin-bottom: 38px;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 .publication img {
   width: 100%;
   height: auto;
 }
 .publication h1 {
-  font-size: clamp(32px, 3.6vw, 48px);
+  font-size: var(--section-heading-size);
   font-weight: 600;
   word-break: break-word;
   margin-top: 0;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
   line-height: 1.1;
   letter-spacing: -0.03em;
 }
 .publication h2 {
   margin-top: 0;
-  font-size: clamp(24px, 2.25vw, 28px);
+  font-size: var(--card-heading-size);
   font-weight: 600;
-  line-height: 1.18;
+  line-height: 1.16;
   word-break: break-word;
   letter-spacing: -0.025em;
   color: var(--text-color);
 }
 .publication p {
-  font-size: 16px;
+  font-size: var(--body-copy-size);
   color: var(--muted-text-color);
-  line-height: 1.55;
+  line-height: 1.5;
 }
 
 .publication .joint-author-note {
@@ -1370,14 +1533,14 @@ body.anchor-jumping .banner--clone {
 #timeline .year-label h4 {
   color: var(--muted-text-color);
   font-family: var(--font-display);
-  font-size: 24px;
+  font-size: var(--timeline-year-size);
   font-weight: 600;
   letter-spacing: -0.02em;
 }
 
 #timeline .event {
   margin-bottom: 18px;
-  padding: 22px 24px 18px;
+  padding: var(--timeline-event-padding);
   background: var(--panel-surface);
   border-radius: var(--panel-radius);
 }
@@ -1386,7 +1549,7 @@ body.anchor-jumping .banner--clone {
   margin: 0 0 14px;
   color: var(--text-color);
   font-family: var(--font-display);
-  font-size: 21px;
+  font-size: var(--timeline-event-size);
   font-weight: 600;
   letter-spacing: -0.02em;
 }
@@ -1437,8 +1600,32 @@ body.anchor-jumping .banner--clone {
     margin-bottom: 10px;
   }
 
+  header nav li a {
+    font-size: 16px;
+  }
+
+  .bio-mobile p {
+    font-size: var(--body-copy-size);
+    line-height: 1.45;
+    margin-bottom: 12px !important;
+  }
+
+  .publication .row {
+    margin-bottom: 30px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  #timeline {
+    margin-bottom: 56px;
+  }
+
+  #timeline .event {
+    margin-bottom: 14px;
+  }
+
   .publication h2 {
-    margin-top: 10px;
+    margin-top: 8px;
   }
 
   .zefwih-img {
@@ -1463,11 +1650,12 @@ body.anchor-jumping .banner--clone {
 }
 
 @media (max-width: 767px) {
-  .caption h1 {
-    font-size: 36px !important;
+  .bio-mobile .caption h1 {
+    margin-bottom: 10px;
   }
-  .bio .agenda h2 {
-    font-size: 19px !important;
+
+  .bio-mobile .banner-links {
+    gap: 8px;
   }
 }
 
@@ -1605,6 +1793,13 @@ button.abstract-btn.is-open::before {
 .pie-main-intersection h3 {
   margin: 0 0 0.75em;
 }
+.pie-1-2-intersect strong,
+.pie-2-3-intersect strong,
+.pie-3-1-intersect strong {
+  display: block;
+  font-size: 0.92em;
+  line-height: 1.25;
+}
 .css-art--pie ul,
 .pie-1-2-intersect ul,
 .pie-2-3-intersect ul,
@@ -1687,8 +1882,9 @@ button.abstract-btn.is-open::before {
     padding-left: 1.125em;
   }
   .css-art--3-pie-venn-diagram li {
-    font-size: 0.875em;
-    padding: 0 0 0.25em;
+    font-size: 0.8em;
+    line-height: 1.35;
+    padding: 0 0 0.18em;
   }
   .css-art--pie {
     position: absolute;
@@ -1866,7 +2062,7 @@ button.abstract-btn.is-open::before {
     transform: translate(0, 50%);
   }
   .pie-main-intersection {
-    font-size: 0.875em;
+    font-size: 0.82em;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1897,22 +2093,73 @@ button.abstract-btn.is-open::before {
 @media (min-width: 40em) {
   .css-art--3-pie-venn-diagram {
     font-size: clamp(
-      0.9rem,                /* min diagram em */
-      calc(40vw / 49),       /* fluid: 49em → 40vw */
-      1.6rem                 /* max diagram em */
+      0.92rem,               /* min diagram em */
+      calc(37vw / 49),       /* slightly wider again without returning to the old landing-page scale */
+      1.16rem                /* max diagram em */
     ) !important;
-    width: 49em;
-    height: 45em;
-    margin: 1.5em auto !important;
+    width: 50em;
+    height: 46em;
+    margin: 0.75em auto 0.9em !important;
   }
 
   /* make the pie titles scale with the diagram */
   .css-art--3-pie-venn-diagram h3 {
     font-size: clamp(
-      1rem,                  /* never smaller than 1rem */
-      2vw,                   /* fluidly scale with viewport */
-      1.5rem                 /* never larger than 1.5rem */
+      0.92rem,               /* never smaller than 0.92rem */
+      1.35vw,                /* fluidly scale with viewport */
+      1.2rem                 /* never larger than 1.2rem */
     ) !important;
+  }
+}
+
+@media (min-width: 1200px) and (max-height: 1180px) {
+  .agenda-overview {
+    line-height: 1.34;
+    margin-bottom: 0.55rem;
+  }
+
+  .agenda-venn-wrapper {
+    margin-bottom: 0.15rem;
+  }
+
+  .agenda-goals .panel-col {
+    margin-bottom: 10px;
+  }
+
+  .agenda-goals .section-panel {
+    padding: var(--goal-card-padding);
+  }
+
+  .agenda-goals .section-panel h4 {
+    margin-bottom: 6px;
+  }
+
+  .agenda-goals .section-panel p {
+    line-height: 1.32;
+  }
+
+  .css-art--3-pie-venn-diagram {
+    font-size: clamp(
+      0.94rem,
+      2.02vh,
+      1.12rem
+    ) !important;
+    margin: 0.2em auto 0.3em !important;
+  }
+
+  .css-art--3-pie-venn-diagram h3 {
+    font-size: clamp(
+      0.9rem,
+      1.02vw,
+      1.12rem
+    ) !important;
+  }
+
+  .pie-1-2-intersect strong,
+  .pie-2-3-intersect strong,
+  .pie-3-1-intersect strong {
+    font-size: 0.88em;
+    line-height: 1.2;
   }
 }
 
@@ -2001,7 +2248,7 @@ button.abstract-btn.is-open::before {
     margin:10px 0;
   }
   header nav li a{
-    font-size:18px;
+    font-size:16px;
   }
 
   /* expand menu when checkbox is checked */
