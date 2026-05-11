@@ -2711,4 +2711,18 @@ button.abstract-btn.is-open::before {
   .principles-block {
     grid-template-columns: 1fr;
   }
+  
+}
+
+
+.vision-banner-block {
+  width: 100%;
+  margin: 28px 0 42px;
+}
+
+.vision-banner {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
 }
