@@ -256,6 +256,27 @@ function initializePublicationVideoPreviews() {
   });
 }
 
+function initializeFeaturedVisionVideos() {
+  document.querySelectorAll(".featured-vision-card video[data-start]").forEach((video) => {
+    const startTime = parseFloat(video.dataset.start);
+    if (!Number.isFinite(startTime) || startTime <= 0) return;
+
+    video.addEventListener(
+      "play",
+      () => {
+        if (video.currentTime < startTime - 0.2) {
+          try {
+            video.currentTime = getBoundedVideoTime(video, startTime);
+          } catch (error) {
+            // Let native playback continue if seeking is unavailable.
+          }
+        }
+      },
+      { once: true },
+    );
+  });
+}
+
 function initializePublicationEntryReveal() {
   const publicationEntries = Array.from(
     document.querySelectorAll(".publication-entry"),
@@ -327,6 +348,29 @@ function initializePublicationEntryReveal() {
   });
 }
 
+function scrollHashTargetIntoView() {
+  if (!window.location.hash) return;
+
+  let targetId = window.location.hash.slice(1);
+  if (!targetId) return;
+
+  try {
+    targetId = decodeURIComponent(targetId);
+  } catch (error) {
+    // Keep the raw hash if it is not URI-encoded cleanly.
+  }
+
+  const target = document.getElementById(targetId);
+  if (!target) return;
+
+  window.requestAnimationFrame(() => {
+    target.scrollIntoView({ block: "start" });
+  });
+}
+
 initializePublicationAbstractButtons();
 initializePublicationVideoPreviews();
+initializeFeaturedVisionVideos();
 initializePublicationEntryReveal();
+scrollHashTargetIntoView();
+window.addEventListener("hashchange", scrollHashTargetIntoView);
