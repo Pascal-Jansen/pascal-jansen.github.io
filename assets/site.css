@@ -195,6 +195,28 @@ li + li {
   text-align: left;
 }
 
+body:not(.landing-page) .header-inner {
+  grid-template-columns: 220px minmax(120px, 1fr) auto;
+}
+
+body:not(.landing-page) .site-title a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+body:not(.landing-page) .site-title a::before {
+  content: "";
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  border-radius: 999px;
+  background-image: url("../images/uu-jansen-transparent-cropped.png");
+  background-size: cover;
+  background-position: center;
+}
+
 .site-title a,
 .site-nav a {
   text-decoration: none;
@@ -754,6 +776,10 @@ li + li {
   color: #30363a;
   font-size: var(--subpage-copy-size);
   line-height: var(--subpage-copy-line-height);
+}
+
+.vision-definition p:first-child {
+  margin-top: 0;
 }
 
 .principles-block {
@@ -2829,8 +2855,16 @@ button.abstract-btn.is-open::before {
 }
 
 @media (max-width: 560px) {
+  :root {
+    --subpage-copy-size: clamp(1rem, 0.96rem + 0.2vw, 1.08rem);
+    --subpage-copy-line-height: 1.46;
+    --detail-copy-size: 0.94rem;
+    --detail-copy-line-height: 1.43;
+  }
+
   body {
-    font-size: 16px;
+    font-size: 15.5px;
+    line-height: 1.42;
   }
 
   .landing-page {
@@ -2976,30 +3010,35 @@ button.abstract-btn.is-open::before {
     padding: 38px 0 16px;
   }
 
+  .page-intro-compact h1 {
+    font-size: clamp(1.8rem, 8vw, 2.25rem);
+  }
+
   .content {
     padding: 30px 0 48px;
+  }
+
+  .kicker,
+  .course-group-title {
+    font-size: clamp(1.22rem, 5vw, 1.5rem);
+  }
+
+  .course-copy p,
+  .service-entry ul,
+  .venture-copy p:not(.kicker),
+  .venture-feature p:not(.kicker) {
+    font-size: var(--detail-copy-size);
+    line-height: var(--detail-copy-line-height);
   }
 
   .principles-block {
     grid-template-columns: 1fr;
   }
 
-  .site-title a {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.65rem;
-  }
-
-  .site-title a::before {
-    content: "";
-    display: inline-block;
+  body:not(.landing-page) .site-title a::before {
     width: 50px;
     height: 50px;
     flex: 0 0 50px;
-    border-radius: 999px;
-    background-image: url("../images/uu-jansen-transparent-cropped.png");
-    background-size: cover;
-    background-position: center;
   }
 
 }
