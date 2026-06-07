@@ -43,12 +43,17 @@
         </blockquote>
 
         <figure class="vision-banner-block" aria-label="Experience-Aligned Mediated Reality visualisation">
-          <img
-            class="vision-banner"
-            src="assets/vision-banner.png"
-            alt="Illustration of people in a public urban space experiencing an encounter with a service robot through different mediated-reality views."
-            loading="lazy"
-            decoding="async">
+          <picture>
+            <source type="image/webp" srcset="assets/vision-banner-1200.webp 1200w, assets/vision-banner-1900.webp 1900w" sizes="(max-width: 900px) calc(100vw - 44px), 860px">
+            <img
+              class="vision-banner"
+              src="assets/vision-banner.png"
+              width="1900"
+              height="777"
+              alt="Illustration of people in a public urban space experiencing an encounter with a service robot through different mediated-reality views."
+              loading="lazy"
+              decoding="async">
+          </picture>
         </figure>
       </article>
       <br>
@@ -59,17 +64,17 @@
 
       <section class="principles-block" aria-label="Core principles">
         <article class="principle-card">
-          <img class="principle-thumb" src="assets/legibility.png" alt="Legibility principle preview" loading="lazy" decoding="async">
+          <img class="principle-thumb" src="assets/legibility.png" width="402" height="402" alt="Legibility principle preview" loading="lazy" decoding="async">
           <p class="principle-title">Legibility</p>
           <p>Users can understand what matters, what is uncertain, and why information is filtered, revealed, or clarified.</p>
         </article>
         <article class="principle-card">
-          <img class="principle-thumb" src="assets/contextuality.png" alt="Contextuality principle preview" loading="lazy" decoding="async">
+          <img class="principle-thumb" src="assets/contextuality.png" width="402" height="402" alt="Contextuality principle preview" loading="lazy" decoding="async">
           <p class="principle-title">Contextuality</p>
           <p>Mediation adapts to the user’s abilities and goals, the task, the environment, the system state, and the social context.</p>
         </article>
         <article class="principle-card">
-          <img class="principle-thumb" src="assets/contestability.png" alt="Contestability principle preview" loading="lazy" decoding="async">
+          <img class="principle-thumb" src="assets/contestability.png" width="402" height="402" alt="Contestability principle preview" loading="lazy" decoding="async">
           <p class="principle-title">Contestability</p>
           <p>Users can inspect, correct, and shape adaptive behaviour when mediation affects what they perceive, trust, or decide.</p>
         </article>
@@ -85,7 +90,10 @@
           <div class="agenda-visual-column">
             <div class="venn-wrapper agenda-venn-wrapper">
               <div class="venn-image-map" aria-label="Research areas and linked work examples">
-                <img src="assets/research-venn.png" alt="Venn diagram of Experience-Aligned Mediated Reality across mediated interaction with emerging technologies, human experience alignment, and scalable interface optimization and evaluation." loading="lazy" decoding="async">
+                <picture>
+                  <source type="image/webp" srcset="assets/research-venn-1400.webp 1400w" sizes="(max-width: 900px) calc(100vw - 44px), 860px">
+                  <img src="assets/research-venn.png" width="2227" height="1837" alt="Venn diagram of Experience-Aligned Mediated Reality across mediated interaction with emerging technologies, human experience alignment, and scalable interface optimization and evaluation." loading="lazy" decoding="async">
+                </picture>
                 <a class="venn-hotspot" href="https://dl.acm.org/doi/abs/10.1145/3379337.3415843" target="_blank" rel="noopener" aria-label="Extended Reality" title="Extended Reality" style="--x: 31.1%; --y: 10.0%; --w: 15.4%; --h: 3.3%;"></a>
                 <a class="venn-hotspot" href="https://dl.acm.org/doi/abs/10.1145/3534617" target="_blank" rel="noopener" aria-label="Automated Vehicles" title="Automated Vehicles" style="--x: 24.3%; --y: 16.2%; --w: 19.0%; --h: 3.4%;"></a>
                 <a class="venn-hotspot" href="https://dl.acm.org/doi/full/10.1145/3706598.3713288" target="_blank" rel="noopener" aria-label="Urban Air Mobility" title="Urban Air Mobility" style="--x: 22.4%; --y: 23.8%; --w: 19.4%; --h: 3.4%;"></a>
@@ -109,7 +117,7 @@
         <div class="featured-vision-list">
           <article class="featured-vision-card">
             <p class="principle-label"><strong>Legibility</strong> Making automated vehicle perception visible and interpretable through real-time mediated reality.</p>
-            <video controls playsinline preload="metadata" poster="./assets/mirage-thumbnail-169.png" data-start="5">
+            <video controls playsinline preload="none" poster="./images/mirage-first-frame.webp" width="1920" height="1080" data-start="5">
               <source src="./data/videos/mirage.mp4" type="video/mp4">
             </video>
             <div class="featured-vision-meta">
@@ -120,7 +128,7 @@
           </article>
           <article class="featured-vision-card">
             <p class="principle-label"><strong>Contextuality</strong> Analysing how interface behaviour changes across mixed-immersive study contexts.</p>
-            <video controls playsinline preload="metadata" poster="./assets/autovis-thumbnail-169.png" data-start="9">
+            <video controls playsinline preload="none" poster="./images/autovis-first-frame.webp" width="1280" height="720" data-start="9">
               <source src="./data/videos/AutoVis.mp4" type="video/mp4">
             </video>
             <div class="featured-vision-meta">
@@ -131,7 +139,7 @@
           </article>
           <article class="featured-vision-card">
             <p class="principle-label"><strong>Contestability</strong> Enabling users to guide optimization of automated vehicle visualizations through feedback.</p>
-            <video controls playsinline preload="metadata" poster="./assets/opticarvis-thumbnail-169.png" data-start="10">
+            <video controls playsinline preload="none" poster="./images/opticarvis-first-frame.webp" width="1920" height="1080" data-start="10">
               <source src="./data/videos/opticar-video-figure.mp4" type="video/mp4">
             </video>
             <div class="featured-vision-meta">

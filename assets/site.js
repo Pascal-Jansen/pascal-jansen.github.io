@@ -261,16 +261,25 @@ function initializeFeaturedVisionVideos() {
     const startTime = parseFloat(video.dataset.start);
     if (!Number.isFinite(startTime) || startTime <= 0) return;
 
+    const seekToStart = () => {
+      if (video.currentTime >= startTime - 0.2) return;
+
+      try {
+        video.currentTime = getBoundedVideoTime(video, startTime);
+      } catch (error) {
+        // Let native playback continue if seeking is unavailable.
+      }
+    };
+
     video.addEventListener(
       "play",
       () => {
-        if (video.currentTime < startTime - 0.2) {
-          try {
-            video.currentTime = getBoundedVideoTime(video, startTime);
-          } catch (error) {
-            // Let native playback continue if seeking is unavailable.
-          }
+        if (video.readyState >= 1) {
+          seekToStart();
+          return;
         }
+
+        video.addEventListener("loadedmetadata", seekToStart, { once: true });
       },
       { once: true },
     );

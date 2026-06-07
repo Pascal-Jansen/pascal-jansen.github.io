@@ -27,8 +27,8 @@
 
     <main id="main" class="home-main">
       <section class="cover home-cover">
-        <img class="cover-media profile-bg hero-bg" src="assets/banner-v2.png" alt="">
-        <img class="cover-media profile-fg hero-fg" src="assets/banner-v2-foreground.png" alt="" aria-hidden="true">
+        <img class="cover-media profile-bg hero-bg" src="assets/banner-v2-1600.webp" srcset="assets/banner-v2-1600.webp 1600w, assets/banner-v2-2400.webp 2400w" sizes="100vw" width="3358" height="805" alt="" loading="eager" decoding="async" fetchpriority="high">
+        <img class="cover-media profile-fg hero-fg" src="assets/banner-v2-foreground-1600.webp" srcset="assets/banner-v2-foreground-1600.webp 1600w, assets/banner-v2-foreground-2400.webp 2400w" sizes="100vw" width="3358" height="805" alt="" aria-hidden="true" loading="eager" decoding="async" fetchpriority="high">
         <div class="wrap cover-inner">
           <div></div>
           <div class="cover-copy">
@@ -41,7 +41,7 @@
                 <span>CV</span>
               </a>
               <a href="https://scholar.google.de/citations?user=cR1_0-EAAAAJ&amp;hl=en" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar">
-                <img src="./images/google-scholar.png" alt="">
+                <img src="./images/google-scholar.png" alt="" width="74" height="86" decoding="async">
               </a>
               <a href="https://github.com/Pascal-Jansen" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3.5-.4 7-1.7 7-7.7A6 6 0 0 0 19.5 3 5.6 5.6 0 0 0 19.4 0S18.2-.4 15.5 1.5a13.4 13.4 0 0 0-7 0C5.8-.4 4.6 0 4.6 0a5.6 5.6 0 0 0-.1 3A6 6 0 0 0 3 6.8c0 6 3.5 7.3 7 7.7a4.8 4.8 0 0 0-1 3.5v4"/><path d="M9 18c-4.5 2-5-2-7-2"/></svg>
@@ -180,8 +180,8 @@
       </section>
 
       <section class="cover short video-cover home-video-cover" id="video-banner">
-        <video class="cover-media" autoplay muted loop playsinline preload="metadata">
-          <source src="./data/videos/hero-reel.mp4" type="video/mp4">
+        <video class="cover-media" autoplay muted loop playsinline preload="none" poster="./images/hero-reel-poster.webp">
+          <source src="./data/videos/hero-reel.optimized.mp4" type="video/mp4">
         </video>
         <div class="wrap cover-inner">
           <div class="cover-copy cover-center">
