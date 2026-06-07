@@ -3015,6 +3015,24 @@ button.abstract-btn.is-open::before {
     right: 15px;
   }
 
+  .landing-page .site-title a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+  }
+
+  .landing-page .site-title a::before {
+    content: "";
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    flex: 0 0 50px;
+    border-radius: 999px;
+    background-image: url("../images/uu-jansen-transparent-cropped.png");
+    background-size: cover;
+    background-position: center;
+  }
+
   .cover-copy p {
     font-size: 1rem;
   }
