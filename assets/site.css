@@ -358,6 +358,14 @@ body:not(.landing-page) .site-title a::before {
   background-size: cover;
 }
 
+.featured-vision-card video.media-lqip,
+.old-publications .pub-media.media-lqip {
+  background-color: var(--shade);
+  background-image: var(--lqip);
+  background-position: center;
+  background-size: cover;
+}
+
 .media-lqip,
 .media-lqip img {
   background-repeat: no-repeat;
@@ -1553,6 +1561,7 @@ button.abstract-btn.is-open::before {
   isolation: isolate;
   width: min(100%, 700px);
   margin: 0 auto;
+  background: transparent;
 }
 
 .venn-image-map img {
