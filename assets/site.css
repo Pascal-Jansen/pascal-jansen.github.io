@@ -351,6 +351,46 @@ body:not(.landing-page) .site-title a::before {
   object-fit: cover;
 }
 
+.media-lqip {
+  background-color: var(--shade);
+  background-image: var(--lqip);
+  background-position: center;
+  background-size: cover;
+}
+
+.media-lqip,
+.media-lqip img {
+  background-repeat: no-repeat;
+}
+
+.vision-banner-block.media-lqip,
+.venn-image-map.media-lqip,
+.course-figure.media-lqip,
+.venture-logo-wrap.media-lqip,
+.venture-image-wrap.media-lqip {
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.media-lqip > picture {
+  display: block;
+}
+
+.lqip-enabled .media-lqip img[data-lqip] {
+  opacity: 0;
+  transition: opacity 240ms ease;
+}
+
+.lqip-enabled .media-lqip img[data-lqip].is-loaded {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lqip-enabled .media-lqip img[data-lqip] {
+    transition: none;
+  }
+}
+
 .vision-banner-block picture,
 .venn-image-map picture {
   display: block;
@@ -2604,6 +2644,10 @@ button.abstract-btn.is-open::before {
 
 .venture-logo-wrap {
   margin: 0;
+}
+
+.venture-image-wrap {
+  width: 100%;
 }
 
 .venture-logo-wrap img {

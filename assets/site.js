@@ -1,6 +1,8 @@
 const menuButton = document.querySelector(".menu-toggle");
 const nav = document.querySelector("#site-nav");
 
+document.documentElement.classList.add("lqip-enabled");
+
 if (menuButton && nav) {
   menuButton.addEventListener("click", () => {
     const open = nav.classList.toggle("is-open");
@@ -256,6 +258,31 @@ function initializePublicationVideoPreviews() {
   });
 }
 
+function initializeLqipImages() {
+  document.querySelectorAll("img[data-lqip]").forEach((image) => {
+    const markLoaded = () => {
+      image.classList.add("is-loaded");
+    };
+
+    const decodeThenMarkLoaded = () => {
+      if (typeof image.decode !== "function") {
+        markLoaded();
+        return;
+      }
+
+      image.decode().then(markLoaded).catch(markLoaded);
+    };
+
+    if (image.complete && image.naturalWidth > 0) {
+      decodeThenMarkLoaded();
+      return;
+    }
+
+    image.addEventListener("load", decodeThenMarkLoaded, { once: true });
+    image.addEventListener("error", markLoaded, { once: true });
+  });
+}
+
 function initializeFeaturedVisionVideos() {
   document.querySelectorAll(".featured-vision-card video[data-start]").forEach((video) => {
     const startTime = parseFloat(video.dataset.start);
@@ -379,6 +406,7 @@ function scrollHashTargetIntoView() {
 
 initializePublicationAbstractButtons();
 initializePublicationVideoPreviews();
+initializeLqipImages();
 initializeFeaturedVisionVideos();
 initializePublicationEntryReveal();
 scrollHashTargetIntoView();
