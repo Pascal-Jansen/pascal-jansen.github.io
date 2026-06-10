@@ -2454,6 +2454,7 @@ button.abstract-btn.is-open::before {
 @media (min-width: 901px) {
   .course-list {
     --course-image-height: 15.75rem;
+    --course-image-width: 17.325rem;
   }
 
   .course-row .course-figure {
@@ -2466,7 +2467,7 @@ button.abstract-btn.is-open::before {
     position: absolute;
     top: 0;
     right: 0;
-    width: auto;
+    width: var(--course-image-width);
     height: var(--course-image-height);
     aspect-ratio: 11 / 10;
   }
