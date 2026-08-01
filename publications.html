@@ -6,7 +6,7 @@
     <title>Publications | Pascal Jansen</title>
     <meta name="description" content="Selected publications by Pascal Jansen.">
     <link rel="icon" href="./images/favicon.ico">
-    <link rel="stylesheet" href="assets/site.css?v=20260610b">
+    <link rel="stylesheet" href="assets/site.css?v=20260801">
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -39,7 +39,81 @@
             For a complete list of publications, see
             <a href="https://scholar.google.de/citations?user=cR1_0-EAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>.
           </p>
-          <div class="row publication-entry" id="mirage">
+          <div class="row publication-entry" id="ehmi-bo-japan-germany">
+                              <div class="col-md-5 text-center" style="visibility: visible;">
+                                  <div class="pub-media media-lqip" style="--lqip: url('../images/BO-comparison-JP-DE-lqip.webp')">
+                                      <picture>
+                                          <source srcset="./images/BO-comparison-JP-DE.avif" type="image/avif" />
+                                          <source srcset="./images/BO-comparison-JP-DE.webp" type="image/webp" />
+                                          <img src="./images/BO-comparison-JP-DE.webp" width="2857" height="1607" alt="Japan and Germany eHMI comparison preview" loading="lazy" decoding="async" data-lqip />
+                                      </picture>
+                                      <video class="pub-video" muted playsinline preload="none" data-start="144">
+                                          <source src="./data/videos/previews/BO-comparison-JP-DE.preview.mp4" type="video/mp4">
+                                      </video>
+                                  </div>
+                              </div>
+
+                              <div class="col-md-7" style="visibility: visible;">
+                                  <h2>Comparing Preferences Between Japan and Germany for External Communication of Automated Vehicles Using Bayesian Optimization</h2>
+
+                                  <p>
+                                      Mark Colley*, <u><a target="_blank" href="https://www.pascal-jansen.github.io" style="text-decoration: none; margin-right: 0px;" rel="noopener">Pascal Jansen</a></u>*, Xinyue Gui, Yuan Li, Ding Xia, Enrico Rukzio, and Takeo Igarashi <i class="joint-author-note">*joint first-author</i>
+                                  </p>
+
+                                  <p class="publication-venue">In PACM IMWUT&rsquo;26 (conditionally accepted)</p>
+
+                                  <div class="row" style="padding: 0; padding-left: 5px; margin-bottom: 10px;">
+                                          <!-- Abstract Button -->
+                                          <button onclick="toggleAbstract(this, 'abstract-25')" class="abstract-btn">Abstract</button> |
+                                          <a target="_blank" href="./data/publications/BO-comparison-JP-DE.pdf" class="paper" rel="noopener">Paper</a> |
+                                          <a target="_blank" href="./data/videos/BO-comparison-JP-DE.mp4" class="video" rel="noopener">Video</a>
+                                  </div>
+
+                                  <!-- Hidden Abstract -->
+                                  <p id="abstract-25" style="display: none; padding-top: 5px; text-align: justify;">
+                                      The absence of human users in automated vehicles (AVs) could require external Human-Machine Interfaces (eHMIs) to allow for communication with other vulnerable road users in uncertain scenarios. This could be, for example, regarding the right of way. Given the plethora of adjustable parameters, balancing visual and auditory elements is crucial for effective communication with other road users. With N=40 (n=20 in Germany and n=20 in Japan) participants, this study employed multi-objective Bayesian optimization to evaluate optimized eHMI designs between Japan and Germany. By comparing the Pareto front, we identify optimal design trade-offs and their differences. We also evaluate how the process is perceived between regions.
+                                  </p>
+                              </div>
+                          </div>
+
+                          <div class="row publication-entry" id="motui">
+                              <div class="col-md-5 text-center" style="visibility: visible;">
+                                  <div class="pub-media media-lqip" style="--lqip: url('../images/MoTUI-lqip.webp')">
+                                      <picture>
+                                          <source srcset="./images/MoTUI.avif" type="image/avif" />
+                                          <source srcset="./images/MoTUI.webp" type="image/webp" />
+                                          <img src="./images/MoTUI.webp" width="960" height="540" alt="MoTUI preview" loading="lazy" decoding="async" data-lqip />
+                                      </picture>
+                                      <video class="pub-video" muted playsinline preload="none" data-start="9">
+                                          <source src="./data/videos/previews/MoTUI.preview.mp4" type="video/mp4">
+                                      </video>
+                                  </div>
+                              </div>
+
+                              <div class="col-md-7" style="visibility: visible;">
+                                  <h2>MoTUI: Personalization of In-Vehicle Tactile Interfaces for People With Vision Impairments and the Blind</h2>
+
+                                  <p>
+                                      Max R&auml;dler, Julian Z&auml;hnle, Luca-Maxim Meinhardt, <u><a target="_blank" href="https://www.pascal-jansen.github.io" style="text-decoration: none; margin-right: 0px;" rel="noopener">Pascal Jansen</a></u>, Enrico Rukzio, and Mark Colley
+                                  </p>
+
+                                  <p class="publication-venue">In Proceedings of UIST&rsquo;26 (conditionally accepted)</p>
+
+                                  <div class="row" style="padding: 0; padding-left: 5px; margin-bottom: 10px;">
+                                          <!-- Abstract Button -->
+                                          <button onclick="toggleAbstract(this, 'abstract-24')" class="abstract-btn">Abstract</button> |
+                                          <a target="_blank" href="./data/publications/MoTUI.pdf" class="paper" rel="noopener">Paper</a> |
+                                          <a target="_blank" href="./data/videos/MoTUI.mp4" class="video" rel="noopener">Video</a>
+                                  </div>
+
+                                  <!-- Hidden Abstract -->
+                                  <p id="abstract-24" style="display: none; padding-top: 5px; text-align: justify;">
+                                      Configuring in-vehicle interfaces for people with vision impairments (VIPs) requires jointly tuning buttons, feedback modalities, layout, and speech parameters. This defines a design space too large for manual exploration, with inherently conflicting objectives such as maximizing situation awareness while minimizing cognitive load. Prior work recognizes personalization as critical but offers no systematic method to achieve it. We contribute MoTUI, an open-source Modular Tactile User Interface with reconfigurable hardware and software for runtime exploration of this design space and replication of existing designs. MoTUI is configuration-agnostic and supports multiple personalization strategies; we instantiate and evaluate one, pairing it with Human-in-the-Loop Multi-Objective Bayesian Optimization (HITL-MOBO) to navigate the space efficiently. In a within-subject study (N=12 VIPs), HITL-optimized configurations outperformed a static baseline and an LLM-generated design on situation awareness, perceived workload, and satisfaction, with significant gains over the LLM-based approach. For psychological ownership, optimized configurations were rated significantly higher than both baselines. Importantly, optimization converged on substantially different configurations across participants, indicating strong individual differences; qualitative findings further explain these personalized outcomes.
+                                  </p>
+                              </div>
+                          </div>
+
+                          <div class="row publication-entry" id="mirage">
                               <div class="col-md-5 text-center" style="visibility: visible;">
                                   <div class="pub-media media-lqip" style="--lqip: url('../images/mirage-lqip.webp')">
                                       <picture>
@@ -67,7 +141,7 @@
                                           <button onclick="toggleAbstract(this, 'abstract-23')" class="abstract-btn">Abstract</button> |
                                           <a target="_blank" href="./data/publications/mirage.pdf" class="paper" rel="noopener">Paper</a> |
                                           <a target="_blank" href="./data/videos/mirage.mp4" class="video" rel="noopener">Video</a> |
-                                          <a target="_blank" href="https://arxiv.org/pdf/2601.19385" rel="noopener">arXiv</a>
+                                          <a target="_blank" href="https://dl.acm.org/doi/10.1145/3772318.3791195" class="acm" rel="noopener">ACM</a>
                                   </div>
                                   
                                   <!-- Hidden Abstract -->
@@ -105,7 +179,7 @@
                                           <button onclick="toggleAbstract(this, 'abstract-22')" class="abstract-btn">Abstract</button> |
                                           <a target="_blank" href="./data/publications/provoice.pdf" class="paper" rel="noopener">Paper</a> |
                                           <a target="_blank" href="./data/videos/provoice.mp4" class="video" rel="noopener">Video</a> |
-                                          <a target="_blank" href="https://arxiv.org/abs/2601.19421" rel="noopener">arXiv</a>
+                                          <a target="_blank" href="https://dl.acm.org/doi/full/10.1145/3772318.3791877" class="acm" rel="noopener">ACM</a>
                                   </div>
                                   
                                   <!-- Hidden Abstract -->
@@ -143,7 +217,7 @@
                                           <button onclick="toggleAbstract(this, 'abstract-21')" class="abstract-btn">Abstract</button> |
                                           <a target="_blank" href="./data/publications/ehmi4all.pdf" class="paper" rel="noopener">Paper</a> |
                                           <a target="_blank" href="./data/videos/ehmi4all.mp4" class="video" rel="noopener">Video</a> |
-                                          <a target="_blank" href="https://arxiv.org/abs/2601.19440" rel="noopener">arXiv</a>
+                                          <a target="_blank" href="https://dl.acm.org/doi/full/10.1145/3772318.3790585" class="acm" rel="noopener">ACM</a>
                                   </div>
                                   
                                   <!-- Hidden Abstract -->

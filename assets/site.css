@@ -1366,6 +1366,10 @@ body:not(.landing-page) .site-title a::before {
   line-height: var(--meta-copy-line-height);
 }
 
+.old-publications .publication-entry h2 + p {
+  font-size: var(--meta-copy-size);
+}
+
 .old-publications .award {
   display: inline-flex;
   align-items: center;
