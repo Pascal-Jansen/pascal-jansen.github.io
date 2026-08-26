@@ -4,23 +4,28 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pascal Jansen</title>
-    <meta name="description" content="Pascal Jansen, HCI researcher working on Experience-Aligned Mediated Reality for autonomous systems.">
+    <meta name="description" content="Pascal Jansen, HCI researcher working on calibrated human-AI interaction for autonomous systems.">
     <link rel="icon" href="./images/favicon.ico">
-    <link rel="stylesheet" href="assets/site.css?v=20260801">
+    <script>document.documentElement.classList.add("lqip-enabled");</script>
+    <link rel="preload" href="assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/site.css?v=20260828o">
+    <script type="speculationrules">
+      {"prerender": [{"where": {"href_matches": "/*"}, "eagerness": "moderate"}]}
+    </script>
   </head>
   <body class="landing-page">
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="wrap header-inner landing-header">
-        <p class="site-title"><a href="index.html">Pascal Jansen</a></p>
+        <p class="site-title"><a href="/">Pascal Jansen</a></p>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
         <nav class="site-nav" id="site-nav" aria-label="Main navigation">
-          <a href="research.html">Research</a>
-          <a href="publications.html">Publications</a>
-          <a href="teaching.html">Teaching</a>
-          <a href="service.html">Service</a>
-          <a href="entrepreneurship.html">Entrepreneurship</a>
-          <a href="prospective-students.html">Collaboration</a>
+          <a href="/research">Research</a>
+          <a href="/publications">Publications</a>
+          <a href="/teaching">Teaching</a>
+          <a href="/service">Service</a>
+          <a href="/entrepreneurship">Entrepreneurship</a>
+          <a href="/prospective-students">Collaboration</a>
         </nav>
       </div>
     </header>
@@ -35,7 +40,7 @@
             <p>Hi &#128075;&#xFE0E; &nbsp; &nbsp; I'm Pascal Jansen</p>
             <p>PhD candidate and Research Associate in Human-Computer Interaction (HCI) at the <a href="https://www.uni-ulm.de/en/in/mi/" target="_blank" rel="noopener">Institute of Media Informatics</a>, Ulm University.</p>
             <br>
-            <p>My core research develops <a href="research.html">Experience-Aligned Mediated Reality</a>: adaptive interfaces that filter, reveal, and clarify information so individuals can understand, trust, and use complex systems across mobility, extended reality, and human-automation interaction.</p>
+            <p>I study and design adaptive interfaces that match each person to what the AI can deliver, and that help people adapt as it grows more capable. I call this <a href="/research">calibrated human-AI interaction</a>.</p>
             <div class="hero-icon-links" aria-label="Profile links">
               <a href="./data/CV_Jansen_2026.pdf" target="_blank" rel="noopener" aria-label="Curriculum Vitae" title="Curriculum Vitae">
                 <span>CV</span>
@@ -62,7 +67,7 @@
           <div class="news-scroll-panel" tabindex="0" aria-label="Scrollable news list">
             <ul class="post-list">
               <li>
-                <div class="news-text">Submitted my PhD thesis, <em>Toward Computational Human-Vehicle Interaction Design: From Design-Problem Formulation to Human-in-the-Loop Optimization</em>.</div>
+                <div class="news-text"><strong>Submitted my PhD thesis</strong>, <em>Toward Computational Human-Vehicle Interaction Design: From Design-Problem Formulation to Human-in-the-Loop Optimization</em>.</div>
                 <time class="post-date" datetime="2026-07">July 2026</time>
               </li>
               <li>
@@ -70,7 +75,7 @@
                 <time class="post-date" datetime="2026-07">July 2026</time>
               </li>
               <li>
-                <div class="news-text">Paper conditionally accepted at <a href="https://uist.acm.org/2026/" target="_blank" rel="noopener">UIST 2026</a> (led by Max R&auml;dler) - <a href="publications.html#motui">MoTUI: Personalization of In-Vehicle Tactile Interfaces for People With Vision Impairments and the Blind</a>.</div>
+                <div class="news-text">Paper conditionally accepted at <a href="https://uist.acm.org/2026/" target="_blank" rel="noopener">UIST 2026</a> (led by Max R&auml;dler) - <a href="/publications#motui">MoTUI: Personalization of In-Vehicle Tactile Interfaces for People With Vision Impairments and the Blind</a>.</div>
                 <time class="post-date" datetime="2026-06">June 2026</time>
               </li>
               <li>
@@ -78,7 +83,7 @@
                 <time class="post-date" datetime="2026-06">June 2026</time>
               </li>
               <li>
-                <div class="news-text">Two papers conditionally accepted in PACM IMWUT: <a href="publications.html#ehmi-bo-japan-germany">Comparing Preferences Between Japan and Germany for External Communication of Automated Vehicles Using Bayesian Optimization</a> and <a href="https://arxiv.org/abs/2607.18628" target="_blank" rel="noopener">BlurDriving: Investigating How Personalized Blur Techniques Impact Drivers&rsquo; Performance in Virtual Reality</a>.</div>
+                <div class="news-text">Two papers conditionally accepted in PACM IMWUT: <a href="/publications#ehmi-bo-japan-germany">Comparing Preferences Between Japan and Germany for External Communication of Automated Vehicles Using Bayesian Optimization</a> and <a href="https://arxiv.org/abs/2607.18628" target="_blank" rel="noopener">BlurDriving: Investigating How Personalized Blur Techniques Impact Drivers&rsquo; Performance in Virtual Reality</a>.</div>
                 <time class="post-date" datetime="2026-06">June 2026</time>
               </li>
               <li>
@@ -205,19 +210,19 @@
         </video>
         <div class="wrap cover-inner">
           <div class="cover-copy cover-center">
-            <p><a href="publications.html">publications</a></p>
+            <p><a href="/publications">publications</a></p>
           </div>
         </div>
         <footer class="video-footer">
           <div class="wrap">
             &copy; 2026&nbsp;Pascal&nbsp;Jansen&nbsp;&nbsp;|&nbsp;
-            <a href="./impressum.html" target="_blank" rel="noopener">Imprint</a>&nbsp;|&nbsp;
-            <a href="./privacy.html" target="_blank" rel="noopener">Privacy&nbsp;Policy</a>
+            <a href="/impressum" target="_blank" rel="noopener">Imprint</a>&nbsp;|&nbsp;
+            <a href="/privacy" target="_blank" rel="noopener">Privacy&nbsp;Policy</a>
           </div>
         </footer>
       </section>
     </main>
 
-    <script src="assets/site.js?v=20260609"></script>
+    <script src="assets/site.js?v=20260826b"></script>
   </body>
 </html>

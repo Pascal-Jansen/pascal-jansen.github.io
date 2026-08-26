@@ -1,7 +1,8 @@
 const menuButton = document.querySelector(".menu-toggle");
 const nav = document.querySelector("#site-nav");
 
-document.documentElement.classList.add("lqip-enabled");
+// "lqip-enabled" is set by an inline <head> script so images never paint
+// at full opacity and then snap to hidden. Kept out of this file deliberately.
 
 if (menuButton && nav) {
   menuButton.addEventListener("click", () => {
@@ -274,7 +275,10 @@ function initializeLqipImages() {
     };
 
     if (image.complete && image.naturalWidth > 0) {
-      decodeThenMarkLoaded();
+      // Already cached: reveal without the fade, otherwise every repeat visit
+      // replays a 240ms fade-in that reads as the page reloading.
+      image.classList.add("is-instant");
+      markLoaded();
       return;
     }
 
@@ -311,6 +315,55 @@ function initializeFeaturedVisionVideos() {
       { once: true },
     );
   });
+}
+
+function initializePublicationFilter() {
+  const filter = document.querySelector(".publication-filter");
+  if (!filter) return;
+
+  const buttons = Array.from(filter.querySelectorAll("button[data-tag]"));
+  const entries = Array.from(document.querySelectorAll(".publication-entry"));
+  if (!buttons.length || !entries.length) return;
+
+  const applyTag = (tag, isUserChoice) => {
+    entries.forEach((entry) => {
+      const tags = (entry.dataset.tags || "").split(/\s+/);
+      const isHidden = tag !== "all" && !tags.includes(tag);
+      entry.hidden = isHidden;
+
+      // A filtered-in entry must never depend on the scroll reveal to become
+      // visible, otherwise it can stay at opacity 0 below the fold.
+      if (isUserChoice && !isHidden) entry.classList.add("is-visible");
+    });
+
+    buttons.forEach((button) => {
+      const isActive = button.dataset.tag === tag;
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-pressed", isActive ? "true" : "false");
+    });
+
+    if (!isUserChoice) return;
+
+    const url = new URL(window.location.href);
+
+    if (tag === "all") {
+      url.searchParams.delete("tag");
+    } else {
+      url.searchParams.set("tag", tag);
+    }
+
+    window.history.replaceState({}, "", url);
+  };
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      applyTag(button.dataset.tag, true);
+    });
+  });
+
+  const availableTags = buttons.map((button) => button.dataset.tag);
+  const requestedTag = new URLSearchParams(window.location.search).get("tag");
+  applyTag(availableTags.indexOf(requestedTag) === -1 ? "all" : requestedTag, false);
 }
 
 function initializePublicationEntryReveal() {
@@ -407,7 +460,25 @@ function scrollHashTargetIntoView() {
 initializePublicationAbstractButtons();
 initializePublicationVideoPreviews();
 initializeLqipImages();
+// Local double-click preview. GitHub Pages resolves /research to research.html,
+// but a file:// page has no server to do that, so internal links are rewritten
+// back to their .html form. No-op over http(s), where the clean URLs are real.
+function enableFileProtocolLinks() {
+  if (window.location.protocol !== "file:") return;
+  document.querySelectorAll('a[href^="/"]').forEach((link) => {
+    const href = link.getAttribute("href");
+    if (href.startsWith("//")) return;
+    const hashAt = href.indexOf("#");
+    const path = hashAt > -1 ? href.slice(0, hashAt) : href;
+    const hash = hashAt > -1 ? href.slice(hashAt) : "";
+    const page = path === "/" ? "index" : path.slice(1);
+    link.setAttribute("href", `${page}.html${hash}`);
+  });
+}
+
+enableFileProtocolLinks();
 initializeFeaturedVisionVideos();
 initializePublicationEntryReveal();
+initializePublicationFilter();
 scrollHashTargetIntoView();
 window.addEventListener("hashchange", scrollHashTargetIntoView);

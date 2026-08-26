@@ -8,8 +8,13 @@
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
   <style>
-    body{font-family:sans-serif;max-width:800px;margin:2rem auto;padding:0 1rem;line-height:1.6}
+    /* These pages set no palette of their own, so in dark mode the UA paints a
+       dark canvas behind text that stays black. Declare the scheme and the
+       colours explicitly. */
+    :root{color-scheme:light}
+    body{font-family:sans-serif;max-width:800px;margin:2rem auto;padding:0 1rem;line-height:1.6;background:#ffffff;color:#1d1d1f}
     h1{font-size:1.8rem;margin-top:0}
+    a{color:#2f6fa3}
   </style>
 </head>
 <body>

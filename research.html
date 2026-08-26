@@ -4,23 +4,28 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Research | Pascal Jansen</title>
-    <meta name="description" content="Research of Pascal Jansen: Experience-Aligned Mediated Reality.">
+    <meta name="description" content="Research of Pascal Jansen: calibrated human-AI interaction. Adaptive interfaces that keep people in their range, and small, planned exposure to a system's limits so trust can adapt toward real capability.">
     <link rel="icon" href="./images/favicon.ico">
-    <link rel="stylesheet" href="assets/site.css?v=20260801">
+    <script>document.documentElement.classList.add("lqip-enabled");</script>
+    <link rel="preload" href="assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/site.css?v=20260828o">
+    <script type="speculationrules">
+      {"prerender": [{"where": {"href_matches": "/*"}, "eagerness": "moderate"}]}
+    </script>
   </head>
   <body class="research-vision-page">
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="wrap header-inner landing-header">
-        <p class="site-title"><a href="index.html">Pascal Jansen</a></p>
+        <p class="site-title"><a href="/">Pascal Jansen</a></p>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
         <nav class="site-nav" id="site-nav" aria-label="Main navigation">
-          <a class="active" href="research.html">Research</a>
-          <a href="publications.html">Publications</a>
-          <a href="teaching.html">Teaching</a>
-          <a href="service.html">Service</a>
-          <a href="entrepreneurship.html">Entrepreneurship</a>
-          <a href="prospective-students.html">Collaboration</a>
+          <a class="active" href="/research">Research</a>
+          <a href="/publications">Publications</a>
+          <a href="/teaching">Teaching</a>
+          <a href="/service">Service</a>
+          <a href="/entrepreneurship">Entrepreneurship</a>
+          <a href="/prospective-students">Collaboration</a>
         </nav>
       </div>
     </header>
@@ -33,16 +38,16 @@
         </div>
       </section>
 
-      <article class="vision-copy">
-        <p>I work toward the vision of <strong class="accent-text">Experience-Aligned Mediated Reality</strong>.</p>
+      <article class="vision-copy vision-lede">
+        <p>I work toward <strong class="accent-text">calibrated human-AI interaction</strong>.</p>
 
         <blockquote class="vision-definition">
-          <p>Autonomous systems perform tasks with and for people in situations that are dangerous, complex, or cognitively demanding. Their autonomy creates a <strong>mediation problem</strong>: systems must make their capabilities, limits, uncertainty, and intent understandable, while people need ways to express their goals, abilities, preferences, and boundaries.</p>
+          <p>AI systems such as automated vehicles and cleaning robots increasingly perform tasks on people’s behalf, often already outperforming them. Yet human-centered interaction design remains essential because these systems act for and around people. For instance, too much assistance or information can overwhelm users and foster over-reliance; too little can leave them unable to understand what a system perceives, intends, or can handle, reducing trust and willingness to use. Designing appropriate AI behavior for diverse users and contexts is a <strong>calibration problem</strong>.</p>
 
-          <p>In <strong>mediated environments</strong>, adaptive interfaces align people’s experience of technology with their needs, abilities, and preferences by adding, removing, or modifying perceptual information as it reaches the user.</p>
+          <p>In calibrated human-AI interaction, adaptive interfaces mediate AI behavior to keep human experience within individually appropriate ranges relative to the AI’s capabilities, reliability, and context. Planned changes in how AI behavior is mediated can challenge people’s current experience, supporting human learning and adaptation as they encounter increasingly capable and unfamiliar AI systems.</p>
         </blockquote>
 
-        <figure class="vision-banner-block media-lqip" style="--lqip: url('../assets/vision-banner-lqip.webp')" aria-label="Experience-Aligned Mediated Reality visualisation">
+        <figure class="vision-banner-block media-lqip" style="--lqip: url('../assets/vision-banner-lqip.webp')" aria-label="Calibrated human-AI interaction visualisation">
           <picture>
             <source type="image/webp" srcset="assets/vision-banner-1200.webp 1200w, assets/vision-banner-1900.webp 1900w" sizes="(max-width: 900px) calc(100vw - 44px), 860px">
             <img
@@ -50,63 +55,504 @@
               src="assets/vision-banner.png"
               width="1900"
               height="777"
-              alt="Illustration of people in a public urban space experiencing an encounter with a service robot through different mediated-reality views."
+              alt="People in a public space seeing a service robot through different mediated-reality views."
               loading="lazy"
               decoding="async"
               data-lqip>
           </picture>
         </figure>
       </article>
-      <br>
 
-      <article class="vision-copy principle-intro">
-        <p>To realise this vision, user interfaces should follow three core principles:</p>
+      <article class="vision-copy" aria-label="Bridge to the two principles">
+        <p>To realize this vision, user interfaces should follow two principles:</p>
       </article>
 
-      <section class="principles-block" aria-label="Core principles">
+      <section class="principles-block" aria-label="The two principles">
         <article class="principle-card">
-          <img class="principle-thumb" src="assets/legibility.png" width="402" height="402" alt="Legibility principle preview" loading="lazy" decoding="async">
-          <p class="principle-title">Legibility</p>
-          <p>Users can understand what matters, what is uncertain, and why information is filtered, revealed, or clarified.</p>
+          <p class="principle-title">Homeostatic adaptation</p>
+          <p class="principle-origin"><em>In physiology, homeostasis is the process by which organisms maintain vital conditions within a stable range despite a changing environment.</em><sup>1</sup></p>
+          <p class="principle-note"><sup>1</sup> Davies, <a href="https://doi.org/10.1016/j.mam.2016.04.007" target="_blank" rel="noopener">Adaptive Homeostasis</a>, <em>Molecular Aspects of Medicine</em>, 2016.</p>
+          <svg class="principle-thumb principle-anim" viewBox="0 16 320 72" role="img" aria-label="Animated range bar. When AI behavior changes the appropriate range itself shifts right, leaving the value outside it, and the interface then adapts so the value moves into the new range.">
+            <line x1="30" y1="62" x2="290" y2="62" stroke="#cbd5df" stroke-width="3"/>
+            <text class="pa-axis" x="30" y="81" text-anchor="start" font-size="8.5">low</text>
+            <text class="pa-axis" x="290" y="81" text-anchor="end" font-size="8.5">high</text>
+            <g class="pa-stage">
+              <rect class="pa-band" x="116" y="54" width="90" height="16" rx="4" opacity="0.28"/>
+              <circle class="pa-dot" cx="162" cy="62" r="6.5" fill="#1f4f7a"/>
+            </g>
+            <text class="pa-label pa-step1" x="160" y="34" text-anchor="middle" font-size="10.5" font-weight="600" fill="#5b646e">AI behavior changes, appropriate range changes</text>
+            <text class="pa-label pa-step2" x="160" y="34" text-anchor="middle" font-size="10.5" font-weight="600" fill="#a1453a">experience leaves its appropriate range</text>
+            <text class="pa-label pa-step3" x="160" y="34" text-anchor="middle" font-size="10.5" font-weight="600" fill="#2f6fa3">the interface <tspan class="pa-emph">adapts</tspan>, experience returns</text>
+          </svg>
+          <p>In interaction, homeostatic adaptation could maintain effective human-AI interaction as people and contexts change. Feedback such as ratings, physiological signals, and user behavior could indicate when human experience moves beyond its appropriate range, prompting the interface to adapt how AI behavior is mediated.</p>
         </article>
         <article class="principle-card">
-          <img class="principle-thumb" src="assets/contextuality.png" width="402" height="402" alt="Contextuality principle preview" loading="lazy" decoding="async">
-          <p class="principle-title">Contextuality</p>
-          <p>Mediation adapts to the user’s abilities and goals, the task, the environment, the system state, and the social context.</p>
+          <p class="principle-title">Hormetic doses</p>
+          <p class="principle-origin"><em>In toxicology, hormesis describes how controlled exposure to a stressor can stimulate adaptation, while excessive exposure can cause harm.</em><sup>2</sup></p>
+          <p class="principle-note"><sup>2</sup> Calabrese &amp; Baldwin, <a href="https://doi.org/10.1191/0960327102ht217oa" target="_blank" rel="noopener">Defining Hormesis</a>, <em>Hum. Exp. Toxicol.</em>, 2002.</p>
+          <svg class="principle-thumb principle-anim" viewBox="0 16 320 72" role="img" aria-label="Animated range bar. The interface deliberately exposes AI behavior, shifting the appropriate range right and leaving the value outside it. The person then adapts, and the value moves into the new range in gradual steps.">
+            <line x1="30" y1="62" x2="290" y2="62" stroke="#cbd5df" stroke-width="3"/>
+            <text class="pa-axis" x="30" y="81" text-anchor="start" font-size="8.5">low</text>
+            <text class="pa-axis" x="290" y="81" text-anchor="end" font-size="8.5">high</text>
+            <g class="pa-stage">
+              <rect class="pa2-band" x="116" y="54" width="90" height="16" rx="4" fill="#2f6fa3" opacity="0.28"/>
+              <circle class="pa-dot2" cx="162" cy="62" r="6.5" fill="#1f4f7a"/>
+            </g>
+            <text class="pa-label pa-step1" x="160" y="34" text-anchor="middle" font-size="10.5" font-weight="600" fill="#c26a1a">the interface deliberately exposes AI behavior</text>
+            <text class="pa-label pa-step2" x="160" y="34" text-anchor="middle" font-size="10.5" font-weight="600" fill="#c26a1a">experience leaves its appropriate range</text>
+            <text class="pa-label pa-step3" x="160" y="34" text-anchor="middle" font-size="10.5" font-weight="600" fill="#2f6fa3">experience <tspan class="pa-emph">adapts</tspan> toward the range</text>
+          </svg>
+          <p>In interaction, hormetic doses could deliberately expose AI behavior through planned changes in its mediation, supporting learning and adaptation. For example, an automated vehicle could gradually unveil uncertainty. Repeated doses might move human experience toward an appropriate range along dimensions such as trust as people adapt to AI capabilities.</p>
         </article>
-        <article class="principle-card">
-          <img class="principle-thumb" src="assets/contestability.png" width="402" height="402" alt="Contestability principle preview" loading="lazy" decoding="async">
-          <p class="principle-title">Contestability</p>
-          <p>Users can inspect, correct, and shape adaptive behaviour when mediation affects what they perceive, trust, or decide.</p>
-        </article>
+
       </section>
-      <br>
 
-      <article class="vision-copy">
-        <p>I develop this vision through empirical and technical research across three areas: mediated interaction with emerging technologies, human experience alignment, and computational design and simulation. Together, these areas connect (1) where mediation is needed, (2) what human outcomes it should support, and (3) how adaptive interfaces can be designed and tested at scale.</p>
-      </article>
+      <section class="vision-copy loop-section" aria-label="The interaction loop">
+        <div class="loop-controls" role="group" aria-label="Loop states">
+          <button type="button" class="loop-btn is-active" data-mode="open">Today's Loop</button>
+          <button type="button" class="loop-btn" data-mode="homeo">Homeostatic Adaptation</button>
+          <button type="button" class="loop-btn" data-mode="horm" title="An animated illustration of the principle.">Hormetic Doses</button>
+        </div>
+        <figure id="loop-fig" class="loop-figure">
+          <div class="loop-scroll">
+            <svg id="loop-svg" class="loop-svg" viewBox="0 150 1000 320" role="img" aria-label="Interaction loop between human, adaptive interface, and AI, shown in three states: today's loop, homeostatic adaptation, and hormetic doses.">
+              <defs>
+                <marker id="arrB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6fa3"/></marker>
+                <marker id="arrO" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c26a1a"/></marker>
+              </defs>
+
+
+              <g id="ch-horm" class="pa-swap pa-off">
+                <g class="challenge" tabindex="0" data-tip="Can deliberately revealing an AI&#39;s limits, as hormetic doses, foster adaptation and appropriate reliance, or does it reduce trust and willingness to use?"><circle class="pa-hit" cx="165" cy="440" r="27" fill="transparent"/><g class="pa-marker"><circle cx="165" cy="440" r="17" fill="#ffffff" stroke="#c26a1a" stroke-width="1.5" stroke-dasharray="3 3"/><text x="165" y="447" text-anchor="middle" font-size="19" fill="#c26a1a" font-weight="700">?</text></g></g>
+                <g class="challenge" tabindex="0" data-tip="How should interfaces deliver hormetic doses, what to reveal of AI behavior, at what intensity, when, and under whose control?"><circle class="pa-hit" cx="362" cy="215" r="27" fill="transparent"/><g class="pa-marker"><circle cx="362" cy="215" r="17" fill="#ffffff" stroke="#c26a1a" stroke-width="1.5" stroke-dasharray="3 3"/><text x="362" y="222" text-anchor="middle" font-size="19" fill="#c26a1a" font-weight="700">?</text></g></g>
+                <g class="challenge" tabindex="0" data-tip="As AI systems evolve through updates, can hormetic doses keep human adaptation aligned with AI capabilities?"><circle class="pa-hit" cx="810" cy="195" r="27" fill="transparent"/><g class="pa-marker"><circle cx="810" cy="195" r="17" fill="#ffffff" stroke="#c26a1a" stroke-width="1.5" stroke-dasharray="3 3"/><text x="810" y="202" text-anchor="middle" font-size="19" fill="#c26a1a" font-weight="700">?</text></g></g>
+              </g>
+
+              <g id="node-human">
+                <rect id="human-rect" x="40" y="170" width="250" height="240" rx="14" fill="#ffffff" stroke="#2f6fa3" stroke-width="1.6"/>
+                <text x="165" y="200" text-anchor="middle" font-size="18" font-weight="700" fill="#1f2933">Human</text>
+                <text x="165" y="219" text-anchor="middle" font-size="12.5" fill="#556">passenger, resident, ...</text>
+              </g>
+              <g id="g-trust" data-tip="Trust should match what the system can do. Above the range people over-rely, below it assistance goes to waste." tabindex="0">
+                <text x="62" y="248" font-size="12" fill="#334">trust</text>
+                <line x1="62" y1="262" x2="268" y2="262" stroke="#cbd5df" stroke-width="3"/>
+                <rect id="trust-band" class="band" x="112" y="255" width="82" height="14" rx="4" opacity="0.28"/>
+                <circle id="trust-dot" cx="158" cy="262" r="5.5" fill="#1f4f7a"/>
+              </g>
+              <g id="g-wl" data-tip="The range where people stay alert. Boredom lies below it, overwhelm above." tabindex="0">
+                <text x="62" y="304" font-size="12" fill="#334">workload</text>
+                <line x1="62" y1="318" x2="268" y2="318" stroke="#cbd5df" stroke-width="3"/>
+                <rect id="wl-band" class="band" x="92" y="311" width="90" height="14" rx="4" opacity="0.28"/>
+                <circle id="wl-dot" cx="140" cy="318" r="5.5" fill="#1f4f7a"/>
+              </g>
+              <g id="g-und" data-tip="Built from explanation. Too little leaves people blind to the system's limits, too much displaces the task it explains." tabindex="0">
+                <text x="62" y="360" font-size="12" fill="#334">understanding</text>
+                <line x1="62" y1="374" x2="268" y2="374" stroke="#cbd5df" stroke-width="3"/>
+                <rect id="und-band" class="band" x="122" y="367" width="96" height="14" rx="4" opacity="0.28"/>
+                <circle id="und-dot" cx="176" cy="374" r="5.5" fill="#1f4f7a"/>
+              </g>
+              <text x="165" y="400" text-anchor="middle" font-size="14" font-weight="600" fill="#556">...</text>
+
+              <g id="chips" class="pa-swap pa-off">
+                <g tabindex="0" data-tip="Trust built only on flawless behavior fails at the first fault."><rect x="70" y="432" width="88" height="24" rx="3" fill="#ffffff" stroke="#a1453a" stroke-width="1.2"/><text x="114" y="448" text-anchor="middle" font-size="11.5" font-weight="600" fill="#a1453a">Over-reliant</text></g>
+                <g tabindex="0" data-tip="Too much assistance and information overwhelms attention."><rect x="166" y="432" width="94" height="24" rx="3" fill="#ffffff" stroke="#a1453a" stroke-width="1.2"/><text x="213" y="448" text-anchor="middle" font-size="11.5" font-weight="600" fill="#a1453a">Overwhelmed</text></g>
+                <text x="268" y="448" font-size="12" font-weight="600" fill="#a1453a">, ...</text>
+              </g>
+
+              <g id="node-if">
+                <rect id="if-rect" x="430" y="230" width="170" height="120" rx="14" fill="#ffffff" stroke="#2f6fa3" stroke-width="1.6"/>
+                <g id="if-adaptive" class="pa-swap">
+                  <text x="515" y="260" text-anchor="middle" font-size="17" font-weight="700" fill="#1f2933">Adaptive</text>
+                  <text x="515" y="280" text-anchor="middle" font-size="17" font-weight="700" fill="#1f2933">interface</text>
+                  <text x="515" y="298" text-anchor="middle" font-size="12.5" fill="#556">display, voice, ...</text>
+                </g>
+                <g id="if-static" class="pa-swap pa-off">
+                  <text x="515" y="260" text-anchor="middle" font-size="17" font-weight="700" fill="#1f2933">Interface</text>
+                  <text x="515" y="280" text-anchor="middle" font-size="12.5" fill="#556">display, voice, ...</text>
+                </g>
+              </g>
+
+              <g id="node-ai">
+                <rect id="ai-rect" x="710" y="230" width="200" height="120" rx="14" fill="#ffffff" stroke="#2f6fa3" stroke-width="1.6"/>
+                <text x="810" y="260" text-anchor="middle" font-size="18" font-weight="700" fill="#1f2933">AI</text>
+                <text x="810" y="280" text-anchor="middle" font-size="12.5" fill="#556">automated vehicle,</text>
+                <text x="810" y="296" text-anchor="middle" font-size="12.5" fill="#556">cleaning robot, ...</text>
+              </g>
+
+              <g id="g-a1">
+                <line id="a-ai-if" class="loopline" x1="710" y1="265" x2="604" y2="265" stroke="#2f6fa3" stroke-width="2.5" marker-end="url(#arrB)"/>
+                <text x="657" y="250" text-anchor="middle" font-size="12" fill="#2f6fa3">system state,</text>
+                <text x="657" y="284" text-anchor="middle" font-size="12" fill="#2f6fa3">limits, intent</text>
+              </g>
+              <g id="g-a2">
+                <line id="a-if-hu" class="loopline" x1="430" y1="265" x2="294" y2="265" stroke="#2f6fa3" stroke-width="2.5" marker-end="url(#arrB)"/>
+                <g id="a2-adaptive" class="pa-swap">
+                  <text id="a2-l1" x="362" y="250" text-anchor="middle" font-size="12" fill="#2f6fa3">mediated presentation</text>
+                  <text id="a2-l2" x="362" y="284" text-anchor="middle" font-size="12" fill="#2f6fa3">filter, reveal, clarify</text>
+                </g>
+                <text id="a2-static" class="pa-swap pa-off" x="362" y="250" text-anchor="middle" font-size="12" fill="#2f6fa3">one size fits all</text>
+              </g>
+              <g id="g-a3">
+                <line id="a-hu-if" class="loopline" x1="290" y1="325" x2="426" y2="325" stroke="#2f6fa3" stroke-width="2.5" marker-end="url(#arrB)"/>
+                <text x="358" y="345" text-anchor="middle" font-size="12" fill="#2f6fa3">feedback</text>
+              </g>
+              <g id="g-a4">
+                <line id="a-if-ai" class="loopline" x1="600" y1="325" x2="706" y2="325" stroke="#2f6fa3" stroke-width="2.5" marker-end="url(#arrB)"/>
+                <g id="a4-adaptive" class="pa-swap">
+                  <text x="655" y="345" text-anchor="middle" font-size="12" fill="#2f6fa3">constraints on</text>
+                  <text x="655" y="360" text-anchor="middle" font-size="12" fill="#2f6fa3">behavior</text>
+                </g>
+                <text id="a4-static" class="pa-swap pa-off" x="655" y="345" text-anchor="middle" font-size="12" fill="#2f6fa3">commands</text>
+              </g>
+
+              <g id="bolts" class="pa-swap pa-off">
+                <g class="bolt" tabindex="0" data-tip-title="No sensing of the human" data-tip="The feedback covers the task only. The interface never measures trust, workload, or understanding, so drift out of the range goes unnoticed." transform="translate(350,354)"><circle class="pa-hit" cx="8" cy="16" r="27" fill="transparent"/><g class="pa-marker"><circle cx="8" cy="16" r="17" fill="#ffffff" stroke="#a1453a" stroke-width="1.5"/><path d="M10.5 0 L0 16.5 L6.6 16.5 L3.3 31.5 L16.5 12.9 L9 12.9 Z" fill="#a1453a"/></g></g>
+                <g class="bolt" tabindex="0" data-tip-title="One size fits all" data-tip="One fixed presentation for every person and situation, although the right amount differs between people and changes with the situation." transform="translate(354,200)"><circle class="pa-hit" cx="8" cy="16" r="27" fill="transparent"/><g class="pa-marker"><circle cx="8" cy="16" r="17" fill="#ffffff" stroke="#a1453a" stroke-width="1.5"/><path d="M10.5 0 L0 16.5 L6.6 16.5 L3.3 31.5 L16.5 12.9 L9 12.9 Z" fill="#a1453a"/></g></g>
+                <g class="bolt" tabindex="0" data-tip-title="Limits hidden" data-tip="The interface does not surface what the system can and cannot do, so expectations build on flawless behavior." transform="translate(507,307)"><circle class="pa-hit" cx="8" cy="16" r="27" fill="transparent"/><g class="pa-marker"><circle cx="8" cy="16" r="17" fill="#ffffff" stroke="#a1453a" stroke-width="1.5"/><path d="M10.5 0 L0 16.5 L6.6 16.5 L3.3 31.5 L16.5 12.9 L9 12.9 Z" fill="#a1453a"/></g></g>
+              </g>
+
+              <g id="ch-homeo" class="pa-swap pa-off">
+                <g class="challenge" tabindex="0" data-tip="What defines an appropriate range of human experience, and how does it vary across users, contexts, and AI capabilities?"><circle class="pa-hit" cx="165" cy="440" r="27" fill="transparent"/><g class="pa-marker"><circle cx="165" cy="440" r="17" fill="#ffffff" stroke="#2f6fa3" stroke-width="1.5" stroke-dasharray="3 3"/><text x="165" y="447" text-anchor="middle" font-size="19" fill="#2f6fa3" font-weight="700">?</text></g></g>
+                <g class="challenge" tabindex="0" data-tip="How can interfaces detect, from minimal explicit and implicit feedback, when human experience leaves its appropriate range?"><circle class="pa-hit" cx="358" cy="378" r="27" fill="transparent"/><g class="pa-marker"><circle cx="358" cy="378" r="17" fill="#ffffff" stroke="#2f6fa3" stroke-width="1.5" stroke-dasharray="3 3"/><text x="358" y="385" text-anchor="middle" font-size="19" fill="#2f6fa3" font-weight="700">?</text></g></g>
+                <g class="challenge" tabindex="0" data-tip="Do learned user models transfer across time, contexts, and AI systems?"><circle class="pa-hit" cx="515" cy="385" r="27" fill="transparent"/><g class="pa-marker"><circle cx="515" cy="385" r="17" fill="#ffffff" stroke="#2f6fa3" stroke-width="1.5" stroke-dasharray="3 3"/><text x="515" y="392" text-anchor="middle" font-size="19" fill="#2f6fa3" font-weight="700">?</text></g></g>
+              </g>
+
+            </svg>
+          </div>
+          <div id="loop-tip" hidden></div>
+          <figcaption class="loop-caption">
+            <span class="loop-steps" id="loop-steps" hidden>
+              <button type="button" class="loop-step-btn" id="loop-prev" aria-label="Previous step">&#8592;</button>
+              <span class="loop-step-count" id="loop-step-count"></span>
+              <button type="button" class="loop-step-btn" id="loop-next" aria-label="Next step">&#8594;</button>
+            </span>
+            <span id="loop-caption" aria-live="polite"></span>
+          </figcaption>
+        </figure>
+
+        <script>
+        (function () {
+          var svg = document.getElementById('loop-svg');
+          if (!svg) return;
+          var fig = document.getElementById('loop-fig');
+          var tip = document.getElementById('loop-tip');
+          var cap = document.getElementById('loop-caption');
+          var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          var timers = [];
+          var defaultCap = cap.textContent;
+          var mode = 'open';
+
+          var DOSE_STEPS = [
+            "The interface deliberately exposes a new AI behavior as a planned “dose.”",
+            "The new behavior changes the appropriate range.",
+            "The interface maintains the behavior while experience adapts toward the range.",
+            "Repeated “doses” could support learning toward interaction appropriate for the AI and context."
+          ];
+          var DOSE_SUMMARY = "Hormetic doses: the interface deliberately exposes a new AI behavior as a planned “dose,” changing the appropriate range. The interface maintains the behavior while the person adapts toward the range.";
+
+          function $(id) { return document.getElementById(id); }
+          function clearTimers() { timers.forEach(clearTimeout); timers = []; }
+          function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
+          function setCls(id, cls, on) { var el = $(id); if (el) el.classList.toggle(cls, on); }
+          function move(id, x) { var el = $(id); if (el) el.style.transform = x ? 'translate(' + x + 'px,0)' : ''; }
+          function show(id, on) { var el = $(id); if (el) el.style.opacity = on ? '1' : '0'; }
+          // Groups that appear or vanish between the three states crossfade via
+          // .pa-off rather than display, so nothing pops in or out mid-switch.
+          function vis(id, on) { var el = $(id); if (el) el.classList.toggle('pa-off', !on); }
+
+          // Which of those groups each state shows. Kept here so a switch can hide
+          // the outgoing ones the moment the bars start fading, rather than 280ms
+          // later when the new state is painted; otherwise the ranges fade out
+          // first and everything else follows, which reads as two separate steps.
+          var SWAP = ['if-adaptive', 'if-static', 'a2-adaptive', 'a2-static',
+                      'a4-adaptive', 'a4-static', 'bolts', 'chips', 'ch-homeo', 'ch-horm'];
+          var SHOWN = {
+            open:  ['bolts', 'chips', 'if-static', 'a2-static', 'a4-static'],
+            homeo: ['ch-homeo', 'if-adaptive', 'a2-adaptive', 'a4-adaptive'],
+            horm:  ['ch-horm', 'if-adaptive', 'a2-adaptive', 'a4-adaptive']
+          };
+
+          // The three states are separate scenarios, not a sequence, so the bars
+          // must never slide from one state's positions into another's. Fade them
+          // out, reposition with transitions suppressed, then fade back in.
+          var BARS = ['trust-band', 'wl-band', 'und-band', 'trust-dot', 'wl-dot', 'und-dot'];
+
+          function fadeBars(on) {
+            BARS.forEach(function (id) {
+              var el = $(id);
+              if (el) el.style.opacity = on ? '' : '0';
+            });
+          }
+
+          function resetBars() {
+            withoutTransition(function () {
+              BARS.forEach(function (id) { move(id, 0); });
+              setCls('wl-band', 'out', false);
+              setCls('trust-band', 'dose', false);
+            });
+          }
+
+
+          function withoutTransition(fn) {
+            var els = BARS.map($).filter(Boolean);
+            els.forEach(function (el) { el.style.transition = 'none'; });
+            fn();
+            if ($('loop-svg')) $('loop-svg').getBoundingClientRect();
+            els.forEach(function (el) { el.style.transition = ''; });
+          }
+
+          function setDose(on) {
+            var l = $('a-if-hu');
+            if (l) {
+              l.setAttribute('stroke', on ? '#c26a1a' : '#2f6fa3');
+              l.setAttribute('marker-end', on ? 'url(#arrO)' : 'url(#arrB)');
+            }
+            ['a2-l1','a2-l2'].forEach(function (id) {
+              var t = $(id);
+              if (t) t.setAttribute('fill', on ? '#c26a1a' : '#2f6fa3');
+            });
+            var l2 = $('a2-l2');
+            if (l2) l2.textContent = on ? 'a limit is revealed' : 'filter, reveal, clarify';
+          }
+
+          function reset() {
+            clearTimers();
+            vis('g-a3', true); vis('g-a4', true);
+            ['a-ai-if','a-if-hu','a-hu-if','a-if-ai'].forEach(function (id) { setCls(id, 'flow', false); });
+            ['node-if','node-ai','node-human'].forEach(function (id) { setCls(id, 'hl', false); });
+            move('wl-dot', 0); move('trust-dot', 0); move('und-dot', 0);
+            move('wl-band', 0); move('trust-band', 0);
+            ['trust-band','wl-band','und-band'].forEach(function (id) { setCls(id, 'out', false); setCls(id, 'dose', false); });
+            vis('if-adaptive', true); vis('if-static', false);
+            vis('a2-adaptive', true); vis('a2-static', false);
+            vis('a4-adaptive', true); vis('a4-static', false);
+            setDose(false);
+            vis('bolts', false); vis('chips', false); vis('ch-homeo', false); vis('ch-horm', false);
+          }
+
+          function applyOpen() {
+            withoutTransition(reset);
+            vis('if-adaptive', false); vis('if-static', true);
+            vis('a2-adaptive', false); vis('a2-static', true);
+            vis('a4-adaptive', false); vis('a4-static', true);
+            vis('bolts', true); vis('chips', true);
+            withoutTransition(function () {
+              move('trust-dot', 58); move('wl-dot', 64); move('und-dot', -74);
+              ['trust-band','wl-band','und-band'].forEach(function (id) { setCls(id, 'out', true); });
+            });
+            cap.textContent = defaultCap;
+          }
+
+          var HOMEO_STEPS = [
+            'AI behavior changes, and the appropriate range changes with it (e.g., as the AI becomes more technically capable).',
+            'Experience leaves its appropriate range, and feedback on this reaches the interface.',
+            'The interface adapts how AI behavior is mediated.',
+            'Influenced by the mediation, experience returns to an appropriate range.'
+          ];
+
+          // Each step paints the COMPLETE state for that step, so the user can move
+          // backwards as well as forwards without the diagram getting out of sync.
+          function homeoStep(i) {
+            // Step 1 is where the range moves, so re-entering it has to replay that
+            // move rather than find the band already parked on the right. Rewind
+            // silently to the opening position, then let the move animate as usual.
+            if (i === 0) {
+              withoutTransition(function () { move('wl-band', 0); move('wl-dot', 0); });
+            }
+            move('wl-band', 62);
+            move('wl-dot', i >= 3 ? 62 : 0);
+            setCls('wl-band', 'out', i === 1 || i === 2);
+            setCls('a-hu-if', 'flow', i === 1 || i === 2);
+            setCls('a-if-hu', 'flow', i === 2);
+            setCls('a-if-ai', 'flow', i === 2);
+            setCls('node-if', 'hl', i === 1 || i === 2);
+            cap.textContent = HOMEO_STEPS[i];
+          }
+
+          function hormStep(i) {
+            clearTimers();
+            // Step 2 is where the range travels, so both it and step 1 rewind the
+            // band first: otherwise stepping back finds it already parked right.
+            if (i <= 1) {
+              withoutTransition(function () { move('trust-band', 0); move('trust-dot', 0); });
+            }
+            move('trust-band', i >= 1 ? 62 : 0);
+            setCls('trust-band', 'dose', i === 1);
+            setCls('a-if-hu', 'flow', i <= 2);
+            setCls('node-if', 'hl', i <= 2);
+            if (i < 2) {
+              move('trust-dot', 0);
+            } else if (i === 2) {
+              // the person adapts in stages, so this one step plays out briefly.
+              // Stepping back into it from step 4 would otherwise start the climb
+              // from wherever the dot ended up, so return it to the start silently
+              // first; coming from step 3 the dot is already there and nothing moves.
+              withoutTransition(function () { move('trust-dot', 0); });
+              move('trust-dot', 21);
+              later(function () { move('trust-dot', 42); }, 900);
+              later(function () { move('trust-dot', 62); }, 1800);
+            } else {
+              move('trust-dot', 62);
+            }
+            cap.textContent = DOSE_STEPS[i];
+          }
+
+          function runHomeo() {
+            withoutTransition(reset);
+            vis('ch-homeo', true);
+            if (reduced) {
+              cap.textContent = "Homeostatic adaptation: AI behavior changes, so the appropriate range changes and experience is left outside it. Feedback reaches the interface, which adapts how AI behavior is mediated until experience returns to the range.";
+              return;
+            }
+            showStep(0);
+          }
+
+          function runHorm() {
+            withoutTransition(reset);
+            setDose(true); vis('ch-horm', true);
+            if (reduced) {
+              cap.textContent = DOSE_SUMMARY;
+              return;
+            }
+            showStep(0);
+          }
+
+          var stepIndex = 0;
+          var stepsEl = $('loop-steps');
+          var stepCountEl = $('loop-step-count');
+          var prevBtn = $('loop-prev');
+          var nextBtn = $('loop-next');
+
+          function stepCount() { return mode === 'open' ? 0 : 4; }
+
+          function showStep(i) {
+            var n = stepCount();
+            if (!n) return;
+            stepIndex = Math.max(0, Math.min(n - 1, i));
+            if (mode === 'homeo') homeoStep(stepIndex);
+            else hormStep(stepIndex);
+            stepCountEl.textContent = (stepIndex + 1) + ' / ' + n;
+            prevBtn.disabled = stepIndex === 0;
+            nextBtn.disabled = stepIndex === n - 1;
+          }
+
+          // Reading the loop means the cards are in peripheral vision, where motion
+          // is most distracting, so hold them still while the pointer is in here.
+          var loopBox = document.querySelector('.loop-section');
+          if (loopBox) {
+            // Pointer and focus are tracked separately: reaching the last step
+            // disables the button under the cursor, which drops focus to the body
+            // and fires focusout. Clearing the hold on that alone would restart the
+            // cards while the reader is still sitting on the diagram.
+            var pointerIn = false;
+            var focusIn = false;
+            var syncHold = function () {
+              document.body.classList.toggle('loop-engaged', pointerIn || focusIn);
+            };
+            loopBox.addEventListener('mouseenter', function () { pointerIn = true; syncHold(); });
+            loopBox.addEventListener('mouseleave', function () { pointerIn = false; syncHold(); });
+            loopBox.addEventListener('focusin', function () { focusIn = true; syncHold(); });
+            loopBox.addEventListener('focusout', function (e) {
+              focusIn = loopBox.contains(e.relatedTarget);
+              syncHold();
+            });
+          }
+
+          if (prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', function () { showStep(stepIndex - 1); });
+            nextBtn.addEventListener('click', function () { showStep(stepIndex + 1); });
+          }
+
+          function setMode(m, btn) {
+            mode = m;
+            document.querySelectorAll('.loop-btn').forEach(function (b) {
+              b.classList.toggle('is-active', btn ? b === btn : b.getAttribute('data-mode') === m);
+            });
+            clearTimers();
+            stepIndex = 0;
+            if (stepsEl) stepsEl.hidden = (m === 'open') || reduced;
+            var next = SHOWN[m] || [];
+            SWAP.forEach(function (id) { if (next.indexOf(id) < 0) vis(id, false); });
+            fadeBars(false);
+            later(function () {
+              if (m === 'homeo') runHomeo();
+              else if (m === 'horm') runHorm();
+              else applyOpen();
+              fadeBars(true);
+            }, 280);
+          }
+
+          document.querySelectorAll('.loop-btn').forEach(function (b) {
+            b.addEventListener('click', function () { setMode(b.getAttribute('data-mode'), b); });
+          });
+
+          function showTip(el, x, y) {
+            tip.textContent = '';
+            var title = el.getAttribute('data-tip-title');
+            if (title) {
+              var t = document.createElement('strong');
+              t.className = 'loop-tip-title';
+              t.textContent = title;
+              tip.appendChild(t);
+            }
+            tip.appendChild(document.createTextNode(el.getAttribute('data-tip')));
+            tip.hidden = false;
+            // Park it at the origin before measuring: an absolutely positioned box
+            // shrinks to the space left of the container edge, so measuring it where
+            // it last sat would report a squeezed width.
+            tip.style.left = '0px'; tip.style.top = '0px';
+            var fr = fig.getBoundingClientRect();
+            var tw = tip.offsetWidth, th = tip.offsetHeight;
+            var left = x - fr.left + 14, top = y - fr.top + 14;
+            if (left + tw > fr.width) left = fr.width - tw - 5;
+            if (left < 0) left = 0;
+            // The lower markers sit near the bottom of the panel, so a long question
+            // would hang off it. Flip above the anchor instead.
+            if (top + th > fr.height) top = Math.max(0, y - fr.top - th - 14);
+            tip.style.left = left + 'px'; tip.style.top = top + 'px';
+          }
+          svg.querySelectorAll('[data-tip]').forEach(function (el) {
+            el.addEventListener('mousemove', function (e) { showTip(el, e.clientX, e.clientY); });
+            el.addEventListener('mouseleave', function () { tip.hidden = true; });
+            el.addEventListener('focus', function () { var r = el.getBoundingClientRect(); showTip(el, r.left + r.width / 2, r.bottom); });
+            el.addEventListener('blur', function () { tip.hidden = true; });
+            el.addEventListener('click', function (e) {
+              e.stopPropagation();
+              var r = el.getBoundingClientRect();
+              showTip(el, r.left + r.width / 2, r.bottom);
+            });
+          });
+          document.addEventListener('click', function () { tip.hidden = true; });
+
+          setMode('open');
+        })();
+        </script>
+      </section>
 
       <section class="section-block research-map-block" aria-label="Research areas">
+        <div class="vision-copy research-map-head">
+          <p>I develop this vision through empirical and technical research across three areas:</p>
+        </div>
         <div class="agenda-feature-layout">
           <div class="agenda-visual-column">
             <div class="venn-wrapper agenda-venn-wrapper">
               <div class="venn-image-map" aria-label="Research areas and linked work examples">
                 <picture>
                   <source type="image/webp" srcset="assets/research-venn-1400.webp 1400w" sizes="(max-width: 900px) calc(100vw - 44px), 860px">
-                  <img src="assets/research-venn.png" width="2227" height="1837" alt="Venn diagram of Experience-Aligned Mediated Reality across mediated interaction with emerging technologies, human experience alignment, and scalable interface optimization and evaluation." loading="lazy" decoding="async">
+                  <img src="assets/research-venn.png" width="1908" height="1576" alt="Venn diagram of calibrated human-AI interaction across AI systems and contexts, human experience, and computational design and simulation." loading="lazy" decoding="async">
                 </picture>
-                <a class="venn-hotspot" href="https://dl.acm.org/doi/abs/10.1145/3379337.3415843" target="_blank" rel="noopener" aria-label="Extended Reality" title="Extended Reality" style="--x: 31.1%; --y: 10.0%; --w: 15.4%; --h: 3.3%;"></a>
-                <a class="venn-hotspot" href="https://dl.acm.org/doi/abs/10.1145/3534617" target="_blank" rel="noopener" aria-label="Automated Vehicles" title="Automated Vehicles" style="--x: 24.3%; --y: 16.2%; --w: 19.0%; --h: 3.4%;"></a>
-                <a class="venn-hotspot" href="https://dl.acm.org/doi/full/10.1145/3706598.3713288" target="_blank" rel="noopener" aria-label="Urban Air Mobility" title="Urban Air Mobility" style="--x: 22.4%; --y: 23.8%; --w: 19.4%; --h: 3.4%;"></a>
-                <a class="venn-hotspot" href="https://dl.acm.org/doi/full/10.1145/3706598.3714187" target="_blank" rel="noopener" aria-label="Human-Automation Communication" title="Human-Automation Communication" style="--x: 18.6%; --y: 31.1%; --w: 19.0%; --h: 6.1%;"></a>
-                <a class="venn-hotspot" href="https://ieeexplore.ieee.org/document/11217688" target="_blank" rel="noopener" aria-label="Human-Robot Interaction" title="Human-Robot Interaction" style="--x: 19.1%; --y: 41.5%; --w: 13.8%; --h: 6.1%;"></a>
-                <a class="venn-hotspot" href="https://www.sciencedirect.com/science/article/pii/S1369847825001779" target="_blank" rel="noopener" aria-label="Trust Calibration" title="Trust Calibration" style="--x: 57.0%; --y: 11.2%; --w: 15.8%; --h: 3.5%;"></a>
-                <a class="venn-hotspot" href="https://www.sciencedirect.com/science/article/pii/S1369847824001141" target="_blank" rel="noopener" aria-label="Situation Awareness and Uncertainty Understanding" title="Situation Awareness &amp; Uncertainty Understanding" style="--x: 60.5%; --y: 19.1%; --w: 22.1%; --h: 8.6%;"></a>
-                <a class="venn-hotspot" href="https://dl.acm.org/doi/10.1145/3772318.3791877" target="_blank" rel="noopener" aria-label="User-Guided Design" title="User-Guided Design" style="--x: 63.8%; --y: 32.1%; --w: 19.1%; --h: 3.5%;"></a>
-                <a class="venn-hotspot" href="https://dl.acm.org/doi/10.1145/3772318.3790585" target="_blank" rel="noopener" aria-label="Accessibility and Inclusion" title="Accessibility &amp; Inclusion" style="--x: 70.3%; --y: 40.3%; --w: 14.1%; --h: 6.2%;"></a>
-                <a class="venn-hotspot" href="https://dl.acm.org/doi/full/10.1145/3706598.3713514" target="_blank" rel="noopener" aria-label="Human-in-the-Loop Design Optimization" title="Human-in-the-Loop Design Optimization" style="--x: 31.9%; --y: 66.7%; --w: 37.8%; --h: 3.4%;"></a>
-                <a class="venn-hotspot" href="https://ieeexplore.ieee.org/document/10974171" target="_blank" rel="noopener" aria-label="Simulation of User Behavior" title="Simulation of User Behavior" style="--x: 38.0%; --y: 74.4%; --w: 25.6%; --h: 3.4%;"></a>
-                <a class="venn-hotspot" href="https://dl.acm.org/doi/abs/10.1145/3494968" target="_blank" rel="noopener" aria-label="Novel Simulators" title="Novel Simulators" style="--x: 43.1%; --y: 82.6%; --w: 15.5%; --h: 3.4%;"></a>
+                <a class="venn-hotspot" href="https://dl.acm.org/doi/abs/10.1145/3379337.3415843" target="_blank" rel="noopener" aria-label="Extended Reality" title="Extended Reality" style="--x: 30.8%; --y: 9.6%; --w: 16.1%; --h: 3.4%;"></a>
+                <a class="venn-hotspot" href="https://dl.acm.org/doi/abs/10.1145/3534617" target="_blank" rel="noopener" aria-label="Automated Vehicles" title="Automated Vehicles" style="--x: 24.0%; --y: 15.7%; --w: 19.6%; --h: 3.3%;"></a>
+                <a class="venn-hotspot" href="https://dl.acm.org/doi/full/10.1145/3706598.3713288" target="_blank" rel="noopener" aria-label="Urban Air Mobility" title="Urban Air Mobility" style="--x: 22.0%; --y: 23.2%; --w: 16.9%; --h: 3.4%;"></a>
+                <a class="venn-hotspot" href="https://dl.acm.org/doi/full/10.1145/3706598.3714187" target="_blank" rel="noopener" aria-label="Human-Automation Communication" title="Human-Automation Communication" style="--x: 18.4%; --y: 30.6%; --w: 19.1%; --h: 6.5%;"></a>
+                <a class="venn-hotspot" href="https://ieeexplore.ieee.org/document/11217688" target="_blank" rel="noopener" aria-label="Human-Robot Interaction" title="Human-Robot Interaction" style="--x: 18.8%; --y: 41.2%; --w: 14.0%; --h: 6.5%;"></a>
+                <a class="venn-hotspot" href="https://www.sciencedirect.com/science/article/pii/S1369847825001779" target="_blank" rel="noopener" aria-label="Trust Calibration" title="Trust Calibration" style="--x: 56.0%; --y: 11.0%; --w: 16.1%; --h: 3.4%;"></a>
+                <a class="venn-hotspot" href="https://www.sciencedirect.com/science/article/pii/S1369847824001141" target="_blank" rel="noopener" aria-label="Situation Awareness and Uncertainty Understanding" title="Situation Awareness &amp; Uncertainty Understanding" style="--x: 59.7%; --y: 18.8%; --w: 21.4%; --h: 9.6%;"></a>
+                <a class="venn-hotspot" href="https://dl.acm.org/doi/10.1145/3772318.3791877" target="_blank" rel="noopener" aria-label="User-Guided Design" title="User-Guided Design" style="--x: 63.5%; --y: 31.8%; --w: 19.4%; --h: 3.3%;"></a>
+                <a class="venn-hotspot" href="https://dl.acm.org/doi/10.1145/3772318.3790585" target="_blank" rel="noopener" aria-label="Accessibility and Inclusion" title="Accessibility &amp; Inclusion" style="--x: 69.1%; --y: 40.0%; --w: 14.4%; --h: 6.5%;"></a>
+                <a class="venn-hotspot" href="https://dl.acm.org/doi/full/10.1145/3706598.3713514" target="_blank" rel="noopener" aria-label="Human-in-the-Loop Design Optimization" title="Human-in-the-Loop Design Optimization" style="--x: 31.5%; --y: 66.6%; --w: 38.0%; --h: 3.4%;"></a>
+                <a class="venn-hotspot" href="https://ieeexplore.ieee.org/document/10974171" target="_blank" rel="noopener" aria-label="Simulation of User Behavior" title="Simulation of User Behavior" style="--x: 37.4%; --y: 74.2%; --w: 26.3%; --h: 3.3%;"></a>
+                <a class="venn-hotspot" href="https://dl.acm.org/doi/abs/10.1145/3494968" target="_blank" rel="noopener" aria-label="Novel Simulators" title="Novel Simulators" style="--x: 42.3%; --y: 82.4%; --w: 16.4%; --h: 3.3%;"></a>
               </div>
             </div>
           </div>
@@ -117,41 +563,40 @@
         <h2>Featured Work</h2>
         <div class="featured-vision-list">
           <article class="featured-vision-card">
-            <p class="principle-label"><strong>Legibility</strong> Making automated vehicle perception visible and interpretable through real-time mediated reality.</p>
-            <video class="media-lqip" style="--lqip: url('../assets/mirage-thumbnail-169.png')" controls playsinline preload="none" poster="./assets/mirage-thumbnail-169.png" width="1920" height="1080" data-start="5">
-              <source src="./data/videos/mirage.mp4" type="video/mp4">
-            </video>
-            <div class="featured-vision-meta">
-              <h3><a href="publications.html#mirage">MIRAGE: Enabling Real-Time Automotive Mediated Reality</a></h3>
-              <p>Pascal Jansen*, Julian Britten*, Mark Colley*, Markus Sasalovici, and Enrico Rukzio</p>
-              <p>In Proceedings of CHI’26 · <a href="https://dl.acm.org/doi/10.1145/3772318.3791195" target="_blank" rel="noopener">DOI</a></p>
-            </div>
-          </article>
-          <article class="featured-vision-card">
-            <p class="principle-label"><strong>Contextuality</strong> Analysing how interface behaviour changes across mixed-immersive study contexts.</p>
-            <video class="media-lqip" style="--lqip: url('../assets/autovis-thumbnail-169.png')" controls playsinline preload="none" poster="./assets/autovis-thumbnail-169.png" width="1280" height="720" data-start="9">
-              <source src="./data/videos/AutoVis.mp4" type="video/mp4">
-            </video>
-            <div class="featured-vision-meta">
-              <h3><a href="publications.html#autovis">AutoVis: Enabling Mixed-Immersive Analysis of Automotive User Interface Interaction Studies</a></h3>
-              <p>Pascal Jansen, Julian Britten, Alexander Häusele, Thilo Segschneider, Mark Colley, and Enrico Rukzio</p>
-              <p>In Proceedings of CHI’23 · <a href="https://dl.acm.org/doi/full/10.1145/3544548.3580760" target="_blank" rel="noopener">DOI</a></p>
-            </div>
-          </article>
-          <article class="featured-vision-card">
-            <p class="principle-label"><strong>Contestability</strong> Enabling users to guide optimization of automated vehicle visualizations through feedback.</p>
-            <video class="media-lqip" style="--lqip: url('../assets/opticarvis-thumbnail-169.png')" controls playsinline preload="none" poster="./assets/opticarvis-thumbnail-169.png" width="1920" height="1080" data-start="10">
+            <p class="principle-label"><strong>Toward homeostatic adaptation</strong> Interface designs optimized per person from their own feedback.</p>
+            <video class="media-lqip" style="--lqip: url('../assets/opticarvis-thumbnail-169.png')" controls playsinline preload="none" poster="./assets/opticarvis-thumbnail-169.png" width="1920" height="1080" data-start="10" aria-label="OptiCarVis: Improving Automated Vehicle Functionality Visualizations Using Bayesian Optimization to Enhance User Experience">
               <source src="./data/videos/opticar-video-figure.mp4" type="video/mp4">
             </video>
             <div class="featured-vision-meta">
-              <h3><a href="publications.html#opticarvis">OptiCarVis: Improving Automated Vehicle Functionality Visualizations Using Bayesian Optimization to Enhance User Experience</a></h3>
+              <h3><a href="/publications#opticarvis">OptiCarVis: Improving Automated Vehicle Functionality Visualizations Using Bayesian Optimization to Enhance User Experience</a></h3>
               <p>Pascal Jansen*, Mark Colley*, Svenja Krauß, Daniel Hirschle, and Enrico Rukzio</p>
               <p>In Proceedings of CHI’25 · Honorable Mention · <a href="https://dl.acm.org/doi/full/10.1145/3706598.3713514" target="_blank" rel="noopener">DOI</a></p>
             </div>
           </article>
+          <article class="featured-vision-card">
+            <p class="principle-label"><strong>Toward hormetic doses</strong> Repeated exposure to a system's uncertainty increased trust across days.</p>
+            <video class="media-lqip" style="--lqip: url('../assets/long-vis-thumbnail-169.png')" controls playsinline preload="none" poster="./assets/long-vis-thumbnail-169.png" width="1280" height="720" data-start="15" aria-label="Longitudinal Effects of Visualizing Uncertainty of Situation Detection and Prediction of Automated Vehicles on User Perceptions">
+              <source src="./data/videos/long-vis-video.mp4" type="video/mp4">
+            </video>
+            <div class="featured-vision-meta">
+              <h3><a href="/publications#longitudinal-av-uncertainty">Longitudinal Effects of Visualizing Uncertainty of Situation Detection and Prediction of Automated Vehicles on User Perceptions</a></h3>
+              <p>Pascal Jansen*, Mark Colley*, Max Rädler*, Jonas Schwedler, and Enrico Rukzio</p>
+              <p>In Transportation Research Part F, 2025 · <a href="https://www.sciencedirect.com/science/article/pii/S1369847825001779" target="_blank" rel="noopener">DOI</a></p>
+            </div>
+          </article>
+          <article class="featured-vision-card">
+            <p class="principle-label"><strong>Toward the interface as mediator</strong> Real-time mediation of the view through the windshield on real vehicles.</p>
+            <video class="media-lqip" style="--lqip: url('../assets/mirage-thumbnail-169.png')" controls playsinline preload="none" poster="./assets/mirage-thumbnail-169.png" width="1920" height="1080" data-start="5" aria-label="MIRAGE: Enabling Real-Time Automotive Mediated Reality">
+              <source src="./data/videos/mirage.mp4" type="video/mp4">
+            </video>
+            <div class="featured-vision-meta">
+              <h3><a href="/publications#mirage">MIRAGE: Enabling Real-Time Automotive Mediated Reality</a></h3>
+              <p>Pascal Jansen*, Julian Britten*, Mark Colley*, Markus Sasalovici, and Enrico Rukzio</p>
+              <p>In Proceedings of CHI’26 · <a href="https://dl.acm.org/doi/10.1145/3772318.3791195" target="_blank" rel="noopener">DOI</a></p>
+            </div>
+          </article>
         </div>
       </section>
-      <br>
 
     </main>
 
@@ -159,12 +604,13 @@
       <div class="wrap footer-inner">
         <div class="footer-legal">
           <span>&copy; 2026 Pascal Jansen</span>
-          <a href="./impressum.html" target="_blank" rel="noopener">Impressum</a>
-          <a href="./privacy.html" target="_blank" rel="noopener">Privacy Policy</a>
+          <a href="/impressum" target="_blank" rel="noopener">Impressum</a>
+          <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a>
         </div>
         <nav class="footer-social" aria-label="Footer links">
           <a href="./data/CV_Jansen_2026.pdf" target="_blank" rel="noopener">CV</a>
           <a href="https://scholar.google.de/citations?user=cR1_0-EAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+          <a href="https://orcid.org/0000-0002-9335-5462" target="_blank" rel="noopener">ORCID</a>
           <a href="https://github.com/Pascal-Jansen" target="_blank" rel="noopener">GitHub</a>
           <a href="https://www.linkedin.com/in/pascal-jansen-/" target="_blank" rel="noopener">LinkedIn</a>
           <a href="mailto:pascal.jansen@uni-ulm.de">Email</a>
@@ -172,6 +618,6 @@
       </div>
     </footer>
     </div>
-    <script src="assets/site.js?v=20260609"></script>
+    <script src="assets/site.js?v=20260826b"></script>
   </body>
 </html>

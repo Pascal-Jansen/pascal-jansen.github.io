@@ -1,0 +1,14 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "site",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        ".claude/serve.py",
+        "4173"
+      ],
+      "port": 4173
+    }
+  ]
+}

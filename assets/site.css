@@ -1,4 +1,61 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap");
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("fonts/ibm-plex-sans-latin-ext.woff2") format("woff2-variations");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("fonts/ibm-plex-sans-latin.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Cross-document view transitions: same-origin navigations cross-fade instead
+   of tearing down and repainting. Progressive enhancement — browsers without
+   support navigate normally. */
+@view-transition {
+  navigation: auto;
+}
+
+.site-header {
+  view-transition-name: site-header;
+}
+
+.site-footer {
+  view-transition-name: site-footer;
+}
+
+/* The header is identical on every page, so swap it outright instead of
+   cross-fading: a fade between two identical headers still shows the old and
+   new active-nav underline at once. */
+::view-transition-old(site-header) {
+  animation: none;
+  opacity: 0;
+}
+
+::view-transition-new(site-header) {
+  animation: none;
+  opacity: 1;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.18s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
 
 :root {
   --base: #ffffff;
@@ -55,8 +112,7 @@ body:not(.landing-page) {
 }
 
 body:not(.landing-page) .site-header {
-  flex: 0 0 5vh;
-  flex-basis: 5svh;
+  flex: 0 0 auto;
 }
 
 .page-scroll {
@@ -68,6 +124,10 @@ body:not(.landing-page) .site-header {
   flex-direction: column;
   overflow-x: hidden;
   overflow-y: auto;
+  /* Reserve the scrollbar track even when a page is short enough not to need
+     one. Without this, filtering the publication list down to a few entries
+     reclaims the track's width and every centred column jumps sideways. */
+  scrollbar-gutter: stable;
 }
 
 .page-scroll main {
@@ -176,8 +236,10 @@ li + li {
   position: sticky;
   top: 0;
   z-index: 50;
-  height: 5vh;
-  height: 5svh;
+  /* Height is content-driven with a floor, identical on every page. It used to
+     be 5svh, which resolved differently on the landing page than on subpages
+     and made the header change size when navigating between them. */
+  min-height: 60px;
   background: var(--base);
   border-bottom: 1px solid var(--line);
 }
@@ -186,7 +248,7 @@ li + li {
   height: 100%;
   min-height: 100%;
   display: grid;
-  grid-template-columns: 170px minmax(180px, 1fr) auto;
+  grid-template-columns: 220px minmax(120px, 1fr) auto;
   align-items: center;
   gap: 1.5rem;
 }
@@ -206,6 +268,10 @@ li + li {
 
 .site-title {
   margin: 0;
+  /* Flex, not block: the inner <a> is inline-flex and 42px tall because of the
+     avatar, so baseline alignment left the name sitting ~4px above the nav. */
+  display: flex;
+  align-items: center;
   text-align: center;
   font-size: 1.18rem;
   font-weight: 700;
@@ -215,17 +281,13 @@ li + li {
   text-align: left;
 }
 
-body:not(.landing-page) .header-inner {
-  grid-template-columns: 220px minmax(120px, 1fr) auto;
-}
-
-body:not(.landing-page) .site-title a {
+.site-title a {
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
 }
 
-body:not(.landing-page) .site-title a::before {
+.site-title a::before {
   content: "";
   display: inline-block;
   width: 42px;
@@ -246,18 +308,23 @@ body:not(.landing-page) .site-title a::before {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: clamp(1.15rem, 1.5vw, 1.45rem);
+  gap: clamp(1.6rem, 2.2vw, 2.2rem);
   font-size: 0.96rem;
   font-weight: 400;
 }
 
 .site-nav a {
+  /* Mirror the underline slot on top so the link text centers in its own box
+     instead of riding 1px high against the site title. */
+  border-top: 2px solid transparent;
   border-bottom: 2px solid transparent;
 }
 
 .site-nav a:hover,
 .site-nav a.active {
-  border-color: var(--accent);
+  /* Bottom only: the top border exists purely to balance the box for vertical
+     centering and must stay invisible. */
+  border-bottom-color: var(--accent);
 }
 
 .menu-toggle {
@@ -284,12 +351,7 @@ body:not(.landing-page) .site-title a::before {
   min-height: 100svh;
   overflow: hidden;
   display: grid;
-  grid-template-rows: 5vh minmax(0, 95vh);
-  grid-template-rows: 5svh minmax(0, 95svh);
-}
-
-.landing-page .site-header {
-  height: 100%;
+  grid-template-rows: auto minmax(0, 1fr);
 }
 
 .landing-page .header-inner {
@@ -393,6 +455,10 @@ body:not(.landing-page) .site-title a::before {
   opacity: 1;
 }
 
+.lqip-enabled .media-lqip img[data-lqip].is-instant {
+  transition: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .lqip-enabled .media-lqip img[data-lqip] {
     transition: none;
@@ -461,7 +527,7 @@ body:not(.landing-page) .site-title a::before {
   line-height: 1.4;
 }
 
-.home-cover .cover-copy a[href="research.html"] {
+.home-cover .cover-copy a[href="/research"] {
   white-space: nowrap;
 }
 
@@ -572,7 +638,9 @@ body:not(.landing-page) .site-title a::before {
 .news-scroll-panel {
   position: relative;
   height: 100%;
-  width: min(100%, 647px);
+  /* Grows with the viewport once there is room, but never past the wrap or a
+     comfortable measure: 647px stays the floor, 800px the ceiling. */
+  width: min(100%, clamp(647px, 56vw, 800px));
   overflow-y: auto;
   overscroll-behavior: contain;
   padding: 0 1rem 0 0;
@@ -755,6 +823,7 @@ body:not(.landing-page) .site-title a::before {
   max-width: 860px;
 }
 
+
 .page-intro-compact p {
   margin-top: 1.1rem;
   color: #30363a;
@@ -851,11 +920,15 @@ body:not(.landing-page) .site-title a::before {
   padding: 0.25rem 0 0.25rem 1.25rem;
   border-left: 3px solid var(--accent);
   color: #30363a;
-  font-size: var(--subpage-copy-size);
-  line-height: var(--subpage-copy-line-height);
+  /* One step down, matching the principle-card copy. */
+  font-size: var(--support-copy-size);
+  line-height: var(--support-copy-line-height);
 }
 
 .vision-definition p {
+  /* Needs to outrank `.vision-copy p`, which sets the larger body size. */
+  font-size: var(--support-copy-size);
+  line-height: var(--support-copy-line-height);
   text-wrap: pretty;
 }
 
@@ -863,34 +936,601 @@ body:not(.landing-page) .site-title a::before {
   margin-top: 0;
 }
 
+/* Research page: section rhythm, headings, media, and the interaction loop */
+
+.vision-lede .vision-definition {
+  margin-bottom: 0;
+}
+
+.vision-copy + .vision-copy {
+  margin-top: 4.5rem;
+}
+
+.vision-lede + .vision-copy {
+  margin-top: 5.5rem;
+}
+
+.principles-block + .vision-copy {
+  margin-top: 4.5rem;
+}
+
+.principles-block + .loop-section {
+  margin-top: 1rem;
+}
+
+.featured-vision-work + .vision-copy {
+  margin-top: 4.5rem;
+}
+
+.vision-copy > h2 {
+  color: var(--accent-dark);
+  font-size: var(--section-title-size);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.vision-copy > h2 + p {
+  margin-top: 0.9rem;
+}
+
+.section-block.research-map-block {
+  margin-top: 4.5rem;
+}
+
+.tool-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0.9rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tool-chips a {
+  display: block;
+  padding: 6px 10px 5px;
+  border: 1px solid rgba(31, 79, 122, 0.28);
+  color: var(--accent-dark);
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.1;
+  text-decoration: none;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.tool-chips a:hover,
+.tool-chips a:focus-visible {
+  border-color: var(--accent-dark);
+  background: rgba(47, 111, 163, 0.08);
+}
+
+.research-map-head {
+  margin-bottom: 1.6rem;
+}
+
+.research-map-head + .agenda-feature-layout .agenda-venn-wrapper {
+  margin-top: 0;
+}
+
+.loop-section {
+  padding: 1.35rem clamp(1.1rem, 3vw, 1.6rem) 1.5rem;
+  border-top: 3px solid var(--accent);
+  background: var(--shade);
+}
+
+.loop-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.15rem;
+}
+
+.loop-btn {
+  appearance: none;
+  display: block;
+  padding: 6px 9px 5px;
+  border: 1px solid rgba(31, 79, 122, 0.28);
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.loop-btn:hover {
+  border-color: var(--accent-dark);
+  color: var(--accent-dark);
+}
+
+.loop-btn.is-active,
+.loop-btn.is-active:hover {
+  border-color: var(--accent-dark);
+  background: rgba(47, 111, 163, 0.12);
+  color: var(--accent-dark);
+}
+
+.loop-btn:focus-visible {
+  outline: 2px solid var(--accent-dark);
+  outline-offset: 2px;
+}
+
+.loop-figure {
+  position: relative;
+  margin: 0;
+}
+
+.loop-scroll {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+
+.loop-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-family: inherit;
+}
+
+.loop-caption {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-top: 0.7rem;
+  min-height: 1.6em;
+  color: var(--muted);
+  font-size: var(--meta-copy-size);
+  line-height: var(--meta-copy-line-height);
+}
+
+/* Manual stepping: the reader advances the sequence instead of it running away
+   from them, so each step can be read for as long as it takes. */
+.loop-steps {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex: 0 0 auto;
+  padding-right: 0.9rem;
+}
+
+.loop-steps[hidden] {
+  display: none;
+}
+
+.loop-step-count {
+  min-width: 2.6em;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.loop-step-btn {
+  appearance: none;
+  min-width: 30px;
+  padding: 3px 8px 4px;
+  border: 1px solid rgba(29, 29, 31, 0.28);
+  background: var(--base);
+  color: var(--contrast);
+  font: inherit;
+  line-height: 1.1;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+
+.loop-step-btn:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.loop-step-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.loop-step-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+#loop-tip {
+  position: absolute;
+  z-index: 5;
+  max-width: 270px;
+  padding: 0.5rem 0.7rem;
+  border-radius: 4px;
+  background: #1f2933;
+  color: #fff;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  pointer-events: none;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.16);
+}
+
+.loop-svg [data-tip] {
+  cursor: pointer;
+  outline: none;
+}
+
+.loop-svg .band {
+  fill: #2f6fa3;
+  transition: fill 0.5s ease;
+}
+
+.loop-svg .band.dose {
+  fill: #c26a1a;
+}
+
+.loop-svg .band.out {
+  fill: #a1453a;
+  opacity: 0.38;
+}
+
+/* These read as small badges, so they need to say "press me": a raised
+   resting state, a lift on hover/focus, and a hit target big enough to tap.
+   The scale goes on an inner wrapper, never on .bolt itself: those groups carry
+   an attribute transform="translate(...)" that a CSS transform would replace,
+   which made the icon jump out from under the cursor and flicker. */
+/* Switching loop states swaps whole groups in and out. Opacity carries that
+   change so nothing pops, and visibility flips only once the fade has finished,
+   which keeps hidden markers out of the tab order and off the pointer. */
+.loop-svg .pa-swap {
+  transition: opacity 0.28s ease;
+}
+.loop-svg .pa-swap.pa-off {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.28s ease, visibility 0s linear 0.28s;
+}
+
+/* A hidden group's markers sit at the same coordinates as the ones replacing
+   them, and visibility only flips once the fade ends. Drop hit-testing straight
+   away so an outgoing marker can never answer for the incoming one. The .pa-hit
+   selector has to be spelled out: it sets pointer-events itself, and a
+   descendant overrides an ancestor's none. */
+.loop-svg .pa-swap.pa-off,
+.loop-svg .pa-swap.pa-off .pa-hit {
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .loop-svg .pa-swap,
+  .loop-svg .pa-swap.pa-off {
+    transition: none;
+  }
+}
+
+.loop-svg .pa-marker {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.18s ease, filter 0.18s ease;
+  filter: drop-shadow(0 1px 1.5px rgba(15, 23, 42, 0.28));
+}
+
+.loop-svg .bolt:hover .pa-marker,
+.loop-svg .challenge:hover .pa-marker,
+.loop-svg .bolt:focus-visible .pa-marker,
+.loop-svg .challenge:focus-visible .pa-marker {
+  transform: scale(1.18);
+  filter: drop-shadow(0 2px 4px rgba(15, 23, 42, 0.4));
+}
+
+.loop-svg .bolt circle,
+.loop-svg .challenge circle {
+  transition: stroke-width 0.15s ease;
+}
+
+.loop-svg .pa-hit {
+  pointer-events: all;
+}
+
+.loop-svg .bolt:hover circle,
+.loop-svg .bolt:focus-visible circle,
+.loop-svg .challenge:hover circle,
+.loop-svg .challenge:focus-visible circle {
+  stroke-width: 2.5;
+}
+
+#loop-tip .loop-tip-title {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+.loop-svg [data-tip]:focus-visible rect,
+.loop-svg [data-tip]:focus-visible line,
+.loop-svg [data-tip]:focus-visible path {
+  stroke-width: 3.5;
+}
+
+.loop-svg .flow {
+  stroke-dasharray: 10 8;
+  animation: loopdash 0.8s linear infinite;
+}
+
+.loop-svg #dose-path.flow {
+  stroke-dasharray: 7 6;
+}
+
+@keyframes loopdash {
+  to {
+    stroke-dashoffset: -36;
+  }
+}
+
+.loop-svg .hl rect {
+  stroke-width: 3;
+}
+
+#wl-dot,
+#trust-dot,
+#und-dot,
+#wl-band,
+#trust-band,
+#und-band {
+  transition: transform 1.1s ease, opacity 0.28s ease, fill 0.5s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loop-svg .flow {
+    animation: none;
+  }
+
+  #wl-dot,
+  #trust-dot,
+  #und-dot,
+  .loop-svg .band,
+  .loop-svg .pa-marker {
+    transition: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .vision-copy + .vision-copy,
+  .principles-block + .vision-copy,
+  .featured-vision-work + .vision-copy {
+    margin-top: 3rem;
+  }
+
+  .vision-lede + .vision-copy {
+    margin-top: 2.4rem;
+  }
+
+  .principles-block + .loop-section {
+    margin-top: 0.8rem;
+  }
+
+  .section-block.research-map-block {
+    margin-top: 3rem;
+  }
+
+  .loop-controls {
+    gap: 0.4rem;
+  }
+
+  .loop-btn {
+    padding: 0.38rem 0.8rem;
+  }
+
+  .loop-caption {
+    min-height: 0;
+  }
+
+  .loop-svg {
+    min-width: 660px;
+  }
+
+  .vision-definition {
+    margin-left: 0.9rem;
+    padding-left: 1rem;
+  }
+}
+
 .principles-block {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 4rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* Five shared rows + subgrid on each card: every element type sits in the
+     same row across both columns, so the graphics start at the same height
+     regardless of how many lines the definition above them wraps to. */
+  grid-template-rows: repeat(5, auto);
+  column-gap: 2.5rem;
+  row-gap: 0;
   width: min(100% - 44px, 860px);
   max-width: 860px;
-  margin: 2rem auto 0;
-  margin-top: 10px;
+  margin: 1.4rem auto 0;
 }
 
 .principle-card {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 5;
   padding: 0;
   background: transparent;
 }
 
 .principle-card .principle-title {
-  margin: 0 0 0.7rem;
+  margin: 0 0 0.45rem;
   color: #30363a;
-  font-size: var(--item-title-size);
+  font-size: var(--subpage-copy-size);
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 1.3;
+}
+
+.principle-card .principle-origin {
+  color: var(--muted);
+}
+
+.principle-origin sup {
+  margin-left: 0.1em;
+  font-size: 0.68em;
+  line-height: 0;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.principle-card .principle-note sup {
+  margin-right: 0.15em;
+  font-size: 0.85em;
+  line-height: 0;
+  font-weight: 600;
+}
+
+.principle-card .principle-note {
+  margin-top: 0.25rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.4;
 }
 
 .principle-card p {
-  margin-top: 0.7rem;
+  margin-top: 0.45rem;
   color: #30363a;
-  font-size: var(--detail-copy-size);
-  line-height: var(--detail-copy-line-height);
+  font-size: var(--support-copy-size);
+  line-height: var(--support-copy-line-height);
+}
+
+/* Two paired concept animations on ONE shared 14.9s timeline, so the same step
+   is on screen in both cards at once and they can be read side by side. Step
+   length is proportional to word count:
+     rest 0.0-0.7s | step 1 0.7-6.4s | step 2 6.4-10.15s
+     step 3 10.15-13.9s | settle 13.9-14.9s
+     Step 1 gets a bonus over the word-count pacing because the reader has to
+     take in the label AND watch the range move; the move finishes first so the
+     label is still up once the motion settles.
+     Step length is 1.5s + 0.45s per word, using the longer of the two cards.
+
+   Both cards run the same structure: the appropriate RANGE moves first, the
+   value is left outside it, then the value moves into the new range. What
+   differs is why the range moved and who closes the gap:
+     homeostatic - AI behavior changed on its own, so the mismatch is unwanted
+                   (band turns red) and the INTERFACE closes it in one motion.
+     hormetic    - the interface moved the range deliberately, so the mismatch
+                   is planned (band stays blue) and the PERSON closes it, in
+                   gradual steps: learning rather than control. */
+
+@keyframes kf-step1 {
+  0%, 4.7% { opacity: 0; }
+  7.5%, 39% { opacity: 1; }
+  43%, 100% { opacity: 0; }
+}
+
+@keyframes kf-step2 {
+  0%, 43% { opacity: 0; }
+  46%, 65% { opacity: 1; }
+  68%, 100% { opacity: 0; }
+}
+
+@keyframes kf-step3 {
+  0%, 68% { opacity: 0; }
+  71%, 93% { opacity: 1; }
+  98%, 100% { opacity: 0; }
+}
+
+/* --- Homeostatic adaptation: the range never moves --- */
+@keyframes kf-h-dot {
+  0%, 68% { transform: translateX(0); }
+  91%, 100% { transform: translateX(58px); }
+}
+
+@keyframes kf-band-move {
+  0%, 4.7% { transform: translateX(0); }
+  30%, 100% { transform: translateX(58px); }
+}
+
+@keyframes kf-h-band {
+  0%, 32% { fill: #2f6fa3; }
+  43%, 70% { fill: #a1453a; }
+  86%, 100% { fill: #2f6fa3; }
+}
+
+/* --- Hormetic doses: the dot holds its new position, the range travels to it --- */
+@keyframes kf-d-band-color {
+  0%, 4.7% { fill: #2f6fa3; }
+  13%, 68% { fill: #c26a1a; }
+  74%, 100% { fill: #2f6fa3; }
+}
+
+@keyframes kf-d-dot {
+  0%, 68% { transform: translateX(0); }
+  73% { transform: translateX(19px); }
+  77% { transform: translateX(19px); }
+  82% { transform: translateX(38px); }
+  86% { transform: translateX(38px); }
+  91%, 100% { transform: translateX(58px); }
+}
+
+/* The cycle ends by fading the whole stage out rather than sliding anything
+   back: positions snap to their start values while invisible, then fade in. */
+@keyframes kf-stage {
+  0% { opacity: 0; }
+  4%, 93% { opacity: 1; }
+  98%, 100% { opacity: 0; }
+}
+
+.pa-stage {
+  animation: kf-stage 14.9s ease-in-out infinite;
+}
+
+.pa-axis {
+  fill: var(--muted);
+  opacity: 0.75;
+}
+
+.pa-label {
+  opacity: 0;
+}
+
+/* Held still while the reader is working through the loop diagram below. */
+body.loop-engaged .principle-anim * {
+  animation-play-state: paused;
+}
+
+/* The one word that differs between the two cards at step 3: adapts vs holds. */
+.pa-emph {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.pa-step1 { animation: kf-step1 14.9s ease-in-out infinite; }
+.pa-step2 { animation: kf-step2 14.9s ease-in-out infinite; }
+.pa-step3 { animation: kf-step3 14.9s ease-in-out infinite; }
+
+.pa-band {
+  fill: #2f6fa3;
+  animation: kf-band-move 14.9s ease-in-out infinite,
+    kf-h-band 14.9s ease-in-out infinite;
+}
+
+.pa-dot {
+  animation: kf-h-dot 14.9s ease-in-out infinite;
+}
+
+.pa2-band {
+  fill: #2f6fa3;
+  animation: kf-band-move 14.9s ease-in-out infinite,
+    kf-d-band-color 14.9s ease-in-out infinite;
+}
+
+.pa-dot2 {
+  animation: kf-d-dot 14.9s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .principle-anim * {
+    animation: none;
+  }
+
+  /* Hold each card in its resolved state so the idea still reads without motion:
+     homeostatic back inside the same range, hormetic inside the shifted one. */
+  .pa-step3 {
+    opacity: 1;
+  }
+
+  .pa-stage {
+    opacity: 1;
+  }
 }
 
 .principle-thumb {
@@ -923,30 +1563,21 @@ body:not(.landing-page) .site-title a::before {
     margin: 1.4rem auto 0;
   }
 
-  .principle-card {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(88px, 30%);
-    column-gap: 0.85rem;
-    align-items: start;
+  /* The graphic now sits inline between the citation and the body, so the card
+     stacks in document order. The old two-column layout pinned every non-title
+     paragraph to grid-row 2, which overlapped them once the card grew to three. */
+  .principles-block {
+    grid-template-rows: none;
+    row-gap: 1.35rem;
   }
 
-  .principle-thumb {
-    grid-column: 2;
-    grid-row: 1 / span 2;
-    width: 100%;
-    margin: 0;
+  .principle-card {
+    display: block;
+    grid-row: auto;
   }
 
   .principle-card .principle-title {
-    grid-column: 1;
-    grid-row: 1;
     margin: 0 0 0.35rem;
-  }
-
-  .principle-card > p:not(.principle-title) {
-    grid-column: 1;
-    grid-row: 2;
-    margin: 0;
   }
 }
 
@@ -1094,6 +1725,28 @@ body:not(.landing-page) .site-title a::before {
   background: #101820;
 }
 
+.featured-vision-card .feature-figure {
+  margin: 0;
+}
+
+.featured-vision-card .feature-figure img {
+  display: block;
+  width: calc(100% - var(--feature-media-indent));
+  height: auto;
+  margin-left: var(--feature-media-indent);
+  border: 1px solid rgba(31, 79, 122, 0.16);
+  border-radius: 4px;
+  background: var(--shade);
+}
+
+.featured-vision-card .feature-figure figcaption {
+  width: calc(100% - var(--feature-media-indent));
+  margin: 0.55rem 0 0 var(--feature-media-indent);
+  color: var(--muted);
+  font-size: var(--meta-copy-size);
+  line-height: var(--meta-copy-line-height);
+}
+
 .principle-label {
   margin-bottom: 2.05rem;
   color: #30363a;
@@ -1106,8 +1759,9 @@ body:not(.landing-page) .site-title a::before {
   display: block;
   margin-bottom: 0.24rem;
   color: var(--contrast);
-  font-size: var(--section-title-size);
+  font-size: var(--item-title-size);
   font-weight: 700;
+  line-height: 1.25;
 }
 
 .featured-vision-meta {
@@ -1222,14 +1876,20 @@ body:not(.landing-page) .site-title a::before {
 .old-publications {
   --old-text: #1d1d1f;
   --old-muted: #6e6e73;
-  --old-surface: #ffffff;
   --old-surface-muted: #f5f5f7;
   --old-panel-radius: 8px;
 }
 
 .old-publications .publication-section-list {
   display: grid;
-  gap: 38px;
+  gap: 52px;
+  max-width: 860px;
+}
+
+.old-publications .publication-list-header {
+  display: grid;
+  gap: 1.1rem;
+  justify-items: start;
 }
 
 .old-publications .publication-note {
@@ -1243,46 +1903,63 @@ body:not(.landing-page) .site-title a::before {
   color: var(--accent);
 }
 
+.old-publications .publication-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0.2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.old-publications .publication-filter li {
+  display: flex;
+  margin: 0;
+}
+
+.old-publications .publication-filter button {
+  appearance: none;
+  display: block;
+  padding: 6px 9px 5px;
+  border: 1px solid rgba(29, 29, 31, 0.28);
+  background: transparent;
+  color: var(--old-muted);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.old-publications .publication-filter button:hover,
+.old-publications .publication-filter button:focus-visible {
+  border-color: var(--old-text);
+  color: var(--old-text);
+}
+
+.old-publications .publication-filter button.is-active {
+  border-color: var(--old-text);
+  background: #e8e8e8;
+  color: var(--old-text);
+}
+
+.old-publications .publication-entry[hidden] {
+  display: none;
+}
+
 .old-publications .publication-entry {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(220px, 0.42fr) minmax(0, 0.58fr);
-  gap: 2rem;
+  grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+  gap: 2.4rem;
   margin: 0;
-  padding: 16px;
-  overflow: hidden;
-  border: 1px solid rgba(29, 29, 31, 0.06);
-  border-radius: var(--old-panel-radius);
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(250, 252, 253, 0.96)),
-    var(--old-surface);
-  box-shadow:
-    0 10px 26px rgba(15, 23, 42, 0.06),
-    0 0 0 1px rgba(29, 29, 31, 0.04);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.old-publications .publication-entry::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 2;
-  width: 34px;
-  height: 34px;
-  background:
-    linear-gradient(225deg, rgba(255, 255, 255, 0) 49%, rgba(47, 111, 163, 0.2) 50%),
-    linear-gradient(225deg, #edf3f8 0%, #ffffff 68%);
-  box-shadow: -1px 1px 3px rgba(15, 23, 42, 0.1);
-  clip-path: polygon(100% 0, 100% 100%, 0 0);
-  pointer-events: none;
-}
-
-.old-publications .publication-entry:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 18px 36px rgba(15, 23, 42, 0.1),
-    0 0 0 1px rgba(29, 29, 31, 0.05);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .old-publications .publication-entry.publication-entry-fade {
@@ -1290,8 +1967,7 @@ body:not(.landing-page) .site-title a::before {
   transform: translateY(16px);
   transition:
     opacity 0.35s ease var(--publication-fade-delay, 0ms),
-    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) var(--publication-fade-delay, 0ms),
-    box-shadow 0.2s ease;
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) var(--publication-fade-delay, 0ms);
   will-change: opacity, transform;
 }
 
@@ -1347,9 +2023,13 @@ body:not(.landing-page) .site-title a::before {
 .old-publications .publication-entry h2 {
   margin: 0 0 0.75rem;
   color: var(--old-text);
-  font-size: var(--item-title-size);
+  font-size: var(--subpage-copy-size);
   font-weight: 600;
-  line-height: 1.22;
+  line-height: 1.28;
+  /* Titles here are long enough that the global balance on headings leaves each
+     line well short of the column. Fill the measure instead, keeping pretty's
+     guard against a one-word last line. */
+  text-wrap: pretty;
 }
 
 .old-publications .publication-entry p {
@@ -1566,6 +2246,7 @@ button.abstract-btn.is-open::before {
   width: min(100%, 700px);
   margin: 0 auto;
   background: transparent;
+  container-type: inline-size;
 }
 
 .venn-image-map img {
@@ -2456,6 +3137,13 @@ button.abstract-btn.is-open::before {
 }
 
 @media (min-width: 901px) {
+  /* The large portrait is on screen at these widths, so the header avatar is
+     redundant on the landing page. It stays in the layout at zero opacity so
+     the name and nav sit in exactly the same place as on every other page. */
+  .landing-page .site-title a::before {
+    opacity: 0;
+  }
+
   .course-list {
     --course-image-height: 15.75rem;
     --course-image-width: 17.325rem;
@@ -2862,7 +3550,7 @@ button.abstract-btn.is-open::before {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.45rem 0.85rem;
+  gap: 0.45rem 1.5rem;
 }
 
 .footer-legal a,
@@ -2879,6 +3567,25 @@ button.abstract-btn.is-open::before {
 .footer-social {
   justify-content: flex-end;
   font-weight: 600;
+}
+
+/* Above the tablet breakpoint the hero copy is height-bound, not width-bound:
+   the cover row is a fraction of the viewport while the copy height is driven
+   by font size. Step the type down so the icon row keeps its breathing room. */
+@media (min-width: 901px) and (max-height: 900px) {
+  .home-cover .cover-copy p {
+    font-size: clamp(0.98rem, 0.88rem + 0.3vw, 1.14rem);
+    line-height: 1.36;
+    margin-bottom: 0.58rem;
+  }
+
+  .home-cover .cover-copy br {
+    display: none;
+  }
+
+  .hero-icon-links {
+    margin-top: 0.7rem;
+  }
 }
 
 @media (max-width: 900px) {
@@ -2903,8 +3610,7 @@ button.abstract-btn.is-open::before {
   .site-nav {
     position: absolute;
     z-index: 10;
-    top: 5vh;
-    top: 5svh;
+    top: 100%;
     left: 22px;
     right: 22px;
     display: none;
@@ -3025,6 +3731,25 @@ button.abstract-btn.is-open::before {
   }
 }
 
+@media (min-width: 561px) and (max-width: 900px) {
+  /* Too narrow for the portrait and the copy side by side: drop the large
+     cutout and fall back to the header avatar, as the mobile layout does.
+     That frees the full width for the intro text so the icon row still fits. */
+  .landing-page .home-cover .hero-fg {
+    display: none;
+  }
+
+  .home-cover .cover-copy {
+    max-width: 100%;
+  }
+
+  .home-cover .cover-copy p {
+    font-size: clamp(0.94rem, 0.72rem + 0.72vw, 1.12rem);
+    line-height: 1.36;
+    margin-bottom: 0.6rem;
+  }
+}
+
 @media (max-width: 560px) {
   :root {
     --page-title-size: clamp(1.8rem, 8vw, 2.25rem);
@@ -3077,24 +3802,6 @@ button.abstract-btn.is-open::before {
     top: 84px;
     left: 15px;
     right: 15px;
-  }
-
-  .landing-page .site-title a {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.65rem;
-  }
-
-  .landing-page .site-title a::before {
-    content: "";
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    flex: 0 0 50px;
-    border-radius: 999px;
-    background-image: url("../images/uu-jansen-profile-100.webp");
-    background-size: cover;
-    background-position: center;
   }
 
   .cover-copy p {
@@ -3236,7 +3943,7 @@ button.abstract-btn.is-open::before {
     grid-template-columns: 1fr;
   }
 
-  body:not(.landing-page) .site-title a::before {
+  .site-title a::before {
     width: 50px;
     height: 50px;
     flex: 0 0 50px;
@@ -3252,14 +3959,10 @@ button.abstract-btn.is-open::before {
   }
 
   .landing-page {
-    height: auto;
-    min-height: calc(810px + 5svh);
-    overflow-y: auto;
-    grid-template-rows: 5svh 810px;
-  }
-
-  .landing-page .site-header {
-    height: 100%;
+    height: 100svh;
+    min-height: 100svh;
+    overflow: hidden;
+    grid-template-rows: auto minmax(0, 1fr);
   }
 
   .landing-page .header-inner {
@@ -3267,10 +3970,10 @@ button.abstract-btn.is-open::before {
   }
 
   .landing-page .home-main {
-    height: 810px;
-    min-height: 810px;
-    overflow: visible;
-    grid-template-rows: minmax(0, 35fr) minmax(0, 30fr) minmax(0, 30fr);
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+    grid-template-rows: minmax(0, 42fr) minmax(0, 28fr) minmax(0, 28fr);
   }
 
   .landing-page .home-news {
@@ -3280,8 +3983,7 @@ button.abstract-btn.is-open::before {
 
 @media (max-width: 560px) and (max-height: 849px) {
   .landing-page {
-    min-height: 894px;
-    grid-template-rows: 84px 810px;
+    grid-template-rows: auto minmax(0, 1fr);
   }
 
   .landing-page .site-header {

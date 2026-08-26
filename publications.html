@@ -6,21 +6,26 @@
     <title>Publications | Pascal Jansen</title>
     <meta name="description" content="Selected publications by Pascal Jansen.">
     <link rel="icon" href="./images/favicon.ico">
-    <link rel="stylesheet" href="assets/site.css?v=20260801">
+    <script>document.documentElement.classList.add("lqip-enabled");</script>
+    <link rel="preload" href="assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/site.css?v=20260828o">
+    <script type="speculationrules">
+      {"prerender": [{"where": {"href_matches": "/*"}, "eagerness": "moderate"}]}
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="wrap header-inner landing-header">
-        <p class="site-title"><a href="index.html">Pascal Jansen</a></p>
+        <p class="site-title"><a href="/">Pascal Jansen</a></p>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
         <nav class="site-nav" id="site-nav" aria-label="Main navigation">
-          <a href="research.html">Research</a>
-          <a class="active" href="publications.html">Publications</a>
-          <a href="teaching.html">Teaching</a>
-          <a href="service.html">Service</a>
-          <a href="entrepreneurship.html">Entrepreneurship</a>
-          <a href="prospective-students.html">Collaboration</a>
+          <a href="/research">Research</a>
+          <a class="active" href="/publications">Publications</a>
+          <a href="/teaching">Teaching</a>
+          <a href="/service">Service</a>
+          <a href="/entrepreneurship">Entrepreneurship</a>
+          <a href="/prospective-students">Collaboration</a>
         </nav>
       </div>
     </header>
@@ -35,11 +40,21 @@
 
       <section class="content subpage-content old-publications" id="publication">
         <div class="wrap publication-list publication-section-list">
-          <p class="publication-note">
-            For a complete list of publications, see
-            <a href="https://scholar.google.de/citations?user=cR1_0-EAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>.
-          </p>
-          <div class="row publication-entry" id="ehmi-bo-japan-germany">
+          <div class="publication-list-header">
+            <p class="publication-note">
+              For a complete list of publications, see
+              <a href="https://scholar.google.de/citations?user=cR1_0-EAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>.
+            </p>
+            <ul class="publication-filter" aria-label="Filter publications by research area">
+              <li><button type="button" data-tag="all" title="Show every publication." aria-pressed="true" class="is-active">Show all</button></li>
+              <li><button type="button" data-tag="xr" title="Augmented, virtual, and mediated reality interfaces for emerging technologies." aria-pressed="false">Extended Reality</button></li>
+              <li><button type="button" data-tag="hitl" title="Multi-objective Bayesian optimization that designs interfaces from user feedback." aria-pressed="false">Human-in-the-Loop Optimization</button></li>
+              <li><button type="button" data-tag="communication" title="How automated systems express intent, capability, and limits to the people around them." aria-pressed="false">Human-Automation Communication</button></li>
+              <li><button type="button" data-tag="uncertainty" title="Making a system&#39;s perception, prediction, and the uncertainty in them legible, so people can calibrate trust." aria-pressed="false">Uncertainty Visualization</button></li>
+              <li><button type="button" data-tag="simulation" title="Novel simulators and simulation of user behaviour for evaluating interfaces at scale." aria-pressed="false">Simulation &amp; Simulators</button></li>
+            </ul>
+          </div>
+          <div class="row publication-entry" data-tags="hitl communication" id="ehmi-bo-japan-germany">
                               <div class="col-md-5 text-center" style="visibility: visible;">
                                   <div class="pub-media media-lqip" style="--lqip: url('../images/BO-comparison-JP-DE-lqip.webp')">
                                       <picture>
@@ -60,7 +75,7 @@
                                       Mark Colley*, <u><a target="_blank" href="https://www.pascal-jansen.github.io" style="text-decoration: none; margin-right: 0px;" rel="noopener">Pascal Jansen</a></u>*, Xinyue Gui, Yuan Li, Ding Xia, Enrico Rukzio, and Takeo Igarashi <i class="joint-author-note">*joint first-author</i>
                                   </p>
 
-                                  <p class="publication-venue">In PACM IMWUT&rsquo;26 (conditionally accepted)</p>
+                                  <p class="publication-venue">In PACM IMWUT&rsquo;26 (to appear)</p>
 
                                   <div class="row" style="padding: 0; padding-left: 5px; margin-bottom: 10px;">
                                           <!-- Abstract Button -->
@@ -76,7 +91,7 @@
                               </div>
                           </div>
 
-                          <div class="row publication-entry" id="motui">
+                          <div class="row publication-entry" data-tags="hitl" id="motui">
                               <div class="col-md-5 text-center" style="visibility: visible;">
                                   <div class="pub-media media-lqip" style="--lqip: url('../images/MoTUI-lqip.webp')">
                                       <picture>
@@ -97,7 +112,7 @@
                                       Max R&auml;dler, Julian Z&auml;hnle, Luca-Maxim Meinhardt, <u><a target="_blank" href="https://www.pascal-jansen.github.io" style="text-decoration: none; margin-right: 0px;" rel="noopener">Pascal Jansen</a></u>, Enrico Rukzio, and Mark Colley
                                   </p>
 
-                                  <p class="publication-venue">In Proceedings of UIST&rsquo;26 (conditionally accepted)</p>
+                                  <p class="publication-venue">In Proceedings of UIST&rsquo;26 (to appear)</p>
 
                                   <div class="row" style="padding: 0; padding-left: 5px; margin-bottom: 10px;">
                                           <!-- Abstract Button -->
@@ -113,7 +128,7 @@
                               </div>
                           </div>
 
-                          <div class="row publication-entry" id="mirage">
+                          <div class="row publication-entry" data-tags="xr" id="mirage">
                               <div class="col-md-5 text-center" style="visibility: visible;">
                                   <div class="pub-media media-lqip" style="--lqip: url('../images/mirage-lqip.webp')">
                                       <picture>
@@ -151,7 +166,7 @@
                               </div>
                           </div>
           
-                          <div class="row publication-entry" id="provoice">
+                          <div class="row publication-entry" data-tags="hitl communication" id="provoice">
                               <div class="col-md-5 text-center" style="visibility: visible;">
                                   <div class="pub-media media-lqip" style="--lqip: url('../images/provoice-lqip.webp')">
                                       <picture>
@@ -189,7 +204,7 @@
                               </div>
                           </div>
           
-                          <div class="row publication-entry" id="ehmi4all">
+                          <div class="row publication-entry" data-tags="communication xr" id="ehmi4all">
                               <div class="col-md-5 text-center" style="visibility: visible;">
                                   <div class="pub-media media-lqip" style="--lqip: url('../images/ehmi4all-lqip.webp')">
                                       <picture>
@@ -227,7 +242,7 @@
                               </div>
                           </div>
                      
-                          <div class="row publication-entry" id="longitudinal-av-uncertainty">
+                          <div class="row publication-entry" data-tags="uncertainty" id="longitudinal-av-uncertainty">
                               <div class="col-md-5 text-center" style="visibility: visible;">
                                   <div class="pub-media media-lqip" style="--lqip: url('../images/long-vis-lqip.webp')">
                                       <picture>
@@ -265,7 +280,7 @@
                               </div>
                           </div>
           
-                          <div class="row publication-entry" id="opticarvis">
+                          <div class="row publication-entry" data-tags="hitl uncertainty" id="opticarvis">
                               <div class="col-md-5 text-center" style="visibility: visible;">
                                   <div class="pub-media media-lqip" style="--lqip: url('../images/opticarvis-lqip.webp')">
                                       <picture>
@@ -309,7 +324,7 @@
                           </div>
           
           
-                          <div class="row publication-entry" id="ehmi-bo">
+                          <div class="row publication-entry" data-tags="hitl communication" id="ehmi-bo">
                               <div class="col-md-5 text-center" style="visibility: visible;">
                                   <div class="pub-media media-lqip" style="--lqip: url('../images/eHMI-BO-lqip.webp')">
                                       <picture>
@@ -349,7 +364,7 @@
                           </div>
           
           
-                          <div class="row publication-entry" id="uam-bo">
+                          <div class="row publication-entry" data-tags="hitl simulation" id="uam-bo">
                               <div class="col-md-5 text-center" style="visibility: visible;">
                                   <div class="pub-media media-lqip" style="--lqip: url('../images/uam-BO-lqip.webp')">
                                       <picture>
@@ -390,7 +405,7 @@
                           </div>
           
           
-                          <div class="row publication-entry">
+                          <div class="row publication-entry" data-tags="xr">
                               <div class="col-md-5 text-center" style="visibility: visible;">
                                   <div class="pub-media media-lqip" style="--lqip: url('../images/bumpy-ride-lqip.webp')">
                                       <picture>
@@ -432,7 +447,7 @@
                           </div>
           
           
-                          <div class="row publication-entry">
+                          <div class="row publication-entry" data-tags="communication">
                               <div class="col-md-5 text-center" style="visibility: visible;">
                                   <div class="pub-media media-lqip" style="--lqip: url('../images/plantpal-lqip.webp')">
                                       <picture>
@@ -465,7 +480,7 @@
                           </div>
           
           
-                          <div class="row publication-entry" id="edulicit">
+                          <div class="row publication-entry" data-tags="uncertainty" id="edulicit">
                               <div class="col-md-5 text-center" style="visibility: visible;">
                                   <div class="pub-media media-lqip" style="--lqip: url('../images/edulicit-lqip.webp')">
                                       <picture>
@@ -501,7 +516,7 @@
           
           
           
-                          <div class="row publication-entry">
+                          <div class="row publication-entry" data-tags="simulation">
                               <div class="col-md-5 text-center" style="visibility: visible;">
                                   <div class="pub-media media-lqip" style="--lqip: url('../images/ped-sumo-lqip.webp')">
                                       <picture>
@@ -572,7 +587,7 @@
                           </div>
           
           
-                          <div class="row publication-entry" id="autovis">
+                          <div class="row publication-entry" data-tags="xr simulation" id="autovis">
                               <div class="col-md-5 text-center" style="visibility: visible;">
                                   <div class="pub-media media-lqip" style="--lqip: url('../images/AutoVis-lqip.webp')">
                                       <picture>
@@ -648,7 +663,7 @@
                           </div>
           
           
-                          <div class="row publication-entry" id="swivr-car-seat">
+                          <div class="row publication-entry" data-tags="xr simulation" id="swivr-car-seat">
                               <div class="col-md-5 text-center" style="visibility: visible;">
                                   <div class="pub-media media-lqip" style="--lqip: url('../images/swivr-car-seat-lqip.webp')">
                                       <picture>
@@ -687,7 +702,7 @@
                           </div>
           
           
-                          <div class="row publication-entry">
+                          <div class="row publication-entry" data-tags="xr">
                               <div class="col-md-5 text-center" style="visibility: visible;">
                                   <div class="pub-media media-lqip" style="--lqip: url('../images/the-social-engineer-lqip.webp')">
                                       <picture>
@@ -711,7 +726,7 @@
                                   <!-- Conference Name with Custom Badge Behind -->
                                   <div style="position: relative; display: inline-block;">
                                       <p class="publication-venue">
-                                          In Extended Abstracts of CHI PLAY’20, <b><span class="award">Audience Choice Award</span></b>
+                                          In Extended Abstracts of CHI PLAY’20 <b><span class="award">Audience Choice Award</span></b>
                                       </p>
                                   </div>
           
@@ -731,7 +746,7 @@
                           </div>
           
           
-                          <div class="row publication-entry" id="share">
+                          <div class="row publication-entry" data-tags="xr" id="share">
                               <div class="col-md-5 text-center" style="visibility: visible;">
                                   <div class="pub-media media-lqip" style="--lqip: url('../images/shARe-lqip.webp')">
                                       <picture>
@@ -776,12 +791,13 @@
       <div class="wrap footer-inner">
         <div class="footer-legal">
           <span>&copy; 2026 Pascal Jansen</span>
-          <a href="./impressum.html" target="_blank" rel="noopener">Impressum</a>
-          <a href="./privacy.html" target="_blank" rel="noopener">Privacy Policy</a>
+          <a href="/impressum" target="_blank" rel="noopener">Impressum</a>
+          <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a>
         </div>
         <nav class="footer-social" aria-label="Footer links">
           <a href="./data/CV_Jansen_2026.pdf" target="_blank" rel="noopener">CV</a>
           <a href="https://scholar.google.de/citations?user=cR1_0-EAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+          <a href="https://orcid.org/0000-0002-9335-5462" target="_blank" rel="noopener">ORCID</a>
           <a href="https://github.com/Pascal-Jansen" target="_blank" rel="noopener">GitHub</a>
           <a href="https://www.linkedin.com/in/pascal-jansen-/" target="_blank" rel="noopener">LinkedIn</a>
           <a href="mailto:pascal.jansen@uni-ulm.de">Email</a>
@@ -789,6 +805,6 @@
       </div>
     </footer>
     </div>
-    <script src="assets/site.js?v=20260609"></script>
+    <script src="assets/site.js?v=20260826b"></script>
   </body>
 </html>
