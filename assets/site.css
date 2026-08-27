@@ -294,7 +294,11 @@ li + li {
   height: 42px;
   flex: 0 0 42px;
   border-radius: 999px;
-  background-image: url("../images/uu-jansen-profile-100.webp");
+  /* Inlined rather than linked: as a CSS-initiated request this 2.3 KB avatar
+     was only fetched after the stylesheet parsed, so on a cross-document view
+     transition the new header could be snapshotted before it arrived and the
+     avatar popped in a frame late. As a data URI it lands with the CSS. */
+  background-image: url("data:image/webp;base64,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");
   background-size: cover;
   background-position: center;
 }
@@ -362,7 +366,12 @@ li + li {
   min-height: 0;
   height: 100%;
   display: grid;
-  grid-template-rows: minmax(0, 35fr) minmax(0, 30fr) minmax(0, 30fr);
+  /* The hero row floors at its own content: the page is a fixed-height grid with
+     overflow hidden, so a row that is merely a share of the viewport silently
+     cuts off whatever does not fit — on a small laptop that was the icon row.
+     min-content lets the hero take what it needs and the two bands below absorb
+     the difference. */
+  grid-template-rows: minmax(min-content, 35fr) minmax(0, 30fr) minmax(0, 30fr);
   overflow: hidden;
 }
 
@@ -374,7 +383,10 @@ li + li {
 }
 
 .home-cover {
-  min-height: 0;
+  /* Not 0: as a scroll container (.cover sets overflow hidden) this row would
+     report an automatic minimum of zero, so the grid was free to size it below
+     its own copy and clip the icon row. min-content gives the row a real floor. */
+  min-height: min-content;
   position: relative;
   isolation: isolate;
 }
@@ -2095,7 +2107,9 @@ body.loop-engaged .principle-anim * {
   width: 16px;
   height: 16px;
   margin-right: 6px;
-  background-image: url("../images/Honorable_Mention_Badge.jpg");
+  /* 774 bytes, and CSS-initiated like the avatar was: inlined so the badge
+     cannot arrive a frame after the award label it belongs to. */
+  background-image: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/wAALCAAZABkBAREA/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/9oACAEBAAA/APvL9qz40XvwQ+ElxqeiWUuoeK9Yu4dB8PwJB5sZ1K5JS3M3ICxhuSWIHAXksAfMIf2IfEfiGCXXPFfx9+JB8d3kkV5c3Xh7VVsdKhuIwuxYrEIU8tMYw3LDJOCxrsv2Xfi14o8Sax8Qfhr8QryPVfiD4C1GOC91azsRbWt/Z3CedZzqqkqjtEfmjH3SB16179Xiv7Xnwt1H4pfBq6XQ9Rl07xJ4cu4fE2jnzxFbzXtmTLDHcZ4aEsOQSACFbPy15noP/BRjwtc+D7W+1bwH42t/EUltHL/ZOk6Q2owXDugZfs17EfIljbPyyF1yOoGCB0v7IPgLxNJqXj/4w+NbZtF8TfEi8t7r+wba/iu7OysLaLyrIq8RKvI0OC0gbDfLgLyK+ka8t/ak8QXPhf8AZv8AiZqNjFJPqCeH72O0ihRnd55IWjiAUck73XgV+Mn7Mv7KXxV+J/ifW/A19J4n8G6hpWn2dyNLvWlspF027vYlujEkhUDMZkkxjDmNlOTxX7YfA34P2HwF+GekeB9K1nWNc0rSlaO0n1yeOa4jjLEiLciINi5woxwMDOAK72iuV/5qiP8AsDf+166qiv/Z");
   background-repeat: no-repeat;
   background-size: contain;
   vertical-align: middle;
@@ -3579,12 +3593,35 @@ button.abstract-btn.is-open::before {
     margin-bottom: 0.58rem;
   }
 
-  .home-cover .cover-copy br {
+  /* Only the standalone spacer between the affiliation and the agenda line;
+     the <br> inside the agenda paragraph is a real line break and must stay. */
+  .home-cover .cover-copy > br {
     display: none;
   }
 
   .hero-icon-links {
     margin-top: 0.7rem;
+  }
+}
+
+/* Second, tighter step for short desktop windows. The hero band is a fixed
+   share of the viewport and clips, so on a small laptop the intro copy has to
+   give ground or the icon row below it falls outside the band entirely. The row
+   split shifts too: at these heights the hero needs the space more than the
+   news panel does. */
+@media (min-width: 901px) and (max-height: 780px) {
+  .home-main {
+    grid-template-rows: minmax(min-content, 39fr) minmax(0, 28fr) minmax(0, 28fr);
+  }
+
+  .home-cover .cover-copy p {
+    font-size: clamp(0.9rem, 0.82rem + 0.26vw, 1.06rem);
+    line-height: 1.26;
+    margin-bottom: 0.36rem;
+  }
+
+  .hero-icon-links {
+    margin-top: 0.45rem;
   }
 }
 
@@ -3845,7 +3882,9 @@ button.abstract-btn.is-open::before {
     margin-bottom: 0.5rem;
   }
 
-  .home-cover .cover-copy br {
+  /* Only the standalone spacer between the affiliation and the agenda line;
+     the <br> inside the agenda paragraph is a real line break and must stay. */
+  .home-cover .cover-copy > br {
     display: none;
   }
 
@@ -3973,7 +4012,9 @@ button.abstract-btn.is-open::before {
     height: 100%;
     min-height: 0;
     overflow: hidden;
-    grid-template-rows: minmax(0, 42fr) minmax(0, 28fr) minmax(0, 28fr);
+    /* Same content floor as the base rule; this one is later and more specific,
+       so without it short viewports lose the floor and clip the icon row. */
+    grid-template-rows: minmax(min-content, 42fr) minmax(0, 28fr) minmax(0, 28fr);
   }
 
   .landing-page .home-news {
