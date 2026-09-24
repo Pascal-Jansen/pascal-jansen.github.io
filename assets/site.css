@@ -3319,6 +3319,11 @@ button.abstract-btn.is-open::before {
   margin: 0;
 }
 
+/* Years recede so the venue names carry the list; still >= 4.5:1 on white. */
+.service-years {
+  color: #6a737c;
+}
+
 .recognition-list {
   display: grid;
   gap: 0.7rem;
@@ -4035,6 +4040,93 @@ button.abstract-btn.is-open::before {
   .landing-page .header-inner {
     height: auto;
     min-height: 84px;
+  }
+}
+
+/* Phones: the hero keeps its content floor, so on short screens the news band
+   was left with a sliver that fit barely one entry. The news band now floors at
+   roughly three entries; when hero + news + video no longer fit the viewport,
+   the landing page scrolls instead of squeezing news (and clipping the imprint
+   footer). Tall phones still get the single-screen layout. */
+@media (max-width: 560px) {
+  .landing-root {
+    height: auto;
+    min-height: 100%;
+    overflow-y: auto;
+  }
+
+  .landing-page {
+    height: auto;
+    overflow: visible;
+  }
+
+  .landing-page .home-main {
+    height: auto;
+    overflow: visible;
+    grid-template-rows: minmax(min-content, 35fr) minmax(300px, 44fr) minmax(min-content, 16fr);
+  }
+
+  /* Size containment keeps the full news list from inflating its row now that
+     the page height is no longer fixed; the panel scrolls within the row. */
+  .landing-page .home-news {
+    contain: size;
+    padding: 12px 0;
+  }
+
+  .landing-page .news-scroll-panel .post-list li {
+    padding: 0.3rem 0.45rem;
+  }
+
+  .landing-page .news-scroll-panel .post-list li + li {
+    margin-top: 0.3rem;
+  }
+}
+
+/* Tablet and desktop: same idea as the phone block above. The news band used
+   to be an equal share with the video band, which left one or two entries on
+   most laptop and desktop heights. It now floors at a panel of ~3 entries
+   (3 entries need ~265-290px, a 4th would need ~370px); the video band gives
+   way first, and only if hero + news + video still overflow does the page
+   scroll. Large screens keep their proportional layout unchanged. */
+@media (min-width: 561px) {
+  .landing-root {
+    height: auto;
+    min-height: 100%;
+    overflow-y: auto;
+  }
+
+  .landing-page {
+    --news-pad: clamp(24px, 4svh, 50px);
+    /* Space below the 60px header, split 35 : 30 : 30 as in the base layout. */
+    --home-h: calc(100svh - 60px);
+    height: auto;
+    overflow: visible;
+  }
+
+  /* Fixed tracks rather than fr: with the page height no longer fixed, a floor
+     on one fr row would scale every fr row up with it. The video row is auto,
+     so it stretches to fill whatever the hero and news rows leave. */
+  .landing-page .home-main {
+    height: auto;
+    overflow: visible;
+    grid-template-rows:
+      minmax(min-content, calc(var(--home-h) * 35 / 95))
+      max(calc(300px + 2 * var(--news-pad)), calc(var(--home-h) * 30 / 95))
+      auto;
+  }
+
+  .landing-page .home-news {
+    contain: size;
+    padding: var(--news-pad) 0;
+  }
+}
+
+/* Short windows: let the video band shrink closer to its footer so the extra
+   room for news costs little or no page scroll. Taller screens keep the
+   original spacing. */
+@media (min-width: 561px) and (max-height: 900px) {
+  .landing-page .home-video-cover .cover-inner {
+    padding: 0.5rem 0 64px;
   }
 }
 
