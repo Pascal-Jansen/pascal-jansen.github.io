@@ -10,11 +10,27 @@ if (menuButton && nav) {
     menuButton.setAttribute("aria-expanded", String(open));
   });
 
+  const closeMenu = () => {
+    nav.classList.remove("is-open");
+    menuButton.setAttribute("aria-expanded", "false");
+  };
+
   nav.addEventListener("click", (event) => {
-    if (event.target instanceof HTMLAnchorElement) {
-      nav.classList.remove("is-open");
-      menuButton.setAttribute("aria-expanded", "false");
-    }
+    if (event.target instanceof HTMLAnchorElement) closeMenu();
+  });
+
+  // The mobile menu is an overlay: a tap outside it or Escape dismisses it,
+  // and Escape hands focus back to the toggle.
+  document.addEventListener("click", (event) => {
+    if (!nav.classList.contains("is-open")) return;
+    if (nav.contains(event.target) || menuButton.contains(event.target)) return;
+    closeMenu();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape" || !nav.classList.contains("is-open")) return;
+    closeMenu();
+    menuButton.focus();
   });
 }
 
@@ -453,6 +469,18 @@ function scrollHashTargetIntoView() {
   if (!target) return;
 
   window.requestAnimationFrame(() => {
+    // A publication entry that has not faded in yet still sits 16px low
+    // (translateY). Scrolling to that box would leave the entry 16px under the
+    // header once it is revealed, so reveal it instantly before measuring.
+    if (
+      target.classList.contains("publication-entry-fade") &&
+      !target.classList.contains("is-visible")
+    ) {
+      target.style.transition = "none";
+      target.classList.add("is-visible");
+      void target.offsetHeight;
+      target.style.transition = "";
+    }
     target.scrollIntoView({ block: "start" });
   });
 }

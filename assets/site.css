@@ -2115,6 +2115,12 @@ body.loop-engaged .principle-anim * {
   vertical-align: middle;
 }
 
+/* Abstracts are justified on wide columns; the phone block below switches
+   them to left-aligned, where justification opens wide gaps between words. */
+.publication-entry p[id^="abstract-"] {
+  text-align: justify;
+}
+
 button.abstract-btn {
   appearance: none;
   display: inline-flex;
@@ -3854,7 +3860,9 @@ button.abstract-btn.is-open::before {
   .venture-copy p,
   .venture-feature p {
     overflow-wrap: break-word;
-    text-wrap: normal;
+    /* "wrap", not "normal": normal is not a text-wrap value, so the rule was
+       dropped and the global pretty left these short paragraphs ragged. */
+    text-wrap: wrap;
   }
 
   .home-cover .hero-bg {
@@ -3993,6 +4001,17 @@ button.abstract-btn.is-open::before {
     flex: 0 0 50px;
   }
 
+  /* Keep the name on one line: at 320px it wrapped to "Pascal / Jansen".
+     The size only steps down below ~370px wide. */
+  .site-title {
+    font-size: clamp(1rem, 5.1vw, 1.18rem);
+    white-space: nowrap;
+  }
+
+  .publication-entry p[id^="abstract-"] {
+    text-align: left;
+  }
+
 }
 
 @media (max-height: 849px) {
@@ -4044,15 +4063,19 @@ button.abstract-btn.is-open::before {
 }
 
 /* Phones: the hero keeps its content floor, so on short screens the news band
-   was left with a sliver that fit barely one entry. The news band now floors at
-   roughly three entries; when hero + news + video no longer fit the viewport,
-   the landing page scrolls instead of squeezing news (and clipping the imprint
-   footer). Tall phones still get the single-screen layout. */
+   was left with a sliver that fit barely one entry. The news panel now has a
+   fixed height of about 2.5-3 entries (230px; entries run ~70-100px here), on
+   every phone height, so tall phones do not show four or more. The video band
+   takes whatever is left, and when hero + news + video exceed the viewport the
+   landing page scrolls instead of squeezing news or clipping the imprint. */
 @media (max-width: 560px) {
   .landing-root {
     height: auto;
     min-height: 100%;
     overflow-y: auto;
+    /* The page now scrolls under the sticky header (85px with its border);
+       keep in-page jumps such as the skip link from landing beneath it. */
+    scroll-padding-top: 85px;
   }
 
   .landing-page {
@@ -4060,10 +4083,13 @@ button.abstract-btn.is-open::before {
     overflow: visible;
   }
 
+  /* Fixed tracks rather than fr: with the page height no longer fixed, fr rows
+     would all scale up together. The video row is auto, so it stretches to fill
+     what the hero and news rows leave. */
   .landing-page .home-main {
     height: auto;
     overflow: visible;
-    grid-template-rows: minmax(min-content, 35fr) minmax(300px, 44fr) minmax(min-content, 16fr);
+    grid-template-rows: minmax(min-content, calc((100svh - 84px) * 35 / 95)) calc(230px + 24px) auto;
   }
 
   /* Size containment keeps the full news list from inflating its row now that
@@ -4082,6 +4108,14 @@ button.abstract-btn.is-open::before {
   }
 }
 
+/* Very narrow phones (e.g. a folded Galaxy Z Fold, 280px): entries wrap onto
+   more lines, so 230px held under two; 270px keeps ~2.5-3 entries. */
+@media (max-width: 299px) {
+  .landing-page .home-main {
+    grid-template-rows: minmax(min-content, calc((100svh - 84px) * 35 / 95)) calc(270px + 24px) auto;
+  }
+}
+
 /* Tablet and desktop: same idea as the phone block above. The news band used
    to be an equal share with the video band, which left one or two entries on
    most laptop and desktop heights. It now floors at a panel of ~3 entries
@@ -4093,6 +4127,7 @@ button.abstract-btn.is-open::before {
     height: auto;
     min-height: 100%;
     overflow-y: auto;
+    scroll-padding-top: 60px;
   }
 
   .landing-page {
