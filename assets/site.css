@@ -226,6 +226,21 @@ li + li {
   left: 1rem;
 }
 
+/* Present for screen readers and search engines, invisible on screen (e.g. the
+   landing page's h1, which the visible hero greeting already conveys). */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
 .wrap {
   width: calc(100% - 44px);
   max-width: var(--max);
@@ -3305,7 +3320,7 @@ button.abstract-btn.is-open::before {
   margin-top: 1rem !important;
 }
 
-.service-entry h3 {
+.service-entry h2 {
   color: var(--accent-dark);
   font-size: var(--item-title-size);
   font-weight: 650;
@@ -3981,7 +3996,7 @@ button.abstract-btn.is-open::before {
   }
 
   .course-copy h3,
-  .service-entry h3 {
+  .service-entry h2 {
     font-size: var(--item-title-size);
     line-height: 1.25;
   }
