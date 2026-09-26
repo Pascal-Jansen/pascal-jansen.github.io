@@ -1963,6 +1963,9 @@ body.loop-engaged .principle-anim * {
 }
 
 .old-publications .publication-entry {
+  /* Linked entries (e.g. /publications#motui) otherwise land flush against
+     the header; leave a little room above them. */
+  scroll-margin-top: 24px;
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
@@ -4092,6 +4095,12 @@ button.abstract-btn.is-open::before {
     grid-template-rows: minmax(min-content, calc((100svh - 84px) * 35 / 95)) calc(230px + 24px) auto;
   }
 
+  /* Keep the icon row off the hero band's bottom edge when the hero shrinks
+     to its content (the band sits at its content height on most phones). */
+  .landing-page .home-cover .cover-inner {
+    padding-bottom: 16px;
+  }
+
   /* Size containment keeps the full news list from inflating its row now that
      the page height is no longer fixed; the panel scrolls within the row. */
   .landing-page .home-news {
@@ -4134,19 +4143,31 @@ button.abstract-btn.is-open::before {
     --news-pad: clamp(24px, 4svh, 50px);
     /* Space below the 60px header, split 35 : 30 : 30 as in the base layout. */
     --home-h: calc(100svh - 60px);
+    --news-row: max(calc(300px + 2 * var(--news-pad)), calc(var(--home-h) * 30 / 95));
+    /* Smallest the video band gets: link plus its padding (24px + 62px + 75px);
+       the short-window block below trims it to 134px. */
+    --video-min: 161px;
     height: auto;
     overflow: visible;
   }
 
   /* Fixed tracks rather than fr: with the page height no longer fixed, a floor
      on one fr row would scale every fr row up with it. The video row is auto,
-     so it stretches to fill whatever the hero and news rows leave. */
+     so it stretches to fill whatever the hero and news rows leave. The hero
+     keeps its 35% share but gives it up (down to its own content) when news +
+     video need the room, so near-fitting windows do not scroll a few pixels. */
   .landing-page .home-main {
     height: auto;
     overflow: visible;
     grid-template-rows:
-      minmax(min-content, calc(var(--home-h) * 35 / 95))
-      max(calc(300px + 2 * var(--news-pad)), calc(var(--home-h) * 30 / 95))
+      minmax(
+        min-content,
+        min(
+          calc(var(--home-h) * 35 / 95),
+          calc(var(--home-h) - var(--news-row) - var(--video-min))
+        )
+      )
+      var(--news-row)
       auto;
   }
 
@@ -4154,12 +4175,38 @@ button.abstract-btn.is-open::before {
     contain: size;
     padding: var(--news-pad) 0;
   }
+
+  /* When the hero shrinks to its content, keep the icon row off the band's
+     bottom edge. Symmetric, so the centred copy does not move on roomy
+     screens; the tablet layout keeps its own 30px top. */
+  .landing-page .home-cover .cover-inner {
+    padding-bottom: 16px;
+  }
+}
+
+@media (min-width: 901px) {
+  .landing-page .home-cover .cover-inner {
+    padding-top: 16px;
+  }
+}
+
+/* Up to 1000px tall, news padding gives a little ground first so windows that
+   nearly fit (1180x820, 1920x950, ...) do not scroll by a handful of pixels.
+   Taller screens keep the 4svh padding. */
+@media (min-width: 561px) and (max-height: 1000px) {
+  .landing-page {
+    --news-pad: clamp(20px, 3svh, 50px);
+  }
 }
 
 /* Short windows: let the video band shrink closer to its footer so the extra
    room for news costs little or no page scroll. Taller screens keep the
    original spacing. */
 @media (min-width: 561px) and (max-height: 900px) {
+  .landing-page {
+    --video-min: 134px;
+  }
+
   .landing-page .home-video-cover .cover-inner {
     padding: 0.5rem 0 64px;
   }
