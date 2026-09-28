@@ -759,8 +759,26 @@ li + li {
   font-size: 0.98rem;
 }
 
+/* Normal weight: with paper titles as italics, the underline alone marks the
+   remaining short links (venues, projects) without them standing out. */
 .news-text a {
-  font-weight: 500;
+  font-weight: 400;
+}
+
+/* Paper titles in the news read as plain italics; only the short "(link)"
+   after each one is a link, set a little smaller than the text around it.
+   Invisible padding enlarges its tap area without moving any text (negative
+   margins cancel the padding in the layout); px, so the smaller text does
+   not shrink the target. */
+.news-text .paper-ref {
+  /* 85% of the text, but never below 11px so it stays legible on phones. */
+  font-size: max(0.85em, 11px);
+  white-space: nowrap;
+}
+
+.news-text .paper-link {
+  padding: 7px 5px;
+  margin: -7px -5px;
 }
 
 .news-scroll-hint {
@@ -4082,7 +4100,7 @@ button.abstract-btn.is-open::before {
 
 /* Phones: the hero keeps its content floor, so on short screens the news band
    was left with a sliver that fit barely one entry. The news panel now has a
-   fixed height of about 2.5-3 entries (230px; entries run ~70-100px here), on
+   fixed height of about 2.5-3 entries (250px; entries run ~70-100px here), on
    every phone height, so tall phones do not show four or more. The video band
    takes whatever is left, and when hero + news + video exceed the viewport the
    landing page scrolls instead of squeezing news or clipping the imprint. */
@@ -4107,7 +4125,7 @@ button.abstract-btn.is-open::before {
   .landing-page .home-main {
     height: auto;
     overflow: visible;
-    grid-template-rows: minmax(min-content, calc((100svh - 84px) * 35 / 95)) calc(230px + 24px) auto;
+    grid-template-rows: minmax(min-content, calc((100svh - 84px) * 35 / 95)) calc(250px + 24px) auto;
   }
 
   /* Keep the icon row off the hero band's bottom edge when the hero shrinks
@@ -4132,11 +4150,12 @@ button.abstract-btn.is-open::before {
   }
 }
 
-/* Very narrow phones (e.g. a folded Galaxy Z Fold, 280px): entries wrap onto
-   more lines, so 230px held under two; 270px keeps ~2.5-3 entries. */
-@media (max-width: 299px) {
+/* Very narrow phones (below ~315px, e.g. a folded Galaxy Z Fold): entries
+   wrap onto more lines, so the phone panel held about two; 290px keeps
+   ~2.5-3 entries. */
+@media (max-width: 314px) {
   .landing-page .home-main {
-    grid-template-rows: minmax(min-content, calc((100svh - 84px) * 35 / 95)) calc(270px + 24px) auto;
+    grid-template-rows: minmax(min-content, calc((100svh - 84px) * 35 / 95)) calc(290px + 24px) auto;
   }
 }
 
@@ -4145,7 +4164,9 @@ button.abstract-btn.is-open::before {
    most laptop and desktop heights. It now floors at a panel of ~3 entries
    (3 entries need ~265-290px, a 4th would need ~370px); the video band gives
    way first, and only if hero + news + video still overflow does the page
-   scroll. Large screens keep their proportional layout unchanged. */
+   scroll. Large screens keep their proportional layout, with the news band
+   capped at its 2560x1440 height so very tall (4K) viewports do not show five
+   or more entries. */
 @media (min-width: 561px) {
   .landing-root {
     height: auto;
@@ -4158,10 +4179,13 @@ button.abstract-btn.is-open::before {
     --news-pad: clamp(24px, 4svh, 50px);
     /* Space below the 60px header, split 35 : 30 : 30 as in the base layout. */
     --home-h: calc(100svh - 60px);
-    --news-row: max(calc(300px + 2 * var(--news-pad)), calc(var(--home-h) * 30 / 95));
-    /* Smallest the video band gets: link plus its padding (24px + 62px + 75px);
-       the short-window block below trims it to 134px. */
-    --video-min: 161px;
+    --news-row: max(
+      calc(300px + 2 * var(--news-pad)),
+      min(calc(var(--home-h) * 30 / 95), 436px)
+    );
+    /* Smallest the video band gets: link plus its padding (24px + 45px + 75px);
+       the short-window block below trims it to 117px. */
+    --video-min: 144px;
     height: auto;
     overflow: visible;
   }
@@ -4195,13 +4219,21 @@ button.abstract-btn.is-open::before {
      bottom edge. Symmetric, so the centred copy does not move on roomy
      screens; the tablet layout keeps its own 30px top. */
   .landing-page .home-cover .cover-inner {
-    padding-bottom: 16px;
+    padding-bottom: 14px;
+  }
+
+  /* The "publications" link is the band's only content: without the default
+     paragraph margin it sits truly centred and the band's minimum height
+     drops by ~17px. Phones keep the margin, where the footer wraps to two
+     lines and needs the clearance. */
+  .landing-page .home-video-cover .cover-center p {
+    margin: 0;
   }
 }
 
 @media (min-width: 901px) {
   .landing-page .home-cover .cover-inner {
-    padding-top: 16px;
+    padding-top: 14px;
   }
 }
 
@@ -4219,7 +4251,7 @@ button.abstract-btn.is-open::before {
    original spacing. */
 @media (min-width: 561px) and (max-height: 900px) {
   .landing-page {
-    --video-min: 134px;
+    --video-min: 117px;
   }
 
   .landing-page .home-video-cover .cover-inner {
