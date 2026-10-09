@@ -382,6 +382,69 @@ function initializePublicationFilter() {
   applyTag(availableTags.indexOf(requestedTag) === -1 ? "all" : requestedTag, false);
 }
 
+function initializePrincipleAnimationControls() {
+  const wraps = Array.from(document.querySelectorAll(".principle-anim-wrap"));
+  if (!wraps.length) return;
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // The intro names the visual elements before the first cycle starts.
+  const INTRO_MS = 5500;
+
+  wraps.forEach((wrap) => {
+    const svg = wrap.querySelector(".principle-anim");
+    const toggle = wrap.querySelector(".pa-toggle");
+    const restart = wrap.querySelector(".pa-restart");
+    if (!svg || !toggle || !restart) return;
+
+    let introTimer = 0;
+
+    const setPaused = (isPaused) => {
+      wrap.classList.toggle("is-paused", isPaused);
+      toggle.setAttribute("aria-label", isPaused ? "Play animation" : "Pause animation");
+    };
+
+    const endIntro = () => {
+      introTimer = 0;
+      // Removing the class reapplies the CSS animations, so the cycle starts at 0.
+      wrap.classList.remove("is-intro");
+    };
+
+    const startIntro = () => {
+      window.clearTimeout(introTimer);
+      wrap.classList.add("is-intro");
+      introTimer = window.setTimeout(endIntro, INTRO_MS);
+    };
+
+    toggle.addEventListener("click", () => {
+      const willPause = !wrap.classList.contains("is-paused");
+      if (willPause) {
+        window.clearTimeout(introTimer);
+        introTimer = 0;
+      } else if (wrap.classList.contains("is-intro")) {
+        introTimer = window.setTimeout(endIntro, INTRO_MS);
+      }
+      setPaused(willPause);
+    });
+
+    restart.addEventListener("click", () => {
+      setPaused(false);
+      startIntro();
+    });
+
+    // Each element names itself while the pointer is over it, also mid-animation.
+    svg.querySelectorAll("[data-pa]").forEach((element) => {
+      element.addEventListener("pointerenter", () => {
+        wrap.dataset.hover = element.dataset.pa;
+      });
+      element.addEventListener("pointerleave", () => {
+        if (wrap.dataset.hover === element.dataset.pa) delete wrap.dataset.hover;
+      });
+    });
+
+    if (!reduceMotion) startIntro();
+  });
+}
+
 function initializePublicationEntryReveal() {
   const publicationEntries = Array.from(
     document.querySelectorAll(".publication-entry"),
@@ -507,6 +570,7 @@ function enableFileProtocolLinks() {
 enableFileProtocolLinks();
 initializeFeaturedVisionVideos();
 initializePublicationEntryReveal();
+initializePrincipleAnimationControls();
 initializePublicationFilter();
 scrollHashTargetIntoView();
 window.addEventListener("hashchange", scrollHashTargetIntoView);

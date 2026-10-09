@@ -73,7 +73,8 @@
   --subpage-copy-line-height: 1.58;
   --detail-copy-size: var(--subpage-copy-size);
   --detail-copy-line-height: var(--subpage-copy-line-height);
-  --support-copy-size: clamp(0.94rem, 0.91rem + 0.1vw, 1rem);
+  /* Body text on the research page stays at 16 px on every screen width. */
+  --support-copy-size: 1rem;
   --support-copy-line-height: 1.52;
   --meta-copy-size: 0.93rem;
   --meta-copy-line-height: 1.42;
@@ -987,16 +988,17 @@ li + li {
   margin-bottom: 0;
 }
 
-.vision-copy + .vision-copy {
-  margin-top: 4.5rem;
+/* One gap between all sections of the research page. The two headed sections,
+   Featured Work and Funding, get a larger gap on wide screens. */
+:root {
+  --research-section-gap: 4.5rem;
+  --research-heading-gap: 100px;
 }
 
-.vision-lede + .vision-copy {
-  margin-top: 5.5rem;
-}
-
+.vision-copy + .vision-copy,
+.vision-lede + .vision-copy,
 .principles-block + .vision-copy {
-  margin-top: 4.5rem;
+  margin-top: var(--research-section-gap);
 }
 
 .principles-block + .loop-section {
@@ -1004,7 +1006,7 @@ li + li {
 }
 
 .featured-vision-work + .vision-copy {
-  margin-top: 4.5rem;
+  margin-top: var(--research-heading-gap);
 }
 
 .vision-copy > h2 {
@@ -1019,7 +1021,7 @@ li + li {
 }
 
 .section-block.research-map-block {
-  margin-top: 4.5rem;
+  margin-top: var(--research-section-gap);
 }
 
 .tool-chips {
@@ -1058,9 +1060,9 @@ li + li {
 }
 
 .loop-section {
-  padding: 1.35rem clamp(1.1rem, 3vw, 1.6rem) 1.5rem;
-  border-top: 3px solid var(--accent);
-  background: var(--shade);
+  /* No panel of its own: the loop reads as part of the two-principles section. */
+  padding: 0;
+  background: transparent;
 }
 
 .loop-controls {
@@ -1175,6 +1177,34 @@ li + li {
   outline-offset: 2px;
 }
 
+/* The "next" button pulses until the reader has used it once, to show that
+   the two step sequences advance by hand. */
+@keyframes loop-next-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(47, 111, 163, 0.5);
+  }
+
+  70% {
+    box-shadow: 0 0 0 9px rgba(47, 111, 163, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(47, 111, 163, 0);
+  }
+}
+
+.loop-step-btn.is-hint:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+  animation: loop-next-pulse 1.6s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loop-step-btn.is-hint:not(:disabled) {
+    animation: none;
+  }
+}
+
 .loop-step-btn:disabled {
   opacity: 0.35;
   cursor: default;
@@ -1183,13 +1213,13 @@ li + li {
 #loop-tip {
   position: absolute;
   z-index: 5;
-  max-width: 270px;
-  padding: 0.5rem 0.7rem;
-  border-radius: 4px;
+  max-width: 300px;
+  padding: 0.55rem 0.8rem 0.6rem;
+  border-radius: 5px;
   background: #1f2933;
   color: #fff;
-  font-size: 0.8rem;
-  line-height: 1.4;
+  font-size: 0.82rem;
+  line-height: 1.45;
   pointer-events: none;
   box-shadow: 0 6px 16px rgba(15, 23, 42, 0.16);
 }
@@ -1279,9 +1309,22 @@ li + li {
 
 #loop-tip .loop-tip-title {
   display: block;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
   color: #fff;
   font-weight: 700;
+}
+
+/* Today's issues carry a red title, the open questions a blue "Open question" label. */
+#loop-tip.is-issue .loop-tip-title {
+  color: #f0a58a;
+}
+
+#loop-tip.is-question .loop-tip-title {
+  color: #9cc4e8;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .loop-svg [data-tip]:focus-visible rect,
@@ -1333,22 +1376,13 @@ li + li {
 }
 
 @media (max-width: 700px) {
-  .vision-copy + .vision-copy,
-  .principles-block + .vision-copy,
-  .featured-vision-work + .vision-copy {
-    margin-top: 3rem;
-  }
-
-  .vision-lede + .vision-copy {
-    margin-top: 2.4rem;
+  :root {
+    --research-section-gap: 3rem;
+    --research-heading-gap: 3rem;
   }
 
   .principles-block + .loop-section {
     margin-top: 0.8rem;
-  }
-
-  .section-block.research-map-block {
-    margin-top: 3rem;
   }
 
   .loop-controls {
@@ -1364,7 +1398,8 @@ li + li {
   }
 
   .loop-svg {
-    min-width: 660px;
+    /* Keeps the smallest loop label at 11 px or more; the figure scrolls sideways. */
+    min-width: 784px;
   }
 
   .vision-definition {
@@ -1396,11 +1431,12 @@ li + li {
 }
 
 .principle-card .principle-title {
+  /* Same style as the Featured Work subheadings. */
   margin: 0 0 0.45rem;
-  color: #30363a;
-  font-size: var(--subpage-copy-size);
-  font-weight: 700;
-  line-height: 1.3;
+  color: var(--contrast);
+  font-size: var(--item-title-size);
+  font-weight: 600;
+  line-height: 1.25;
 }
 
 .principle-card .principle-origin {
@@ -1425,7 +1461,8 @@ li + li {
 .principle-card .principle-note {
   margin-top: 0.25rem;
   color: var(--muted);
-  font-size: 0.8rem;
+  /* Footnote size, the same as the loop buttons. Each note fits one line in the two-column layout. */
+  font-size: 0.78rem;
   line-height: 1.4;
 }
 
@@ -1473,37 +1510,61 @@ li + li {
   98%, 100% { opacity: 0; }
 }
 
-/* --- Homeostatic adaptation: the range never moves --- */
-@keyframes kf-h-dot {
-  0%, 68% { transform: translateX(0); }
-  91%, 100% { transform: translateX(58px); }
+/* Both cards plot human experience over time inside a shaded appropriate range,
+   on one shared timeline, so the two principles can be compared directly:
+     homeostatic - the AI or situation changes (red arrow) and the trace drifts out of the
+                   range; the interface mediates (blue arrow) and it returns.
+     hormetic    - the trace starts too high; each small dose (orange arrow)
+                   dips it and it settles lower, until it rests in the range;
+                   a dashed red trace shows one large dose dropping into harm.
+   Before the first cycle, an intro (class is-intro, set by site.js) names the
+   visual elements and holds the animations at their start. */
+@keyframes kf-draw-s1 {
+  0%, 7.5% { stroke-dashoffset: 1.02; }
+  30%, 97.9% { stroke-dashoffset: 0; }
+  98%, 100% { stroke-dashoffset: 1.02; }
 }
 
-@keyframes kf-band-move {
-  0%, 4.7% { transform: translateX(0); }
-  30%, 100% { transform: translateX(58px); }
+@keyframes kf-draw-s2 {
+  0%, 46% { stroke-dashoffset: 1.02; }
+  60%, 97.9% { stroke-dashoffset: 0; }
+  98%, 100% { stroke-dashoffset: 1.02; }
 }
 
-@keyframes kf-h-band {
-  0%, 32% { fill: #2f6fa3; }
-  43%, 70% { fill: #a1453a; }
-  86%, 100% { fill: #2f6fa3; }
+@keyframes kf-draw-s3 {
+  0%, 71% { stroke-dashoffset: 1.02; }
+  88%, 97.9% { stroke-dashoffset: 0; }
+  98%, 100% { stroke-dashoffset: 1.02; }
 }
 
-/* --- Hormetic doses: the dot holds its new position, the range travels to it --- */
-@keyframes kf-d-band-color {
-  0%, 4.7% { fill: #2f6fa3; }
-  13%, 68% { fill: #c26a1a; }
-  74%, 100% { fill: #2f6fa3; }
+@keyframes kf-show-s1 {
+  0%, 7.5% { opacity: 0; visibility: hidden; }
+  10%, 97.9% { opacity: 1; visibility: visible; }
+  98%, 100% { opacity: 0; visibility: hidden; }
 }
 
-@keyframes kf-d-dot {
-  0%, 68% { transform: translateX(0); }
-  73% { transform: translateX(19px); }
-  77% { transform: translateX(19px); }
-  82% { transform: translateX(38px); }
-  86% { transform: translateX(38px); }
-  91%, 100% { transform: translateX(58px); }
+@keyframes kf-show-s2 {
+  0%, 46% { opacity: 0; visibility: hidden; }
+  49%, 97.9% { opacity: 1; visibility: visible; }
+  98%, 100% { opacity: 0; visibility: hidden; }
+}
+
+@keyframes kf-show-s2a {
+  0%, 46% { opacity: 0; visibility: hidden; }
+  49%, 97.9% { opacity: 1; visibility: visible; }
+  98%, 100% { opacity: 0; visibility: hidden; }
+}
+
+@keyframes kf-show-s2b {
+  0%, 54% { opacity: 0; visibility: hidden; }
+  57%, 97.9% { opacity: 1; visibility: visible; }
+  98%, 100% { opacity: 0; visibility: hidden; }
+}
+
+@keyframes kf-show-s3 {
+  0%, 71% { opacity: 0; visibility: hidden; }
+  74%, 97.9% { opacity: 1; visibility: visible; }
+  98%, 100% { opacity: 0; visibility: hidden; }
 }
 
 /* The cycle ends by fading the whole stage out rather than sliding anything
@@ -1532,7 +1593,7 @@ body.loop-engaged .principle-anim * {
   animation-play-state: paused;
 }
 
-/* The one word that differs between the two cards at step 3: adapts vs holds. */
+/* The verb that names each principle at its step: mediates vs adapts. */
 .pa-emph {
   text-decoration: underline;
   text-underline-offset: 2px;
@@ -1542,24 +1603,68 @@ body.loop-engaged .principle-anim * {
 .pa-step2 { animation: kf-step2 14.9s ease-in-out infinite; }
 .pa-step3 { animation: kf-step3 14.9s ease-in-out infinite; }
 
-.pa-band {
-  fill: #2f6fa3;
-  animation: kf-band-move 14.9s ease-in-out infinite,
-    kf-h-band 14.9s ease-in-out infinite;
+.pa-draw {
+  /* The gap is a little longer than the dash, so a hidden path shows no round-cap dot at its end. */
+  stroke-dasharray: 1 1.04;
+  stroke-dashoffset: 1.02;
 }
 
-.pa-dot {
-  animation: kf-h-dot 14.9s ease-in-out infinite;
+.pa-draw-s1 { animation: kf-draw-s1 14.9s ease-in-out infinite; }
+.pa-draw-s2 { animation: kf-draw-s2 14.9s ease-in-out infinite; }
+.pa-draw-s3 { animation: kf-draw-s3 14.9s ease-in-out infinite; }
+
+.pa-show {
+  opacity: 0;
 }
 
-.pa2-band {
-  fill: #2f6fa3;
-  animation: kf-band-move 14.9s ease-in-out infinite,
-    kf-d-band-color 14.9s ease-in-out infinite;
+.pa-show-s1 { animation: kf-show-s1 14.9s ease-in-out infinite; }
+.pa-show-s2 { animation: kf-show-s2 14.9s ease-in-out infinite; }
+.pa-show-s2a { animation: kf-show-s2a 14.9s ease-in-out infinite; }
+.pa-show-s2b { animation: kf-show-s2b 14.9s ease-in-out infinite; }
+.pa-show-s3 { animation: kf-show-s3 14.9s ease-in-out infinite; }
+
+/* Intro: everything holds at its start state and the main element names are shown.
+   Afterwards each element shows its own name while the pointer is over it, which
+   site.js records in data-hover on the card. */
+.pa-l {
+  opacity: 0;
+  transition: opacity 0.12s ease;
+  pointer-events: none;
 }
 
-.pa-dot2 {
-  animation: kf-d-dot 14.9s ease-in-out infinite;
+.pa-intro text {
+  /* A white halo keeps the names readable over a drawn trace. */
+  paint-order: stroke;
+  stroke: #ffffff;
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+
+.principle-anim-wrap.is-intro .principle-anim * {
+  animation: none;
+}
+
+.principle-anim-wrap.is-intro .pa-l-main,
+.principle-anim-wrap[data-hover="trace"] .pa-l-trace,
+.principle-anim-wrap[data-hover="band"] .pa-l-band,
+.principle-anim-wrap[data-hover="harm"] .pa-l-harm,
+.principle-anim-wrap[data-hover="change"] .pa-l-change,
+.principle-anim-wrap[data-hover="mediation"] .pa-l-mediation,
+.principle-anim-wrap[data-hover="dose1"] .pa-l-dose1,
+.principle-anim-wrap[data-hover="dose2"] .pa-l-dose2,
+.principle-anim-wrap[data-hover="dose3"] .pa-l-dose3,
+.principle-anim-wrap[data-hover="large"] .pa-l-large,
+.principle-anim-wrap[data-hover="ghost"] .pa-l-ghost {
+  opacity: 1;
+}
+
+.principle-anim [data-pa] {
+  cursor: help;
+}
+
+/* A hidden step element must not answer to the pointer. */
+.pa-show {
+  visibility: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1567,14 +1672,112 @@ body.loop-engaged .principle-anim * {
     animation: none;
   }
 
-  /* Hold each card in its resolved state so the idea still reads without motion:
-     homeostatic back inside the same range, hormetic inside the shifted one. */
-  .pa-step3 {
+  /* Hold each card in its finished state so the idea still reads without motion:
+     the full trace or curve, all markers, and the last caption. */
+  .pa-step3,
+  .pa-stage,
+  .pa-show {
     opacity: 1;
+    visibility: visible;
   }
 
-  .pa-stage {
+  .pa-draw {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Play, pause, and restart for each principle animation. The buttons stack in the
+   top-right corner of the figure and appear on hover, on keyboard focus, while
+   paused, and always on touch screens. */
+.principle-anim-wrap {
+  position: relative;
+}
+
+.pa-controls {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  padding: 6px 6px 0 0;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+  pointer-events: none;
+}
+
+.principle-anim-wrap:hover .pa-controls,
+.principle-anim-wrap:has(:focus-visible) .pa-controls,
+.principle-anim-wrap.is-paused .pa-controls {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (hover: none) {
+  .pa-controls {
     opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.pa-controls button {
+  appearance: none;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid rgba(31, 79, 122, 0.35);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--accent-dark);
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.12);
+  cursor: pointer;
+}
+
+.pa-controls .pa-restart {
+  width: 26px;
+  height: 26px;
+}
+
+.pa-controls button:hover {
+  border-color: var(--accent-dark);
+  background: #ffffff;
+}
+
+.pa-controls button:focus-visible {
+  outline: 2px solid var(--accent-dark);
+  outline-offset: 2px;
+}
+
+.pa-icon {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.pa-restart .pa-icon {
+  width: 13px;
+  height: 13px;
+}
+
+.pa-toggle .pa-icon-play,
+.principle-anim-wrap.is-paused .pa-toggle .pa-icon-pause {
+  display: none;
+}
+
+.principle-anim-wrap.is-paused .pa-toggle .pa-icon-play {
+  display: block;
+}
+
+.principle-anim-wrap.is-paused .principle-anim * {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pa-controls {
+    display: none;
   }
 }
 
@@ -1732,13 +1935,19 @@ body.loop-engaged .principle-anim * {
 .featured-vision-work {
   width: min(100% - 44px, 860px);
   max-width: 860px;
-  margin: 6.5rem auto 0;
+  margin: var(--research-heading-gap) auto 0;
+}
+
+.research-funding p {
+  /* Section body text uses one size on this page: the support size of Featured Work. */
+  font-size: var(--support-copy-size);
+  line-height: var(--support-copy-line-height);
 }
 
 .featured-vision-work > h2 {
   color: var(--accent-dark);
   font-size: var(--section-title-size);
-  font-weight: 650;
+  font-weight: 600;
 }
 
 .featured-vision-list {
@@ -1805,7 +2014,7 @@ body.loop-engaged .principle-anim * {
   margin-bottom: 0.24rem;
   color: var(--contrast);
   font-size: var(--item-title-size);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.25;
 }
 
@@ -1814,11 +2023,13 @@ body.loop-engaged .principle-anim * {
   margin: 0.95rem 0 0 var(--feature-media-indent);
 }
 
+/* The paper title is a caption under the video. It takes the size of the
+   description text above the video so it ranks below the card heading. */
 .featured-vision-meta h3 {
   color: var(--contrast);
-  font-size: var(--item-title-size);
-  font-weight: 650;
-  line-height: 1.25;
+  font-size: var(--support-copy-size);
+  font-weight: 600;
+  line-height: 1.3;
 }
 
 .featured-vision-meta h3 a {
@@ -1827,7 +2038,7 @@ body.loop-engaged .principle-anim * {
 
 .featured-vision-meta a {
   color: var(--accent-dark);
-  font-weight: 650;
+  font-weight: 600;
 }
 
 .featured-vision-meta p {
@@ -2151,6 +2362,18 @@ body.loop-engaged .principle-anim * {
   vertical-align: middle;
 }
 
+/* The abstract is a direct child of the entry, so it spans the image and the
+   text column. The entry's own gap separates image and text; the negative
+   margin brings the abstract closer than that gap. */
+.old-publications .publication-entry > p[id^="abstract-"] {
+  grid-column: 1 / -1;
+  margin: -1.7rem 0 0;
+  /* Same size as authors, venue and links, so the title stays the largest
+     text of an entry. */
+  font-size: var(--meta-copy-size);
+  line-height: 1.5;
+}
+
 /* Abstracts are justified on wide columns; the phone block below switches
    them to left-aligned, where justification opens wide gaps between words. */
 .publication-entry p[id^="abstract-"] {
@@ -2311,6 +2534,112 @@ button.abstract-btn.is-open::before {
   display: block;
   width: 100%;
   height: auto;
+}
+
+/* Inline SVG Venn diagrams (research and collaboration pages). Text uses the
+   site font, labels are real links, and the drawing scales with the container. */
+.venn-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-family: inherit;
+  overflow: visible;
+}
+
+.venn-svg text {
+  font-family: inherit;
+}
+
+
+/* Text version of the research Venn. It replaces the diagram below 360 px,
+   where the Venn labels render under 6 px. Wider phones keep the Venn and rely on pinch zoom. */
+.venn-text {
+  display: none;
+}
+
+.venn-text-area {
+  padding-left: 0.8rem;
+  border-left: 4px solid var(--venn-text-color);
+}
+
+.venn-text-blue {
+  --venn-text-color: #255f97;
+}
+
+.venn-text-green {
+  --venn-text-color: #3f7c2f;
+}
+
+.venn-text-orange {
+  --venn-text-color: #e6733e;
+}
+
+.venn-text-overlaps {
+  --venn-text-color: #f0d9bb;
+}
+
+.venn-text-title {
+  margin: 0 0 0.3rem;
+  color: var(--contrast);
+  font-weight: 600;
+}
+
+.venn-text ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.venn-text li + li {
+  margin-top: 0.3rem;
+}
+
+.venn-text-pair {
+  display: block;
+  color: var(--muted);
+  font-size: var(--meta-copy-size);
+  line-height: var(--meta-copy-line-height);
+}
+
+@media (max-width: 359px) {
+  .venn-svg-map.has-venn-text {
+    display: none;
+  }
+
+  .venn-text {
+    display: grid;
+    gap: 1.25rem;
+    color: #30363a;
+    font-size: var(--support-copy-size);
+    line-height: var(--support-copy-line-height);
+  }
+}
+
+.venn-topic text {
+  fill: #ffffff;
+  transition: fill 160ms ease;
+}
+
+.venn-underline {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 3;
+  transition: stroke 160ms ease;
+}
+
+.venn-topic:hover text,
+.venn-topic:focus-visible text {
+  fill: var(--accent-dark);
+}
+
+.venn-topic:hover .venn-underline,
+.venn-topic:focus-visible .venn-underline {
+  stroke: var(--accent-dark);
+}
+
+.venn-topic:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }
 
 .venn-circle-overlay,
@@ -3843,8 +4172,9 @@ button.abstract-btn.is-open::before {
     --subpage-copy-line-height: 1.46;
     --detail-copy-size: var(--subpage-copy-size);
     --detail-copy-line-height: var(--subpage-copy-line-height);
-    --support-copy-size: 0.94rem;
-    --support-copy-line-height: 1.43;
+    /* Body text stays at 16 px on phones, with the line height of the site body text. */
+    --support-copy-size: 1rem;
+    --support-copy-line-height: 1.46;
     --meta-copy-size: 0.86rem;
   }
 
@@ -4259,6 +4589,19 @@ button.abstract-btn.is-open::before {
   }
 }
 
+/* The three mediation verbs in the vision text use the label colours of the banner figure. */
+.mediate-add {
+  color: #4a76a4;
+}
+
+.mediate-remove {
+  color: #b43b2a;
+}
+
+.mediate-modify {
+  color: #6c488d;
+}
+
 .vision-banner-block {
   width: 100%;
   margin: 28px 0 28px;
@@ -4269,4 +4612,108 @@ button.abstract-btn.is-open::before {
   width: 100%;
   height: auto;
   border-radius: 4px;
+}
+
+/* Publications: text-only entries below the selected, illustrated ones. They
+   carry the same data-tags, so the area filter covers the complete record. */
+.old-publications .publication-more {
+  display: grid;
+  gap: 1.7rem;
+  padding-top: 2.2rem;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 24px;
+}
+
+/* A filter can hide every entry of a section; hide its heading with them. */
+.old-publications .publication-more:not(:has(.publication-entry:not([hidden]))) {
+  display: none;
+}
+
+.old-publications .publication-subhead {
+  margin: 0 0 0.2rem;
+  color: var(--old-text);
+  font-size: var(--section-title-size);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.old-publications .publication-entry.publication-compact:not([hidden]) {
+  display: block;
+}
+
+.old-publications .publication-compact h3 {
+  margin: 0 0 0.35rem;
+  color: var(--old-text);
+  font-size: var(--subpage-copy-size);
+  font-weight: 600;
+  line-height: 1.3;
+  text-wrap: pretty;
+}
+
+.old-publications .publication-compact p {
+  margin: 0 0 0.3rem;
+  font-size: var(--meta-copy-size);
+  line-height: var(--meta-copy-line-height);
+}
+
+.old-publications .publication-compact .publication-venue {
+  margin: 0 0 0.45rem;
+}
+
+.old-publications .publication-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  color: rgba(29, 29, 31, 0.24);
+  font-size: var(--meta-copy-size);
+  line-height: 1.2;
+}
+
+.old-publications .publication-links a {
+  color: var(--old-muted);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.old-publications .publication-links a:hover,
+.old-publications .publication-links a:focus {
+  color: var(--old-text);
+}
+
+/* Research page: funding. */
+.vision-copy.research-funding {
+  margin-bottom: 1rem;
+}
+
+/* Teaching page: invited talks and guest lectures. */
+.talk-list {
+  display: grid;
+  gap: 0.95rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.talk-list li {
+  margin: 0;
+}
+
+.talk-list .talk-title {
+  display: block;
+  color: #30363a;
+  font-size: var(--detail-copy-size);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.talk-list .meta {
+  display: block;
+  margin-top: 0.2rem;
+}
+
+/* Teaching page: a course without an image uses the full text column. */
+.course-row:not(:has(.course-figure)) {
+  grid-template-columns: minmax(0, 1fr);
 }
