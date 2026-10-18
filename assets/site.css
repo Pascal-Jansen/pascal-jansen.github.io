@@ -549,9 +549,13 @@ li + li {
   line-height: 1.42;
 }
 
+/* The hero band is a share of the viewport height, so the intro copy scales
+   with height, not width: 15px on short laptop windows up to 18px from about
+   1050px tall. The old width-based size filled the band edge to edge on most
+   desktops. */
 .home-cover .cover-copy p {
-  margin-bottom: 0.82rem;
-  font-size: clamp(1.08rem, 1rem + 0.3vw, 1.26rem);
+  margin-bottom: 0.7rem;
+  font-size: clamp(0.94rem, 0.47rem + 1svh, 1.125rem);
   line-height: 1.4;
 }
 
@@ -3959,14 +3963,15 @@ button.abstract-btn.is-open::before {
   font-weight: 600;
 }
 
-/* Above the tablet breakpoint the hero copy is height-bound, not width-bound:
+/* Above the phone breakpoint the hero copy is height-bound, not width-bound:
    the cover row is a fraction of the viewport while the copy height is driven
-   by font size. Step the type down so the icon row keeps its breathing room. */
-@media (min-width: 901px) and (max-height: 900px) {
+   by font size. The type itself scales with height (see the base rule); on
+   shorter windows the leading and spacing tighten as well, so the copy keeps
+   its padding inside the band. */
+@media (min-width: 561px) and (max-height: 900px) {
   .home-cover .cover-copy p {
-    font-size: clamp(0.98rem, 0.88rem + 0.3vw, 1.14rem);
     line-height: 1.36;
-    margin-bottom: 0.58rem;
+    margin-bottom: 0.55rem;
   }
 
   /* Only the standalone spacer between the affiliation and the agenda line;
@@ -3980,18 +3985,17 @@ button.abstract-btn.is-open::before {
   }
 }
 
-/* Second, tighter step for short desktop windows. The hero band is a fixed
-   share of the viewport and clips, so on a small laptop the intro copy has to
-   give ground or the icon row below it falls outside the band entirely. The row
-   split shifts too: at these heights the hero needs the space more than the
-   news panel does. */
-@media (min-width: 901px) and (max-height: 780px) {
+/* Second, tighter step for short windows. The hero band is a fixed share of
+   the viewport, so on a small laptop the intro copy has to give ground or the
+   band grows past its share and pushes the page into a scroll. The row split
+   shifts too: at these heights the hero needs the space more than the news
+   panel does. */
+@media (min-width: 561px) and (max-height: 780px) {
   .home-main {
     grid-template-rows: minmax(min-content, 39fr) minmax(0, 28fr) minmax(0, 28fr);
   }
 
   .home-cover .cover-copy p {
-    font-size: clamp(0.9rem, 0.82rem + 0.26vw, 1.06rem);
     line-height: 1.26;
     margin-bottom: 0.36rem;
   }
@@ -4117,12 +4121,15 @@ button.abstract-btn.is-open::before {
     padding: 0;
   }
 
+  /* One column: the copy sits centred in the band with equal space above and
+     below. No gap, or the 3rem of the two-column layout opens up above the
+     copy around the empty portrait column. */
   .landing-page .home-cover .cover-inner {
-    padding-top: 30px;
-    padding-right: 0;
-    padding-left: 0;
-    padding-bottom: 0;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0;
+    padding: 22px 0;
   }
 
   .landing-page .home-video-cover .cover-inner {
@@ -4156,10 +4163,9 @@ button.abstract-btn.is-open::before {
     max-width: 100%;
   }
 
+  /* Full-width lines here, so narrow windows cap the size by width as well. */
   .home-cover .cover-copy p {
-    font-size: clamp(0.94rem, 0.72rem + 0.72vw, 1.12rem);
-    line-height: 1.36;
-    margin-bottom: 0.6rem;
+    font-size: clamp(0.94rem, min(0.72rem + 0.72vw, 0.47rem + 1svh), 1.125rem);
   }
 }
 
@@ -4458,12 +4464,6 @@ button.abstract-btn.is-open::before {
     grid-template-rows: minmax(min-content, calc((100svh - 84px) * 35 / 95)) calc(250px + 24px) auto;
   }
 
-  /* Keep the icon row off the hero band's bottom edge when the hero shrinks
-     to its content (the band sits at its content height on most phones). */
-  .landing-page .home-cover .cover-inner {
-    padding-bottom: 16px;
-  }
-
   /* Size containment keeps the full news list from inflating its row now that
      the page height is no longer fixed; the panel scrolls within the row. */
   .landing-page .home-news {
@@ -4545,11 +4545,15 @@ button.abstract-btn.is-open::before {
     padding: var(--news-pad) 0;
   }
 
-  /* When the hero shrinks to its content, keep the icon row off the band's
-     bottom edge. Symmetric, so the centred copy does not move on roomy
-     screens; the tablet layout keeps its own 30px top. */
+  /* Minimum space above and below the intro copy; on roomy screens the band's
+     share leaves more and the centred copy gets it on both sides. It grows
+     with the window height (20px at 720px tall, 33px at 983px, 48px from
+     1280px), and the band grows with it rather than clipping the icon row.
+     The width term holds it back below ~1300px wide, where the copy column
+     is narrow and wraps onto more lines, so those windows do not start to
+     scroll. */
   .landing-page .home-cover .cover-inner {
-    padding-bottom: 14px;
+    padding-block: clamp(20px, min(5svh - 16px, 2.5vw - 6px), 48px);
   }
 
   /* The "publications" link is the band's only content: without the default
@@ -4558,12 +4562,6 @@ button.abstract-btn.is-open::before {
      lines and needs the clearance. */
   .landing-page .home-video-cover .cover-center p {
     margin: 0;
-  }
-}
-
-@media (min-width: 901px) {
-  .landing-page .home-cover .cover-inner {
-    padding-top: 14px;
   }
 }
 
