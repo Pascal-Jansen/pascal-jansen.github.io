@@ -3636,6 +3636,30 @@ button.abstract-btn.is-open::before {
   width: 50%;
 }
 
+.supervision-gallery .autumn-academy-figure,
+.supervision-gallery .long-evening-figure {
+  grid-column: 1 / -1;
+}
+
+.supervision-gallery .autumn-academy-figure img {
+  aspect-ratio: 3 / 2;
+}
+
+/* 9fr / 16fr gives the 3:4 and 4:3 photos the same height, so neither is cropped. */
+.supervision-gallery .long-evening-image-pair {
+  display: grid;
+  grid-template-columns: 9fr 16fr;
+  gap: 1rem;
+}
+
+.supervision-gallery .long-evening-image-pair img:first-child {
+  aspect-ratio: 3 / 4;
+}
+
+.supervision-gallery .long-evening-image-pair img:last-child {
+  aspect-ratio: 4 / 3;
+}
+
 .venture-logo-wrap img,
 .venture-feature img {
   width: 100%;
