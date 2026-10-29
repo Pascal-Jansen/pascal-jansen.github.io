@@ -9,9 +9,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png?v=20260828">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png?v=20260828">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=20260828">
-    <script>document.documentElement.classList.add("lqip-enabled");</script>
+    <script>document.documentElement.classList.add("lqip-enabled");for (const type of ["pageswap", "pagereveal"]) addEventListener(type, (event) => event.viewTransition?.ready.catch(() => {}));</script>
     <link rel="preload" href="assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="assets/site.css?v=20261028">
+    <link rel="stylesheet" href="assets/site.css?v=20261029">
     <script type="speculationrules">
       {"prerender": [{"where": {"href_matches": "/*"}, "eagerness": "moderate"}]}
     </script>
@@ -72,6 +72,10 @@
           <div class="news-scroll-panel" tabindex="0" aria-label="Scrollable news list">
             <ul class="post-list">
               <li>
+                <div class="news-text">Released <a href="https://github.com/Pascal-Jansen/Interactive-Bayesian-Optimization" target="_blank" rel="noopener">iBO (Interactive Bayesian Optimization)</a>, enabling human-in-the-loop Bayesian optimization for any interactive system, with ready-made connectors for Unity, Unreal Engine, and Python.</div>
+                <time class="post-date" datetime="2026-10">October 2026</time>
+              </li>
+              <li>
                 <div class="news-text">Received Open Data Award at <a href="https://www.auto-ui.org/26/" target="_blank" rel="noopener">AutomotiveUI 2026</a> in Gothenburg, Sweden, for <em>Effects of Auditory Information for People With Visual Impairments in Highly Automated Vehicles</em> <span class="paper-ref">(<a href="https://dl.acm.org/doi/10.1145/3828157.3828774" target="_blank" rel="noopener" class="paper-link" aria-label="Paper: Effects of Auditory Information for People With Visual Impairments in Highly Automated Vehicles">link</a>)</span>.</div>
                 <time class="post-date" datetime="2026-09">September 2026</time>
               </li>
@@ -88,11 +92,11 @@
                 <time class="post-date" datetime="2026-06">June 2026</time>
               </li>
               <li>
-                <div class="news-text">Two papers accepted at <a href="https://www.auto-ui.org/26/" target="_blank" rel="noopener">AutomotiveUI 2026</a>: <em>Multi-Session User Experience Assessments of Computationally Optimized Automated Vehicle Functionality Visualizations</em> <span class="paper-ref">(<a href="https://arxiv.org/abs/2607.28552" target="_blank" rel="noopener" class="paper-link" aria-label="Paper: Multi-Session User Experience Assessments of Computationally Optimized Automated Vehicle Functionality Visualizations">link</a>)</span> and <em>Effects of Auditory Information for People With Visual Impairments in Highly Automated Vehicles</em> <span class="paper-ref">(<a href="https://arxiv.org/abs/2607.28544" target="_blank" rel="noopener" class="paper-link" aria-label="Paper: Effects of Auditory Information for People With Visual Impairments in Highly Automated Vehicles">link</a>)</span>.</div>
+                <div class="news-text">Two papers accepted at <a href="https://www.auto-ui.org/26/" target="_blank" rel="noopener">AutomotiveUI 2026</a>: <em>Multi-Session User Experience Assessments of Computationally Optimized Automated Vehicle Functionality Visualizations</em> <span class="paper-ref">(<a href="https://doi.org/10.1145/3828157.3828785" target="_blank" rel="noopener" class="paper-link" aria-label="Paper: Multi-Session User Experience Assessments of Computationally Optimized Automated Vehicle Functionality Visualizations">link</a>)</span> and <em>Effects of Auditory Information for People With Visual Impairments in Highly Automated Vehicles</em> <span class="paper-ref">(<a href="https://doi.org/10.1145/3828157.3828774" target="_blank" rel="noopener" class="paper-link" aria-label="Paper: Effects of Auditory Information for People With Visual Impairments in Highly Automated Vehicles">link</a>)</span>.</div>
                 <time class="post-date" datetime="2026-06">June 2026</time>
               </li>
               <li>
-                <div class="news-text">Two papers accepted in PACM IMWUT: <em>Comparing Preferences Between Japan and Germany for External Communication of Automated Vehicles Using Bayesian Optimization</em> <span class="paper-ref">(<a href="/publications#ehmi-bo-japan-germany" class="paper-link" aria-label="Paper: Comparing Preferences Between Japan and Germany for External Communication of Automated Vehicles Using Bayesian Optimization">link</a>)</span> and <em>BlurDriving: Investigating How Personalized Blur Techniques Impact Drivers&rsquo; Performance in Virtual Reality</em> <span class="paper-ref">(<a href="https://arxiv.org/abs/2607.18628" target="_blank" rel="noopener" class="paper-link" aria-label="Paper: BlurDriving: Investigating How Personalized Blur Techniques Impact Drivers’ Performance in Virtual Reality">link</a>)</span>.</div>
+                <div class="news-text">Two papers accepted in PACM IMWUT: <em>Comparing Preferences Between Japan and Germany for External Communication of Automated Vehicles Using Bayesian Optimization</em> <span class="paper-ref">(<a href="/publications#ehmi-bo-japan-germany" class="paper-link" aria-label="Paper: Comparing Preferences Between Japan and Germany for External Communication of Automated Vehicles Using Bayesian Optimization">link</a>)</span> and <em>BlurDriving: Investigating How Personalized Blur Techniques Impact Drivers&rsquo; Performance in Virtual Reality</em> <span class="paper-ref">(<a href="https://doi.org/10.1145/3831646" target="_blank" rel="noopener" class="paper-link" aria-label="Paper: BlurDriving: Investigating How Personalized Blur Techniques Impact Drivers’ Performance in Virtual Reality">link</a>)</span>.</div>
                 <time class="post-date" datetime="2026-06">June 2026</time>
               </li>
               <li>
@@ -101,7 +105,7 @@
               </li>
               <li>
                 <div class="news-text">Session Chair at CHI 2026: <a href="https://programs.sigchi.org/chi/2026/program/session/225089" target="_blank" rel="noopener">Context-aware Interfaces for Mobility & Automation</a>.</div>
-                <time class="post-date" datetime="2026-03">April 2026</time>
+                <time class="post-date" datetime="2026-04">April 2026</time>
               </li>
               <li>
                 <div class="news-text">Guest lecture <em>From One-Size-Fits-All to Preference-Based Interactions with Technology</em> and research visit at <a href="https://www.ucl.ac.uk/uclic/" target="_blank" rel="noopener">UCL Interaction Centre</a>, UK.</div>
@@ -148,7 +152,7 @@
                 <time class="post-date" datetime="2025-08">August 2025</time>
               </li>
               <li>
-                <div class="news-text">Released v1.1.0 of <a href="https://github.com/Pascal-Jansen/Bayesian-Optimization-for-Unity" target="_blank" rel="noopener">Bayesian Optimization for Unity</a>, enabling a streamlined HITL workflow with Bayesian optimization (via BoTorch) to personalize designs.</div>
+                <div class="news-text">Released v1.1.0 of <a href="https://github.com/Pascal-Jansen/Interactive-Bayesian-Optimization" target="_blank" rel="noopener">Bayesian Optimization for Unity</a> (now iBO), enabling a streamlined HITL workflow with Bayesian optimization (via BoTorch) to personalize designs.</div>
                 <time class="post-date" datetime="2025-08">August 2025</time>
               </li>
               <li>
@@ -208,7 +212,10 @@
                 <time class="post-date" datetime="2023-04">April 2023</time>
               </li>
             </ul>
-            <div class="news-scroll-hint" aria-hidden="true">for more news scroll down</div>
+            <div class="news-scroll-hint">
+              <span class="news-scroll-hint-text" aria-hidden="true">for more news scroll down</span>
+              <a class="news-all-link" href="/news">All news <span aria-hidden="true">&rarr;</span></a>
+            </div>
           </div>
         </div>
       </section>

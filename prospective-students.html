@@ -9,9 +9,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png?v=20260828">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png?v=20260828">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=20260828">
-    <script>document.documentElement.classList.add("lqip-enabled");</script>
+    <script>document.documentElement.classList.add("lqip-enabled");for (const type of ["pageswap", "pagereveal"]) addEventListener(type, (event) => event.viewTransition?.ready.catch(() => {}));</script>
     <link rel="preload" href="assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="assets/site.css?v=20261028">
+    <link rel="stylesheet" href="assets/site.css?v=20261029">
     <script type="speculationrules">
       {"prerender": [{"where": {"href_matches": "/*"}, "eagerness": "moderate"}]}
     </script>
@@ -81,7 +81,7 @@
 <div class="reading-groups">
   <div class="reading-group">
     <p class="reading-group-title">Embodied AI &amp; Interfaces</p>
-    <p>Embodied AI, such as automated vehicles, service robots, and planetary rovers, acts in the physical world. People perceive and control this AI through interfaces, from vehicle displays to mixed reality and brain-computer interfaces. Established interface assumptions often break down when systems move into vehicles, public spaces, mixed reality, or extreme environments.</p>
+    <p>Embodied AI, such as automated vehicles, service robots, and planetary rovers, acts in the physical world. People perceive and control this AI through interfaces, from vehicle displays to mixed reality and brain-computer interfaces. However, established interface assumptions often break down when systems move into vehicles, public spaces, mixed reality, or extreme environments.</p>
     <ul class="reading-list topic-list topic-list-contexts">
       <li><img class="topic-icon-img" src="assets/mobility.png" width="106" height="78" alt="" aria-hidden="true" loading="lazy" decoding="async"><span><strong>Automated vehicles and future mobility:</strong> Future mobility systems must communicate capability, uncertainty, intent, and failure clearly enough for people to trust, monitor, and intervene when needed.</span></li>
       <li><img class="topic-icon-img" src="assets/xr.png" width="112" height="64" alt="" aria-hidden="true" loading="lazy" decoding="async"><span><strong>Extended reality and spatial interaction:</strong> Augmented and virtual environments can change what users see and attend to, raising questions about how interfaces should reveal, simplify, or restructure complex surroundings.</span></li>
@@ -94,7 +94,7 @@
 
   <div class="reading-group">
     <p class="reading-group-title">Human Factors</p>
-    <p>Human factors decide whether people accept and safely use embodied AI. I study how interfaces shape trust, mental workload, situation awareness, agency, and accessibility in real use, and how these effects develop over time.</p>
+    <p>Human factors decide whether people accept and safely use embodied AI. I therefore study how interfaces shape trust, mental workload, situation awareness, agency, and accessibility in real use, and how these effects develop over time.</p>
     <ul class="reading-list topic-list topic-list-experience">
       <li><img class="topic-icon-img" src="assets/calibration.png" width="108" height="96" alt="" aria-hidden="true" loading="lazy" decoding="async"><span><strong>Trust calibration:</strong> Trust should match the AI&rsquo;s actual capabilities, what it can perceive, predict, and do, especially when these are uncertain or imperfect.</span></li>
       <li><img class="topic-icon-img" src="assets/situation-awareness.png" width="124" height="96" alt="" aria-hidden="true" loading="lazy" decoding="async"><span><strong>Situation awareness and uncertainty:</strong> Interfaces should help users understand what is happening, what may happen next, and how certain the system is, without creating information overload.</span></li>
@@ -131,9 +131,9 @@
         <div class="section-block prose-section">
           <h2>Build, study, explain</h2>
           <p>I like projects that combine a meaningful interaction problem, a working prototype, and a careful empirical study. This reflects an artifact-centered HCI approach grounded in <strong><a href="https://dl.acm.org/doi/10.1145/1240624.1240704" target="_blank" rel="noopener">research through design</a></strong>: we build systems to make interaction ideas concrete, study them with people, and explain what the results mean for design, theory, and future systems.</p>
-          <p>My projects usually lead to both a clear research contribution and a <strong>reusable artifact</strong>, design space, tool, dataset, or analysis pipeline that others can inspect, reproduce, and build on.</p>
-          <p>I value <strong><a href="https://www.unesco.org/en/open-science/about" target="_blank" rel="noopener">open science</a></strong> where it is feasible and responsible: transparent methods, reusable materials, documented code, shared datasets when ethically possible, and clear reporting of design decisions and limitations.</p>
-          <p>A good fit to work with me does not require having all skills already. It does require curiosity about people and systems, comfort with iterative work, and willingness to connect design claims to evidence.</p>
+          <p>As a result, my projects usually lead to both a clear research contribution and a <strong>reusable artifact</strong>, design space, tool, dataset, or analysis pipeline that others can inspect, reproduce, and build on.</p>
+          <p>In the same spirit, I value <strong><a href="https://www.unesco.org/en/open-science/about" target="_blank" rel="noopener">open science</a></strong> where it is feasible and responsible: transparent methods, reusable materials, documented code, shared datasets when ethically possible, and clear reporting of design decisions and limitations.</p>
+          <p>Working with me does not require having all of these skills already. It does, however, require curiosity about people and systems, comfort with iterative work, and willingness to connect design claims to evidence.</p>
         </div>
 
           <div class="section-block prose-section">

@@ -9,9 +9,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png?v=20260828">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png?v=20260828">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=20260828">
-    <script>document.documentElement.classList.add("lqip-enabled");</script>
+    <script>document.documentElement.classList.add("lqip-enabled");for (const type of ["pageswap", "pagereveal"]) addEventListener(type, (event) => event.viewTransition?.ready.catch(() => {}));</script>
     <link rel="preload" href="assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="assets/site.css?v=20261028">
+    <link rel="stylesheet" href="assets/site.css?v=20261029">
     <script type="speculationrules">
       {"prerender": [{"where": {"href_matches": "/*"}, "eagerness": "moderate"}]}
     </script>
@@ -44,7 +44,7 @@
       <section class="content narrow subpage-content">
         <div class="wrap">
           <div class="section-block intro-copy">
-            <p>I contribute to the HCI community through program committee work, organizing roles, editorial reviewing, and sustained peer review for conferences and journals. I have completed more than 250 peer reviews and received 21 special recognitions for reviews.</p>
+            <p>I contribute to the HCI community through program committee work, organizing roles, editorial reviewing, and sustained peer review for conferences and journals. To date, I have completed more than 250 peer reviews and received 21 special recognitions for outstanding reviews.</p>
           </div>
 
           <div class="section-block">
@@ -113,8 +113,8 @@
                 </ul>
               </article>
 
-              <article class="service-entry">
-                <h2>Special Recognitions for Reviews</h2>
+              <div class="service-entry recognition-list">
+                <p>Received <strong>21 special recognitions</strong> for outstanding reviews:</p>
                 <ul>
                   <li>AutomotiveUI <span class="service-years">'22, '23, '25</span></li>
                   <li>CHI LBW <span class="service-years">'24</span></li>
@@ -127,7 +127,7 @@
                   <li>IMWUT <span class="service-years">'22, '24, '25, '26</span></li>
                   <li>UIST <span class="service-years">'24, '25, '26 (2)</span></li>
                 </ul>
-              </article>
+              </div>
             </div>
           </div>
         </div>
@@ -135,9 +135,13 @@
 
       <div class="section-block prose-section service-open-science">
         <h2>Open Science</h2>
-        <p>I release code, data, and study materials with my papers where this is possible. The <a href="/publications">publications page</a> links them per paper. The Open Data Award at AutomotiveUI 2026 recognized the openly shared study materials, data, and analysis of <a href="/publications#auditory-hav">our study on auditory information in automated vehicles</a>.</p>
-        <p>I maintain open-source research tools under the MIT license. <a href="https://github.com/Pascal-Jansen/Bayesian-Optimization-for-Unity" target="_blank" rel="noopener">Bayesian Optimization for Unity</a> supports human-in-the-loop multi-objective Bayesian optimization in Unity studies. <a href="https://github.com/Pascal-Jansen/HUD-SUMO" target="_blank" rel="noopener">HUD-SUMO</a> couples the simulators SUMO and CARLA to study head-up displays in large-scale traffic. See <a href="https://orcid.org/0000-0002-9335-5462" target="_blank" rel="noopener">ORCID</a> and
-          <a href="https://github.com/Pascal-Jansen" target="_blank" rel="noopener">GitHub</a> for more.</p>
+        <p>Wherever possible, I release the code, data, and study materials of my papers, and the <a href="/publications">publications page</a> links them for each paper. For example, <a href="/publications#auditory-hav">our study on auditory information in automated vehicles</a> received the Open Data Award at AutomotiveUI 2026 for its openly shared study materials, data, and analysis.</p>
+        <div class="open-science-tools">
+          <p>Beyond individual papers, I develop <a href="https://github.com/Pascal-Jansen/Interactive-Bayesian-Optimization" target="_blank" rel="noopener">iBO</a> (Interactive Bayesian Optimization), an open-source tool for single- and multi-objective human-in-the-loop Bayesian optimization. It works with any interactive system and comes with ready-made connectors for Unity, Unreal Engine, and Python.</p>
+          <a class="open-science-logo" href="https://github.com/Pascal-Jansen/Interactive-Bayesian-Optimization" target="_blank" rel="noopener"><img src="./images/ibo-logo.svg" width="616" height="214" alt="iBO (Interactive Bayesian Optimization) on GitHub" loading="lazy" decoding="async"></a>
+        </div>
+        <p>Like iBO, my other open-source research tools are released under the MIT license. Among them, <a href="https://github.com/Pascal-Jansen/HUD-SUMO" target="_blank" rel="noopener">HUD-SUMO</a> couples the simulators SUMO and CARLA to study head-up displays in large-scale traffic. For more of my work, see my <a href="https://orcid.org/0000-0002-9335-5462" target="_blank" rel="noopener">ORCID</a> and
+          <a href="https://github.com/Pascal-Jansen" target="_blank" rel="noopener">GitHub</a> profiles.</p>
       </div>
       <br>
     </main>
