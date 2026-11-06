@@ -1122,13 +1122,20 @@ li + li {
 }
 
 .vision-copy + .vision-copy,
-.vision-lede + .vision-copy,
-.principles-block + .vision-copy {
+.vision-lede + .vision-copy {
   margin-top: var(--research-section-gap);
 }
 
-.principles-block + .loop-section {
-  margin-top: 1rem;
+/* The cards' last paragraph keeps its 1.05rem bottom margin inside the grid,
+   so the gap to the transition sentence after them subtracts it. */
+.principles-block + .vision-copy {
+  margin-top: calc(var(--research-section-gap) - 1.05rem);
+}
+
+/* The loop follows its transition sentence as closely as the principles
+   follow theirs (.principles-block's 1.4rem top margin). */
+.vision-copy + .loop-section {
+  margin-top: 1.4rem;
 }
 
 .featured-vision-work + .vision-copy {
@@ -1507,10 +1514,6 @@ li + li {
     --research-heading-gap: 3rem;
   }
 
-  .principles-block + .loop-section {
-    margin-top: 0.8rem;
-  }
-
   .loop-controls {
     gap: 0.4rem;
   }
@@ -1557,10 +1560,11 @@ li + li {
 }
 
 .principle-card .principle-title {
-  /* Same style as the Featured Work subheadings. */
+  /* Same style as the Featured Work subheadings, at the size of the
+     surrounding research copy. */
   margin: 0 0 0.45rem;
   color: var(--contrast);
-  font-size: var(--item-title-size);
+  font-size: var(--subpage-copy-size);
   font-weight: 600;
   line-height: 1.25;
 }
@@ -2142,7 +2146,7 @@ body.loop-engaged .principle-anim * {
   display: block;
   margin-bottom: 0.24rem;
   color: var(--contrast);
-  font-size: var(--item-title-size);
+  font-size: var(--subpage-copy-size);
   font-weight: 600;
   line-height: 1.25;
 }
