@@ -1,6 +1,6 @@
 ### About Me
 
-I am a **PhD candidate and Research Associate in Human-Computer Interaction (HCI)** at the Institute of Media Informatics, Ulm University, Germany.
+I am a **Research Associate in Human-Computer Interaction (HCI)** at the Institute of Media Informatics, Ulm University, Germany.
 
 My research lies at the intersection of human-computer interaction and **embodied AI**, such as automated vehicles and service robots.
 
